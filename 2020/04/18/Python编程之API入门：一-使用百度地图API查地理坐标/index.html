@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="宁萌的笔记本">
 <meta property="og:description" content="在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://juliecodestack.github.io/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png">
+<meta property="og:image" content="https://juliecodestack.github.io/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png">
 <meta property="article:published_time" content="2020-04-18T02:17:29.000Z">
 <meta property="article:modified_time" content="2020-04-19T03:48:25.191Z">
 <meta property="article:author" content="宁萌">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="API">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://juliecodestack.github.io/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png">
+<meta name="twitter:image" content="https://juliecodestack.github.io/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png">
 
 <link rel="canonical" href="https://juliecodestack.github.io/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/">
 
@@ -284,7 +284,7 @@
 <a id="more"></a>
 <p>API是”Application Programming Interface（应用程序编程接口）”的缩写。如果那一大堆的术语和定义让你头晕，不妨试着这样理解：网络服务商（比如百度、微博等）存有大量数据，我们可以查询数据，但是需要按照一定的格式/协议，否则服务商不知道我们的需求无法进行处理，我们拿到数据也看不懂。通过API接口规范，通信双方都能明白对方传送的信息和数据，同时也简化了操作（只要按照规定的格式输入，就可以得到已知格式的输出，我们无需了解具体实现的技术细节，是不是很省心呢？）</p>
 <p>下面以<a href="http://lbsyun.baidu.com/index.php?title=webapi" target="_blank" rel="noopener">百度地图Web服务API</a>的调用为例。</p>
-<img src="/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png" class title="百度地图API平台示意图"> 
+<img src="/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png" class title="百度地图API平台示意图"> 
 
 <p>要使用的是图中所示“正/逆地理编码服务”。在使用服务前，需要登录百度账号（如果没有就注册一个），申请成为百度开发者，然后创建一个你自己的应用，就可以收到一个对应的服务密钥(AK)。在服务配置页面，有两种校验方式，一种是IP白名单方式，一种是sn校验方式。我根据文章<a href="https://www.cnblogs.com/liao-sir/p/8367683.html" target="_blank" rel="noopener"><br>python实现百度地图API获取某地址的经纬度</a>中的介绍，选择了sn校验方式，这样页面上会有SK。请将AK和SK两个序列码保存好，这就是你个人的验证信息。下一步使用百度地图API时要用到。</p>
 <p>要编写的这个Python小程序实现的功能是：<strong>输入某个地址，得到相应的经纬度坐标信息</strong>。分三步实现：</p>
