@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://juliecodestack.github.io/"/>
-  <updated>2020-07-24T02:18:33.339Z</updated>
+  <updated>2020-07-25T02:37:11.847Z</updated>
   <id>https://juliecodestack.github.io/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows系统的截屏，你用过哪些方法？</title>
+    <link href="https://juliecodestack.github.io/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
+    <id>https://juliecodestack.github.io/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/</id>
+    <published>2020-07-24T03:44:09.000Z</published>
+    <updated>2020-07-25T02:37:11.847Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p><a id="more"></a><p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p><p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p><p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p><blockquote><p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p></blockquote><p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p><p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口大小保持一致。</p><p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> <p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> <p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法截图区域可以灵活选择，我经常使用。</p><p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p><p>6.安装 Snipaste，点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p><blockquote><p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p></blockquote><p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章： <a href>一篇文章带你入门Markdown</a>。</p><p>参考文章：<br><a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br><a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://juliecodestack.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="软件" scheme="https://juliecodestack.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown进阶</title>
+    <link href="https://juliecodestack.github.io/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"/>
+    <id>https://juliecodestack.github.io/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</id>
+    <published>2020-07-24T03:41:31.000Z</published>
+    <updated>2020-07-26T08:49:21.588Z</updated>
+    
+    <content type="html"><![CDATA[<p>在上一篇 <a href>Markdown 入门文章</a> 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？</p><a id="more"></a><h3 id="1-公式编辑利器"><a href="#1-公式编辑利器" class="headerlink" title="1. 公式编辑利器"></a>1. 公式编辑利器</h3><p><strong>问题：</strong> 有时我们会在文章中用到公式，如果一个个输进去，符号、标记需要花费很多时间，有没有更快捷的方法呢？</p><p>有，这就是 Mathpix 。我们可以截取公式图片，然后在Mathpix 中识别并转换成相应的格式，再复制粘贴到 Markdown 文档中。</p><p>到 <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix官网</a> 下载，首先我们要注册一个账号，免费账户一个月可使用 50 次；学生账户一个月可使用 100 次，需要使用学校邮箱注册；专业用户一个月需支付 4.99 美金，使用次数不限。如果不经常使用，注册一个免费用户就行，然后下载 Mathpix。</p><p>打开 Mathpix 软件，登录刚才注册的账户。再打开要截取公式的页面，然后点击左上角的图标，如下图所示，就可以截图：<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-45-58.png" alt="Mathpix界面" align="center"> </p><p>截取的公式图像会在 Mathpix 中自动显示并进行识别转换，如下图所示，我们可以选取所需要的格式。图中下方结果项里，第二个是行内公式，第三个是独立公式，只要点击图中箭头指示的按钮，可以复制内容，然后粘贴到 Markdown 文档中。图中最下面那条绿色的进度条代表置信度(Confidence)，进度条越长，表示转换的准确度和可靠性越高。<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-36-33.png" alt="Mathpix公式识别示例" align="center"> </p><p>下面这个公式就是示例中从 Mathpix 复制粘贴到 Markdown 文档的效果。<br>$$z=w_{1} x_{1}+\ldots+w_{m} x_{m}$$</p><h3 id="2-文档转换"><a href="#2-文档转换" class="headerlink" title="2. 文档转换"></a>2. 文档转换</h3><h4 id="VSCode-中将-Markdown-转换成-PDF-文档"><a href="#VSCode-中将-Markdown-转换成-PDF-文档" class="headerlink" title="VSCode 中将 Markdown 转换成 PDF 文档"></a>VSCode 中将 Markdown 转换成 PDF 文档</h4><p>Markdown 转 PDF，在<strong>预览视图</strong>中，点击右键菜单，这时会出现一系列文档转换方式，如图所示，<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown%E8%BF%9B%E9%98%B62020-07-26-10-31-08.png" alt><br>看到这个菜单你可能会想到用 PDF(prince) 选项，但是转换效果不如图中选择的 Chrome(Puppeteer)&gt; PDF 选项效果好，您可以尝试转换一下，对比一下输出的 PDF 文档显示效果。</p><blockquote><p>您是不是有顾虑，害怕转换后 Markdown 文档就变成 PDF 文档了？如果弄错了，原文档又找不回来了怎么办？<br>请放心，这个转换是另外输出一个 PDF 文档，不会对本身的 Markdown 文档做修改。</p></blockquote><h4 id="Markdown-转换成-Word-文档"><a href="#Markdown-转换成-Word-文档" class="headerlink" title="Markdown 转换成 Word 文档"></a>Markdown 转换成 Word 文档</h4><p>这里就要用到文档转换界的“瑞士军刀”——Pandoc，它能实现很多文档类型的转换。</p><p>（1）如果您正在使用 Python，电脑中安装了 Anaconda，那么其中就包含了 Pandoc 模块，可以<strong>在 Anaconda 的命令行界面运行 Pandoc</strong>。</p><p>比如，我要将文件名为“mdtest”的 Markdown 文档转换成 Word，先将 Anaconda 的命令行界面转换到 mdtest.md 所在文件夹，然后运行命令：<br><code>pandoc mdtest.md -o mdtest.docx</code><br>就会在当前文件夹中新生成一个 mdtest.docx 文档。</p><p>（2）<strong>Typora 或 VSCode 中 Markdown 转 Word 文档</strong><br>首先要安装 Pandoc 软件。进入<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">Pandoc官方网站下载页面</a>，点击最新的安装包，比如我是 Windows 系统，就选择 .msi 后缀的文件下载安装。</p><blockquote><p>您可能会有疑问，前面方法（1）中提到 Anaconda 包含了 Pandoc 模块，那我们还要再安装一次吗？<br>虽然 Anaconda 包含了 Pandoc，但是这一功能要在 Anaconda 命令行中使用。如果我们要在软件中操作，就需要单独安装 Pandoc。</p></blockquote><p>需要用到图形处理的交叉引用时，还要安装：<br><code>pip install pandoc-fignos</code></p><p><strong>对于 Typora</strong>，现在点击菜单栏 File &gt; Export，选择 Word(.docx) 选项，即可导出 Word 文档。</p><p><strong>对于 VScode</strong>，还需要<strong>在 Markdown 文档的开头加入以下语句</strong>，定义 Pandoc 转化后的文件格式。path 是转化后输出 Word 文档的存放位置，是必填项。后面三项根据需要选择，toc 是目录选项，true表示生成目录。请注意语句的缩进格式以及语句前后的<code>---</code>标记符。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"当前Markdown文档名"</span></span><br><span class="line"><span class="attr">output:</span></span><br><span class="line">    <span class="attr">word_document:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/当前Markdown文档名.docx</span></span><br><span class="line">        <span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">toc_depth:</span> <span class="number">6</span></span><br><span class="line">        <span class="attr">number_sections:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><p>然后在<strong>预览视图</strong>中，点击右键菜单中的 Pandoc 选项，即可完成文档转换。</p><h4 id="Markdown-文档在线转换成富文本格式"><a href="#Markdown-文档在线转换成富文本格式" class="headerlink" title="Markdown 文档在线转换成富文本格式"></a>Markdown 文档在线转换成富文本格式</h4><p>现在大家都愿意在网上写文章分享交流知识，那么，您是否曾经花很多时间在微信文章、知乎平台等文章的排版上呢？</p><p>前面我们提到，Markdown 可以极大缩短排版编辑时间。我们就想，要是用 Markdown 编辑器写文章，然后用类似上面介绍的文档转换工具转换成网络平台的格式就好了。</p><p>答案是当然有，而且选择还不少，我在这里分享两款我用过的在线转换工具，如果您有觉得不错的转换工具，欢迎留言与大家交流分享。<br><a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">微信公众号格式化编辑器</a><br>特点：风格简洁，很适合排版文章。如果是诗歌可能换行、字号等不好调整。<br><a href="http://md.aclickall.com/" target="_blank" rel="noopener">Md2All</a><br>特点：功能强大，版式风格选择很多，如果略懂网页编辑Javascript的语法，还可以自己对版式调整。</p><p>使用 Markdown 编辑文档时，您有哪些得心应手的效率工具呢？欢迎分享交流。</p><p>参考文章：<br>1.<a href="https://blog.csdn.net/nkwshuyi/article/details/78714788" target="_blank" rel="noopener">如何用Markdown写论文？</a><br>2.<a href="https://www.jianshu.com/p/6ba04f669d0b" target="_blank" rel="noopener">Pandoc安装与使用（转）</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在上一篇 &lt;a href&gt;Markdown 入门文章&lt;/a&gt; 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://juliecodestack.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Markdown" scheme="https://juliecodestack.github.io/tags/Markdown/"/>
+    
+      <category term="软件" scheme="https://juliecodestack.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一篇文章带你入门Markdown</title>
+    <link href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/"/>
+    <id>https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/</id>
+    <published>2020-07-24T03:41:03.000Z</published>
+    <updated>2020-07-26T08:16:41.649Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h3 id="1-为什么选择-Markdown？"><a href="#1-为什么选择-Markdown？" class="headerlink" title="1. 为什么选择 Markdown？"></a>1. 为什么选择 Markdown？</h3><p>正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：</p><ul><li><p>写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。</p></li><li><p>在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。</p></li><li><p>对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。</p><a id="more"></a><p>使用 Markdown之后，你就不用再为这些问题烦恼了。只需在写作时顺带加入几个标记符，文档就会显示为统一、规范的网页格式。而且，Markdown 还有以下优势：</p></li><li><p><strong>Markdown编辑器平台统一。</strong> 如果你使用过网上的写作平台，可能就会发现，在使用富文本编辑器的平台，比如豆瓣，输入文档后还需要对标题、链接等重新编辑调整一下，而支持 Markdown 编辑器的平台，比如我的博客小站使用的hexo博客系统、或者CSDN， 输入文档后显示比较一致，标题、加粗、链接等都是使用的统一语法，无需对内容进行二次排版编辑。</p></li><li><p>现在有很多工具可以帮助我们<strong>将 Markdown 文档轻松转换为 pdf 或 word 文档</strong>，这样，用 Markdown 写作，然后转换一下，可以省去很多排版编辑时间。</p></li></ul><p>看到这里，您是不是也跃跃欲试，想开始用 Markdown 来编辑文档。那么，要在哪里用？怎么用呢？别着急，接着往下看。</p><h3 id="2-怎么用-Markdown？"><a href="#2-怎么用-Markdown？" class="headerlink" title="2. 怎么用 Markdown？"></a>2. 怎么用 Markdown？</h3><p>我们要用好 Markdown，首先要学习一下它的语法。<br>听到“语法”，你是不是瞬间头大了？哈哈，不用担心，内容不多而且好记。当然，最好的办法是在练习中掌握：<strong>参考我的示例格式，自己输入内容练习几遍</strong>。下一节就会介绍编辑器的使用了，你可以先浏览一下本节内容，对 Markdown 的使用有个大致印象。</p><h4 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h4><p>用 Markdown 编辑时，标题使用<code>#</code>进行标记，几级标题就在标题前加几个<code>#</code>，显示效果如下图所示。这里说明一下，我采用的是对照模式，左边为编辑输入，右边为预览显示，后面的示例也是这样。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-17-50-42.png" alt="标题编辑的对照示例" align="center"> <p>可以对比一下各级标题显示字号、行间距的不同。另外，你可能会注意到，在<code>#</code>与文字间有一个空格。在使用中，我发现有的编辑器要求必须有空格，有的编辑器不做要求、可以识别，因此，建议还是加一个空格。</p><h4 id="2-2-加粗、斜体"><a href="#2-2-加粗、斜体" class="headerlink" title="2.2 加粗、斜体"></a>2.2 加粗、斜体</h4><p>在加粗文字前后用<code>**</code>进行标记，在斜体文字前后用<code>*</code>标记，具体方法和显示效果如图所示：</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-18-09-35.png" alt="加粗和斜体的对照示例" align="center"><h4 id="2-3下划线、删除线"><a href="#2-3下划线、删除线" class="headerlink" title="2.3下划线、删除线"></a>2.3下划线、删除线</h4><p>在添加下划线的文字前后用<code>&lt;u&gt;</code>符号标记，在添加删除线的文字前后用<code>~~</code>符号标记，具体方法和显示效果如图所示：</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/Markdown学习笔记补充2020-05-05-17-32-10.png" alt="下划线、删除线的对照示例" align="center"><h4 id="2-4-引用、代码"><a href="#2-4-引用、代码" class="headerlink" title="2.4 引用、代码"></a>2.4 引用、代码</h4><p>在引用文字的前面使用<code>&gt;</code>标记。<br>编辑行内代码时，在代码前后使用 ` 符号标记（对应键盘位置为 【Tab】键上方）。<br>编辑代码块时，在代码前后使用 ``` 符号标记。此外，代码块前可以加上所使用的语言作为注释（比如 python），显示效果更佳。具体方法和显示效果如图所示：</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-00-59.png" alt="引用和代码的对照示例" align="center"><p>有时我们需要在文章中显示运行程序的结果，这时可以采用图中所示的方式，在结果前加上 text 注释。</p><h4 id="2-5-列表"><a href="#2-5-列表" class="headerlink" title="2.5 列表"></a>2.5 列表</h4><p>Markdown 中采用<code>-</code>或<code>*</code>+空格的方式来标记无序列表，用<code>数字</code>+<code>.</code>+空格的方式来标记有序列表，具体方法和显示效果如图所示：</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-07-47.png" alt="列表的对照示例" align="center"><p>请注意示例中的有序列表。我们输入<code>数字</code>+<code>.</code>+空格，后续项会自动顺序编号，而如果始终输入<code>1</code>+<code>.</code>+空格，实际的显示效果也是顺序编号的。</p><h4 id="2-6-公式"><a href="#2-6-公式" class="headerlink" title="2.6 公式"></a>2.6 公式</h4><p>在行内公式前后使用<code>$</code>标记，独立公式的前后使用<code>$$</code>标记，可以看下面的简单示例，更多公式的写法请参考网上的Latex语法。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-25-09-47-33.png" alt="公式的对照示例" align="center"><h4 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-04-08-59-02.png" alt="表格的对照示例" align="center"><p>图中示例展示了表格的写法，注意：第二行的分隔线对于生成表格至关重要。<br>另外，如果后期要进行文档转换，尤其是转换成 word ，一定要先检查一下表格能否正常转换，我就遇到过转换成 word 后、显示的表格是图中左侧原始编辑格式的情况。</p><h4 id="2-8-插入网址链接和图片"><a href="#2-8-插入网址链接和图片" class="headerlink" title="2.8 插入网址链接和图片"></a>2.8 插入网址链接和图片</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-25-27.png" alt="插入网址和图片的对照示例" align="center"><p>如图中示例所示，对于网址链接，在[ ]内填写链接的文字说明，( )内填写对应的链接地址。这样，显示为文字说明部分，点击即可到达链接。</p><p>图片链接的格式与此类似，同时，图片链接的文字说明前要加一个<code>!</code>符号标记。显示为图片。另外，虽然图片链接的文字说明一般不会显示，但是建议填写，因为如果网站的图片加载出现问题，图片无法正常显示，就会显示出文字说明，此时可以给读者提供一点图片的相关信息。</p><p>细心的你可能会有一个疑问，图片链接如果是网络的还好办，如果是本地图片，把文档导入网络平台（比如CSDN）时，图片就无法正常显示了，怎么办？容易想到的办法是重新上传图片到网络平台并生成链接。但是，还有一种便捷的解决办法，就是把图片放到网络服务器中存储，这样就把本地图片“变成”网络图片，我们可以随时引用网络链接查看图片，这就是图床的原理。但是很抱歉，我现在还没有使用图床，等我用了之后，再写篇文章与大家分享。</p><h4 id="2-9-排版规范"><a href="#2-9-排版规范" class="headerlink" title="2.9 排版规范"></a>2.9 排版规范</h4><p>最后补充一点，在 Markdown 写作时，了解一点排版规范对我们是有帮助的，这样显示的文章整洁美观，读者看着也舒服。向你推荐我读到的一篇介绍排版规范的好文：<a href="https://zhuanlan.zhihu.com/p/69376149" target="_blank" rel="noopener">会用 Markdown 还不够，还得知道排版规范</a>。</p><h3 id="3-在哪用Markdown？"><a href="#3-在哪用Markdown？" class="headerlink" title="3. 在哪用Markdown？"></a>3. 在哪用Markdown？</h3><p>要写 Markdown 文档，一款得心应手的<strong>编辑器</strong>必不可少。我根据网友们的介绍和推荐，体验了几款受好评的编辑器，下面逐一介绍，看看您喜欢哪一款？</p><h4 id="3-1-即写即显示：Typora"><a href="#3-1-即写即显示：Typora" class="headerlink" title="3.1 即写即显示：Typora"></a>3.1 即写即显示：Typora</h4><p>点击<a href="https://typora.io/" target="_blank" rel="noopener">Typora官网</a>，可以下载 Typora。</p><p>Typora 的最大特点就是即写即显示，有点像打字机 ( Typewriter ) 的效果，这样看来，这个名字很贴切。请看一下 <a href="https://typora.io/img/beta.mp4" target="_blank" rel="noopener">Typora使用展示-27秒小视频</a>，会对这种编辑体验有更多了解。</p><p>Typora 的页面干净整齐，插入图片、公式等十分便捷，因此受到众多 Markdown 写作者们的喜爱。</p><p><strong>1.一键插入图片</strong><br>如果您是第一次安装 Typora，需要在 File&gt;Preferences&gt;Image 里，选择插入图片的存放位置，默认设置是无操作。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-07-08-11-45-58.png" alt="Typora中Image设置界面" align="center"><p>如图所示，在下拉列表中选择 Copy image to ./${filename}.assets，这样图片会复制一份到当前文档名.assests 子文件夹中（如果没有会自动新建一个）。另外，您可能注意到，在下拉列表下方有几个勾选项，比如，是否对本地图片按此操作（这一项一定要勾选），是否对网络图片按此操作，是否使用相对路径，等等，可以根据需要选择，对比效果后确定自己的设置，图中就是我在 Typora 中的设置，您可以参照着对自己的 Typora 进行设置。</p><p>使用 Typora 插入图片非常轻松。如果是屏幕截图，以我自己使用的 Windows 系统为例，可以直接用【Windows】+【Shift】+【S】 键，或者打开微信后用 【Alt】+【A】键进行截图，然后使用 【Ctrl】+【V】 键，或者是在右键菜单中选择 Paste 把截图插入到文档。如果是本地图片，可以从存放文件夹中把图片直接拖动到文档中的编辑位置。然后，剩下的事就不用管了，因为 Typora 会帮我们全部做好，包括将图片自动复制到 当前文档名.assets文件夹，Markdown 文档里也会生成图片链接，是不是很贴心呢？</p><p><strong>2.文档转换</strong><br>如下图所示，点击菜单栏 File &gt; Export，然后选择你想要的文件类型（比如 PDF、Word），可以实现文档转换。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-43-05.png" alt="Typora文档转换菜单选项" align="center"><p>但是，我现在没有经常使用 Typora，主要是还不适应即写即显示、不能对照看原始编辑的设置。如果有和我一样习惯的小伙伴，可以看看接下来的两款编辑器。</p><h4 id="3-2-对照显示：Atom-VSCode"><a href="#3-2-对照显示：Atom-VSCode" class="headerlink" title="3.2 对照显示：Atom, VSCode"></a>3.2 对照显示：Atom, VSCode</h4><p>这两款编辑器大同小异，都是可以预览、对照显示的。Atom 由 Github 出品，可以从<a href="https://atom.io/" target="_blank" rel="noopener">Atom官网</a>下载。 VSCode, 全称为 Visual Studio Code，由微软出品，可以从<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode官网</a>下载。</p><p>有一点请注意，要使这两款编辑器发挥最佳性能，需要安装插件（Packages/ Extensions），下面以我现在使用的 VSCode 为例进行说明。</p><p><strong>1.安装扩展（Extensions）</strong></p><p>点击菜单栏 File &gt; Preferences &gt; Extensions，如图中所示：</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-25-52.png" alt="扩展的菜单选项" align="center"><p>然后在搜索栏中搜索扩展并安装：<code>Markdown All in One</code>，<code>Markdown Preview Enhanced</code>，<code>Paste Image</code>。下图中我给出了一个示例，在搜索栏输入” markdown preview enhanced “，在未安装的扩展名右下角会有一个显示为<code>install</code>的绿色按钮，点击即可安装。这里因为我已经安装了该扩展，所以没有显示，而在我尚未安装的扩展下方就显示了<code>install</code>按钮。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-22-56.png" alt="安装扩展示例" align="center"><p><strong>2.扩展设置</strong></p><p>此外，Paste Image 扩展在安装后还要进行设置。点击 File &gt; Preferences &gt; Settings，在搜索栏中输入：” Paste Image “，在结果中找到：<br>Name Prefix 一栏，填入<code>${currentFileNameWithoutExt}</code>；<br>Path 一栏，填入<code>${currentFileDir}/imgs</code>，具体如下图所示。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-41-07.png" alt="Paste Image 扩展设置" align="center"><p><strong>3.预览视图与文章目录</strong></p><p>安装了上面介绍的扩展后，重新在 VSCode 中打开一篇文档，可以看到右上方会出现预览按钮，点击下图中箭头指示的第一个按钮，即可出现 Preview 预览窗格。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-20-43.png" alt="预览窗格按钮" align="center"><p>在预览视图中，点击下图中箭头指示的第一个按钮，可以显示文章的目录。图中右侧显示的就是本文的目录。目录显示即为文章的大纲，对于我们阅读时理清文章脉络、写作时构建文章框架很有帮助。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-24-16-20-36.png" alt="文章目录显示按钮及显示效果" align="center"><p>还有一种显示文章目录的方法，就是在文章开头处加上<code>[TOC]</code>，显示效果与上图的目录视图类似，本文开头的目录就是这样生成的，您不妨也试一试，看看效果如何呀。</p><p><strong>4.快速贴图</strong></p><p>因为安装了 Paste Image 扩展，VSCode 中截图贴图十分方便。以我自己使用的 Windows 系统为例，截图后打开要插入图片的文档，使用 <code>Ctrl</code>+<code>Alt</code>+<code>V</code> 键，图片就会自动复制到 Markdown 文档目录下的 imgs 文件夹中，同时在文档中自动生成了图片链接。</p><p>但是与 Typora 相比，VSCode还有一点不足：不能拖动本地图片到文档实现自动插入图片，也可能是我还没有安装所需的扩展，如果您知道这个使用方法，请告诉我一下哦，谢谢！</p><p><strong>5.文档转换</strong></p><p>在<strong>预览视图</strong>中，点击鼠标右键，将出现下图所示的菜单栏，此时可以选择需要的文件类型进行转换。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-45-39.png" alt="VSCode中右键菜单的文档转换选项" align="center"><h4 id="3-3-多平台协作：印象笔记"><a href="#3-3-多平台协作：印象笔记" class="headerlink" title="3.3 多平台协作：印象笔记"></a>3.3 多平台协作：印象笔记</h4><p>有时我们可能在这个电脑上写了一点文字，然后又换个地方、换了电脑，这种情况下，要把文档传过去才能继续编辑吗？</p><p>当然不用那么麻烦！可以使用多平台工具：印象笔记。印象笔记现在融合了马克飞象的功能，可以编辑 Markdown 文章了。这样要收集灵感、创意进行写作，就更加方便了。我这篇文章的初稿就是在印象笔记上写的。</p><p>如下图所示，打开印象笔记后，在新建笔记右方有个窗格图标（图中箭头指示位置），点击后有多种文档格式，选择 “ Markdown “，即可新建一个 Markdown文档。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-21-12.png" alt="印象笔记中新建Markdown文档" align="center"><p>打开文档后，在右上方有一个编辑/预览切换按钮，如下图中箭头标示位置，点击之后文档可以在对照编辑（类似VSCode的显示模式）和预览模式 (类似Typora的显示模式，但是不能编辑) 之间切换，这样，如果只看文档显示效果，就可以点击这个按钮，切换到预览模式。</p><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-25-39.png" alt="Markdown文档对照编辑/预览模式切换按钮" align="center"><p>有一点请注意，印象笔记在电脑端可以编辑写作 Markdown 文档，在手机端只能看预览效果、不能对 Markdown 文档编辑修改。</p><p>好了，看到这里，相信您对于 Markdown 有了初步的了解。但是，Markdown 编辑器的诸多优点，还要等您使用后才能真正体会，所以，现在就点击文章中的链接安装软件，然后跟着示例编辑一个文档试试吧！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h3 id=&quot;1-为什么选择-Markdown？&quot;&gt;&lt;a href=&quot;#1-为什么选择-Markdown？&quot; class=&quot;headerlink&quot; title=&quot;1. 为什么选择 Markdown？&quot;&gt;&lt;/a&gt;1. 为什么选择 Markdown？&lt;/h3&gt;&lt;p&gt;正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://juliecodestack.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Markdown" scheme="https://juliecodestack.github.io/tags/Markdown/"/>
+    
+      <category term="软件" scheme="https://juliecodestack.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>我的英语学习视频列表</title>
@@ -75,7 +155,7 @@
     <link href="https://juliecodestack.github.io/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/"/>
     <id>https://juliecodestack.github.io/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</id>
     <published>2020-04-26T13:41:18.000Z</published>
-    <updated>2020-07-22T11:20:22.461Z</updated>
+    <updated>2020-07-24T08:14:01.343Z</updated>
     
     <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center"><p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p><a id="more"></a><h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p><ul><li>这本书谈了什么？（主旨）</li><li>作者是怎么阐述观点的？（论点、结构）</li><li>这本书说的有道理吗？全部有道理，还是部分有道理？</li><li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li></ul><h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center"><p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p><h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p><p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p><p>2、把握书籍大致的架构、大纲。</p><p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p><p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p><h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p><p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p><p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p><p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p><h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p><p>主题阅读主要包括以下步骤：</p><p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p><p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p><h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p><p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p><p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p><p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p><p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p><p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p><h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p><p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>]]></content>
     
@@ -253,9 +333,9 @@
     
       <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
     
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
       <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
     
   </entry>
   
@@ -290,9 +370,9 @@
     
       <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
     
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
       <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
     
   </entry>
   
@@ -322,9 +402,9 @@
     
       <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
     
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
       <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
     
   </entry>
   
@@ -356,9 +436,9 @@
     
       <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
     
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
       <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
     
   </entry>
   
@@ -367,7 +447,7 @@
     <link href="https://juliecodestack.github.io/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/"/>
     <id>https://juliecodestack.github.io/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</id>
     <published>2020-04-22T12:56:09.000Z</published>
-    <updated>2020-07-22T11:19:57.696Z</updated>
+    <updated>2020-07-24T08:13:47.579Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>本文写于2019年5月</p></blockquote><p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p><a id="more"></a><img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center"><p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p><p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p><p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p><p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>]]></content>
     
@@ -448,9 +528,9 @@
       <category term="读书" scheme="https://juliecodestack.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
-      <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
-    
       <category term="历史" scheme="https://juliecodestack.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
+    
+      <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
     
   </entry>
   
@@ -533,27 +613,6 @@
       <category term="Python" scheme="https://juliecodestack.github.io/tags/Python/"/>
     
       <category term="API" scheme="https://juliecodestack.github.io/tags/API/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>写作前的思考：Why&amp;How</title>
-    <link href="https://juliecodestack.github.io/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&amp;How/"/>
-    <id>https://juliecodestack.github.io/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&amp;How/</id>
-    <published>2020-04-18T00:55:58.000Z</published>
-    <updated>2020-07-22T10:27:00.070Z</updated>
-    
-    <content type="html"><![CDATA[<p>经过一番努力，终于在github上建了这个博客小站。趁着现在仍然对写作抱有兴趣和热情，我记录下写作以及建立这个小站的初衷，以后动力不足时可以看一下充电。</p><a id="more"></a><img src="/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&How/writing.jpg" alt="Andrew Neel from Pexels" align="center"><p>我最近在看fast.ai创始人Jeremy Howard老师的机器学习课程视频，其中他多次推荐博客写作。他认为，写技术博客可以很好地理解和运用知识。其中给我最大的启发就是技术博客的写作角度。在此之前，我一直认为，只有我对某个领域很懂，才可以写一些文章来帮助别人。其实不然。虽然我是新手小白，但是如果我弄懂了一个问题，就可以总结分享出来，帮助以后入门的小白。而且，新手小白反而更能理解新手容易遇到的困惑和问题。另外，这个博客可以作为学习笔记使用，整理知识点，方便自己日后查阅。而当别人遇到同样的问题需要解答时，也可发送博客文章给对方，高效地分享知识。</p><p>平时我喜欢读书、语言学习、听轻音乐等。最近两三年我加大了英文原著阅读量，同时也对英文有声书兴趣正浓。因此，这个博客小站里也有一部分文章是写技术之外的兴趣爱好：书评、英语学习笔记、…。</p><p>坚持写作，思考、表达，不断完善、不断提高。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;经过一番努力，终于在github上建了这个博客小站。趁着现在仍然对写作抱有兴趣和热情，我记录下写作以及建立这个小站的初衷，以后动力不足时可以看一下充电。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="随笔" scheme="https://juliecodestack.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   

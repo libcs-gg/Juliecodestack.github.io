@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Markdown进阶</title>
+    <url>/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>在上一篇 <a href>Markdown 入门文章</a> 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？</p>
+<a id="more"></a>
+<h3 id="1-公式编辑利器"><a href="#1-公式编辑利器" class="headerlink" title="1. 公式编辑利器"></a>1. 公式编辑利器</h3><p><strong>问题：</strong> 有时我们会在文章中用到公式，如果一个个输进去，符号、标记需要花费很多时间，有没有更快捷的方法呢？</p>
+<p>有，这就是 Mathpix 。我们可以截取公式图片，然后在Mathpix 中识别并转换成相应的格式，再复制粘贴到 Markdown 文档中。</p>
+<p>到 <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix官网</a> 下载，首先我们要注册一个账号，免费账户一个月可使用 50 次；学生账户一个月可使用 100 次，需要使用学校邮箱注册；专业用户一个月需支付 4.99 美金，使用次数不限。如果不经常使用，注册一个免费用户就行，然后下载 Mathpix。</p>
+<p>打开 Mathpix 软件，登录刚才注册的账户。再打开要截取公式的页面，然后点击左上角的图标，如下图所示，就可以截图：<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-45-58.png" alt="Mathpix界面" align="center"> </p>
+<p>截取的公式图像会在 Mathpix 中自动显示并进行识别转换，如下图所示，我们可以选取所需要的格式。图中下方结果项里，第二个是行内公式，第三个是独立公式，只要点击图中箭头指示的按钮，可以复制内容，然后粘贴到 Markdown 文档中。图中最下面那条绿色的进度条代表置信度(Confidence)，进度条越长，表示转换的准确度和可靠性越高。<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-36-33.png" alt="Mathpix公式识别示例" align="center"> </p>
+<p>下面这个公式就是示例中从 Mathpix 复制粘贴到 Markdown 文档的效果。<br>$$z=w_{1} x_{1}+\ldots+w_{m} x_{m}$$</p>
+<h3 id="2-文档转换"><a href="#2-文档转换" class="headerlink" title="2. 文档转换"></a>2. 文档转换</h3><h4 id="VSCode-中将-Markdown-转换成-PDF-文档"><a href="#VSCode-中将-Markdown-转换成-PDF-文档" class="headerlink" title="VSCode 中将 Markdown 转换成 PDF 文档"></a>VSCode 中将 Markdown 转换成 PDF 文档</h4><p>Markdown 转 PDF，在<strong>预览视图</strong>中，点击右键菜单，这时会出现一系列文档转换方式，如图所示，<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown%E8%BF%9B%E9%98%B62020-07-26-10-31-08.png" alt><br>看到这个菜单你可能会想到用 PDF(prince) 选项，但是转换效果不如图中选择的 Chrome(Puppeteer)&gt; PDF 选项效果好，您可以尝试转换一下，对比一下输出的 PDF 文档显示效果。</p>
+<blockquote>
+<p>您是不是有顾虑，害怕转换后 Markdown 文档就变成 PDF 文档了？如果弄错了，原文档又找不回来了怎么办？<br>请放心，这个转换是另外输出一个 PDF 文档，不会对本身的 Markdown 文档做修改。</p>
+</blockquote>
+<h4 id="Markdown-转换成-Word-文档"><a href="#Markdown-转换成-Word-文档" class="headerlink" title="Markdown 转换成 Word 文档"></a>Markdown 转换成 Word 文档</h4><p>这里就要用到文档转换界的“瑞士军刀”——Pandoc，它能实现很多文档类型的转换。</p>
+<p>（1）如果您正在使用 Python，电脑中安装了 Anaconda，那么其中就包含了 Pandoc 模块，可以<strong>在 Anaconda 的命令行界面运行 Pandoc</strong>。</p>
+<p>比如，我要将文件名为“mdtest”的 Markdown 文档转换成 Word，先将 Anaconda 的命令行界面转换到 mdtest.md 所在文件夹，然后运行命令：<br><code>pandoc mdtest.md -o mdtest.docx</code><br>就会在当前文件夹中新生成一个 mdtest.docx 文档。</p>
+<p>（2）<strong>Typora 或 VSCode 中 Markdown 转 Word 文档</strong><br>首先要安装 Pandoc 软件。进入<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">Pandoc官方网站下载页面</a>，点击最新的安装包，比如我是 Windows 系统，就选择 .msi 后缀的文件下载安装。</p>
+<blockquote>
+<p>您可能会有疑问，前面方法（1）中提到 Anaconda 包含了 Pandoc 模块，那我们还要再安装一次吗？<br>虽然 Anaconda 包含了 Pandoc，但是这一功能要在 Anaconda 命令行中使用。如果我们要在软件中操作，就需要单独安装 Pandoc。</p>
+</blockquote>
+<p>需要用到图形处理的交叉引用时，还要安装：<br><code>pip install pandoc-fignos</code></p>
+<p><strong>对于 Typora</strong>，现在点击菜单栏 File &gt; Export，选择 Word(.docx) 选项，即可导出 Word 文档。</p>
+<p><strong>对于 VScode</strong>，还需要<strong>在 Markdown 文档的开头加入以下语句</strong>，定义 Pandoc 转化后的文件格式。path 是转化后输出 Word 文档的存放位置，是必填项。后面三项根据需要选择，toc 是目录选项，true表示生成目录。请注意语句的缩进格式以及语句前后的<code>---</code>标记符。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"当前Markdown文档名"</span></span><br><span class="line"><span class="attr">output:</span></span><br><span class="line">    <span class="attr">word_document:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/当前Markdown文档名.docx</span></span><br><span class="line">        <span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">toc_depth:</span> <span class="number">6</span></span><br><span class="line">        <span class="attr">number_sections:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>然后在<strong>预览视图</strong>中，点击右键菜单中的 Pandoc 选项，即可完成文档转换。</p>
+<h4 id="Markdown-文档在线转换成富文本格式"><a href="#Markdown-文档在线转换成富文本格式" class="headerlink" title="Markdown 文档在线转换成富文本格式"></a>Markdown 文档在线转换成富文本格式</h4><p>现在大家都愿意在网上写文章分享交流知识，那么，您是否曾经花很多时间在微信文章、知乎平台等文章的排版上呢？</p>
+<p>前面我们提到，Markdown 可以极大缩短排版编辑时间。我们就想，要是用 Markdown 编辑器写文章，然后用类似上面介绍的文档转换工具转换成网络平台的格式就好了。</p>
+<p>答案是当然有，而且选择还不少，我在这里分享两款我用过的在线转换工具，如果您有觉得不错的转换工具，欢迎留言与大家交流分享。<br><a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">微信公众号格式化编辑器</a><br>特点：风格简洁，很适合排版文章。如果是诗歌可能换行、字号等不好调整。<br><a href="http://md.aclickall.com/" target="_blank" rel="noopener">Md2All</a><br>特点：功能强大，版式风格选择很多，如果略懂网页编辑Javascript的语法，还可以自己对版式调整。</p>
+<p>使用 Markdown 编辑文档时，您有哪些得心应手的效率工具呢？欢迎分享交流。</p>
+<p>参考文章：<br>1.<a href="https://blog.csdn.net/nkwshuyi/article/details/78714788" target="_blank" rel="noopener">如何用Markdown写论文？</a><br>2.<a href="https://www.jianshu.com/p/6ba04f669d0b" target="_blank" rel="noopener">Pandoc安装与使用（转）</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python编程之API入门：一 使用百度地图API查地理坐标</title>
     <url>/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/</url>
     <content><![CDATA[<p>在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。</p>
@@ -42,65 +83,43 @@
       </tags>
   </entry>
   <entry>
-    <title>一本书中的人生滋味</title>
-    <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-<img src="https://img3.doubanio.com/view/subject/l/public/s4608452.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-
-
-
-<blockquote>
-<p>本文写于2019年11月。</p>
-</blockquote>
-<p>今天我想给大家推荐一本英文科幻小说 <strong>Flowers for Algernon（《献给阿尔吉侬的花束》）</strong>。</p>
+    <title>Windows系统的截屏，你用过哪些方法？</title>
+    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
 <a id="more"></a>
-<p>最早我是在一个科幻作品的指南资源帖中看到对这部作品的推荐和介绍，楼主介绍这本书时说，读完这本书，他静静地蒙在被子里哭了一场，这让我印象深刻。这是怎样的一部科幻作品呢？带着这样的疑问，我开始了阅读之旅。我先读了一点文字版，发现开篇就有很多错别字（卖个关子，原因稍后介绍），很不适应，感觉自己读到了盗版书，没有看下去。后来无意中在喜马拉雅听到了有声书版本，播讲者把错别字转换为迟缓语速和停顿的形式，我比较能接受。此外，朗读者的声音年轻，有大男孩的感觉，符合主人公 Charlie 的年龄特点。</p>
-<p>作者 Daniel Keyes 学过心理学，善于描写心理。 1959年，Keyes 在《奇幻与科幻杂志》首度发表短篇的 Flowers for Algernon，赢得雨果奖的肯定，1966年将其扩展成长篇后又再次荣获该年度星云奖，一举囊括了科幻小说界最重要的两项大奖。那么，这部小说讲了怎样的一个故事呢？</p>
-<p>书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以 Charlie 日记的形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。书开篇和末尾的日记，正是作者按照 Charlie 智力低时的书写能力，故意用错别字写的。而书名里提到的 Algernon 是试验的小老鼠的名字，它比 Charlie 先做手术，智力得到成倍提高，比手术前的 Charlie 还要聪明。另一方面，Algernon 也充当了预言者的角色，它的一系列变化提前预示了 Charlie 在手术后将经历的智力提升、情绪变化、智力退化、身体衰落。而与 Algernon 不同的是，身处人类社会之中的 Charlie 体会到更多人生滋味，遇到人际关系的困惑，经历大喜大悲、得而复失。</p>
-<p>读这本书，我的心里总是觉得酸楚、五味杂陈。人们常说，不如做一个快乐的傻子。书中也是这样，弱智时的 Charlie 只想让周围的人快乐，善良单纯的他总是微笑友善地对待每一个人。随着他手术后一天天变聪明，他突然意识到原来别人的快乐竟来自于对他的取笑捉弄，他无法接受，感到生气、愤怒。而具有讽刺意味的是，周围的人同样也无法接受他的改变（由于是试验手术，Charlie 不能告诉大家），他们不能容忍自己的智商竟然不如傻子。于是，Charlie 遭到嫉妒和排挤，大家觉得他傲慢无礼。Charlie 被解雇，离开了工作十几年的店。可是，后来有一段时间 Charlie 的智力退化到原来的低水平，他短暂地回到店里工作，有新同事欺负他时，那些老同事又都站出来保护他，这一点让人稍感欣慰。人性真是复杂而捉摸不透。</p>
-<p>书中也探讨了一个人智力飞速增长时伴随而来的心理成长过程。Charlie 的智力水平终于从儿童到达正常成人甚至天才，但他的心理却还在儿童阶段，需要一段时间来成长。这一过程中有的描写很像青少年成长的历程，比如我们成长到某个阶段时，也许会发现原来小时候的偶像，自己心目中很聪明很厉害的人只是一个普通人。书中就有这样一个有趣的例子，Charlie 成为天才后发现以前自己眼中的天才——给他做手术的教授们，并非他原来想象中的知识渊博，他们也只是平凡人，他们也有很多不懂的地方，也为名利所累，这给 Charlie 带来一次小小的心灵冲击。</p>
-<p>而当 Charlie 记忆的阀门打开，儿时的记忆大多带给他伤痛和恐惧，每次他的回忆都让人心疼。Charlie 好强的母亲不想让别人知道儿子的智力不足，她先是想尽办法给 Charlie 治病，在生了一个健康女儿之后，又对 Charlie 开始打骂，最后送走 Charlie。当我读到 Charlie 乖巧、笨拙地只想蜷缩在厨房角落里，害怕母亲的责骂和驱赶，可是，最后这个家也没有他小小身躯的容身之处时，忍不住心酸落泪。童年给 Charlie 留下了心理创伤，以致他对于爱情、女人总是向往又不敢接近。但是，他最终选择了原谅，并且在自己高智商时去见了母亲一面，希望母亲能为此时的他感到骄傲。当他们相认时，Charlie 的智商正是顶峰时期，他是个天才，知识渊博，通晓多国语言，可是，出乎意料地，他开口第一句，回到曾经的傻傻的状态：“Ma…”，听到这一句时，我哽咽了。一个人不管如何变化，在父母面前，大概还是会变回最初的那个小孩，一个想得到“你是个好孩子”肯定的小孩。</p>
-<p>读完这本书，我也想静静地坐一会儿，默默流泪。为了什么流泪呢？是因为同情 Charlie 的境遇，还是因为想到 Charlie 所经历的，其实也是压缩版的人生？成长、迷茫、痛苦、原谅、善良…我们每个人也在经历、思考，然后改变、成长。此外，这本书还告诉我们，每一个生命，弱小或是强大，愚笨或是聪明，都值得也需要被尊重和爱。</p>
+<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
+<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
+<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
+<blockquote>
+<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
+</blockquote>
+<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
+<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口大小保持一致。</p>
+<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
+
+
+
+
+<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
+
+
+
+<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法截图区域可以灵活选择，我经常使用。</p>
+<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
+<p>6.安装 Snipaste，点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%8C%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95/Windows%20截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
+<blockquote>
+<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
+</blockquote>
+<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章： <a href>一篇文章带你入门Markdown</a>。</p>
+<p>参考文章：<br><a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br><a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>科幻</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不一样的马斯克</title>
-    <url>/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年6月。</p>
-</blockquote>
-<p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p>
-<a id="more"></a>
-
-<img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p>
-<p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p>
-<p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p>
-<p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
+        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -160,69 +179,154 @@
       </tags>
   </entry>
   <entry>
-    <title>我的英语学习视频列表</title>
-    <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。</p>
+    <title>一篇文章带你入门Markdown</title>
+    <url>/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h3 id="1-为什么选择-Markdown？"><a href="#1-为什么选择-Markdown？" class="headerlink" title="1. 为什么选择 Markdown？"></a>1. 为什么选择 Markdown？</h3><p>正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：</p>
+<ul>
+<li><p>写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。</p>
+</li>
+<li><p>在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。</p>
+</li>
+<li><p>对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。</p>
 <a id="more"></a>
-<p><strong>2020年6月作品：</strong><br>12.<a href="https://www.bilibili.com/video/BV1Up4y1U7hf" target="_blank" rel="noopener">美景、轻音乐+读书，你喜欢吗？</a><br><strong>宁萌说：</strong> 从 The Wind in the Willows 《柳林风声》第一章中选了两段，读给您听，搭配上相应的美景和轻音乐，喜欢吗？快去欣赏一下吧！</p>
-<p>11.<strong>重磅推荐：</strong><a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br><strong>宁萌说：</strong> 这是一期视频合辑，里面有对 The Wind in the Willows 《柳林风声》第一章的精读，还有我精心制作的笔记字幕哦，更加易懂。因为我花了很多时间和心思在这个精读活动上，一边接收观众反馈，一边尝试改进，所以特别推荐您点开看一下，帮我提点改进建议啊，谢谢！ </p>
-<p><strong>2020年5月作品：</strong><br>10.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 我很喜欢 The Wind in the Willows 《柳林风声》这本书，很有趣，文笔优美，打算做精读。这一期是导读，简要介绍一下这本书。</p>
-<p>9.<a href="https://www.bilibili.com/video/BV1bC4y1H7Ay" target="_blank" rel="noopener">英语表达-怎么描述煎炸食物？</a><br><strong>宁萌说：</strong> 爱美食、爱生活的小伙伴不要错过呀！</p>
-<p>8.<a href="https://www.bilibili.com/video/BV1ue411W7ga" target="_blank" rel="noopener">英语表达-一关门想起钥匙落在屋里了……</a></p>
-<p>7.<a href="https://www.bilibili.com/video/BV1b5411s7JY" target="_blank" rel="noopener">英语表达-一顿匆忙的早餐</a></p>
-<p>6.<a href="https://www.bilibili.com/video/BV1x54y1D7Ae" target="_blank" rel="noopener">英语表达-工作日的早晨，闹钟没响……</a></p>
-<p>5.<a href="https://www.bilibili.com/video/BV1mC4y1H7yp" target="_blank" rel="noopener">英语表达-英语怎么描述穿着得体?</a></p>
-<p>4.<a href="https://www.bilibili.com/video/BV14f4y1U7vA" target="_blank" rel="noopener">英语表达-whistle除了表示口哨声，还可以形容这些声音……</a><br><strong>宁萌说：</strong> 这一期的表达我特别推荐，可以体会到用词的灵活。 </p>
-<p>3.<a href="https://www.bilibili.com/video/BV1DV411k7wh" target="_blank" rel="noopener">英语表达-“有其父必有其子”，英文怎么说?</a><br><strong>宁萌说：</strong> 从 Harry Potter《哈利波特》中摘录的，你猜这是说的谁？</p>
-<p>2.<a href="https://www.bilibili.com/video/BV1a5411s7T6" target="_blank" rel="noopener">英语表达-从童话书里看到的一句有趣的表达</a><br><strong>宁萌说：</strong> 从这一期开始，我制作了8期英语表达的短视频，都是从书中精选的句子，地道表达，形象生动，快来看看吧！</p>
-<p>1.<a href="https://www.bilibili.com/video/BV1Xz411q726" target="_blank" rel="noopener">教程-英文电子书阅读-怎么找书，手机上用什么看书？</a><br><strong>宁萌说：</strong> 这是我在B站的第一个小视频，时长不到两分钟，用手机录屏的方式示范了 Gutenberg.org+多看+印象笔记 的英文电子书阅读方法。</p>
+<p>使用 Markdown之后，你就不用再为这些问题烦恼了。只需在写作时顺带加入几个标记符，文档就会显示为统一、规范的网页格式。而且，Markdown 还有以下优势：</p>
+</li>
+<li><p><strong>Markdown编辑器平台统一。</strong> 如果你使用过网上的写作平台，可能就会发现，在使用富文本编辑器的平台，比如豆瓣，输入文档后还需要对标题、链接等重新编辑调整一下，而支持 Markdown 编辑器的平台，比如我的博客小站使用的hexo博客系统、或者CSDN， 输入文档后显示比较一致，标题、加粗、链接等都是使用的统一语法，无需对内容进行二次排版编辑。</p>
+</li>
+<li><p>现在有很多工具可以帮助我们<strong>将 Markdown 文档轻松转换为 pdf 或 word 文档</strong>，这样，用 Markdown 写作，然后转换一下，可以省去很多排版编辑时间。</p>
+</li>
+</ul>
+<p>看到这里，您是不是也跃跃欲试，想开始用 Markdown 来编辑文档。那么，要在哪里用？怎么用呢？别着急，接着往下看。</p>
+<h3 id="2-怎么用-Markdown？"><a href="#2-怎么用-Markdown？" class="headerlink" title="2. 怎么用 Markdown？"></a>2. 怎么用 Markdown？</h3><p>我们要用好 Markdown，首先要学习一下它的语法。<br>听到“语法”，你是不是瞬间头大了？哈哈，不用担心，内容不多而且好记。当然，最好的办法是在练习中掌握：<strong>参考我的示例格式，自己输入内容练习几遍</strong>。下一节就会介绍编辑器的使用了，你可以先浏览一下本节内容，对 Markdown 的使用有个大致印象。</p>
+<h4 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h4><p>用 Markdown 编辑时，标题使用<code>#</code>进行标记，几级标题就在标题前加几个<code>#</code>，显示效果如下图所示。这里说明一下，我采用的是对照模式，左边为编辑输入，右边为预览显示，后面的示例也是这样。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-17-50-42.png" alt="标题编辑的对照示例" align="center"> 
+
+<p>可以对比一下各级标题显示字号、行间距的不同。另外，你可能会注意到，在<code>#</code>与文字间有一个空格。在使用中，我发现有的编辑器要求必须有空格，有的编辑器不做要求、可以识别，因此，建议还是加一个空格。</p>
+<h4 id="2-2-加粗、斜体"><a href="#2-2-加粗、斜体" class="headerlink" title="2.2 加粗、斜体"></a>2.2 加粗、斜体</h4><p>在加粗文字前后用<code>**</code>进行标记，在斜体文字前后用<code>*</code>标记，具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-18-09-35.png" alt="加粗和斜体的对照示例" align="center">
+
+<h4 id="2-3下划线、删除线"><a href="#2-3下划线、删除线" class="headerlink" title="2.3下划线、删除线"></a>2.3下划线、删除线</h4><p>在添加下划线的文字前后用<code>&lt;u&gt;</code>符号标记，在添加删除线的文字前后用<code>~~</code>符号标记，具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/Markdown学习笔记补充2020-05-05-17-32-10.png" alt="下划线、删除线的对照示例" align="center">
+
+<h4 id="2-4-引用、代码"><a href="#2-4-引用、代码" class="headerlink" title="2.4 引用、代码"></a>2.4 引用、代码</h4><p>在引用文字的前面使用<code>&gt;</code>标记。<br>编辑行内代码时，在代码前后使用 ` 符号标记（对应键盘位置为 【Tab】键上方）。<br>编辑代码块时，在代码前后使用 ``` 符号标记。此外，代码块前可以加上所使用的语言作为注释（比如 python），显示效果更佳。具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-00-59.png" alt="引用和代码的对照示例" align="center">
+
+<p>有时我们需要在文章中显示运行程序的结果，这时可以采用图中所示的方式，在结果前加上 text 注释。</p>
+<h4 id="2-5-列表"><a href="#2-5-列表" class="headerlink" title="2.5 列表"></a>2.5 列表</h4><p>Markdown 中采用<code>-</code>或<code>*</code>+空格的方式来标记无序列表，用<code>数字</code>+<code>.</code>+空格的方式来标记有序列表，具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-07-47.png" alt="列表的对照示例" align="center">
+
+<p>请注意示例中的有序列表。我们输入<code>数字</code>+<code>.</code>+空格，后续项会自动顺序编号，而如果始终输入<code>1</code>+<code>.</code>+空格，实际的显示效果也是顺序编号的。</p>
+<h4 id="2-6-公式"><a href="#2-6-公式" class="headerlink" title="2.6 公式"></a>2.6 公式</h4><p>在行内公式前后使用<code>$</code>标记，独立公式的前后使用<code>$$</code>标记，可以看下面的简单示例，更多公式的写法请参考网上的Latex语法。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-25-09-47-33.png" alt="公式的对照示例" align="center">
+
+<h4 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-04-08-59-02.png" alt="表格的对照示例" align="center">
+
+<p>图中示例展示了表格的写法，注意：第二行的分隔线对于生成表格至关重要。<br>另外，如果后期要进行文档转换，尤其是转换成 word ，一定要先检查一下表格能否正常转换，我就遇到过转换成 word 后、显示的表格是图中左侧原始编辑格式的情况。</p>
+<h4 id="2-8-插入网址链接和图片"><a href="#2-8-插入网址链接和图片" class="headerlink" title="2.8 插入网址链接和图片"></a>2.8 插入网址链接和图片</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-25-27.png" alt="插入网址和图片的对照示例" align="center">
+
+<p>如图中示例所示，对于网址链接，在[ ]内填写链接的文字说明，( )内填写对应的链接地址。这样，显示为文字说明部分，点击即可到达链接。</p>
+<p>图片链接的格式与此类似，同时，图片链接的文字说明前要加一个<code>!</code>符号标记。显示为图片。另外，虽然图片链接的文字说明一般不会显示，但是建议填写，因为如果网站的图片加载出现问题，图片无法正常显示，就会显示出文字说明，此时可以给读者提供一点图片的相关信息。</p>
+<p>细心的你可能会有一个疑问，图片链接如果是网络的还好办，如果是本地图片，把文档导入网络平台（比如CSDN）时，图片就无法正常显示了，怎么办？容易想到的办法是重新上传图片到网络平台并生成链接。但是，还有一种便捷的解决办法，就是把图片放到网络服务器中存储，这样就把本地图片“变成”网络图片，我们可以随时引用网络链接查看图片，这就是图床的原理。但是很抱歉，我现在还没有使用图床，等我用了之后，再写篇文章与大家分享。</p>
+<h4 id="2-9-排版规范"><a href="#2-9-排版规范" class="headerlink" title="2.9 排版规范"></a>2.9 排版规范</h4><p>最后补充一点，在 Markdown 写作时，了解一点排版规范对我们是有帮助的，这样显示的文章整洁美观，读者看着也舒服。向你推荐我读到的一篇介绍排版规范的好文：<a href="https://zhuanlan.zhihu.com/p/69376149" target="_blank" rel="noopener">会用 Markdown 还不够，还得知道排版规范</a>。</p>
+<h3 id="3-在哪用Markdown？"><a href="#3-在哪用Markdown？" class="headerlink" title="3. 在哪用Markdown？"></a>3. 在哪用Markdown？</h3><p>要写 Markdown 文档，一款得心应手的<strong>编辑器</strong>必不可少。我根据网友们的介绍和推荐，体验了几款受好评的编辑器，下面逐一介绍，看看您喜欢哪一款？</p>
+<h4 id="3-1-即写即显示：Typora"><a href="#3-1-即写即显示：Typora" class="headerlink" title="3.1 即写即显示：Typora"></a>3.1 即写即显示：Typora</h4><p>点击<a href="https://typora.io/" target="_blank" rel="noopener">Typora官网</a>，可以下载 Typora。</p>
+<p>Typora 的最大特点就是即写即显示，有点像打字机 ( Typewriter ) 的效果，这样看来，这个名字很贴切。请看一下 <a href="https://typora.io/img/beta.mp4" target="_blank" rel="noopener">Typora使用展示-27秒小视频</a>，会对这种编辑体验有更多了解。</p>
+<p>Typora 的页面干净整齐，插入图片、公式等十分便捷，因此受到众多 Markdown 写作者们的喜爱。</p>
+<p><strong>1.一键插入图片</strong><br>如果您是第一次安装 Typora，需要在 File&gt;Preferences&gt;Image 里，选择插入图片的存放位置，默认设置是无操作。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-07-08-11-45-58.png" alt="Typora中Image设置界面" align="center">
+
+<p>如图所示，在下拉列表中选择 Copy image to ./${filename}.assets，这样图片会复制一份到当前文档名.assests 子文件夹中（如果没有会自动新建一个）。另外，您可能注意到，在下拉列表下方有几个勾选项，比如，是否对本地图片按此操作（这一项一定要勾选），是否对网络图片按此操作，是否使用相对路径，等等，可以根据需要选择，对比效果后确定自己的设置，图中就是我在 Typora 中的设置，您可以参照着对自己的 Typora 进行设置。</p>
+<p>使用 Typora 插入图片非常轻松。如果是屏幕截图，以我自己使用的 Windows 系统为例，可以直接用【Windows】+【Shift】+【S】 键，或者打开微信后用 【Alt】+【A】键进行截图，然后使用 【Ctrl】+【V】 键，或者是在右键菜单中选择 Paste 把截图插入到文档。如果是本地图片，可以从存放文件夹中把图片直接拖动到文档中的编辑位置。然后，剩下的事就不用管了，因为 Typora 会帮我们全部做好，包括将图片自动复制到 当前文档名.assets文件夹，Markdown 文档里也会生成图片链接，是不是很贴心呢？</p>
+<p><strong>2.文档转换</strong><br>如下图所示，点击菜单栏 File &gt; Export，然后选择你想要的文件类型（比如 PDF、Word），可以实现文档转换。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-43-05.png" alt="Typora文档转换菜单选项" align="center">
+
+<p>但是，我现在没有经常使用 Typora，主要是还不适应即写即显示、不能对照看原始编辑的设置。如果有和我一样习惯的小伙伴，可以看看接下来的两款编辑器。</p>
+<h4 id="3-2-对照显示：Atom-VSCode"><a href="#3-2-对照显示：Atom-VSCode" class="headerlink" title="3.2 对照显示：Atom, VSCode"></a>3.2 对照显示：Atom, VSCode</h4><p>这两款编辑器大同小异，都是可以预览、对照显示的。Atom 由 Github 出品，可以从<a href="https://atom.io/" target="_blank" rel="noopener">Atom官网</a>下载。 VSCode, 全称为 Visual Studio Code，由微软出品，可以从<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode官网</a>下载。</p>
+<p>有一点请注意，要使这两款编辑器发挥最佳性能，需要安装插件（Packages/ Extensions），下面以我现在使用的 VSCode 为例进行说明。</p>
+<p><strong>1.安装扩展（Extensions）</strong></p>
+<p>点击菜单栏 File &gt; Preferences &gt; Extensions，如图中所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-25-52.png" alt="扩展的菜单选项" align="center">
+
+<p>然后在搜索栏中搜索扩展并安装：<code>Markdown All in One</code>，<code>Markdown Preview Enhanced</code>，<code>Paste Image</code>。下图中我给出了一个示例，在搜索栏输入” markdown preview enhanced “，在未安装的扩展名右下角会有一个显示为<code>install</code>的绿色按钮，点击即可安装。这里因为我已经安装了该扩展，所以没有显示，而在我尚未安装的扩展下方就显示了<code>install</code>按钮。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-22-56.png" alt="安装扩展示例" align="center">
+
+
+
+<p><strong>2.扩展设置</strong></p>
+<p>此外，Paste Image 扩展在安装后还要进行设置。点击 File &gt; Preferences &gt; Settings，在搜索栏中输入：” Paste Image “，在结果中找到：<br>Name Prefix 一栏，填入<code>${currentFileNameWithoutExt}</code>；<br>Path 一栏，填入<code>${currentFileDir}/imgs</code>，具体如下图所示。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-41-07.png" alt="Paste Image 扩展设置" align="center">
+
+
+<p><strong>3.预览视图与文章目录</strong></p>
+<p>安装了上面介绍的扩展后，重新在 VSCode 中打开一篇文档，可以看到右上方会出现预览按钮，点击下图中箭头指示的第一个按钮，即可出现 Preview 预览窗格。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-20-43.png" alt="预览窗格按钮" align="center">
+
+<p>在预览视图中，点击下图中箭头指示的第一个按钮，可以显示文章的目录。图中右侧显示的就是本文的目录。目录显示即为文章的大纲，对于我们阅读时理清文章脉络、写作时构建文章框架很有帮助。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-24-16-20-36.png" alt="文章目录显示按钮及显示效果" align="center">
+
+<p>还有一种显示文章目录的方法，就是在文章开头处加上<code>[TOC]</code>，显示效果与上图的目录视图类似，本文开头的目录就是这样生成的，您不妨也试一试，看看效果如何呀。</p>
+<p><strong>4.快速贴图</strong></p>
+<p>因为安装了 Paste Image 扩展，VSCode 中截图贴图十分方便。以我自己使用的 Windows 系统为例，截图后打开要插入图片的文档，使用 <code>Ctrl</code>+<code>Alt</code>+<code>V</code> 键，图片就会自动复制到 Markdown 文档目录下的 imgs 文件夹中，同时在文档中自动生成了图片链接。</p>
+<p>但是与 Typora 相比，VSCode还有一点不足：不能拖动本地图片到文档实现自动插入图片，也可能是我还没有安装所需的扩展，如果您知道这个使用方法，请告诉我一下哦，谢谢！</p>
+<p><strong>5.文档转换</strong></p>
+<p>在<strong>预览视图</strong>中，点击鼠标右键，将出现下图所示的菜单栏，此时可以选择需要的文件类型进行转换。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-45-39.png" alt="VSCode中右键菜单的文档转换选项" align="center">
+
+
+<h4 id="3-3-多平台协作：印象笔记"><a href="#3-3-多平台协作：印象笔记" class="headerlink" title="3.3 多平台协作：印象笔记"></a>3.3 多平台协作：印象笔记</h4><p>有时我们可能在这个电脑上写了一点文字，然后又换个地方、换了电脑，这种情况下，要把文档传过去才能继续编辑吗？</p>
+<p>当然不用那么麻烦！可以使用多平台工具：印象笔记。印象笔记现在融合了马克飞象的功能，可以编辑 Markdown 文章了。这样要收集灵感、创意进行写作，就更加方便了。我这篇文章的初稿就是在印象笔记上写的。</p>
+<p>如下图所示，打开印象笔记后，在新建笔记右方有个窗格图标（图中箭头指示位置），点击后有多种文档格式，选择 “ Markdown “，即可新建一个 Markdown文档。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-21-12.png" alt="印象笔记中新建Markdown文档" align="center">
+
+
+<p>打开文档后，在右上方有一个编辑/预览切换按钮，如下图中箭头标示位置，点击之后文档可以在对照编辑（类似VSCode的显示模式）和预览模式 (类似Typora的显示模式，但是不能编辑) 之间切换，这样，如果只看文档显示效果，就可以点击这个按钮，切换到预览模式。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-25-39.png" alt="Markdown文档对照编辑/预览模式切换按钮" align="center">
+
+
+<p>有一点请注意，印象笔记在电脑端可以编辑写作 Markdown 文档，在手机端只能看预览效果、不能对 Markdown 文档编辑修改。</p>
+<p>好了，看到这里，相信您对于 Markdown 有了初步的了解。但是，Markdown 编辑器的诸多优点，还要等您使用后才能真正体会，所以，现在就点击文章中的链接安装软件，然后跟着示例编辑一个文档试试吧！</p>
 ]]></content>
       <categories>
-        <category>英语</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>英文原著</tag>
+        <tag>Markdown</tag>
+        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
-    <title>信息论之父香农</title>
-    <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
+    <title>一本书中的人生滋味</title>
+    <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
 
 
-<img src="https://img9.doubanio.com/view/subject/l/public/s29547304.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
->本文写于2019年12月。
+<img src="https://img3.doubanio.com/view/subject/l/public/s4608452.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
 
-<p>提起香农，或许很多人都会感到陌生，可是，说到他的理论带来的福利——清晰的电话通信、浏览网页，…每个人都十分熟悉。<strong>香农( Claude Shannon, 1916-2001 )是信息论之父</strong>，这一理论引领人们进入了信息时代。而在信息论之前，香农已经有了另一项伟大成果：将布尔函数引入到开关电路设计中，实现了从模拟电路向数字电路的转化。</p>
-<p>看到这些伟大的成就，想必您也对香农产生了好奇，这是怎样的一位天才人物，他是如何进行科学研究的，他的一生有哪些故事呢？<strong><em>A Mind at Play: How Claude Shannon Invented the Information Age</em></strong>  这本书讲述了香农在工作、研究、生活的经历和故事，让我们得以走近香农，也走近那个时代的科学家。</p>
+
+
+
+<blockquote>
+<p>本文写于2019年11月。</p>
+</blockquote>
+<p>今天我想给大家推荐一本英文科幻小说 <strong>Flowers for Algernon（《献给阿尔吉侬的花束》）</strong>。</p>
 <a id="more"></a>
-<p>读完本书，我在深深佩服香农的才智之余，也对一些地方印象深刻，在这里与大家分享：</p>
-<h4 id="1-简化、抽象、类比。"><a href="#1-简化、抽象、类比。" class="headerlink" title="1. 简化、抽象、类比。"></a>1. 简化、抽象、类比。</h4><p>香农善于简化和抽象，这样就能发现看似不同的事物之间的相通之处，进而联系、类比，得到新的解决思路。比如，复杂的模拟开关电路、遗传学问题、布尔函数，这看似不相干的三个领域，抛开那些表征，在简化后却是相似的。而让香农享誉全球的信息理论，也是香农对实际通信传输进行抽象、简化后推导得出，这样我们不用在意传输的是文字、语音、图片还是视频，不用在意传输环境的差异，不需要再用实验试错法来提高传输质量，而只用关注最重要的东西——信息量（用于衡量传输量的多少，香农定义了一个新的单位：比特）、信噪比（衡量传输中噪声干扰大小的指标），同时，这些指标也是在变化万端的传输应用场景中不变的可提取参数。</p>
-<h4 id="2-专才与通才。"><a href="#2-专才与通才。" class="headerlink" title="2. 专才与通才。"></a>2. 专才与通才。</h4><p>香农是幸运的，不只因为他有天才的头脑，还因为他遇到了慧眼识才的伯乐：他的导师布什(Vannevar Bush)，布什认为科学家不应固守在一个小领域，而应该扩大眼界，因此，他鼓励数学系硕士毕业的香农挑战新的领域——推荐他去遗传学实验室做博士研究。后来香农遇到的几个“贵人”：Warren Weaver, Thornton Fry 均持相似观点，即科学家应该拓展自己关注的领域，不能只专注自己所学。</p>
-<h4 id="3-为什么做科学研究？"><a href="#3-为什么做科学研究？" class="headerlink" title="3. 为什么做科学研究？"></a>3. 为什么做科学研究？</h4><p>因为好奇、想去知道事物背后的原因，也是因为好玩、有趣。知道这一点，就不难理解为什么香农会研究走迷宫的电动老鼠（机器学习的雏形）、抛接球的数学技巧等等。至于名利，他倒看得很淡。书中有一句很幽默的评论 “ Rarely has a thinker who devoted his life to the study of communication been so uncommunicative. ” 成名之后，他没有成为公众人物进行科普宣传等，依然在自己感兴趣的领域进行研究，也因此，世人对他知之甚少。</p>
-<p>这本书的作者也提了一个引人深思的现象，在那个年代，科学家们都在积极探索、思考问题，甚至有的是看似没有什么用处的问题。对他们而言，开公司、做产品、赚钱并不是首要考虑的事情。现在的人们似乎认为科学研究就是代表一份稳定工作，人们做一项研究的出发点就是实用，反倒没有了以前人们发现的乐趣。</p>
-<h4 id="4-香农与人工智能"><a href="#4-香农与人工智能" class="headerlink" title="4. 香农与人工智能"></a>4. 香农与人工智能</h4><p>香农曾说过：“ I’m a machine and you’re a machine, and we both think, don’t we? ” 他认为机器是可以做到“像”人一样思考，所谓“像”，就是从行为学角度看，达到“思考”的效果。同时，他敏锐地提醒人们，不要依据人的思考方式去设计人工智能，而应该根据机器自身的优缺点（而不是人的思维特点）、取长补短以得到最佳效果。</p>
-<p>谈到人工智能的未来，香农是一个乐天派，他认为人类造出比自己强大的物种很正常。他还半开玩笑地说，从信息熵的效用角度看，机器替代人类无可厚非。</p>
-<h4 id="5-通俗易懂"><a href="#5-通俗易懂" class="headerlink" title="5. 通俗易懂"></a>5. 通俗易懂</h4><p>书中讲述的理论对于大众来说似乎有点高深，但是并不用担心会看不懂，因为作者用了很多比喻、例子帮助读者理解。此外，文中还有不少排比句，文笔优美。举几个例子：</p>
-<blockquote>
-<p>Cryptography was the war’s white noise: it was ubiquitous, and yet only those paying the closest attention could pick it up.<br>将密码学比喻为战争时期的白噪声，无处不在（应用广泛），但不易察觉，只有最仔细的人能发现。我觉得这个比喻很巧妙。</p>
-</blockquote>
-<blockquote>
-<p>Where Shannon was allergic to administrative work and bureaucracies of almost every kind, Weaver thrived in them.<br>Where Shannon considered teaching a nettlesome requirement of university employment, Weaver relished it.<br>And where Shannon could continue to pound away at a mathematical problem or research question until he struck sparks, pursuing problems with breathtaking intuition and instinct, Weaver had discovered that he possessed no such gift.<br>这里将Shannon和Weaver两个科学家（当时也是同事）对比，两人对于教职、行政工作、科研的态度形成鲜明对比，看出两人不同的爱好。</p>
-</blockquote>
-<blockquote>
-<p>All of this communication—faster, cheaper, more voluminous—rests on Shannon’s realization of our predictability. All of that predictability is fat to be cut; since Shannon, our signals have traveled light.<br>最后这个“travel light”用词实在妙，意为轻装前行。自从香农提出信息论之后，人们终于找到了高效传输的正确方法。</p>
-</blockquote>
-<p>以前我觉得信息论、香农公式枯燥抽象，读了这本书，我了解香农提出理论的来龙去脉，体会到其中的简洁之美，又对信息论产生了兴趣，这真是本书的奇妙之处。强烈推荐这本书。</p>
+<p>最早我是在一个科幻作品的指南资源帖中看到对这部作品的推荐和介绍，楼主介绍这本书时说，读完这本书，他静静地蒙在被子里哭了一场，这让我印象深刻。这是怎样的一部科幻作品呢？带着这样的疑问，我开始了阅读之旅。我先读了一点文字版，发现开篇就有很多错别字（卖个关子，原因稍后介绍），很不适应，感觉自己读到了盗版书，没有看下去。后来无意中在喜马拉雅听到了有声书版本，播讲者把错别字转换为迟缓语速和停顿的形式，我比较能接受。此外，朗读者的声音年轻，有大男孩的感觉，符合主人公 Charlie 的年龄特点。</p>
+<p>作者 Daniel Keyes 学过心理学，善于描写心理。 1959年，Keyes 在《奇幻与科幻杂志》首度发表短篇的 Flowers for Algernon，赢得雨果奖的肯定，1966年将其扩展成长篇后又再次荣获该年度星云奖，一举囊括了科幻小说界最重要的两项大奖。那么，这部小说讲了怎样的一个故事呢？</p>
+<p>书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以 Charlie 日记的形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。书开篇和末尾的日记，正是作者按照 Charlie 智力低时的书写能力，故意用错别字写的。而书名里提到的 Algernon 是试验的小老鼠的名字，它比 Charlie 先做手术，智力得到成倍提高，比手术前的 Charlie 还要聪明。另一方面，Algernon 也充当了预言者的角色，它的一系列变化提前预示了 Charlie 在手术后将经历的智力提升、情绪变化、智力退化、身体衰落。而与 Algernon 不同的是，身处人类社会之中的 Charlie 体会到更多人生滋味，遇到人际关系的困惑，经历大喜大悲、得而复失。</p>
+<p>读这本书，我的心里总是觉得酸楚、五味杂陈。人们常说，不如做一个快乐的傻子。书中也是这样，弱智时的 Charlie 只想让周围的人快乐，善良单纯的他总是微笑友善地对待每一个人。随着他手术后一天天变聪明，他突然意识到原来别人的快乐竟来自于对他的取笑捉弄，他无法接受，感到生气、愤怒。而具有讽刺意味的是，周围的人同样也无法接受他的改变（由于是试验手术，Charlie 不能告诉大家），他们不能容忍自己的智商竟然不如傻子。于是，Charlie 遭到嫉妒和排挤，大家觉得他傲慢无礼。Charlie 被解雇，离开了工作十几年的店。可是，后来有一段时间 Charlie 的智力退化到原来的低水平，他短暂地回到店里工作，有新同事欺负他时，那些老同事又都站出来保护他，这一点让人稍感欣慰。人性真是复杂而捉摸不透。</p>
+<p>书中也探讨了一个人智力飞速增长时伴随而来的心理成长过程。Charlie 的智力水平终于从儿童到达正常成人甚至天才，但他的心理却还在儿童阶段，需要一段时间来成长。这一过程中有的描写很像青少年成长的历程，比如我们成长到某个阶段时，也许会发现原来小时候的偶像，自己心目中很聪明很厉害的人只是一个普通人。书中就有这样一个有趣的例子，Charlie 成为天才后发现以前自己眼中的天才——给他做手术的教授们，并非他原来想象中的知识渊博，他们也只是平凡人，他们也有很多不懂的地方，也为名利所累，这给 Charlie 带来一次小小的心灵冲击。</p>
+<p>而当 Charlie 记忆的阀门打开，儿时的记忆大多带给他伤痛和恐惧，每次他的回忆都让人心疼。Charlie 好强的母亲不想让别人知道儿子的智力不足，她先是想尽办法给 Charlie 治病，在生了一个健康女儿之后，又对 Charlie 开始打骂，最后送走 Charlie。当我读到 Charlie 乖巧、笨拙地只想蜷缩在厨房角落里，害怕母亲的责骂和驱赶，可是，最后这个家也没有他小小身躯的容身之处时，忍不住心酸落泪。童年给 Charlie 留下了心理创伤，以致他对于爱情、女人总是向往又不敢接近。但是，他最终选择了原谅，并且在自己高智商时去见了母亲一面，希望母亲能为此时的他感到骄傲。当他们相认时，Charlie 的智商正是顶峰时期，他是个天才，知识渊博，通晓多国语言，可是，出乎意料地，他开口第一句，回到曾经的傻傻的状态：“Ma…”，听到这一句时，我哽咽了。一个人不管如何变化，在父母面前，大概还是会变回最初的那个小孩，一个想得到“你是个好孩子”肯定的小孩。</p>
+<p>读完这本书，我也想静静地坐一会儿，默默流泪。为了什么流泪呢？是因为同情 Charlie 的境遇，还是因为想到 Charlie 所经历的，其实也是压缩版的人生？成长、迷茫、痛苦、原谅、善良…我们每个人也在经历、思考，然后改变、成长。此外，这本书还告诉我们，每一个生命，弱小或是强大，愚笨或是聪明，都值得也需要被尊重和爱。</p>
 ]]></content>
       <categories>
         <category>读书</category>
       </categories>
       <tags>
         <tag>英文原著</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
+        <tag>有声书</tag>
+        <tag>小说</tag>
+        <tag>科幻</tag>
       </tags>
   </entry>
   <entry>
@@ -271,6 +375,31 @@
       </tags>
   </entry>
   <entry>
+    <title>我的英语学习视频列表</title>
+    <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。</p>
+<a id="more"></a>
+<p><strong>2020年6月作品：</strong><br>12.<a href="https://www.bilibili.com/video/BV1Up4y1U7hf" target="_blank" rel="noopener">美景、轻音乐+读书，你喜欢吗？</a><br><strong>宁萌说：</strong> 从 The Wind in the Willows 《柳林风声》第一章中选了两段，读给您听，搭配上相应的美景和轻音乐，喜欢吗？快去欣赏一下吧！</p>
+<p>11.<strong>重磅推荐：</strong><a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br><strong>宁萌说：</strong> 这是一期视频合辑，里面有对 The Wind in the Willows 《柳林风声》第一章的精读，还有我精心制作的笔记字幕哦，更加易懂。因为我花了很多时间和心思在这个精读活动上，一边接收观众反馈，一边尝试改进，所以特别推荐您点开看一下，帮我提点改进建议啊，谢谢！ </p>
+<p><strong>2020年5月作品：</strong><br>10.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 我很喜欢 The Wind in the Willows 《柳林风声》这本书，很有趣，文笔优美，打算做精读。这一期是导读，简要介绍一下这本书。</p>
+<p>9.<a href="https://www.bilibili.com/video/BV1bC4y1H7Ay" target="_blank" rel="noopener">英语表达-怎么描述煎炸食物？</a><br><strong>宁萌说：</strong> 爱美食、爱生活的小伙伴不要错过呀！</p>
+<p>8.<a href="https://www.bilibili.com/video/BV1ue411W7ga" target="_blank" rel="noopener">英语表达-一关门想起钥匙落在屋里了……</a></p>
+<p>7.<a href="https://www.bilibili.com/video/BV1b5411s7JY" target="_blank" rel="noopener">英语表达-一顿匆忙的早餐</a></p>
+<p>6.<a href="https://www.bilibili.com/video/BV1x54y1D7Ae" target="_blank" rel="noopener">英语表达-工作日的早晨，闹钟没响……</a></p>
+<p>5.<a href="https://www.bilibili.com/video/BV1mC4y1H7yp" target="_blank" rel="noopener">英语表达-英语怎么描述穿着得体?</a></p>
+<p>4.<a href="https://www.bilibili.com/video/BV14f4y1U7vA" target="_blank" rel="noopener">英语表达-whistle除了表示口哨声，还可以形容这些声音……</a><br><strong>宁萌说：</strong> 这一期的表达我特别推荐，可以体会到用词的灵活。 </p>
+<p>3.<a href="https://www.bilibili.com/video/BV1DV411k7wh" target="_blank" rel="noopener">英语表达-“有其父必有其子”，英文怎么说?</a><br><strong>宁萌说：</strong> 从 Harry Potter《哈利波特》中摘录的，你猜这是说的谁？</p>
+<p>2.<a href="https://www.bilibili.com/video/BV1a5411s7T6" target="_blank" rel="noopener">英语表达-从童话书里看到的一句有趣的表达</a><br><strong>宁萌说：</strong> 从这一期开始，我制作了8期英语表达的短视频，都是从书中精选的句子，地道表达，形象生动，快来看看吧！</p>
+<p>1.<a href="https://www.bilibili.com/video/BV1Xz411q726" target="_blank" rel="noopener">教程-英文电子书阅读-怎么找书，手机上用什么看书？</a><br><strong>宁萌说：</strong> 这是我在B站的第一个小视频，时长不到两分钟，用手机录屏的方式示范了 Gutenberg.org+多看+印象笔记 的英文电子书阅读方法。</p>
+]]></content>
+      <categories>
+        <category>英语</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>智能时代的思考</title>
     <url>/2020/04/22/%E6%99%BA%E8%83%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -305,6 +434,34 @@
       </tags>
   </entry>
   <entry>
+    <title>不一样的马斯克</title>
+    <url>/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年6月。</p>
+</blockquote>
+<p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p>
+<a id="more"></a>
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p>
+<p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p>
+<p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p>
+<p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
+        <tag>人物传记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的读书视频列表</title>
     <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
@@ -330,50 +487,44 @@
       </tags>
   </entry>
   <entry>
-    <title>英文有声书和广播剧推荐之二</title>
-    <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/</url>
-    <content><![CDATA[<p>接着<a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">上一篇文章</a>，继续介绍好的英文有声书和广播剧。文中提供了相应的喜马拉雅/B站链接， <strong>只要点击“收听链接”项，就可直达作品页面收听，</strong> 感谢播主/up主的分享！</p>
-<a id="more"></a>
+    <title>信息论之父香农</title>
+    <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
 
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s29547304.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+>本文写于2019年12月。
+
+<p>提起香农，或许很多人都会感到陌生，可是，说到他的理论带来的福利——清晰的电话通信、浏览网页，…每个人都十分熟悉。<strong>香农( Claude Shannon, 1916-2001 )是信息论之父</strong>，这一理论引领人们进入了信息时代。而在信息论之前，香农已经有了另一项伟大成果：将布尔函数引入到开关电路设计中，实现了从模拟电路向数字电路的转化。</p>
+<p>看到这些伟大的成就，想必您也对香农产生了好奇，这是怎样的一位天才人物，他是如何进行科学研究的，他的一生有哪些故事呢？<strong><em>A Mind at Play: How Claude Shannon Invented the Information Age</em></strong>  这本书讲述了香农在工作、研究、生活的经历和故事，让我们得以走近香农，也走近那个时代的科学家。</p>
+<a id="more"></a>
+<p>读完本书，我在深深佩服香农的才智之余，也对一些地方印象深刻，在这里与大家分享：</p>
+<h4 id="1-简化、抽象、类比。"><a href="#1-简化、抽象、类比。" class="headerlink" title="1. 简化、抽象、类比。"></a>1. 简化、抽象、类比。</h4><p>香农善于简化和抽象，这样就能发现看似不同的事物之间的相通之处，进而联系、类比，得到新的解决思路。比如，复杂的模拟开关电路、遗传学问题、布尔函数，这看似不相干的三个领域，抛开那些表征，在简化后却是相似的。而让香农享誉全球的信息理论，也是香农对实际通信传输进行抽象、简化后推导得出，这样我们不用在意传输的是文字、语音、图片还是视频，不用在意传输环境的差异，不需要再用实验试错法来提高传输质量，而只用关注最重要的东西——信息量（用于衡量传输量的多少，香农定义了一个新的单位：比特）、信噪比（衡量传输中噪声干扰大小的指标），同时，这些指标也是在变化万端的传输应用场景中不变的可提取参数。</p>
+<h4 id="2-专才与通才。"><a href="#2-专才与通才。" class="headerlink" title="2. 专才与通才。"></a>2. 专才与通才。</h4><p>香农是幸运的，不只因为他有天才的头脑，还因为他遇到了慧眼识才的伯乐：他的导师布什(Vannevar Bush)，布什认为科学家不应固守在一个小领域，而应该扩大眼界，因此，他鼓励数学系硕士毕业的香农挑战新的领域——推荐他去遗传学实验室做博士研究。后来香农遇到的几个“贵人”：Warren Weaver, Thornton Fry 均持相似观点，即科学家应该拓展自己关注的领域，不能只专注自己所学。</p>
+<h4 id="3-为什么做科学研究？"><a href="#3-为什么做科学研究？" class="headerlink" title="3. 为什么做科学研究？"></a>3. 为什么做科学研究？</h4><p>因为好奇、想去知道事物背后的原因，也是因为好玩、有趣。知道这一点，就不难理解为什么香农会研究走迷宫的电动老鼠（机器学习的雏形）、抛接球的数学技巧等等。至于名利，他倒看得很淡。书中有一句很幽默的评论 “ Rarely has a thinker who devoted his life to the study of communication been so uncommunicative. ” 成名之后，他没有成为公众人物进行科普宣传等，依然在自己感兴趣的领域进行研究，也因此，世人对他知之甚少。</p>
+<p>这本书的作者也提了一个引人深思的现象，在那个年代，科学家们都在积极探索、思考问题，甚至有的是看似没有什么用处的问题。对他们而言，开公司、做产品、赚钱并不是首要考虑的事情。现在的人们似乎认为科学研究就是代表一份稳定工作，人们做一项研究的出发点就是实用，反倒没有了以前人们发现的乐趣。</p>
+<h4 id="4-香农与人工智能"><a href="#4-香农与人工智能" class="headerlink" title="4. 香农与人工智能"></a>4. 香农与人工智能</h4><p>香农曾说过：“ I’m a machine and you’re a machine, and we both think, don’t we? ” 他认为机器是可以做到“像”人一样思考，所谓“像”，就是从行为学角度看，达到“思考”的效果。同时，他敏锐地提醒人们，不要依据人的思考方式去设计人工智能，而应该根据机器自身的优缺点（而不是人的思维特点）、取长补短以得到最佳效果。</p>
+<p>谈到人工智能的未来，香农是一个乐天派，他认为人类造出比自己强大的物种很正常。他还半开玩笑地说，从信息熵的效用角度看，机器替代人类无可厚非。</p>
+<h4 id="5-通俗易懂"><a href="#5-通俗易懂" class="headerlink" title="5. 通俗易懂"></a>5. 通俗易懂</h4><p>书中讲述的理论对于大众来说似乎有点高深，但是并不用担心会看不懂，因为作者用了很多比喻、例子帮助读者理解。此外，文中还有不少排比句，文笔优美。举几个例子：</p>
 <blockquote>
-<p>8.英文有声书-类型：儿童文学<br>书名：Esio Trot<br>作者：Roald Dahl<br><a href="https://www.ximalaya.com/ertong/16804268/" target="_blank" rel="noopener">收听链接</a></p>
+<p>Cryptography was the war’s white noise: it was ubiquitous, and yet only those paying the closest attention could pick it up.<br>将密码学比喻为战争时期的白噪声，无处不在（应用广泛），但不易察觉，只有最仔细的人能发现。我觉得这个比喻很巧妙。</p>
 </blockquote>
-<p>这本书的作者 Roald Dahl 写了很多儿童故事，其中就包括《查理和巧克力工厂》。</p>
-<p>这个小故事说的是一位男士爱慕楼下女邻居，却不敢表白。女邻居养了一只小乌龟，有一天聊天，女邻居说小乌龟为什么一直不长个呢？男士主动说他有生长咒语。那么，小乌龟长大了吗？它是怎么长大的呢？哈哈，有趣的小故事。</p>
 <blockquote>
-<p>9.英文有声书-类型：儿童文学<br>书名：The Giraffe and the Pelly and Me<br>作者：Roald Dahl<br>播讲者：Hugh Laurie<br><a href="https://www.ximalaya.com/youshengshu/19969604/" target="_blank" rel="noopener">收听链接</a></p>
+<p>Where Shannon was allergic to administrative work and bureaucracies of almost every kind, Weaver thrived in them.<br>Where Shannon considered teaching a nettlesome requirement of university employment, Weaver relished it.<br>And where Shannon could continue to pound away at a mathematical problem or research question until he struck sparks, pursuing problems with breathtaking intuition and instinct, Weaver had discovered that he possessed no such gift.<br>这里将Shannon和Weaver两个科学家（当时也是同事）对比，两人对于教职、行政工作、科研的态度形成鲜明对比，看出两人不同的爱好。</p>
 </blockquote>
-<p>这个故事也是 Roald Dahl 写的。长颈鹿、鹈鹕和猴子组成了一个无梯子擦窗户公司，它们是怎么分工的呢？后来又有怎样的奇遇呢？</p>
-<p>这个有声书的精彩之处在于播讲者把里面的唱段唱出来了，非常欢快，很好听，而且各个角色也是活灵活现。我很喜欢这部作品。</p>
 <blockquote>
-<p>10.英文有声书-类型：儿童文学<br>书名：Alice’s Adventures in Wonderland<br>作者：Lewis Carroll<br><a href="https://www.ximalaya.com/youshengshu/18578323/" target="_blank" rel="noopener">收听链接</a></p>
+<p>All of this communication—faster, cheaper, more voluminous—rests on Shannon’s realization of our predictability. All of that predictability is fat to be cut; since Shannon, our signals have traveled light.<br>最后这个“travel light”用词实在妙，意为轻装前行。自从香农提出信息论之后，人们终于找到了高效传输的正确方法。</p>
 </blockquote>
-<p>我在喜马拉雅试听了几个版本的开头，最后选了这个版本听，主要原因就是这个书里面的 Alice 也是由一个小女孩演绎的，声音里传递出来的人物性格、脾气都非常符合角色。</p>
-<blockquote>
-<p>11.英文广播剧：Love virtually<br>演员：David Tennant &amp;Emilia Fox<br><a href="https://www.ximalaya.com/waiyu/16100569/95143213" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>一封发错地址的邮件，牵起一段网络情缘。剧情设定有点类似于电影《电子情书（You Got a Mail）》，喜欢爱情故事的朋友不要错过。</p>
-<p>如果听完觉得意犹未尽，可以听续集Every Seventh Wave。</p>
-<blockquote>
-<p>12.英文广播剧：Turing’s Test<br>演员:Samuel Barnett &amp; Paul Kendrick<br><a href="https://www.ximalaya.com/waiyu/16100569/95113208" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>这个广播剧时间不长，只有半个小时。剧中主角是图灵的灵魂。图灵对于计算机、人工智能都有杰出的贡献，计算机学科最高奖“图灵奖”就是以他的名字命名，人工智能的经典测试：“图灵测试”也是由图灵提出。图灵因为同性恋身份被定罪，后来吃下含有氰化物的毒苹果身亡。这部剧就是设想图灵的灵魂与计算机之间的对话。演员感情充沛，听众很容易融入其中，感受到图灵的痛苦。</p>
-<p>Samuel Barnett 的演绎十分精彩，我也因此喜欢上了他的声音，接下来要推荐的两部作品都是由他主演或朗读的。</p>
-<blockquote>
-<p>13.英文广播剧：Cicero<br>主演：Samuel Barnett，饰演Marcus Tullius Cicero<br>George Naylor，饰演Quintus Tullius Cicero<br><a href="https://www.bilibili.com/video/BV16t411t7gF" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>这部广播剧讲述的是古罗马著名政治家、演说家、雄辩家 Cicero（西塞罗）年轻时的故事，当时 Cicero 正从事律师工作。强烈推荐第一集，Cicero 的法庭辩论，逻辑清晰，论证严谨，十分精彩！这个案子也让年轻的 Cicero 在律师界一举成名。</p>
-<blockquote>
-<p>14.英文有声书—类型：人物、回忆录<br>书名：My Week with Marilyn<br>播讲者：Samuel Barnett<br><a href="https://www.ximalaya.com/waiyu/4741469/" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>书名中的 Marilyn 就是玛丽莲梦露，这本书回忆了作者在剧组工作时与梦露女神相处的一周。Samuel 的声线塑造年轻的男主角很贴切。这本书让我感到惊讶之处是，想不到大众女神 Marilyn 的内心是个敏感脆弱、渴望爱的小孩。<br>ps: 片尾有彩蛋，最后是一段 Marilyn 的歌声。</p>
+<p>以前我觉得信息论、香农公式枯燥抽象，读了这本书，我了解香农提出理论的来龙去脉，体会到其中的简洁之美，又对信息论产生了兴趣，这真是本书的奇妙之处。强烈推荐这本书。</p>
 ]]></content>
       <categories>
-        <category>英文有声</category>
+        <category>读书</category>
       </categories>
       <tags>
         <tag>英文原著</tag>
-        <tag>有声书</tag>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
+        <tag>人物传记</tag>
       </tags>
   </entry>
   <entry>
@@ -468,116 +619,6 @@
       </tags>
   </entry>
   <entry>
-    <title>率真的科学家费曼</title>
-    <url>/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年7月。</p>
-</blockquote>
-<p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p>
-<img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center">
-<a id="more"></a>
-生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。
-
-<p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p>
-<p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p>
-<p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p>
-<blockquote>
-<p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>迎接5G时代</title>
-    <url>/2020/04/22/%E8%BF%8E%E6%8E%A55G%E6%97%B6%E4%BB%A3/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2020年1月。</p>
-</blockquote>
-<h3 id="5G-来了"><a href="#5G-来了" class="headerlink" title="5G 来了"></a>5G 来了</h3><p>刚刚过去的 2019 年是 5G 商用元年。19 年 6 月，5G 牌照发放。11 月，5G 商用套餐正式上线。“ 5G ” 也成为年度热词、大家谈论的焦点。许多人可能会有疑问：5G 除了比 4G 网速快了，还有哪些不同之处？5G 来了，它能给社会和生活带来哪些变化和便利？带着同样的问题，我打开了这本最新出版的 <strong>《 5G 时代：经济增长新引擎》</strong>，听北京邮电大学孙松林教授讲述 5G 的发展之路，展望即将开启的 5G 时代。</p>
-<a id="more"></a>
-
-<img src="https://img1.doubanio.com/view/subject/l/public/s33537277.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<h3 id="5G-带来的变革"><a href="#5G-带来的变革" class="headerlink" title="5G 带来的变革"></a>5G 带来的变革</h3><p>读完这本书，我印象最深的就是 5G 带来的<strong>理念变革</strong>：</p>
-<ul>
-<li>由面向人的通信方式转变为面向物的通信方式，打造万物互联的社会。</li>
-<li>将信息行业技术融入到通信行业，使通信网络的管理向软件化、智能化发展。</li>
-</ul>
-<p>可以预见，这两大转变将对信息社会、数字经济产生巨大的影响，而 5G 技术作为催化剂和桥梁，在其中发挥重要的作用。</p>
-<h4 id="1-从面向人的通信到面向物的通信"><a href="#1-从面向人的通信到面向物的通信" class="headerlink" title="1. 从面向人的通信到面向物的通信"></a>1. 从面向人的通信到面向物的通信</h4><p>通信的本质是信息传输。传统的通信系统如书信、电报、电话等，都是以人为中心设计的，人是信息的最初发起者和最终消费者，传递的是人可以认知的信息，这就是面向人的通信。技术发展至今，计算机、手机终端产生的数据量远远超过一个人产生的数据量，正如书中所说，“我们无法想象用人类的语言去描述一个联网游戏中各个角色的位置和动作。” 此时，还采用面向人的通信方式，对于海量数据的发送和接收处理就显得力不从心。</p>
-<p>另一方面，随着自动化和智能化的普及，包括传感器、控制器等各种机器被赋予了越来越多的功能，它们可以采集数据，产生、传送和展示信息。这一类通信过程是由物体、而不是人在主导，这就是典型的面向物的通信。</p>
-<p>5G 之前所有的通信系统都是面向人的通信，偶尔会兼顾物，5G 技术对此做出了改变。5G 的梦想是“信息随心至，万物触手及”，不但延续了之前高速率传输的特点，而且将物体连接作为自己的使命。 5G 有三大应用场景：<br>(1) <strong>增强移动宽带 ( eMBB )</strong>，提供大带宽高速率的移动服务，可以看作是对 4G 个人用户业务的延续和提升。<br>(2) <strong>海量机器类通信 ( mMTC )</strong>，提供面向广域低功耗覆盖的物联网服务，可以在 1 平方千米内同时接入 100 万个设备，按连接数密度来算，这大约相当于在 1 个足球场内可放置 700 多个同时接入 5G 网络的设备。<br>(3) <strong>超高可靠低时延通信 ( uRLLC )</strong>，这一场景的名字正是其突出特点。在此场景下，传输的控制面时延只有 1 毫秒，超越了人的触觉极限；同时，可以支持每小时 500 千米的高速移动环境下通信。主要用于满足远程医疗、工业设备、车辆等物体的通信需求。</p>
-<p>其中，后两种应用场景就是面向物的通信，这为通信打开了一片新天地。互联网也将依托 5G 从消费互联网渗透到产业互联网，带来新的产业和机会。</p>
-<h4 id="2-信息行业IT与通信行业CT的融合，云网融合"><a href="#2-信息行业IT与通信行业CT的融合，云网融合" class="headerlink" title="2. 信息行业IT与通信行业CT的融合，云网融合"></a>2. 信息行业IT与通信行业CT的融合，云网融合</h4><p>书中详细介绍了 5G 采用的几项新技术，也可以称为 5G 的几大法宝，其中包括了软件定义网络( SDN )、网络功能虚拟化( NFV ) 和网络切片、边缘计算。这些新技术将促成 5G 时代信息行业与通信行业的融合和云网融合。</p>
-<p><strong>(1) 软件化、智能化——IT与CT的融合</strong><br>软件定义网络 ( SDN )，是将传统网络设备的数据转发和路由控制两个模块分离，集中管理路由控制功能。举例来说，假设系统中有100 台不同配置的交换机，使用传统方法，需要登录每台交换机终端进行配置，效率低且故障率高，使用 SDN 就可以集中化管理配置网络设备，既让传输更加高效，又让网络维护十分便捷。</p>
-<p>网络功能虚拟化 ( NFV ) ，是通过虚拟网络功能，把许多网络设备由目前的专有平台迁移到通用的 X86 平台上，帮助运营商和数据中心更加敏捷地为客户创建和部署网络特性，降低设备投资和运营费用。NFV 和软件定义网络 ( SDN ) 关系紧密，是 SDN 的补充。</p>
-<p>SDN 通过将控制平面与数据平面分离，彻底打通了传统计算机网络（如互联网）和电信网络之间的逻辑通道。而 NFV 则是用信息行业 IT 的思维对通信行业 CT 进行的一场革命，最大的意义在于使用 IT 设备来管理电信网络，这彻底打通了 IT 与 CT 之间的硬件通道。5G 的伟大之处就在于它第一次大规模地将 IT 与 CT 进行深度融合，意义深远。</p>
-<blockquote>
-<p>软件化的应用：<strong>网络切片</strong><br>5G 需要支持语音、数据、物联网等多种业务，不同的业务场景对网络要求不同，那么，如何在一个网络里兼顾多种场景需求呢？<br>这就要用到网络切片，将物理网络通过软件划分为多个虚拟网络，不同网络适应不同业务需求。而实现这一技术的先决条件就是要能通过软件控制各个不同的网元，也就是前面介绍的 SDN 及 NFV 技术。</p>
-</blockquote>
-<p><strong>(2) 分布式计算——云网融合</strong><br>5G 强大的网络能力使得数据传输不再是瓶颈，但计算会捉襟见肘。大量的数据在终端与云端之间不停地传输，如果只靠云端来进行处理，整体时延将较大。边缘计算正是为了解决这一问题应运而生，它是在靠近物或数据源头的网络边缘侧，就近提供边缘智能服务。通俗地讲，即为就近处理数据，分担云端的计算负荷。这一技术将计算能力从集中单一的云端下沉分散到用户侧，这样可以减少响应时间，降低整体计算成本，提高系统性能。</p>
-<p>5G 时代，全国连接终端有望超过1000亿，一个云化的核心网络毫无疑问是必需的。在 SDN/NFV 的基础上，未来网络需要划分为“三朵云”：接入云、控制云和转发云，它们有一个共同的特点，就是需要部署在网络边缘，即边缘云。边缘云将计算能力下沉，因此可以提供超低时延的大带宽服务，网络下载速度可能达到数百兆，甚至超过了机械硬盘的读写速度，这意味着一些常规、高计算量的应用部署在“边缘云”节点甚至可能比安装在“本地”更快。</p>
-<p>业界普遍认为，5G 和云计算天生就是相互促进、相互融合的。一方面，5G 网络是一种“云源生”的数据传输网络，网络单元虚拟化可以帮助运营商更有效地布网和运维，把计算节点下沉这种边缘架构也是 5G 网络能够保持低时延的关键，是 5G 网络的大势所趋；另一方面，只有虚拟化和网络深度融合，才能让运营商有能力拓展出更多业务，比如为企业提供自定义专用网络和专用数据通路。因此，5G 和云计算必然相辅相成、协同发展。</p>
-<h3 id="身边的-5G-应用"><a href="#身边的-5G-应用" class="headerlink" title="身边的 5G 应用"></a>身边的 5G 应用</h3><p>了解这么多新技术，大家最关心的可能还是与自己息息相关的 5G 应用。5G 时代，会有哪些新业务、新应用等着我们去体验和发现？书中对此也进行了介绍。</p>
-<h4 id="1-畅快的游戏体验"><a href="#1-畅快的游戏体验" class="headerlink" title="1. 畅快的游戏体验"></a>1. 畅快的游戏体验</h4><p>5G 时代，云游戏会成为一个很有潜力的应用。云游戏的愿景是用户在手机端只需要处理视频，其它计算都交给云端。这样，对手机算力的需求减小，将显著降低游戏功耗并提高续航时间。对于在线手游而言，网络时延是影响游戏体验的最大因素。要解决时延问题，既要依赖 5G 网络建设，也需要部署边缘云以缩短服务器和用户终端的距离。在较短时期内，5G 的网络建设将领先于云端服务器的建设，因此，预计前期将支持时延不敏感的云游戏，后期随着云计算中心和云服务的完善，用户将在手机上体验到更多的动作类3A大作。</p>
-<h4 id="2-不在现场、胜似现场"><a href="#2-不在现场、胜似现场" class="headerlink" title="2. 不在现场、胜似现场"></a>2. 不在现场、胜似现场</h4><p>在 5G 三大场景中，增强移动宽带 ( eMBB )将首先落地应用。这一场景的大带宽高速率特点，最适合的业务就是超高清视频。我们可以看到，目前各国的 5G 主推业务也是超高清视频、虚拟现实 ( VR ) / 增强现实 ( AR ) 等。那么，什么是超高清视频？国际电信联盟将屏幕的物理分辨率达到 3840x2160 及以上的显示称为超高清，目前主要有两种：“ 4K 分辨率 ” ( 3840 x 2160 像素，这也是我们常听到的“ 4K 超高清” ) 和“ 8K 分辨率 ” ( 7680 x 4320 像素 )。超高清能达到怎样的清晰度呢？举个例子，一帧 8K 分辨率的图像有大约 3300 万个像素点，在 65 英寸的电视上显示，肉眼几乎感觉不到颗粒感。</p>
-<p>书中介绍了一些体育赛事、大型晚会采用“ 5G + 超高清 ”直播回传的例子，比如 2018 年韩国平昌冬奥会、2019 年央视春晚深圳分会场、篮球世界杯转播等等。值得一提的是，平昌冬奥会在部分比赛场馆部署了边缘计算服务器，进行了 4K 超高清 VR 沉浸式体验和任意回看。在用 VR 观看时，摄像机采集的海量数据不用传送到首尔的核心网，而只需传送到靠近赛场的边缘服务器，再传到现场 VR 区的头显上，传输距离短，保证了实时的观赛体验。未来随着技术的推广和成熟，我们将越来越多地体验到“ 5G + 超高清 ”带来的全方位高清视角。</p>
-<p>除了为用户带来身临其境的观赏体验外，“ 5G + 超高清视频 ”还可以用于安防监控、工业生产监测等，使其更加高效准确。</p>
-<h4 id="3-车联网"><a href="#3-车联网" class="headerlink" title="3. 车联网"></a>3. 车联网</h4><p>这几年随着大数据、人工智能的广泛应用，网约车、地图导航等应用已成为热门，而自动驾驶也得到了普遍关注。如果把路况信息、车辆都连上网，进行智能规划，交通状况是不是会更加有序顺畅？你是否也和我一样，设想过乘坐自动驾驶车辆出行的未来？要实现这一愿景，首先就要解决海量数据传输与处理、信息指令的快速传递等问题，目前的 4G 网络无法满足这一需求。而 5G 高可靠、高带宽、低时延的通信特性，可以为车联网的用户体验、车辆驾驶和协同通信提供有力支撑。同时，在网络部署中也同样会运用到边缘计算这一理念，将一部分业务部署在边缘云平台上，从而有效减少反应时延，使系统更加高效迅捷。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这本书让我对 5G 有了深入的了解，也对 5G 时代更加期待。书中说到，整个经济的对象分为物理世界和数字世界，而物理世界又可以简单地分为人（包括环境）和机器。第一次和第二次工业革命完成了生产过程的机械化和自动化，让机器替代人工作，但我们注意到，此时的活动仍然限于物理世界。第三次工业革命是由计算机发起的，从此开始了人和机器向数字世界迁移的过程，今天的信息通信技术正是在这一过程中起到桥梁作用。的确，当我们环顾四周，网上社交媒体、网上购物、网上预约…会发现我们正在不知不觉中步入数字世界。5G 技术的到来会加速这一迁移过程，可能带来数字经济的全面爆发。5G 结合云计算、人工智能、区块链、物联网等技术，将带来经济和社会的快速发展和变革，让我们拭目以待吧！</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>非虚构</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读乔布斯传</title>
-    <url>/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</url>
-    <content><![CDATA[<blockquote>
-<p>本文写于2019年8月。</p>
-</blockquote>
-<p>最近读了Walter Isaacson 为乔布斯写的传记 <strong><em>Steve Jobs</em></strong>，书中关于乔布斯的创新和产品理念让我反复思索、很受启发。这是一本值得再读一遍的好书。</p>
-<a id="more"></a>
-
-
-<p>我想谈谈书中让我感悟最深的几点：(由于早段时间读了马斯克的传记，我认为马斯克和乔布斯在一些方面有相似之处，因此有些地方也对马斯克进行了介绍。）</p>
-<h4 id="1-创新"><a href="#1-创新" class="headerlink" title="1. 创新"></a>1. 创新</h4><p>公司创新的原动力在哪里？乔布斯认为这一动力来自研发设计人员、产品工程师，因此他坚持产品研发人员优先的原则。他曾经在访谈中提到一些大企业后来衰退的原因，就是销售人员取代产品研发人员在公司占据主导地位。当公司的主要精力不是放在产品上而只是为了迎合市场提高销量时，公司就失去了创新的动力。他有一个著名的论断：顾客其实不知道自己想要什么样的产品，因此不对现有市场进行调研，而是主动去发现潜在的需求和可能的市场，提供相应的产品。顾客只是没有见过这种新产品，新品一旦推出，会受欢迎。事实如此。在这一点上，马斯克和乔布斯有相似之处，他们都善于发现现有市场的短板或空白，然后由此发力，获得成功。比如乔布斯带领苹果走入音乐产业、手机产业…，马斯克发现银行在网上业务的空缺而开创网络支付。</p>
-<h4 id="2-热情与信念"><a href="#2-热情与信念" class="headerlink" title="2. 热情与信念"></a>2. 热情与信念</h4><p>这里就要提到乔布斯的“现实扭曲”(reality distortion)，即坚信他认定的事，不考虑由现实环境得出的相反结论。比如，他认为某件事可以办到，他也让本来持怀疑态度的其他人相信可以做到，然后尽全力去做，最后出人意料地真的实现了。这让我想到了马斯克的员工对于马斯克提出的工作任务不能直接回答impossible（不可能），只能是提出有什么困难障碍，马斯克想办法解决，这也让他的员工的潜能得到最大发挥。乔布斯和马斯克都是对于工作和梦想充满热情的人，他们全身心地投入其中，主观积极性发挥到极致，这种态度直接影响了他们周围的人，最终完成了许多本来预计不可能实现的工作。</p>
-<h4 id="3-禅宗对于乔布斯的影响"><a href="#3-禅宗对于乔布斯的影响" class="headerlink" title="3. 禅宗对于乔布斯的影响"></a>3. 禅宗对于乔布斯的影响</h4><p>受禅宗影响，乔布斯非常推崇<strong>简约</strong>。“ Simplicity is the ultimate sophistication. ”他在产品中要求工程师们做到这一点，产品简洁、易用。同时，他在自己的人生中也实践了这一点。他从十几岁起就成了一个虔诚的素食主义者，即便家财万贯，也没有去追求物质的享受。他关注的，就是如何把他视同孩子的苹果公司做到长久。</p>
-<p>禅宗对乔布斯的另一个影响就是<strong>专注</strong>。他重回苹果后大刀阔斧精简产品系列，依据两方面特点：大众/专业版与台式机/笔记本进行组合，把产品缩减到四种。他每年都会与公司杰出人才讨论列出下一年公司发展最想做的十件事。然后，重点是，他只保留前三项。这一点真是时间管理的精髓：重要性优先。把有限的时间和精力投入到最想要做的事情上，才能得到最好的结果。什么都想做，什么都尝试去做一点，最后可能就是虎头蛇尾，什么都做不好。</p>
-<h4 id="4-完美主义者"><a href="#4-完美主义者" class="headerlink" title="4. 完美主义者"></a>4. 完美主义者</h4><p>对完美的追求常常是辛苦的过程，但是，不得不说，读乔布斯传时，我也被乔布斯的完美主义所打动，正是这种极致的追求和精雕细琢，让人们在看到产品的一瞬间就感到愉悦。乔布斯常常提到他的理念：让科技和艺术结合，让人文与科学交融，苹果的产品正体现了这一点。另外，苹果的封闭平台、软硬件一体化设计与 Windows、Android 等开放平台的对比也在书中一次次提及。对此，乔布斯有他的理由，他认为要做一件好的产品，就必须从软件到硬件都关注到。他希望在自己手中将产品做到最佳呈现给顾客，顾客可以很容易就上手使用，而不用去学习复杂的操作手册。此外，一体化的过程也能让产品设计更加简约。</p>
-<h4 id="5-另一面的乔布斯。"><a href="#5-另一面的乔布斯。" class="headerlink" title="5. 另一面的乔布斯。"></a>5. 另一面的乔布斯。</h4><p>除了工匠精神、追求卓越产品的理性一面，书中还展现了他感性的一面。第一次知道乔布斯在和合作伙伴吵架时还会用眼泪助攻；第一次知道乔布斯常常直言不讳说出自己的想法和感受。最让员工哭笑不得的是他的态度转变之大之快，可能刚刚听员工汇报时还说设计的新品 shitty，过一会儿他想通了觉得这个方案确实新颖可行，又会向同事们热情介绍 the best thing ever，而且让人感觉这就是他的点子。但是，乔布斯同样非常重视交流和团队协作。这一点，从苹果研发与设计的互相促进、产品研讨会的高效反馈、Pixar 办公大楼别具心裁的门厅设计等等，都可以看到。</p>
-<p>以前我只听过乔布斯重回苹果这些年的传奇故事，这本书让我知道了年轻的乔布斯如何一步步成长，带领苹果公司走向巅峰。我很佩服乔布斯的远见卓识，他总是先人一步发现市场需求，推动创新、引领技术潮流。也不禁想象，如果他还在的话，苹果又会推出怎样让人惊奇的新产品呢？他去世前一段时间还关注到教育行业，认为教学也应该来到互联网上、实时互动。现在的网上课堂遍地开花，人们可以方便地获得知识，这或许也在一定程度上实现了乔布斯的构想。</p>
-<p>1997 年苹果 “ Think Different ” 广告中有一句话:<strong>“The people who are crazy enough to think they can change the world are the ones who do.”</strong> 我想， 乔布斯正是这样一个伟大的人物。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读书的要领</title>
     <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -630,6 +671,36 @@
       </tags>
   </entry>
   <entry>
+    <title>读乔布斯传</title>
+    <url>/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>本文写于2019年8月。</p>
+</blockquote>
+<p>最近读了Walter Isaacson 为乔布斯写的传记 <strong><em>Steve Jobs</em></strong>，书中关于乔布斯的创新和产品理念让我反复思索、很受启发。这是一本值得再读一遍的好书。</p>
+<a id="more"></a>
+
+
+<p>我想谈谈书中让我感悟最深的几点：(由于早段时间读了马斯克的传记，我认为马斯克和乔布斯在一些方面有相似之处，因此有些地方也对马斯克进行了介绍。）</p>
+<h4 id="1-创新"><a href="#1-创新" class="headerlink" title="1. 创新"></a>1. 创新</h4><p>公司创新的原动力在哪里？乔布斯认为这一动力来自研发设计人员、产品工程师，因此他坚持产品研发人员优先的原则。他曾经在访谈中提到一些大企业后来衰退的原因，就是销售人员取代产品研发人员在公司占据主导地位。当公司的主要精力不是放在产品上而只是为了迎合市场提高销量时，公司就失去了创新的动力。他有一个著名的论断：顾客其实不知道自己想要什么样的产品，因此不对现有市场进行调研，而是主动去发现潜在的需求和可能的市场，提供相应的产品。顾客只是没有见过这种新产品，新品一旦推出，会受欢迎。事实如此。在这一点上，马斯克和乔布斯有相似之处，他们都善于发现现有市场的短板或空白，然后由此发力，获得成功。比如乔布斯带领苹果走入音乐产业、手机产业…，马斯克发现银行在网上业务的空缺而开创网络支付。</p>
+<h4 id="2-热情与信念"><a href="#2-热情与信念" class="headerlink" title="2. 热情与信念"></a>2. 热情与信念</h4><p>这里就要提到乔布斯的“现实扭曲”(reality distortion)，即坚信他认定的事，不考虑由现实环境得出的相反结论。比如，他认为某件事可以办到，他也让本来持怀疑态度的其他人相信可以做到，然后尽全力去做，最后出人意料地真的实现了。这让我想到了马斯克的员工对于马斯克提出的工作任务不能直接回答impossible（不可能），只能是提出有什么困难障碍，马斯克想办法解决，这也让他的员工的潜能得到最大发挥。乔布斯和马斯克都是对于工作和梦想充满热情的人，他们全身心地投入其中，主观积极性发挥到极致，这种态度直接影响了他们周围的人，最终完成了许多本来预计不可能实现的工作。</p>
+<h4 id="3-禅宗对于乔布斯的影响"><a href="#3-禅宗对于乔布斯的影响" class="headerlink" title="3. 禅宗对于乔布斯的影响"></a>3. 禅宗对于乔布斯的影响</h4><p>受禅宗影响，乔布斯非常推崇<strong>简约</strong>。“ Simplicity is the ultimate sophistication. ”他在产品中要求工程师们做到这一点，产品简洁、易用。同时，他在自己的人生中也实践了这一点。他从十几岁起就成了一个虔诚的素食主义者，即便家财万贯，也没有去追求物质的享受。他关注的，就是如何把他视同孩子的苹果公司做到长久。</p>
+<p>禅宗对乔布斯的另一个影响就是<strong>专注</strong>。他重回苹果后大刀阔斧精简产品系列，依据两方面特点：大众/专业版与台式机/笔记本进行组合，把产品缩减到四种。他每年都会与公司杰出人才讨论列出下一年公司发展最想做的十件事。然后，重点是，他只保留前三项。这一点真是时间管理的精髓：重要性优先。把有限的时间和精力投入到最想要做的事情上，才能得到最好的结果。什么都想做，什么都尝试去做一点，最后可能就是虎头蛇尾，什么都做不好。</p>
+<h4 id="4-完美主义者"><a href="#4-完美主义者" class="headerlink" title="4. 完美主义者"></a>4. 完美主义者</h4><p>对完美的追求常常是辛苦的过程，但是，不得不说，读乔布斯传时，我也被乔布斯的完美主义所打动，正是这种极致的追求和精雕细琢，让人们在看到产品的一瞬间就感到愉悦。乔布斯常常提到他的理念：让科技和艺术结合，让人文与科学交融，苹果的产品正体现了这一点。另外，苹果的封闭平台、软硬件一体化设计与 Windows、Android 等开放平台的对比也在书中一次次提及。对此，乔布斯有他的理由，他认为要做一件好的产品，就必须从软件到硬件都关注到。他希望在自己手中将产品做到最佳呈现给顾客，顾客可以很容易就上手使用，而不用去学习复杂的操作手册。此外，一体化的过程也能让产品设计更加简约。</p>
+<h4 id="5-另一面的乔布斯。"><a href="#5-另一面的乔布斯。" class="headerlink" title="5. 另一面的乔布斯。"></a>5. 另一面的乔布斯。</h4><p>除了工匠精神、追求卓越产品的理性一面，书中还展现了他感性的一面。第一次知道乔布斯在和合作伙伴吵架时还会用眼泪助攻；第一次知道乔布斯常常直言不讳说出自己的想法和感受。最让员工哭笑不得的是他的态度转变之大之快，可能刚刚听员工汇报时还说设计的新品 shitty，过一会儿他想通了觉得这个方案确实新颖可行，又会向同事们热情介绍 the best thing ever，而且让人感觉这就是他的点子。但是，乔布斯同样非常重视交流和团队协作。这一点，从苹果研发与设计的互相促进、产品研讨会的高效反馈、Pixar 办公大楼别具心裁的门厅设计等等，都可以看到。</p>
+<p>以前我只听过乔布斯重回苹果这些年的传奇故事，这本书让我知道了年轻的乔布斯如何一步步成长，带领苹果公司走向巅峰。我很佩服乔布斯的远见卓识，他总是先人一步发现市场需求，推动创新、引领技术潮流。也不禁想象，如果他还在的话，苹果又会推出怎样让人惊奇的新产品呢？他去世前一段时间还关注到教育行业，认为教学也应该来到互联网上、实时互动。现在的网上课堂遍地开花，人们可以方便地获得知识，这或许也在一定程度上实现了乔布斯的构想。</p>
+<p>1997 年苹果 “ Think Different ” 广告中有一句话:<strong>“The people who are crazy enough to think they can change the world are the ones who do.”</strong> 我想， 乔布斯正是这样一个伟大的人物。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
+        <tag>人物传记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>读尤瓦尔赫拉利的简史三部曲</title>
     <url>/2020/04/22/%E8%AF%BB%E5%B0%A4%E7%93%A6%E5%B0%94%E8%B5%AB%E6%8B%89%E5%88%A9%E7%9A%84%E7%AE%80%E5%8F%B2%E4%B8%89%E9%83%A8%E6%9B%B2/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -657,8 +728,135 @@
         <category>读书</category>
       </categories>
       <tags>
-        <tag>非虚构</tag>
         <tag>历史</tag>
+        <tag>非虚构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英文有声书和广播剧推荐之二</title>
+    <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/</url>
+    <content><![CDATA[<p>接着<a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">上一篇文章</a>，继续介绍好的英文有声书和广播剧。文中提供了相应的喜马拉雅/B站链接， <strong>只要点击“收听链接”项，就可直达作品页面收听，</strong> 感谢播主/up主的分享！</p>
+<a id="more"></a>
+
+<blockquote>
+<p>8.英文有声书-类型：儿童文学<br>书名：Esio Trot<br>作者：Roald Dahl<br><a href="https://www.ximalaya.com/ertong/16804268/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这本书的作者 Roald Dahl 写了很多儿童故事，其中就包括《查理和巧克力工厂》。</p>
+<p>这个小故事说的是一位男士爱慕楼下女邻居，却不敢表白。女邻居养了一只小乌龟，有一天聊天，女邻居说小乌龟为什么一直不长个呢？男士主动说他有生长咒语。那么，小乌龟长大了吗？它是怎么长大的呢？哈哈，有趣的小故事。</p>
+<blockquote>
+<p>9.英文有声书-类型：儿童文学<br>书名：The Giraffe and the Pelly and Me<br>作者：Roald Dahl<br>播讲者：Hugh Laurie<br><a href="https://www.ximalaya.com/youshengshu/19969604/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这个故事也是 Roald Dahl 写的。长颈鹿、鹈鹕和猴子组成了一个无梯子擦窗户公司，它们是怎么分工的呢？后来又有怎样的奇遇呢？</p>
+<p>这个有声书的精彩之处在于播讲者把里面的唱段唱出来了，非常欢快，很好听，而且各个角色也是活灵活现。我很喜欢这部作品。</p>
+<blockquote>
+<p>10.英文有声书-类型：儿童文学<br>书名：Alice’s Adventures in Wonderland<br>作者：Lewis Carroll<br><a href="https://www.ximalaya.com/youshengshu/18578323/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>我在喜马拉雅试听了几个版本的开头，最后选了这个版本听，主要原因就是这个书里面的 Alice 也是由一个小女孩演绎的，声音里传递出来的人物性格、脾气都非常符合角色。</p>
+<blockquote>
+<p>11.英文广播剧：Love virtually<br>演员：David Tennant &amp;Emilia Fox<br><a href="https://www.ximalaya.com/waiyu/16100569/95143213" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>一封发错地址的邮件，牵起一段网络情缘。剧情设定有点类似于电影《电子情书（You Got a Mail）》，喜欢爱情故事的朋友不要错过。</p>
+<p>如果听完觉得意犹未尽，可以听续集Every Seventh Wave。</p>
+<blockquote>
+<p>12.英文广播剧：Turing’s Test<br>演员:Samuel Barnett &amp; Paul Kendrick<br><a href="https://www.ximalaya.com/waiyu/16100569/95113208" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这个广播剧时间不长，只有半个小时。剧中主角是图灵的灵魂。图灵对于计算机、人工智能都有杰出的贡献，计算机学科最高奖“图灵奖”就是以他的名字命名，人工智能的经典测试：“图灵测试”也是由图灵提出。图灵因为同性恋身份被定罪，后来吃下含有氰化物的毒苹果身亡。这部剧就是设想图灵的灵魂与计算机之间的对话。演员感情充沛，听众很容易融入其中，感受到图灵的痛苦。</p>
+<p>Samuel Barnett 的演绎十分精彩，我也因此喜欢上了他的声音，接下来要推荐的两部作品都是由他主演或朗读的。</p>
+<blockquote>
+<p>13.英文广播剧：Cicero<br>主演：Samuel Barnett，饰演Marcus Tullius Cicero<br>George Naylor，饰演Quintus Tullius Cicero<br><a href="https://www.bilibili.com/video/BV16t411t7gF" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这部广播剧讲述的是古罗马著名政治家、演说家、雄辩家 Cicero（西塞罗）年轻时的故事，当时 Cicero 正从事律师工作。强烈推荐第一集，Cicero 的法庭辩论，逻辑清晰，论证严谨，十分精彩！这个案子也让年轻的 Cicero 在律师界一举成名。</p>
+<blockquote>
+<p>14.英文有声书—类型：人物、回忆录<br>书名：My Week with Marilyn<br>播讲者：Samuel Barnett<br><a href="https://www.ximalaya.com/waiyu/4741469/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>书名中的 Marilyn 就是玛丽莲梦露，这本书回忆了作者在剧组工作时与梦露女神相处的一周。Samuel 的声线塑造年轻的男主角很贴切。这本书让我感到惊讶之处是，想不到大众女神 Marilyn 的内心是个敏感脆弱、渴望爱的小孩。<br>ps: 片尾有彩蛋，最后是一段 Marilyn 的歌声。</p>
+]]></content>
+      <categories>
+        <category>英文有声</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>率真的科学家费曼</title>
+    <url>/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年7月。</p>
+</blockquote>
+<p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p>
+<img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center">
+<a id="more"></a>
+生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。
+
+<p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p>
+<p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p>
+<p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p>
+<blockquote>
+<p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
+        <tag>人物传记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>迎接5G时代</title>
+    <url>/2020/04/22/%E8%BF%8E%E6%8E%A55G%E6%97%B6%E4%BB%A3/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2020年1月。</p>
+</blockquote>
+<h3 id="5G-来了"><a href="#5G-来了" class="headerlink" title="5G 来了"></a>5G 来了</h3><p>刚刚过去的 2019 年是 5G 商用元年。19 年 6 月，5G 牌照发放。11 月，5G 商用套餐正式上线。“ 5G ” 也成为年度热词、大家谈论的焦点。许多人可能会有疑问：5G 除了比 4G 网速快了，还有哪些不同之处？5G 来了，它能给社会和生活带来哪些变化和便利？带着同样的问题，我打开了这本最新出版的 <strong>《 5G 时代：经济增长新引擎》</strong>，听北京邮电大学孙松林教授讲述 5G 的发展之路，展望即将开启的 5G 时代。</p>
+<a id="more"></a>
+
+<img src="https://img1.doubanio.com/view/subject/l/public/s33537277.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<h3 id="5G-带来的变革"><a href="#5G-带来的变革" class="headerlink" title="5G 带来的变革"></a>5G 带来的变革</h3><p>读完这本书，我印象最深的就是 5G 带来的<strong>理念变革</strong>：</p>
+<ul>
+<li>由面向人的通信方式转变为面向物的通信方式，打造万物互联的社会。</li>
+<li>将信息行业技术融入到通信行业，使通信网络的管理向软件化、智能化发展。</li>
+</ul>
+<p>可以预见，这两大转变将对信息社会、数字经济产生巨大的影响，而 5G 技术作为催化剂和桥梁，在其中发挥重要的作用。</p>
+<h4 id="1-从面向人的通信到面向物的通信"><a href="#1-从面向人的通信到面向物的通信" class="headerlink" title="1. 从面向人的通信到面向物的通信"></a>1. 从面向人的通信到面向物的通信</h4><p>通信的本质是信息传输。传统的通信系统如书信、电报、电话等，都是以人为中心设计的，人是信息的最初发起者和最终消费者，传递的是人可以认知的信息，这就是面向人的通信。技术发展至今，计算机、手机终端产生的数据量远远超过一个人产生的数据量，正如书中所说，“我们无法想象用人类的语言去描述一个联网游戏中各个角色的位置和动作。” 此时，还采用面向人的通信方式，对于海量数据的发送和接收处理就显得力不从心。</p>
+<p>另一方面，随着自动化和智能化的普及，包括传感器、控制器等各种机器被赋予了越来越多的功能，它们可以采集数据，产生、传送和展示信息。这一类通信过程是由物体、而不是人在主导，这就是典型的面向物的通信。</p>
+<p>5G 之前所有的通信系统都是面向人的通信，偶尔会兼顾物，5G 技术对此做出了改变。5G 的梦想是“信息随心至，万物触手及”，不但延续了之前高速率传输的特点，而且将物体连接作为自己的使命。 5G 有三大应用场景：<br>(1) <strong>增强移动宽带 ( eMBB )</strong>，提供大带宽高速率的移动服务，可以看作是对 4G 个人用户业务的延续和提升。<br>(2) <strong>海量机器类通信 ( mMTC )</strong>，提供面向广域低功耗覆盖的物联网服务，可以在 1 平方千米内同时接入 100 万个设备，按连接数密度来算，这大约相当于在 1 个足球场内可放置 700 多个同时接入 5G 网络的设备。<br>(3) <strong>超高可靠低时延通信 ( uRLLC )</strong>，这一场景的名字正是其突出特点。在此场景下，传输的控制面时延只有 1 毫秒，超越了人的触觉极限；同时，可以支持每小时 500 千米的高速移动环境下通信。主要用于满足远程医疗、工业设备、车辆等物体的通信需求。</p>
+<p>其中，后两种应用场景就是面向物的通信，这为通信打开了一片新天地。互联网也将依托 5G 从消费互联网渗透到产业互联网，带来新的产业和机会。</p>
+<h4 id="2-信息行业IT与通信行业CT的融合，云网融合"><a href="#2-信息行业IT与通信行业CT的融合，云网融合" class="headerlink" title="2. 信息行业IT与通信行业CT的融合，云网融合"></a>2. 信息行业IT与通信行业CT的融合，云网融合</h4><p>书中详细介绍了 5G 采用的几项新技术，也可以称为 5G 的几大法宝，其中包括了软件定义网络( SDN )、网络功能虚拟化( NFV ) 和网络切片、边缘计算。这些新技术将促成 5G 时代信息行业与通信行业的融合和云网融合。</p>
+<p><strong>(1) 软件化、智能化——IT与CT的融合</strong><br>软件定义网络 ( SDN )，是将传统网络设备的数据转发和路由控制两个模块分离，集中管理路由控制功能。举例来说，假设系统中有100 台不同配置的交换机，使用传统方法，需要登录每台交换机终端进行配置，效率低且故障率高，使用 SDN 就可以集中化管理配置网络设备，既让传输更加高效，又让网络维护十分便捷。</p>
+<p>网络功能虚拟化 ( NFV ) ，是通过虚拟网络功能，把许多网络设备由目前的专有平台迁移到通用的 X86 平台上，帮助运营商和数据中心更加敏捷地为客户创建和部署网络特性，降低设备投资和运营费用。NFV 和软件定义网络 ( SDN ) 关系紧密，是 SDN 的补充。</p>
+<p>SDN 通过将控制平面与数据平面分离，彻底打通了传统计算机网络（如互联网）和电信网络之间的逻辑通道。而 NFV 则是用信息行业 IT 的思维对通信行业 CT 进行的一场革命，最大的意义在于使用 IT 设备来管理电信网络，这彻底打通了 IT 与 CT 之间的硬件通道。5G 的伟大之处就在于它第一次大规模地将 IT 与 CT 进行深度融合，意义深远。</p>
+<blockquote>
+<p>软件化的应用：<strong>网络切片</strong><br>5G 需要支持语音、数据、物联网等多种业务，不同的业务场景对网络要求不同，那么，如何在一个网络里兼顾多种场景需求呢？<br>这就要用到网络切片，将物理网络通过软件划分为多个虚拟网络，不同网络适应不同业务需求。而实现这一技术的先决条件就是要能通过软件控制各个不同的网元，也就是前面介绍的 SDN 及 NFV 技术。</p>
+</blockquote>
+<p><strong>(2) 分布式计算——云网融合</strong><br>5G 强大的网络能力使得数据传输不再是瓶颈，但计算会捉襟见肘。大量的数据在终端与云端之间不停地传输，如果只靠云端来进行处理，整体时延将较大。边缘计算正是为了解决这一问题应运而生，它是在靠近物或数据源头的网络边缘侧，就近提供边缘智能服务。通俗地讲，即为就近处理数据，分担云端的计算负荷。这一技术将计算能力从集中单一的云端下沉分散到用户侧，这样可以减少响应时间，降低整体计算成本，提高系统性能。</p>
+<p>5G 时代，全国连接终端有望超过1000亿，一个云化的核心网络毫无疑问是必需的。在 SDN/NFV 的基础上，未来网络需要划分为“三朵云”：接入云、控制云和转发云，它们有一个共同的特点，就是需要部署在网络边缘，即边缘云。边缘云将计算能力下沉，因此可以提供超低时延的大带宽服务，网络下载速度可能达到数百兆，甚至超过了机械硬盘的读写速度，这意味着一些常规、高计算量的应用部署在“边缘云”节点甚至可能比安装在“本地”更快。</p>
+<p>业界普遍认为，5G 和云计算天生就是相互促进、相互融合的。一方面，5G 网络是一种“云源生”的数据传输网络，网络单元虚拟化可以帮助运营商更有效地布网和运维，把计算节点下沉这种边缘架构也是 5G 网络能够保持低时延的关键，是 5G 网络的大势所趋；另一方面，只有虚拟化和网络深度融合，才能让运营商有能力拓展出更多业务，比如为企业提供自定义专用网络和专用数据通路。因此，5G 和云计算必然相辅相成、协同发展。</p>
+<h3 id="身边的-5G-应用"><a href="#身边的-5G-应用" class="headerlink" title="身边的 5G 应用"></a>身边的 5G 应用</h3><p>了解这么多新技术，大家最关心的可能还是与自己息息相关的 5G 应用。5G 时代，会有哪些新业务、新应用等着我们去体验和发现？书中对此也进行了介绍。</p>
+<h4 id="1-畅快的游戏体验"><a href="#1-畅快的游戏体验" class="headerlink" title="1. 畅快的游戏体验"></a>1. 畅快的游戏体验</h4><p>5G 时代，云游戏会成为一个很有潜力的应用。云游戏的愿景是用户在手机端只需要处理视频，其它计算都交给云端。这样，对手机算力的需求减小，将显著降低游戏功耗并提高续航时间。对于在线手游而言，网络时延是影响游戏体验的最大因素。要解决时延问题，既要依赖 5G 网络建设，也需要部署边缘云以缩短服务器和用户终端的距离。在较短时期内，5G 的网络建设将领先于云端服务器的建设，因此，预计前期将支持时延不敏感的云游戏，后期随着云计算中心和云服务的完善，用户将在手机上体验到更多的动作类3A大作。</p>
+<h4 id="2-不在现场、胜似现场"><a href="#2-不在现场、胜似现场" class="headerlink" title="2. 不在现场、胜似现场"></a>2. 不在现场、胜似现场</h4><p>在 5G 三大场景中，增强移动宽带 ( eMBB )将首先落地应用。这一场景的大带宽高速率特点，最适合的业务就是超高清视频。我们可以看到，目前各国的 5G 主推业务也是超高清视频、虚拟现实 ( VR ) / 增强现实 ( AR ) 等。那么，什么是超高清视频？国际电信联盟将屏幕的物理分辨率达到 3840x2160 及以上的显示称为超高清，目前主要有两种：“ 4K 分辨率 ” ( 3840 x 2160 像素，这也是我们常听到的“ 4K 超高清” ) 和“ 8K 分辨率 ” ( 7680 x 4320 像素 )。超高清能达到怎样的清晰度呢？举个例子，一帧 8K 分辨率的图像有大约 3300 万个像素点，在 65 英寸的电视上显示，肉眼几乎感觉不到颗粒感。</p>
+<p>书中介绍了一些体育赛事、大型晚会采用“ 5G + 超高清 ”直播回传的例子，比如 2018 年韩国平昌冬奥会、2019 年央视春晚深圳分会场、篮球世界杯转播等等。值得一提的是，平昌冬奥会在部分比赛场馆部署了边缘计算服务器，进行了 4K 超高清 VR 沉浸式体验和任意回看。在用 VR 观看时，摄像机采集的海量数据不用传送到首尔的核心网，而只需传送到靠近赛场的边缘服务器，再传到现场 VR 区的头显上，传输距离短，保证了实时的观赛体验。未来随着技术的推广和成熟，我们将越来越多地体验到“ 5G + 超高清 ”带来的全方位高清视角。</p>
+<p>除了为用户带来身临其境的观赏体验外，“ 5G + 超高清视频 ”还可以用于安防监控、工业生产监测等，使其更加高效准确。</p>
+<h4 id="3-车联网"><a href="#3-车联网" class="headerlink" title="3. 车联网"></a>3. 车联网</h4><p>这几年随着大数据、人工智能的广泛应用，网约车、地图导航等应用已成为热门，而自动驾驶也得到了普遍关注。如果把路况信息、车辆都连上网，进行智能规划，交通状况是不是会更加有序顺畅？你是否也和我一样，设想过乘坐自动驾驶车辆出行的未来？要实现这一愿景，首先就要解决海量数据传输与处理、信息指令的快速传递等问题，目前的 4G 网络无法满足这一需求。而 5G 高可靠、高带宽、低时延的通信特性，可以为车联网的用户体验、车辆驾驶和协同通信提供有力支撑。同时，在网络部署中也同样会运用到边缘计算这一理念，将一部分业务部署在边缘云平台上，从而有效减少反应时延，使系统更加高效迅捷。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这本书让我对 5G 有了深入的了解，也对 5G 时代更加期待。书中说到，整个经济的对象分为物理世界和数字世界，而物理世界又可以简单地分为人（包括环境）和机器。第一次和第二次工业革命完成了生产过程的机械化和自动化，让机器替代人工作，但我们注意到，此时的活动仍然限于物理世界。第三次工业革命是由计算机发起的，从此开始了人和机器向数字世界迁移的过程，今天的信息通信技术正是在这一过程中起到桥梁作用。的确，当我们环顾四周，网上社交媒体、网上购物、网上预约…会发现我们正在不知不觉中步入数字世界。5G 技术的到来会加速这一迁移过程，可能带来数字经济的全面爆发。5G 结合云计算、人工智能、区块链、物联网等技术，将带来经济和社会的快速发展和变革，让我们拭目以待吧！</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
       </tags>
   </entry>
 </search>
