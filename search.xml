@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Markdown进阶</title>
+    <url>/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>在上一篇 <a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">Markdown 入门文章</a> 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？</p>
+<a id="more"></a>
+<h3 id="1-公式编辑利器"><a href="#1-公式编辑利器" class="headerlink" title="1. 公式编辑利器"></a>1. 公式编辑利器</h3><p><strong>问题：</strong> 有时我们会在文章中用到公式，如果一个个输进去，符号、标记需要花费很多时间，有没有更快捷的方法呢？</p>
+<p>有，这就是 Mathpix 。我们可以截取公式图片，然后在Mathpix 中识别并转换成相应的格式，再复制粘贴到 Markdown 文档中。</p>
+<p>到 <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix官网</a> 下载，首先我们要注册一个账号，免费账户一个月可使用 50 次；学生账户一个月可使用 100 次，需要使用学校邮箱注册；专业用户一个月需支付 4.99 美金，使用次数不限。如果不经常使用，注册一个免费用户就行，然后下载 Mathpix。</p>
+<p>打开 Mathpix 软件，登录刚才注册的账户。再打开要截取公式的页面，然后点击左上角的图标，如下图所示，就可以截图：<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-45-58.png" alt="Mathpix界面" align="center"> </p>
+<p>截取的公式图像会在 Mathpix 中自动显示并进行识别转换，如下图所示，我们可以选取所需要的格式。图中下方结果项里，第二个是行内公式，第三个是独立公式，只要点击图中箭头指示的按钮，可以复制内容，然后粘贴到 Markdown 文档中。图中最下面那条绿色的进度条代表置信度(Confidence)，进度条越长，表示转换的准确度和可靠性越高。<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-36-33.png" alt="Mathpix公式识别示例" align="center"> </p>
+<p>下面这个公式就是示例中从 Mathpix 复制粘贴到 Markdown 文档的效果。<br>$$z=w_{1} x_{1}+\ldots+w_{m} x_{m}$$</p>
+<h3 id="2-文档转换"><a href="#2-文档转换" class="headerlink" title="2. 文档转换"></a>2. 文档转换</h3><h4 id="VSCode-中将-Markdown-转换成-PDF-文档"><a href="#VSCode-中将-Markdown-转换成-PDF-文档" class="headerlink" title="VSCode 中将 Markdown 转换成 PDF 文档"></a>VSCode 中将 Markdown 转换成 PDF 文档</h4><p>Markdown 转 PDF，在<strong>预览视图</strong>中，点击右键菜单，这时会出现一系列文档转换方式，如图所示，<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown%E8%BF%9B%E9%98%B62020-07-26-10-31-08.png" alt><br>看到这个菜单你可能会想到用 PDF(prince) 选项，但是转换效果不如图中选择的 Chrome(Puppeteer)&gt; PDF 选项效果好，您可以尝试转换一下，对比一下输出的 PDF 文档显示效果。</p>
+<blockquote>
+<p>您是不是有顾虑，害怕转换后 Markdown 文档就变成 PDF 文档了？如果弄错了，原文档又找不回来了怎么办？<br>请放心，这个转换是另外输出一个 PDF 文档，不会对本身的 Markdown 文档做修改。</p>
+</blockquote>
+<h4 id="Markdown-转换成-Word-文档"><a href="#Markdown-转换成-Word-文档" class="headerlink" title="Markdown 转换成 Word 文档"></a>Markdown 转换成 Word 文档</h4><p>这里就要用到文档转换界的“瑞士军刀”——Pandoc，它能实现很多文档类型的转换。</p>
+<p>（1）如果您正在使用 Python，电脑中安装了 Anaconda，那么其中就包含了 Pandoc 模块，可以<strong>在 Anaconda 的命令行界面运行 Pandoc</strong>。</p>
+<p>比如，我要将文件名为“mdtest”的 Markdown 文档转换成 Word，先将 Anaconda 的命令行界面转换到 mdtest.md 所在文件夹，然后运行命令：<br><code>pandoc mdtest.md -o mdtest.docx</code><br>就会在当前文件夹中转换并新生成一个 mdtest.docx 文档。</p>
+<p>（2）<strong>Typora 或 VSCode 中 Markdown 转 Word 文档</strong><br>首先要安装 Pandoc 软件。进入<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">Pandoc官方网站下载页面</a>，点击最新的安装包，比如我是 Windows 系统，就选择 .msi 后缀的文件下载安装。</p>
+<blockquote>
+<p>您可能会有疑问，前面方法（1）中提到 Anaconda 包含了 Pandoc 模块，那我们还要再安装一次吗？<br>虽然 Anaconda 包含了 Pandoc，但是这一功能要在 Anaconda 命令行中使用。如果我们要在软件中操作，就需要单独安装 Pandoc。</p>
+</blockquote>
+<p>需要用到图形处理的交叉引用时，还要安装：<br><code>pip install pandoc-fignos</code></p>
+<p><strong>对于 Typora</strong>，现在点击菜单栏 File &gt; Export，选择 Word(.docx) 选项，即可导出 Word 文档。</p>
+<p><strong>对于 VScode</strong>，还需要<strong>在 Markdown 文档的开头加入以下语句</strong>，定义 Pandoc 转化后的文件格式。path 是转化后输出 Word 文档的存放位置，是必填项。后面三项根据需要选择，toc 是目录选项，true表示生成目录。请注意语句的缩进格式以及语句前后的<code>---</code>标记符。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"当前Markdown文档名"</span></span><br><span class="line"><span class="attr">output:</span></span><br><span class="line">    <span class="attr">word_document:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/当前Markdown文档名.docx</span></span><br><span class="line">        <span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">toc_depth:</span> <span class="number">6</span></span><br><span class="line">        <span class="attr">number_sections:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>然后在<strong>预览视图</strong>中，点击右键菜单中的 Pandoc 选项，即可完成文档转换。</p>
+<h4 id="Markdown-文档在线转换成富文本格式"><a href="#Markdown-文档在线转换成富文本格式" class="headerlink" title="Markdown 文档在线转换成富文本格式"></a>Markdown 文档在线转换成富文本格式</h4><p>现在大家都愿意在网上写文章分享交流知识，那么，您是否曾经花很多时间在微信文章、知乎平台等文章的排版上呢？</p>
+<p>前面提到，Markdown 可以极大缩短排版编辑时间。我们就想，要是用 Markdown 编辑器写文章，然后用类似上面介绍的文档转换工具转换成网络平台的格式就好了。</p>
+<p>答案是当然有，而且选择还不少，我在这里分享两款我用过的<strong>在线转换工具</strong>，如果您有觉得不错的转换工具，欢迎留言与大家交流分享。<br><a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">微信公众号格式化编辑器</a><br>特点：风格简洁，很适合排版文章。如果是诗歌可能换行、字号等不好调整。<br><a href="http://md.aclickall.com/" target="_blank" rel="noopener">Md2All</a><br>特点：功能强大，版式风格选择很多，如果略懂网页编辑Javascript的语法，还可以自己对版式调整。</p>
+<p>使用 Markdown 编辑文档时，您有哪些得心应手的效率工具呢？欢迎分享交流。</p>
+<p>参考文章：<br>1.<a href="https://blog.csdn.net/nkwshuyi/article/details/78714788" target="_blank" rel="noopener">如何用Markdown写论文？</a><br>2.<a href="https://www.jianshu.com/p/6ba04f669d0b" target="_blank" rel="noopener">Pandoc安装与使用（转）</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python编程之API入门：一 使用百度地图API查地理坐标</title>
     <url>/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/</url>
     <content><![CDATA[<p>在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。</p>
@@ -39,6 +80,194 @@
       <tags>
         <tag>Python</tag>
         <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows系统的屏幕截图，你用过哪些方法？</title>
+    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</url>
+    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
+<a id="more"></a>
+<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
+<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
+<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
+<blockquote>
+<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
+</blockquote>
+<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
+<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口的设置相同。</p>
+<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
+
+
+
+
+<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
+
+
+
+<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法可以灵活选择截图区域，我经常使用。</p>
+<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】键，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
+<p>6.打开<a href="https://www.snipaste.com/" target="_blank" rel="noopener">Snipaste官网</a>，下载安装 Snipaste。点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
+<blockquote>
+<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
+</blockquote>
+<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p>
+<p>参考文章：<br>1.<a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br>2.<a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信息论之父香农</title>
+    <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s29547304.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+>本文写于2019年12月。
+
+<p>提起香农，或许很多人都会感到陌生，可是，说到他的理论带来的福利——清晰的电话通信、浏览网页，…每个人都十分熟悉。<strong>香农( Claude Shannon, 1916-2001 )是信息论之父</strong>，这一理论引领人们进入了信息时代。而在信息论之前，香农已经有了另一项伟大成果：将布尔函数引入到开关电路设计中，实现了从模拟电路向数字电路的转化。</p>
+<p>看到这些伟大的成就，想必您也对香农产生了好奇，这是怎样的一位天才人物，他是如何进行科学研究的，他的一生有哪些故事呢？<strong><em>A Mind at Play: How Claude Shannon Invented the Information Age</em></strong>  这本书讲述了香农在工作、研究、生活的经历和故事，让我们得以走近香农，也走近那个时代的科学家。</p>
+<a id="more"></a>
+<p>读完本书，我在深深佩服香农的才智之余，也对一些地方印象深刻，在这里与大家分享：</p>
+<h4 id="1-简化、抽象、类比。"><a href="#1-简化、抽象、类比。" class="headerlink" title="1. 简化、抽象、类比。"></a>1. 简化、抽象、类比。</h4><p>香农善于简化和抽象，这样就能发现看似不同的事物之间的相通之处，进而联系、类比，得到新的解决思路。比如，复杂的模拟开关电路、遗传学问题、布尔函数，这看似不相干的三个领域，抛开那些表征，在简化后却是相似的。而让香农享誉全球的信息理论，也是香农对实际通信传输进行抽象、简化后推导得出，这样我们不用在意传输的是文字、语音、图片还是视频，不用在意传输环境的差异，不需要再用实验试错法来提高传输质量，而只用关注最重要的东西——信息量（用于衡量传输量的多少，香农定义了一个新的单位：比特）、信噪比（衡量传输中噪声干扰大小的指标），同时，这些指标也是在变化万端的传输应用场景中不变的可提取参数。</p>
+<h4 id="2-专才与通才。"><a href="#2-专才与通才。" class="headerlink" title="2. 专才与通才。"></a>2. 专才与通才。</h4><p>香农是幸运的，不只因为他有天才的头脑，还因为他遇到了慧眼识才的伯乐：他的导师布什(Vannevar Bush)，布什认为科学家不应固守在一个小领域，而应该扩大眼界，因此，他鼓励数学系硕士毕业的香农挑战新的领域——推荐他去遗传学实验室做博士研究。后来香农遇到的几个“贵人”：Warren Weaver, Thornton Fry 均持相似观点，即科学家应该拓展自己关注的领域，不能只专注自己所学。</p>
+<h4 id="3-为什么做科学研究？"><a href="#3-为什么做科学研究？" class="headerlink" title="3. 为什么做科学研究？"></a>3. 为什么做科学研究？</h4><p>因为好奇、想去知道事物背后的原因，也是因为好玩、有趣。知道这一点，就不难理解为什么香农会研究走迷宫的电动老鼠（机器学习的雏形）、抛接球的数学技巧等等。至于名利，他倒看得很淡。书中有一句很幽默的评论 “ Rarely has a thinker who devoted his life to the study of communication been so uncommunicative. ” 成名之后，他没有成为公众人物进行科普宣传等，依然在自己感兴趣的领域进行研究，也因此，世人对他知之甚少。</p>
+<p>这本书的作者也提了一个引人深思的现象，在那个年代，科学家们都在积极探索、思考问题，甚至有的是看似没有什么用处的问题。对他们而言，开公司、做产品、赚钱并不是首要考虑的事情。现在的人们似乎认为科学研究就是代表一份稳定工作，人们做一项研究的出发点就是实用，反倒没有了以前人们发现的乐趣。</p>
+<h4 id="4-香农与人工智能"><a href="#4-香农与人工智能" class="headerlink" title="4. 香农与人工智能"></a>4. 香农与人工智能</h4><p>香农曾说过：“ I’m a machine and you’re a machine, and we both think, don’t we? ” 他认为机器是可以做到“像”人一样思考，所谓“像”，就是从行为学角度看，达到“思考”的效果。同时，他敏锐地提醒人们，不要依据人的思考方式去设计人工智能，而应该根据机器自身的优缺点（而不是人的思维特点）、取长补短以得到最佳效果。</p>
+<p>谈到人工智能的未来，香农是一个乐天派，他认为人类造出比自己强大的物种很正常。他还半开玩笑地说，从信息熵的效用角度看，机器替代人类无可厚非。</p>
+<h4 id="5-通俗易懂"><a href="#5-通俗易懂" class="headerlink" title="5. 通俗易懂"></a>5. 通俗易懂</h4><p>书中讲述的理论对于大众来说似乎有点高深，但是并不用担心会看不懂，因为作者用了很多比喻、例子帮助读者理解。此外，文中还有不少排比句，文笔优美。举几个例子：</p>
+<blockquote>
+<p>Cryptography was the war’s white noise: it was ubiquitous, and yet only those paying the closest attention could pick it up.<br>将密码学比喻为战争时期的白噪声，无处不在（应用广泛），但不易察觉，只有最仔细的人能发现。我觉得这个比喻很巧妙。</p>
+</blockquote>
+<blockquote>
+<p>Where Shannon was allergic to administrative work and bureaucracies of almost every kind, Weaver thrived in them.<br>Where Shannon considered teaching a nettlesome requirement of university employment, Weaver relished it.<br>And where Shannon could continue to pound away at a mathematical problem or research question until he struck sparks, pursuing problems with breathtaking intuition and instinct, Weaver had discovered that he possessed no such gift.<br>这里将Shannon和Weaver两个科学家（当时也是同事）对比，两人对于教职、行政工作、科研的态度形成鲜明对比，看出两人不同的爱好。</p>
+</blockquote>
+<blockquote>
+<p>All of this communication—faster, cheaper, more voluminous—rests on Shannon’s realization of our predictability. All of that predictability is fat to be cut; since Shannon, our signals have traveled light.<br>最后这个“travel light”用词实在妙，意为轻装前行。自从香农提出信息论之后，人们终于找到了高效传输的正确方法。</p>
+</blockquote>
+<p>以前我觉得信息论、香农公式枯燥抽象，读了这本书，我了解香农提出理论的来龙去脉，体会到其中的简洁之美，又对信息论产生了兴趣，这真是本书的奇妙之处。强烈推荐这本书。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>人物传记</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一本书中的人生滋味</title>
+    <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+<img src="https://img3.doubanio.com/view/subject/l/public/s4608452.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+
+
+
+<blockquote>
+<p>本文写于2019年11月。</p>
+</blockquote>
+<p>今天我想给大家推荐一本英文科幻小说 <strong>Flowers for Algernon（《献给阿尔吉侬的花束》）</strong>。</p>
+<a id="more"></a>
+<p>最早我是在一个科幻作品的指南资源帖中看到对这部作品的推荐和介绍，楼主介绍这本书时说，读完这本书，他静静地蒙在被子里哭了一场，这让我印象深刻。这是怎样的一部科幻作品呢？带着这样的疑问，我开始了阅读之旅。我先读了一点文字版，发现开篇就有很多错别字（卖个关子，原因稍后介绍），很不适应，感觉自己读到了盗版书，没有看下去。后来无意中在喜马拉雅听到了有声书版本，播讲者把错别字转换为迟缓语速和停顿的形式，我比较能接受。此外，朗读者的声音年轻，有大男孩的感觉，符合主人公 Charlie 的年龄特点。</p>
+<p>作者 Daniel Keyes 学过心理学，善于描写心理。 1959年，Keyes 在《奇幻与科幻杂志》首度发表短篇的 Flowers for Algernon，赢得雨果奖的肯定，1966年将其扩展成长篇后又再次荣获该年度星云奖，一举囊括了科幻小说界最重要的两项大奖。那么，这部小说讲了怎样的一个故事呢？</p>
+<p>书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以 Charlie 日记的形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。书开篇和末尾的日记，正是作者按照 Charlie 智力低时的书写能力，故意用错别字写的。而书名里提到的 Algernon 是试验的小老鼠的名字，它比 Charlie 先做手术，智力得到成倍提高，比手术前的 Charlie 还要聪明。另一方面，Algernon 也充当了预言者的角色，它的一系列变化提前预示了 Charlie 在手术后将经历的智力提升、情绪变化、智力退化、身体衰落。而与 Algernon 不同的是，身处人类社会之中的 Charlie 体会到更多人生滋味，遇到人际关系的困惑，经历大喜大悲、得而复失。</p>
+<p>读这本书，我的心里总是觉得酸楚、五味杂陈。人们常说，不如做一个快乐的傻子。书中也是这样，弱智时的 Charlie 只想让周围的人快乐，善良单纯的他总是微笑友善地对待每一个人。随着他手术后一天天变聪明，他突然意识到原来别人的快乐竟来自于对他的取笑捉弄，他无法接受，感到生气、愤怒。而具有讽刺意味的是，周围的人同样也无法接受他的改变（由于是试验手术，Charlie 不能告诉大家），他们不能容忍自己的智商竟然不如傻子。于是，Charlie 遭到嫉妒和排挤，大家觉得他傲慢无礼。Charlie 被解雇，离开了工作十几年的店。可是，后来有一段时间 Charlie 的智力退化到原来的低水平，他短暂地回到店里工作，有新同事欺负他时，那些老同事又都站出来保护他，这一点让人稍感欣慰。人性真是复杂而捉摸不透。</p>
+<p>书中也探讨了一个人智力飞速增长时伴随而来的心理成长过程。Charlie 的智力水平终于从儿童到达正常成人甚至天才，但他的心理却还在儿童阶段，需要一段时间来成长。这一过程中有的描写很像青少年成长的历程，比如我们成长到某个阶段时，也许会发现原来小时候的偶像，自己心目中很聪明很厉害的人只是一个普通人。书中就有这样一个有趣的例子，Charlie 成为天才后发现以前自己眼中的天才——给他做手术的教授们，并非他原来想象中的知识渊博，他们也只是平凡人，他们也有很多不懂的地方，也为名利所累，这给 Charlie 带来一次小小的心灵冲击。</p>
+<p>而当 Charlie 记忆的阀门打开，儿时的记忆大多带给他伤痛和恐惧，每次他的回忆都让人心疼。Charlie 好强的母亲不想让别人知道儿子的智力不足，她先是想尽办法给 Charlie 治病，在生了一个健康女儿之后，又对 Charlie 开始打骂，最后送走 Charlie。当我读到 Charlie 乖巧、笨拙地只想蜷缩在厨房角落里，害怕母亲的责骂和驱赶，可是，最后这个家也没有他小小身躯的容身之处时，忍不住心酸落泪。童年给 Charlie 留下了心理创伤，以致他对于爱情、女人总是向往又不敢接近。但是，他最终选择了原谅，并且在自己高智商时去见了母亲一面，希望母亲能为此时的他感到骄傲。当他们相认时，Charlie 的智商正是顶峰时期，他是个天才，知识渊博，通晓多国语言，可是，出乎意料地，他开口第一句，回到曾经的傻傻的状态：“Ma…”，听到这一句时，我哽咽了。一个人不管如何变化，在父母面前，大概还是会变回最初的那个小孩，一个想得到“你是个好孩子”肯定的小孩。</p>
+<p>读完这本书，我也想静静地坐一会儿，默默流泪。为了什么流泪呢？是因为同情 Charlie 的境遇，还是因为想到 Charlie 所经历的，其实也是压缩版的人生？成长、迷茫、痛苦、原谅、善良…我们每个人也在经历、思考，然后改变、成长。此外，这本书还告诉我们，每一个生命，弱小或是强大，愚笨或是聪明，都值得也需要被尊重和爱。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>小说</tag>
+        <tag>科幻</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对肯福莱特世纪三部曲的讨论和思考</title>
+    <url>/2020/04/22/%E5%AF%B9%E8%82%AF%E7%A6%8F%E8%8E%B1%E7%89%B9%E4%B8%96%E7%BA%AA%E4%B8%89%E9%83%A8%E6%9B%B2%E7%9A%84%E8%AE%A8%E8%AE%BA%E5%92%8C%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年3月。</p>
+</blockquote>
+<p>经朋友推荐，我读了肯.福莱特（Ken Follett）的世纪三部曲：<strong>Fall of Giants（《巨人的陨落》）、Winter of the World（《世界的凛冬》）和 Edge of Eternity（《永恒的边缘》）</strong>。这套书讲述了二十世纪在英国、德国、美国、俄国（苏联）的几个家族跨越一个世纪的故事，包括一战、二战和冷战。看到书商的广告，全球读者平均几天看完这套书，一开始我还有点疑惑这套书是否真正有宣传中的吸引力。然而，打开第一本之后，我就停不下来，接着读完后面两本，一直到最后结束，我也掩卷沉思，仿佛和书中人物一起回忆往昔。肯.福莱特真的是一个讲故事高手，他把书中人物与重大历史事件结合，让读者在他们的故事中也看到了历史。</p>
+<a id="more"></a>
+
+<img src="https://img1.doubanio.com/view/subject/l/public/s4494549.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>当我在网上看对于这部作品的评论时，发现了不同的观点。一部分读者，比如像我这样的历史小白，认为肯.福莱特把历史写得鲜活生动，读起来很有趣；另一部分读者读过相关的近现代史，认为肯.福莱特以他自己的价值观在写历史，有的地方不够客观公正。这就涉及到历史小说中历史和虚构比重问题，以及作者能否代入过多自己的感情色彩。因为我刚读这类历史小说，我也无法评述，就作为后续读这类小说的一个思考题吧。</p>
+<p>总结一下网上对于三部作品的争议点，以便后续拓展阅读：</p>
+<p>1、<strong><em>Fall of Giants</em></strong>（《巨人的陨落》）是开山之作，评分也是三部曲中最高的。很多读者都认为它有一种史诗般的恢弘。而对这部作品不满意的读者恰恰是看过《圣殿春秋》后对肯.福莱特有较高期望的，他们认为肯.福莱特仍在用《圣殿春秋》的模式写这本书，对二十世纪初社会阶层的描写不够准确。在一战的描写中，似乎军官反而不如士兵有勇有谋。关于一战历史，有推荐：巴巴拉.塔奇曼著《八月炮火》。</p>
+<p>2、<strong><em>Winter of the World</em></strong>（《世界的凛冬》）写的是二战历史。有读者认为它的叙事模式借鉴了几十年前赫尔曼.沃克的《战争风云》，尤其是美国的Dewar一家作为总统的亲信，与《战争风云》里亨利上校一样，得以见证很多重要历史时刻。我正好读过《战争风云》，它以美国一个海军武官亨利上校一家为中心展开故事，里面对于军事战略、政治外交等描写较为精确详细。而《世界的凛冬》涉及人物、国家众多，对于罗斯福决策、与盟国协商的历史时刻着墨不多。但是，我觉得《世界的凛冬》的故事更加通俗，肯.福莱特描写人物感情还是很细致的。《战争风云》主要人物没有死亡，（不知道它的续集《战争与回忆》里是否会有），我个人认为，这样描写战争的残酷性感染力相对弱了一点。《世界的凛冬》则描写了多次死亡，军人、平民，亲人、朋友，各种情况，让人在心痛中更深地体会到战争的残酷无情、生命的脆弱、当下的可贵。</p>
+<p>3、<strong><em>Edge of Eternity</em></strong>（《永恒的边缘》）这部作品跨度几十年，作者难以顾全，只是挑了一部分历史进行描写，比如叱咤政坛的撒切尔夫人就没有提及。有读者认为作者对于美国、苏联政治的描写带有主观看法。感谢豆瓣网友ggarlic推荐相关历史作品：《光荣与梦想》、《极端的年代》。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>小说</tag>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不一样的马斯克</title>
+    <url>/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年6月。</p>
+</blockquote>
+<p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p>
+<a id="more"></a>
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p>
+<p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p>
+<p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p>
+<p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>人物传记</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>写作前的思考：Why&amp;How</title>
+    <url>/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&amp;How/</url>
+    <content><![CDATA[<p>经过一番努力，终于在github上建了这个博客小站。趁着现在仍然对写作抱有兴趣和热情，我记录下写作以及建立这个小站的初衷，以后动力不足时可以看一下充电。</p>
+<a id="more"></a>
+
+<img src="/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&How/writing.jpg" alt="Andrew Neel from Pexels" align="center">
+
+
+<p>我最近在看fast.ai创始人Jeremy Howard老师的机器学习课程视频，其中他多次推荐博客写作。他认为，写技术博客可以很好地理解和运用知识。其中给我最大的启发就是技术博客的写作角度。在此之前，我一直认为，只有我对某个领域很懂，才可以写一些文章来帮助别人。其实不然。虽然我是新手小白，但是如果我弄懂了一个问题，就可以总结分享出来，帮助以后入门的小白。而且，新手小白反而更能理解新手容易遇到的困惑和问题。另外，这个博客可以作为学习笔记使用，整理知识点，方便自己日后查阅。而当别人遇到同样的问题需要解答时，也可发送博客文章给对方，高效地分享知识。</p>
+<p>平时我喜欢读书、语言学习、听轻音乐等。最近两三年我加大了英文原著阅读量，同时也对英文有声书兴趣正浓。因此，这个博客小站里也有一部分文章是写技术之外的兴趣爱好：书评、英语学习笔记、…。</p>
+<p>坚持写作，思考、表达，不断完善、不断提高。</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -98,77 +327,28 @@
       </tags>
   </entry>
   <entry>
-    <title>一本书中的人生滋味</title>
-    <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-<img src="https://img3.doubanio.com/view/subject/l/public/s4608452.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-
-
-
-<blockquote>
-<p>本文写于2019年11月。</p>
-</blockquote>
-<p>今天我想给大家推荐一本英文科幻小说 <strong>Flowers for Algernon（《献给阿尔吉侬的花束》）</strong>。</p>
+    <title>我的英语学习视频列表</title>
+    <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。</p>
 <a id="more"></a>
-<p>最早我是在一个科幻作品的指南资源帖中看到对这部作品的推荐和介绍，楼主介绍这本书时说，读完这本书，他静静地蒙在被子里哭了一场，这让我印象深刻。这是怎样的一部科幻作品呢？带着这样的疑问，我开始了阅读之旅。我先读了一点文字版，发现开篇就有很多错别字（卖个关子，原因稍后介绍），很不适应，感觉自己读到了盗版书，没有看下去。后来无意中在喜马拉雅听到了有声书版本，播讲者把错别字转换为迟缓语速和停顿的形式，我比较能接受。此外，朗读者的声音年轻，有大男孩的感觉，符合主人公 Charlie 的年龄特点。</p>
-<p>作者 Daniel Keyes 学过心理学，善于描写心理。 1959年，Keyes 在《奇幻与科幻杂志》首度发表短篇的 Flowers for Algernon，赢得雨果奖的肯定，1966年将其扩展成长篇后又再次荣获该年度星云奖，一举囊括了科幻小说界最重要的两项大奖。那么，这部小说讲了怎样的一个故事呢？</p>
-<p>书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以 Charlie 日记的形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。书开篇和末尾的日记，正是作者按照 Charlie 智力低时的书写能力，故意用错别字写的。而书名里提到的 Algernon 是试验的小老鼠的名字，它比 Charlie 先做手术，智力得到成倍提高，比手术前的 Charlie 还要聪明。另一方面，Algernon 也充当了预言者的角色，它的一系列变化提前预示了 Charlie 在手术后将经历的智力提升、情绪变化、智力退化、身体衰落。而与 Algernon 不同的是，身处人类社会之中的 Charlie 体会到更多人生滋味，遇到人际关系的困惑，经历大喜大悲、得而复失。</p>
-<p>读这本书，我的心里总是觉得酸楚、五味杂陈。人们常说，不如做一个快乐的傻子。书中也是这样，弱智时的 Charlie 只想让周围的人快乐，善良单纯的他总是微笑友善地对待每一个人。随着他手术后一天天变聪明，他突然意识到原来别人的快乐竟来自于对他的取笑捉弄，他无法接受，感到生气、愤怒。而具有讽刺意味的是，周围的人同样也无法接受他的改变（由于是试验手术，Charlie 不能告诉大家），他们不能容忍自己的智商竟然不如傻子。于是，Charlie 遭到嫉妒和排挤，大家觉得他傲慢无礼。Charlie 被解雇，离开了工作十几年的店。可是，后来有一段时间 Charlie 的智力退化到原来的低水平，他短暂地回到店里工作，有新同事欺负他时，那些老同事又都站出来保护他，这一点让人稍感欣慰。人性真是复杂而捉摸不透。</p>
-<p>书中也探讨了一个人智力飞速增长时伴随而来的心理成长过程。Charlie 的智力水平终于从儿童到达正常成人甚至天才，但他的心理却还在儿童阶段，需要一段时间来成长。这一过程中有的描写很像青少年成长的历程，比如我们成长到某个阶段时，也许会发现原来小时候的偶像，自己心目中很聪明很厉害的人只是一个普通人。书中就有这样一个有趣的例子，Charlie 成为天才后发现以前自己眼中的天才——给他做手术的教授们，并非他原来想象中的知识渊博，他们也只是平凡人，他们也有很多不懂的地方，也为名利所累，这给 Charlie 带来一次小小的心灵冲击。</p>
-<p>而当 Charlie 记忆的阀门打开，儿时的记忆大多带给他伤痛和恐惧，每次他的回忆都让人心疼。Charlie 好强的母亲不想让别人知道儿子的智力不足，她先是想尽办法给 Charlie 治病，在生了一个健康女儿之后，又对 Charlie 开始打骂，最后送走 Charlie。当我读到 Charlie 乖巧、笨拙地只想蜷缩在厨房角落里，害怕母亲的责骂和驱赶，可是，最后这个家也没有他小小身躯的容身之处时，忍不住心酸落泪。童年给 Charlie 留下了心理创伤，以致他对于爱情、女人总是向往又不敢接近。但是，他最终选择了原谅，并且在自己高智商时去见了母亲一面，希望母亲能为此时的他感到骄傲。当他们相认时，Charlie 的智商正是顶峰时期，他是个天才，知识渊博，通晓多国语言，可是，出乎意料地，他开口第一句，回到曾经的傻傻的状态：“Ma…”，听到这一句时，我哽咽了。一个人不管如何变化，在父母面前，大概还是会变回最初的那个小孩，一个想得到“你是个好孩子”肯定的小孩。</p>
-<p>读完这本书，我也想静静地坐一会儿，默默流泪。为了什么流泪呢？是因为同情 Charlie 的境遇，还是因为想到 Charlie 所经历的，其实也是压缩版的人生？成长、迷茫、痛苦、原谅、善良…我们每个人也在经历、思考，然后改变、成长。此外，这本书还告诉我们，每一个生命，弱小或是强大，愚笨或是聪明，都值得也需要被尊重和爱。</p>
+<p><strong>2020年6月作品：</strong><br>12.<a href="https://www.bilibili.com/video/BV1Up4y1U7hf" target="_blank" rel="noopener">美景、轻音乐+读书，你喜欢吗？</a><br><strong>宁萌说：</strong> 从 The Wind in the Willows 《柳林风声》第一章中选了两段，读给您听，搭配上相应的美景和轻音乐，喜欢吗？快去欣赏一下吧！</p>
+<p>11.<strong>重磅推荐：</strong><a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br><strong>宁萌说：</strong> 这是一期视频合辑，里面有对 The Wind in the Willows 《柳林风声》第一章的精读，还有我精心制作的笔记字幕哦，更加易懂。因为我花了很多时间和心思在这个精读活动上，一边接收观众反馈，一边尝试改进，所以特别推荐您点开看一下，帮我提点改进建议啊，谢谢！ </p>
+<p><strong>2020年5月作品：</strong><br>10.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 我很喜欢 The Wind in the Willows 《柳林风声》这本书，很有趣，文笔优美，打算做精读。这一期是导读，简要介绍一下这本书。</p>
+<p>9.<a href="https://www.bilibili.com/video/BV1bC4y1H7Ay" target="_blank" rel="noopener">英语表达-怎么描述煎炸食物？</a><br><strong>宁萌说：</strong> 爱美食、爱生活的小伙伴不要错过呀！</p>
+<p>8.<a href="https://www.bilibili.com/video/BV1ue411W7ga" target="_blank" rel="noopener">英语表达-一关门想起钥匙落在屋里了……</a></p>
+<p>7.<a href="https://www.bilibili.com/video/BV1b5411s7JY" target="_blank" rel="noopener">英语表达-一顿匆忙的早餐</a></p>
+<p>6.<a href="https://www.bilibili.com/video/BV1x54y1D7Ae" target="_blank" rel="noopener">英语表达-工作日的早晨，闹钟没响……</a></p>
+<p>5.<a href="https://www.bilibili.com/video/BV1mC4y1H7yp" target="_blank" rel="noopener">英语表达-英语怎么描述穿着得体?</a></p>
+<p>4.<a href="https://www.bilibili.com/video/BV14f4y1U7vA" target="_blank" rel="noopener">英语表达-whistle除了表示口哨声，还可以形容这些声音……</a><br><strong>宁萌说：</strong> 这一期的表达我特别推荐，可以体会到用词的灵活。 </p>
+<p>3.<a href="https://www.bilibili.com/video/BV1DV411k7wh" target="_blank" rel="noopener">英语表达-“有其父必有其子”，英文怎么说?</a><br><strong>宁萌说：</strong> 从 Harry Potter《哈利波特》中摘录的，你猜这是说的谁？</p>
+<p>2.<a href="https://www.bilibili.com/video/BV1a5411s7T6" target="_blank" rel="noopener">英语表达-从童话书里看到的一句有趣的表达</a><br><strong>宁萌说：</strong> 从这一期开始，我制作了8期英语表达的短视频，都是从书中精选的句子，地道表达，形象生动，快来看看吧！</p>
+<p>1.<a href="https://www.bilibili.com/video/BV1Xz411q726" target="_blank" rel="noopener">教程-英文电子书阅读-怎么找书，手机上用什么看书？</a><br><strong>宁萌说：</strong> 这是我在B站的第一个小视频，时长不到两分钟，用手机录屏的方式示范了 Gutenberg.org+多看+印象笔记 的英文电子书阅读方法。</p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>英语</category>
       </categories>
       <tags>
         <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>科幻</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows系统的屏幕截图，你用过哪些方法？</title>
-    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</url>
-    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
-<a id="more"></a>
-<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
-<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
-<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
-<blockquote>
-<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
-</blockquote>
-<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
-<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口大小保持一致。</p>
-<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
-<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
-
-
-
-
-<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
-<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
-
-
-
-<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法截图区域可以灵活选择，我经常使用。</p>
-<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
-<p>6.安装 Snipaste，点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
-<blockquote>
-<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
-</blockquote>
-<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p>
-<p>参考文章：<br><a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br><a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -176,17 +356,17 @@
     <url>/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/</url>
     <content><![CDATA[<h3 id="1-为什么选择-Markdown？"><a href="#1-为什么选择-Markdown？" class="headerlink" title="1. 为什么选择 Markdown？"></a>1. 为什么选择 Markdown？</h3><p>正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：</p>
 <ul>
-<li><p>写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。</p>
+<li>写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。</li>
+<li>在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。</li>
+<li>对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。<a id="more"></a>
+
 </li>
-<li><p>在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。</p>
-</li>
-<li><p>对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。</p>
-<a id="more"></a>
+</ul>
 <p>使用 Markdown之后，你就不用再为这些问题烦恼了。只需在写作时顺带加入几个标记符，文档就会显示为统一、规范的网页格式。而且，Markdown 还有以下优势：</p>
+<ul>
+<li><p><strong>Markdown编辑器平台统一。</strong> 如果你使用过网上的写作平台，可能就会发现，在支持富文本编辑器的平台，比如豆瓣，输入文档后还需要对标题、链接等重新编辑调整一下，而支持 Markdown 编辑器的平台，比如我的博客小站使用的hexo博客系统、或者CSDN， 输入文档后显示比较一致，标题、加粗、链接等都是使用的统一语法，无需对内容进行二次排版编辑。</p>
 </li>
-<li><p><strong>Markdown编辑器平台统一。</strong> 如果你使用过网上的写作平台，可能就会发现，在使用富文本编辑器的平台，比如豆瓣，输入文档后还需要对标题、链接等重新编辑调整一下，而支持 Markdown 编辑器的平台，比如我的博客小站使用的hexo博客系统、或者CSDN， 输入文档后显示比较一致，标题、加粗、链接等都是使用的统一语法，无需对内容进行二次排版编辑。</p>
-</li>
-<li><p>现在有很多工具可以帮助我们<strong>将 Markdown 文档轻松转换为 pdf 或 word 文档</strong>，这样，用 Markdown 写作，然后转换一下，可以省去很多排版编辑时间。</p>
+<li><p>现在有很多工具可以帮助我们<strong>将 Markdown 文档轻松转换为 PDF 或 Word 文档</strong>，这样，用 Markdown 写作，然后转换一下，可以省去很多排版编辑时间。</p>
 </li>
 </ul>
 <p>看到这里，您是不是也跃跃欲试，想开始用 Markdown 来编辑文档。那么，要在哪里用？怎么用呢？别着急，接着往下看。</p>
@@ -209,16 +389,16 @@
 <img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-07-47.png" alt="列表的对照示例" align="center">
 
 <p>请注意示例中的有序列表。我们输入<code>数字</code>+<code>.</code>+空格，后续项会自动顺序编号，而如果始终输入<code>1</code>+<code>.</code>+空格，实际的显示效果也是顺序编号的。</p>
-<h4 id="2-6-公式"><a href="#2-6-公式" class="headerlink" title="2.6 公式"></a>2.6 公式</h4><p>在行内公式前后使用<code>$</code>标记，独立公式的前后使用<code>$$</code>标记，可以看下面的简单示例，更多公式的写法请参考网上的Latex语法。</p>
+<h4 id="2-6-公式"><a href="#2-6-公式" class="headerlink" title="2.6 公式"></a>2.6 公式</h4><p>在行内公式前后使用<code>$</code>标记，独立公式的前后使用<code>$$</code>标记，可以看下面的简单示例，更多公式的写法请参考网上的 Latex 语法。</p>
 <img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-25-09-47-33.png" alt="公式的对照示例" align="center">
 
 <h4 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-04-08-59-02.png" alt="表格的对照示例" align="center">
 
-<p>图中示例展示了表格的写法，注意：第二行的分隔线对于生成表格至关重要。<br>另外，如果后期要进行文档转换，尤其是转换成 word ，一定要先检查一下表格能否正常转换，我就遇到过转换成 word 后、显示的表格是图中左侧原始编辑格式的情况。</p>
+<p>图中示例展示了表格的写法，注意：第二行的分隔线对于生成表格至关重要。<br>另外，如果后期要进行文档转换，尤其是转换成 Word 文档，一定要先检查一下表格能否正常转换，我就遇到过转换成 Word 文档后、显示的表格是图中左侧原始编辑格式的情况。</p>
 <h4 id="2-8-插入网址链接和图片"><a href="#2-8-插入网址链接和图片" class="headerlink" title="2.8 插入网址链接和图片"></a>2.8 插入网址链接和图片</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-25-27.png" alt="插入网址和图片的对照示例" align="center">
 
 <p>如图中示例所示，对于网址链接，在[ ]内填写链接的文字说明，( )内填写对应的链接地址。这样，显示为文字说明部分，点击即可到达链接。</p>
-<p>图片链接的格式与此类似，同时，图片链接的文字说明前要加一个<code>!</code>符号标记。显示为图片。另外，虽然图片链接的文字说明一般不会显示，但是建议填写，因为如果网站的图片加载出现问题，图片无法正常显示，就会显示出文字说明，此时可以给读者提供一点图片的相关信息。</p>
+<p>图片链接的格式与此类似，同时，图片链接的文字说明前要加一个<code>!</code>符号标记。显示为图片。另外，虽然图片链接的文字说明一般不会显示，但是建议填写，因为如果网站的图片加载出现问题，图片无法正常显示，就会显示出文字说明，此时至少可以给读者提供一点图片的相关信息。</p>
 <p>细心的你可能会有一个疑问，图片链接如果是网络的还好办，如果是本地图片，把文档导入网络平台（比如CSDN）时，图片就无法正常显示了，怎么办？容易想到的办法是重新上传图片到网络平台并生成链接。但是，还有一种便捷的解决办法，就是把图片放到网络服务器中存储，这样就把本地图片“变成”网络图片，我们可以随时引用网络链接查看图片，这就是图床的原理。但是很抱歉，我现在还没有使用图床，等我用了之后，再写篇文章与大家分享。</p>
 <h4 id="2-9-排版规范"><a href="#2-9-排版规范" class="headerlink" title="2.9 排版规范"></a>2.9 排版规范</h4><p>最后补充一点，在 Markdown 写作时，了解一点排版规范对我们是有帮助的，这样显示的文章整洁美观，读者看着也舒服。向你推荐我读到的一篇介绍排版规范的好文：<a href="https://zhuanlan.zhihu.com/p/69376149" target="_blank" rel="noopener">会用 Markdown 还不够，还得知道排版规范</a>。</p>
 <h3 id="3-在哪用Markdown？"><a href="#3-在哪用Markdown？" class="headerlink" title="3. 在哪用Markdown？"></a>3. 在哪用Markdown？</h3><p>要写 Markdown 文档，一款得心应手的<strong>编辑器</strong>必不可少。我根据网友们的介绍和推荐，体验了几款受好评的编辑器，下面逐一介绍，看看您喜欢哪一款？</p>
@@ -272,7 +452,7 @@
 <img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-21-12.png" alt="印象笔记中新建Markdown文档" align="center">
 
 
-<p>打开文档后，在右上方有一个编辑/预览切换按钮，如下图中箭头标示位置，点击之后文档可以在对照编辑（类似VSCode的显示模式）和预览模式 (类似Typora的显示模式，但是不能编辑) 之间切换，这样，如果只看文档显示效果，就可以点击这个按钮，切换到预览模式。</p>
+<p>打开文档后，在右上方有一个编辑/预览切换按钮，如下图中箭头标示位置，点击之后文档可以在对照编辑（类似 VSCode 的显示模式）和预览模式 (类似 Typora 的显示模式，但是不能编辑) 之间切换，这样，如果只看文档显示效果，就可以点击这个按钮，切换到预览模式。</p>
 <img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-25-39.png" alt="Markdown文档对照编辑/预览模式切换按钮" align="center">
 
 
@@ -283,27 +463,29 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>软件</tag>
         <tag>Markdown</tag>
+        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
-    <title>不一样的马斯克</title>
-    <url>/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
+    <title>率真的科学家费曼</title>
+    <url>/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
 
 <blockquote>
-<p>本文写于2019年6月。</p>
+<p>本文写于2019年7月。</p>
 </blockquote>
-<p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p>
+<p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p>
+<img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center">
 <a id="more"></a>
+生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。
 
-<img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p>
-<p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p>
-<p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p>
-<p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>
+<p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p>
+<p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p>
+<p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p>
+<blockquote>
+<p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>读书</category>
@@ -313,142 +495,7 @@
         <tag>非虚构</tag>
         <tag>人物传记</tag>
         <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>信息论之父香农</title>
-    <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-<img src="https://img9.doubanio.com/view/subject/l/public/s29547304.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
->本文写于2019年12月。
-
-<p>提起香农，或许很多人都会感到陌生，可是，说到他的理论带来的福利——清晰的电话通信、浏览网页，…每个人都十分熟悉。<strong>香农( Claude Shannon, 1916-2001 )是信息论之父</strong>，这一理论引领人们进入了信息时代。而在信息论之前，香农已经有了另一项伟大成果：将布尔函数引入到开关电路设计中，实现了从模拟电路向数字电路的转化。</p>
-<p>看到这些伟大的成就，想必您也对香农产生了好奇，这是怎样的一位天才人物，他是如何进行科学研究的，他的一生有哪些故事呢？<strong><em>A Mind at Play: How Claude Shannon Invented the Information Age</em></strong>  这本书讲述了香农在工作、研究、生活的经历和故事，让我们得以走近香农，也走近那个时代的科学家。</p>
-<a id="more"></a>
-<p>读完本书，我在深深佩服香农的才智之余，也对一些地方印象深刻，在这里与大家分享：</p>
-<h4 id="1-简化、抽象、类比。"><a href="#1-简化、抽象、类比。" class="headerlink" title="1. 简化、抽象、类比。"></a>1. 简化、抽象、类比。</h4><p>香农善于简化和抽象，这样就能发现看似不同的事物之间的相通之处，进而联系、类比，得到新的解决思路。比如，复杂的模拟开关电路、遗传学问题、布尔函数，这看似不相干的三个领域，抛开那些表征，在简化后却是相似的。而让香农享誉全球的信息理论，也是香农对实际通信传输进行抽象、简化后推导得出，这样我们不用在意传输的是文字、语音、图片还是视频，不用在意传输环境的差异，不需要再用实验试错法来提高传输质量，而只用关注最重要的东西——信息量（用于衡量传输量的多少，香农定义了一个新的单位：比特）、信噪比（衡量传输中噪声干扰大小的指标），同时，这些指标也是在变化万端的传输应用场景中不变的可提取参数。</p>
-<h4 id="2-专才与通才。"><a href="#2-专才与通才。" class="headerlink" title="2. 专才与通才。"></a>2. 专才与通才。</h4><p>香农是幸运的，不只因为他有天才的头脑，还因为他遇到了慧眼识才的伯乐：他的导师布什(Vannevar Bush)，布什认为科学家不应固守在一个小领域，而应该扩大眼界，因此，他鼓励数学系硕士毕业的香农挑战新的领域——推荐他去遗传学实验室做博士研究。后来香农遇到的几个“贵人”：Warren Weaver, Thornton Fry 均持相似观点，即科学家应该拓展自己关注的领域，不能只专注自己所学。</p>
-<h4 id="3-为什么做科学研究？"><a href="#3-为什么做科学研究？" class="headerlink" title="3. 为什么做科学研究？"></a>3. 为什么做科学研究？</h4><p>因为好奇、想去知道事物背后的原因，也是因为好玩、有趣。知道这一点，就不难理解为什么香农会研究走迷宫的电动老鼠（机器学习的雏形）、抛接球的数学技巧等等。至于名利，他倒看得很淡。书中有一句很幽默的评论 “ Rarely has a thinker who devoted his life to the study of communication been so uncommunicative. ” 成名之后，他没有成为公众人物进行科普宣传等，依然在自己感兴趣的领域进行研究，也因此，世人对他知之甚少。</p>
-<p>这本书的作者也提了一个引人深思的现象，在那个年代，科学家们都在积极探索、思考问题，甚至有的是看似没有什么用处的问题。对他们而言，开公司、做产品、赚钱并不是首要考虑的事情。现在的人们似乎认为科学研究就是代表一份稳定工作，人们做一项研究的出发点就是实用，反倒没有了以前人们发现的乐趣。</p>
-<h4 id="4-香农与人工智能"><a href="#4-香农与人工智能" class="headerlink" title="4. 香农与人工智能"></a>4. 香农与人工智能</h4><p>香农曾说过：“ I’m a machine and you’re a machine, and we both think, don’t we? ” 他认为机器是可以做到“像”人一样思考，所谓“像”，就是从行为学角度看，达到“思考”的效果。同时，他敏锐地提醒人们，不要依据人的思考方式去设计人工智能，而应该根据机器自身的优缺点（而不是人的思维特点）、取长补短以得到最佳效果。</p>
-<p>谈到人工智能的未来，香农是一个乐天派，他认为人类造出比自己强大的物种很正常。他还半开玩笑地说，从信息熵的效用角度看，机器替代人类无可厚非。</p>
-<h4 id="5-通俗易懂"><a href="#5-通俗易懂" class="headerlink" title="5. 通俗易懂"></a>5. 通俗易懂</h4><p>书中讲述的理论对于大众来说似乎有点高深，但是并不用担心会看不懂，因为作者用了很多比喻、例子帮助读者理解。此外，文中还有不少排比句，文笔优美。举几个例子：</p>
-<blockquote>
-<p>Cryptography was the war’s white noise: it was ubiquitous, and yet only those paying the closest attention could pick it up.<br>将密码学比喻为战争时期的白噪声，无处不在（应用广泛），但不易察觉，只有最仔细的人能发现。我觉得这个比喻很巧妙。</p>
-</blockquote>
-<blockquote>
-<p>Where Shannon was allergic to administrative work and bureaucracies of almost every kind, Weaver thrived in them.<br>Where Shannon considered teaching a nettlesome requirement of university employment, Weaver relished it.<br>And where Shannon could continue to pound away at a mathematical problem or research question until he struck sparks, pursuing problems with breathtaking intuition and instinct, Weaver had discovered that he possessed no such gift.<br>这里将Shannon和Weaver两个科学家（当时也是同事）对比，两人对于教职、行政工作、科研的态度形成鲜明对比，看出两人不同的爱好。</p>
-</blockquote>
-<blockquote>
-<p>All of this communication—faster, cheaper, more voluminous—rests on Shannon’s realization of our predictability. All of that predictability is fat to be cut; since Shannon, our signals have traveled light.<br>最后这个“travel light”用词实在妙，意为轻装前行。自从香农提出信息论之后，人们终于找到了高效传输的正确方法。</p>
-</blockquote>
-<p>以前我觉得信息论、香农公式枯燥抽象，读了这本书，我了解香农提出理论的来龙去脉，体会到其中的简洁之美，又对信息论产生了兴趣，这真是本书的奇妙之处。强烈推荐这本书。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>写作前的思考：Why&amp;How</title>
-    <url>/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&amp;How/</url>
-    <content><![CDATA[<p>经过一番努力，终于在github上建了这个博客小站。趁着现在仍然对写作抱有兴趣和热情，我记录下写作以及建立这个小站的初衷，以后动力不足时可以看一下充电。</p>
-<a id="more"></a>
-
-<img src="/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&How/writing.jpg" alt="Andrew Neel from Pexels" align="center">
-
-
-<p>我最近在看fast.ai创始人Jeremy Howard老师的机器学习课程视频，其中他多次推荐博客写作。他认为，写技术博客可以很好地理解和运用知识。其中给我最大的启发就是技术博客的写作角度。在此之前，我一直认为，只有我对某个领域很懂，才可以写一些文章来帮助别人。其实不然。虽然我是新手小白，但是如果我弄懂了一个问题，就可以总结分享出来，帮助以后入门的小白。而且，新手小白反而更能理解新手容易遇到的困惑和问题。另外，这个博客可以作为学习笔记使用，整理知识点，方便自己日后查阅。而当别人遇到同样的问题需要解答时，也可发送博客文章给对方，高效地分享知识。</p>
-<p>平时我喜欢读书、语言学习、听轻音乐等。最近两三年我加大了英文原著阅读量，同时也对英文有声书兴趣正浓。因此，这个博客小站里也有一部分文章是写技术之外的兴趣爱好：书评、英语学习笔记、…。</p>
-<p>坚持写作，思考、表达，不断完善、不断提高。</p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>对肯福莱特世纪三部曲的讨论和思考</title>
-    <url>/2020/04/22/%E5%AF%B9%E8%82%AF%E7%A6%8F%E8%8E%B1%E7%89%B9%E4%B8%96%E7%BA%AA%E4%B8%89%E9%83%A8%E6%9B%B2%E7%9A%84%E8%AE%A8%E8%AE%BA%E5%92%8C%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年3月。</p>
-</blockquote>
-<p>经朋友推荐，我读了肯.福莱特（Ken Follett）的世纪三部曲：<strong>Fall of Giants（《巨人的陨落》）、Winter of the World（《世界的凛冬》）和 Edge of Eternity（《永恒的边缘》）</strong>。这套书讲述了二十世纪在英国、德国、美国、俄国（苏联）的几个家族跨越一个世纪的故事，包括一战、二战和冷战。看到书商的广告，全球读者平均几天看完这套书，一开始我还有点疑惑这套书是否真正有宣传中的吸引力。然而，打开第一本之后，我就停不下来，接着读完后面两本，一直到最后结束，我也掩卷沉思，仿佛和书中人物一起回忆往昔。肯.福莱特真的是一个讲故事高手，他把书中人物与重大历史事件结合，让读者在他们的故事中也看到了历史。</p>
-<a id="more"></a>
-
-<img src="https://img1.doubanio.com/view/subject/l/public/s4494549.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>当我在网上看对于这部作品的评论时，发现了不同的观点。一部分读者，比如像我这样的历史小白，认为肯.福莱特把历史写得鲜活生动，读起来很有趣；另一部分读者读过相关的近现代史，认为肯.福莱特以他自己的价值观在写历史，有的地方不够客观公正。这就涉及到历史小说中历史和虚构比重问题，以及作者能否代入过多自己的感情色彩。因为我刚读这类历史小说，我也无法评述，就作为后续读这类小说的一个思考题吧。</p>
-<p>总结一下网上对于三部作品的争议点，以便后续拓展阅读：</p>
-<p>1、<strong><em>Fall of Giants</em></strong>（《巨人的陨落》）是开山之作，评分也是三部曲中最高的。很多读者都认为它有一种史诗般的恢弘。而对这部作品不满意的读者恰恰是看过《圣殿春秋》后对肯.福莱特有较高期望的，他们认为肯.福莱特仍在用《圣殿春秋》的模式写这本书，对二十世纪初社会阶层的描写不够准确。在一战的描写中，似乎军官反而不如士兵有勇有谋。关于一战历史，有推荐：巴巴拉.塔奇曼著《八月炮火》。</p>
-<p>2、<strong><em>Winter of the World</em></strong>（《世界的凛冬》）写的是二战历史。有读者认为它的叙事模式借鉴了几十年前赫尔曼.沃克的《战争风云》，尤其是美国的Dewar一家作为总统的亲信，与《战争风云》里亨利上校一样，得以见证很多重要历史时刻。我正好读过《战争风云》，它以美国一个海军武官亨利上校一家为中心展开故事，里面对于军事战略、政治外交等描写较为精确详细。而《世界的凛冬》涉及人物、国家众多，对于罗斯福决策、与盟国协商的历史时刻着墨不多。但是，我觉得《世界的凛冬》的故事更加通俗，肯.福莱特描写人物感情还是很细致的。《战争风云》主要人物没有死亡，（不知道它的续集《战争与回忆》里是否会有），我个人认为，这样描写战争的残酷性感染力相对弱了一点。《世界的凛冬》则描写了多次死亡，军人、平民，亲人、朋友，各种情况，让人在心痛中更深地体会到战争的残酷无情、生命的脆弱、当下的可贵。</p>
-<p>3、<strong><em>Edge of Eternity</em></strong>（《永恒的边缘》）这部作品跨度几十年，作者难以顾全，只是挑了一部分历史进行描写，比如叱咤政坛的撒切尔夫人就没有提及。有读者认为作者对于美国、苏联政治的描写带有主观看法。感谢豆瓣网友ggarlic推荐相关历史作品：《光荣与梦想》、《极端的年代》。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>小说</tag>
-        <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的英语学习视频列表</title>
-    <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。</p>
-<a id="more"></a>
-<p><strong>2020年6月作品：</strong><br>12.<a href="https://www.bilibili.com/video/BV1Up4y1U7hf" target="_blank" rel="noopener">美景、轻音乐+读书，你喜欢吗？</a><br><strong>宁萌说：</strong> 从 The Wind in the Willows 《柳林风声》第一章中选了两段，读给您听，搭配上相应的美景和轻音乐，喜欢吗？快去欣赏一下吧！</p>
-<p>11.<strong>重磅推荐：</strong><a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br><strong>宁萌说：</strong> 这是一期视频合辑，里面有对 The Wind in the Willows 《柳林风声》第一章的精读，还有我精心制作的笔记字幕哦，更加易懂。因为我花了很多时间和心思在这个精读活动上，一边接收观众反馈，一边尝试改进，所以特别推荐您点开看一下，帮我提点改进建议啊，谢谢！ </p>
-<p><strong>2020年5月作品：</strong><br>10.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 我很喜欢 The Wind in the Willows 《柳林风声》这本书，很有趣，文笔优美，打算做精读。这一期是导读，简要介绍一下这本书。</p>
-<p>9.<a href="https://www.bilibili.com/video/BV1bC4y1H7Ay" target="_blank" rel="noopener">英语表达-怎么描述煎炸食物？</a><br><strong>宁萌说：</strong> 爱美食、爱生活的小伙伴不要错过呀！</p>
-<p>8.<a href="https://www.bilibili.com/video/BV1ue411W7ga" target="_blank" rel="noopener">英语表达-一关门想起钥匙落在屋里了……</a></p>
-<p>7.<a href="https://www.bilibili.com/video/BV1b5411s7JY" target="_blank" rel="noopener">英语表达-一顿匆忙的早餐</a></p>
-<p>6.<a href="https://www.bilibili.com/video/BV1x54y1D7Ae" target="_blank" rel="noopener">英语表达-工作日的早晨，闹钟没响……</a></p>
-<p>5.<a href="https://www.bilibili.com/video/BV1mC4y1H7yp" target="_blank" rel="noopener">英语表达-英语怎么描述穿着得体?</a></p>
-<p>4.<a href="https://www.bilibili.com/video/BV14f4y1U7vA" target="_blank" rel="noopener">英语表达-whistle除了表示口哨声，还可以形容这些声音……</a><br><strong>宁萌说：</strong> 这一期的表达我特别推荐，可以体会到用词的灵活。 </p>
-<p>3.<a href="https://www.bilibili.com/video/BV1DV411k7wh" target="_blank" rel="noopener">英语表达-“有其父必有其子”，英文怎么说?</a><br><strong>宁萌说：</strong> 从 Harry Potter《哈利波特》中摘录的，你猜这是说的谁？</p>
-<p>2.<a href="https://www.bilibili.com/video/BV1a5411s7T6" target="_blank" rel="noopener">英语表达-从童话书里看到的一句有趣的表达</a><br><strong>宁萌说：</strong> 从这一期开始，我制作了8期英语表达的短视频，都是从书中精选的句子，地道表达，形象生动，快来看看吧！</p>
-<p>1.<a href="https://www.bilibili.com/video/BV1Xz411q726" target="_blank" rel="noopener">教程-英文电子书阅读-怎么找书，手机上用什么看书？</a><br><strong>宁萌说：</strong> 这是我在B站的第一个小视频，时长不到两分钟，用手机录屏的方式示范了 Gutenberg.org+多看+印象笔记 的英文电子书阅读方法。</p>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的读书视频列表</title>
-    <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
-<a id="more"></a>
-
-<p><strong>2020年7月作品：</strong><br>6.<a href="https://www.bilibili.com/video/BV1eZ4y1u7RM" target="_blank" rel="noopener">一本书告诉你高效阅读的方法</a><br><strong>宁萌说：</strong> 这是一本让我反复阅读和思考的指南书，改变了我以前对于读书的认识，所以，虽然大家可能会不太感兴趣，我还是做了一期分享，因为，如果你看了，可能就会对你有帮助，你说呢？</p>
-<p>5.<a href="https://www.bilibili.com/video/BV1Nf4y1R77a" target="_blank" rel="noopener">B站CEO推荐的科普书，读了之后惊呼…</a><br><strong>宁萌说：</strong> 看了B站陈总的视频之后，我读了这本科普书，后来又看了两本，原来科普书也可以写得这么有趣！于是，趁热打铁制作了这一期分享推荐视频，哈哈！你看了吗？快快加入讨论……</p>
-<p>4.<a href="https://www.bilibili.com/video/BV15k4y1B7Tw" target="_blank" rel="noopener">英文原版书入门，选哪本好？这几本英文小说怎么样？</a><br><strong>宁萌说：</strong> 终于要和大家分享英文阅读了，这几本英文小说都不错，很适合刚开始进行英文原版阅读的小伙伴，用心推荐的，请看一下呀！</p>
-<p><strong>2020年6月作品：</strong><br>3.<a href="https://www.bilibili.com/video/BV1uD4y1S7Ym" target="_blank" rel="noopener">好书一本，让自己慢下来</a><br><strong>宁萌说：</strong> 这一期我尝试加了背景音乐，搭配上风景的视频，嘿嘿，这样来读一本散文集真是再合适不过，很舒缓放松呢！快来一起欣赏吧！</p>
-<p><strong>2020年5月作品：</strong></p>
-<p>2.<a href="https://www.bilibili.com/video/BV14t4y1C7t6" target="_blank" rel="noopener">618购书分享：一起来看看我买了哪些书？</a><br><strong>宁萌说：</strong> 五月底趁着购物节活动，买了几本书，忍不住就拍了开箱视频与小伙伴们分享，没想到反响不错，大家好像对于买书视频挺感兴趣，这也让我有了多制作几期读书分享视频的打算。</p>
-<p>1.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 介绍了一本英文童话书，很有趣的书哦！这是初学阶段，视频制作的比较简单粗糙，因为没设置好比例，导致最后视频上下有一条黑边，虽然观众说不太明显、感觉不到，自己觉得还挺抱歉的，谢谢大家的鼓励和包容！</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>小说</tag>
-        <tag>非虚构</tag>
-        <tag>科普</tag>
-        <tag>散文</tag>
+        <tag>有声书</tag>
       </tags>
   </entry>
   <entry>
@@ -482,37 +529,6 @@
       </categories>
       <tags>
         <tag>非虚构</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>率真的科学家费曼</title>
-    <url>/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年7月。</p>
-</blockquote>
-<p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p>
-<img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center">
-<a id="more"></a>
-生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。
-
-<p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p>
-<p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p>
-<p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p>
-<blockquote>
-<p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
         <tag>科技</tag>
       </tags>
   </entry>
@@ -582,44 +598,29 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown进阶</title>
-    <url>/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>在上一篇 <a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">Markdown 入门文章</a> 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？</p>
+    <title>许多记忆未曾诉说</title>
+    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
+    <content><![CDATA[<blockquote>
+<p>本文写于2019年5月</p>
+</blockquote>
+<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
 <a id="more"></a>
-<h3 id="1-公式编辑利器"><a href="#1-公式编辑利器" class="headerlink" title="1. 公式编辑利器"></a>1. 公式编辑利器</h3><p><strong>问题：</strong> 有时我们会在文章中用到公式，如果一个个输进去，符号、标记需要花费很多时间，有没有更快捷的方法呢？</p>
-<p>有，这就是 Mathpix 。我们可以截取公式图片，然后在Mathpix 中识别并转换成相应的格式，再复制粘贴到 Markdown 文档中。</p>
-<p>到 <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix官网</a> 下载，首先我们要注册一个账号，免费账户一个月可使用 50 次；学生账户一个月可使用 100 次，需要使用学校邮箱注册；专业用户一个月需支付 4.99 美金，使用次数不限。如果不经常使用，注册一个免费用户就行，然后下载 Mathpix。</p>
-<p>打开 Mathpix 软件，登录刚才注册的账户。再打开要截取公式的页面，然后点击左上角的图标，如下图所示，就可以截图：<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-45-58.png" alt="Mathpix界面" align="center"> </p>
-<p>截取的公式图像会在 Mathpix 中自动显示并进行识别转换，如下图所示，我们可以选取所需要的格式。图中下方结果项里，第二个是行内公式，第三个是独立公式，只要点击图中箭头指示的按钮，可以复制内容，然后粘贴到 Markdown 文档中。图中最下面那条绿色的进度条代表置信度(Confidence)，进度条越长，表示转换的准确度和可靠性越高。<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-36-33.png" alt="Mathpix公式识别示例" align="center"> </p>
-<p>下面这个公式就是示例中从 Mathpix 复制粘贴到 Markdown 文档的效果。<br>$$z=w_{1} x_{1}+\ldots+w_{m} x_{m}$$</p>
-<h3 id="2-文档转换"><a href="#2-文档转换" class="headerlink" title="2. 文档转换"></a>2. 文档转换</h3><h4 id="VSCode-中将-Markdown-转换成-PDF-文档"><a href="#VSCode-中将-Markdown-转换成-PDF-文档" class="headerlink" title="VSCode 中将 Markdown 转换成 PDF 文档"></a>VSCode 中将 Markdown 转换成 PDF 文档</h4><p>Markdown 转 PDF，在<strong>预览视图</strong>中，点击右键菜单，这时会出现一系列文档转换方式，如图所示，<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown%E8%BF%9B%E9%98%B62020-07-26-10-31-08.png" alt><br>看到这个菜单你可能会想到用 PDF(prince) 选项，但是转换效果不如图中选择的 Chrome(Puppeteer)&gt; PDF 选项效果好，您可以尝试转换一下，对比一下输出的 PDF 文档显示效果。</p>
-<blockquote>
-<p>您是不是有顾虑，害怕转换后 Markdown 文档就变成 PDF 文档了？如果弄错了，原文档又找不回来了怎么办？<br>请放心，这个转换是另外输出一个 PDF 文档，不会对本身的 Markdown 文档做修改。</p>
-</blockquote>
-<h4 id="Markdown-转换成-Word-文档"><a href="#Markdown-转换成-Word-文档" class="headerlink" title="Markdown 转换成 Word 文档"></a>Markdown 转换成 Word 文档</h4><p>这里就要用到文档转换界的“瑞士军刀”——Pandoc，它能实现很多文档类型的转换。</p>
-<p>（1）如果您正在使用 Python，电脑中安装了 Anaconda，那么其中就包含了 Pandoc 模块，可以<strong>在 Anaconda 的命令行界面运行 Pandoc</strong>。</p>
-<p>比如，我要将文件名为“mdtest”的 Markdown 文档转换成 Word，先将 Anaconda 的命令行界面转换到 mdtest.md 所在文件夹，然后运行命令：<br><code>pandoc mdtest.md -o mdtest.docx</code><br>就会在当前文件夹中新生成一个 mdtest.docx 文档。</p>
-<p>（2）<strong>Typora 或 VSCode 中 Markdown 转 Word 文档</strong><br>首先要安装 Pandoc 软件。进入<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">Pandoc官方网站下载页面</a>，点击最新的安装包，比如我是 Windows 系统，就选择 .msi 后缀的文件下载安装。</p>
-<blockquote>
-<p>您可能会有疑问，前面方法（1）中提到 Anaconda 包含了 Pandoc 模块，那我们还要再安装一次吗？<br>虽然 Anaconda 包含了 Pandoc，但是这一功能要在 Anaconda 命令行中使用。如果我们要在软件中操作，就需要单独安装 Pandoc。</p>
-</blockquote>
-<p>需要用到图形处理的交叉引用时，还要安装：<br><code>pip install pandoc-fignos</code></p>
-<p><strong>对于 Typora</strong>，现在点击菜单栏 File &gt; Export，选择 Word(.docx) 选项，即可导出 Word 文档。</p>
-<p><strong>对于 VScode</strong>，还需要<strong>在 Markdown 文档的开头加入以下语句</strong>，定义 Pandoc 转化后的文件格式。path 是转化后输出 Word 文档的存放位置，是必填项。后面三项根据需要选择，toc 是目录选项，true表示生成目录。请注意语句的缩进格式以及语句前后的<code>---</code>标记符。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"当前Markdown文档名"</span></span><br><span class="line"><span class="attr">output:</span></span><br><span class="line">    <span class="attr">word_document:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/当前Markdown文档名.docx</span></span><br><span class="line">        <span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">toc_depth:</span> <span class="number">6</span></span><br><span class="line">        <span class="attr">number_sections:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-<p>然后在<strong>预览视图</strong>中，点击右键菜单中的 Pandoc 选项，即可完成文档转换。</p>
-<h4 id="Markdown-文档在线转换成富文本格式"><a href="#Markdown-文档在线转换成富文本格式" class="headerlink" title="Markdown 文档在线转换成富文本格式"></a>Markdown 文档在线转换成富文本格式</h4><p>现在大家都愿意在网上写文章分享交流知识，那么，您是否曾经花很多时间在微信文章、知乎平台等文章的排版上呢？</p>
-<p>前面我们提到，Markdown 可以极大缩短排版编辑时间。我们就想，要是用 Markdown 编辑器写文章，然后用类似上面介绍的文档转换工具转换成网络平台的格式就好了。</p>
-<p>答案是当然有，而且选择还不少，我在这里分享两款我用过的在线转换工具，如果您有觉得不错的转换工具，欢迎留言与大家交流分享。<br><a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">微信公众号格式化编辑器</a><br>特点：风格简洁，很适合排版文章。如果是诗歌可能换行、字号等不好调整。<br><a href="http://md.aclickall.com/" target="_blank" rel="noopener">Md2All</a><br>特点：功能强大，版式风格选择很多，如果略懂网页编辑Javascript的语法，还可以自己对版式调整。</p>
-<p>使用 Markdown 编辑文档时，您有哪些得心应手的效率工具呢？欢迎分享交流。</p>
-<p>参考文章：<br>1.<a href="https://blog.csdn.net/nkwshuyi/article/details/78714788" target="_blank" rel="noopener">如何用Markdown写论文？</a><br>2.<a href="https://www.jianshu.com/p/6ba04f669d0b" target="_blank" rel="noopener">Pandoc安装与使用（转）</a></p>
+
+<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
+
+<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
+<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
+<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
+<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
 ]]></content>
       <categories>
-        <category>工具</category>
+        <category>读书</category>
       </categories>
       <tags>
-        <tag>软件</tag>
-        <tag>Markdown</tag>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>小说</tag>
+        <tag>历史</tag>
       </tags>
   </entry>
   <entry>
@@ -670,32 +671,6 @@
       </tags>
   </entry>
   <entry>
-    <title>许多记忆未曾诉说</title>
-    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
-    <content><![CDATA[<blockquote>
-<p>本文写于2019年5月</p>
-</blockquote>
-<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
-<a id="more"></a>
-
-<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
-
-<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
-<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
-<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
-<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读乔布斯传</title>
     <url>/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</url>
     <content><![CDATA[<blockquote>
@@ -723,58 +698,6 @@
         <tag>非虚构</tag>
         <tag>人物传记</tag>
         <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书的要领</title>
-    <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-
-<img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p>
-<a id="more"></a>
-
-<h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p>
-<ul>
-<li>这本书谈了什么？（主旨）</li>
-<li>作者是怎么阐述观点的？（论点、结构）</li>
-<li>这本书说的有道理吗？全部有道理，还是部分有道理？</li>
-<li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li>
-</ul>
-<h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center">
-
-<p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p>
-<h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p>
-<p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p>
-<p>2、把握书籍大致的架构、大纲。</p>
-<p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p>
-<p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p>
-<h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p>
-<p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p>
-<p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p>
-<p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p>
-<h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p>
-<p>主题阅读主要包括以下步骤：</p>
-<p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p>
-<p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p>
-<h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p>
-<p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p>
-<p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p>
-<p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p>
-<p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p>
-<p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p>
-<h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p>
-<p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
       </tags>
   </entry>
   <entry>
@@ -856,6 +779,83 @@
       <tags>
         <tag>非虚构</tag>
         <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书的要领</title>
+    <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p>
+<a id="more"></a>
+
+<h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p>
+<ul>
+<li>这本书谈了什么？（主旨）</li>
+<li>作者是怎么阐述观点的？（论点、结构）</li>
+<li>这本书说的有道理吗？全部有道理，还是部分有道理？</li>
+<li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li>
+</ul>
+<h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center">
+
+<p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p>
+<h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p>
+<p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p>
+<p>2、把握书籍大致的架构、大纲。</p>
+<p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p>
+<p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p>
+<h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p>
+<p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p>
+<p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p>
+<p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p>
+<h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p>
+<p>主题阅读主要包括以下步骤：</p>
+<p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p>
+<p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p>
+<h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p>
+<p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p>
+<p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p>
+<p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p>
+<p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p>
+<p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p>
+<h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p>
+<p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的读书视频列表</title>
+    <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
+<a id="more"></a>
+
+<p><strong>2020年7月作品：</strong><br>6.<a href="https://www.bilibili.com/video/BV1eZ4y1u7RM" target="_blank" rel="noopener">一本书告诉你高效阅读的方法</a><br><strong>宁萌说：</strong> 这是一本让我反复阅读和思考的指南书，改变了我以前对于读书的认识，所以，虽然大家可能会不太感兴趣，我还是做了一期分享，因为，如果你看了，可能就会对你有帮助，你说呢？</p>
+<p>5.<a href="https://www.bilibili.com/video/BV1Nf4y1R77a" target="_blank" rel="noopener">B站CEO推荐的科普书，读了之后惊呼…</a><br><strong>宁萌说：</strong> 看了B站陈总的视频之后，我读了这本科普书，后来又看了两本，原来科普书也可以写得这么有趣！于是，趁热打铁制作了这一期分享推荐视频，哈哈！你看了吗？快快加入讨论……</p>
+<p>4.<a href="https://www.bilibili.com/video/BV15k4y1B7Tw" target="_blank" rel="noopener">英文原版书入门，选哪本好？这几本英文小说怎么样？</a><br><strong>宁萌说：</strong> 终于要和大家分享英文阅读了，这几本英文小说都不错，很适合刚开始进行英文原版阅读的小伙伴，用心推荐的，请看一下呀！</p>
+<p><strong>2020年6月作品：</strong><br>3.<a href="https://www.bilibili.com/video/BV1uD4y1S7Ym" target="_blank" rel="noopener">好书一本，让自己慢下来</a><br><strong>宁萌说：</strong> 这一期我尝试加了背景音乐，搭配上风景的视频，嘿嘿，这样来读一本散文集真是再合适不过，很舒缓放松呢！快来一起欣赏吧！</p>
+<p><strong>2020年5月作品：</strong></p>
+<p>2.<a href="https://www.bilibili.com/video/BV14t4y1C7t6" target="_blank" rel="noopener">618购书分享：一起来看看我买了哪些书？</a><br><strong>宁萌说：</strong> 五月底趁着购物节活动，买了几本书，忍不住就拍了开箱视频与小伙伴们分享，没想到反响不错，大家好像对于买书视频挺感兴趣，这也让我有了多制作几期读书分享视频的打算。</p>
+<p>1.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 介绍了一本英文童话书，很有趣的书哦！这是初学阶段，视频制作的比较简单粗糙，因为没设置好比例，导致最后视频上下有一条黑边，虽然观众说不太明显、感觉不到，自己觉得还挺抱歉的，谢谢大家的鼓励和包容！</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>小说</tag>
+        <tag>科普</tag>
+        <tag>散文</tag>
       </tags>
   </entry>
 </search>
