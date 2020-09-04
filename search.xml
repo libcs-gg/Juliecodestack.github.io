@@ -42,6 +42,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Python编程之API入门：一 使用百度地图API查地理坐标</title>
+    <url>/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/</url>
+    <content><![CDATA[<p>在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。</p>
+<a id="more"></a>
+<p>API是”Application Programming Interface（应用程序编程接口）”的缩写。如果那一大堆的术语和定义让你头晕，不妨试着这样理解：网络服务商（比如百度、微博等）存有大量数据，我们可以查询数据，但是需要按照一定的格式/协议，否则服务商不知道我们的需求无法进行处理，我们拿到数据也看不懂。通过API接口规范，通信双方都能明白对方传送的信息和数据，同时也简化了操作（只要按照规定的格式输入，就可以得到已知格式的输出，我们无需了解具体实现的技术细节，是不是很省心呢？）</p>
+<p>下面以<a href="http://lbsyun.baidu.com/index.php?title=webapi" target="_blank" rel="noopener">百度地图Web服务API</a>的调用为例。</p>
+<img src="/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png" class title="百度地图API平台示意图"> 
+
+<p>要使用的是图中所示“正/逆地理编码服务”。在使用服务前，需要登录百度账号（如果没有就注册一个），申请成为百度开发者，然后创建一个你自己的应用，就可以收到一个对应的服务密钥(AK)。在服务配置页面，有两种校验方式，一种是IP白名单方式，一种是sn校验方式。我根据文章<a href="https://www.cnblogs.com/liao-sir/p/8367683.html" target="_blank" rel="noopener"><br>python实现百度地图API获取某地址的经纬度</a>中的介绍，选择了sn校验方式，这样页面上会有SK。请将AK和SK两个序列码保存好，这就是你个人的验证信息。下一步使用百度地图API时要用到。</p>
+<p>要编写的这个Python小程序实现的功能是：<strong>输入某个地址，得到相应的经纬度坐标信息</strong>。分三步实现：</p>
+<ol>
+<li>生成url（用于提交到API进行查询）</li>
+<li>与API交互，查询并返回数据（json格式） </li>
+<li>利用json解析并输出。</li>
+</ol>
+<p>下面分别介绍具体实现。</p>
+<h3 id="1-sn码及url的生成"><a href="#1-sn码及url的生成" class="headerlink" title="1. sn码及url的生成"></a>1. sn码及url的生成</h3><p>url= <a href="http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。" target="_blank" rel="noopener">http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。</a><br>需要注意的是：</p>
+<ul>
+<li>由于url中有中文字符串，需要使用函数<code>urllib.parse.quote(inputstr, safe=&quot;/:=&amp;?#+!$,;&#39;@()*[]&quot;)</code>转换一下编码。</li>
+<li>在url里output可以选择输出为json格式或xml格式，默认是xml格式。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,urllib.parse,urllib.error</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">MyAK=<span class="string">'这里请填入你的AK'</span></span><br><span class="line">MySK=<span class="string">'这里请填入你的SK'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    address = input(<span class="string">'输入地点：'</span>)</span><br><span class="line">    <span class="keyword">if</span> len(address)&lt;<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#产生sn码</span></span><br><span class="line">    queryStr=<span class="string">"/geocoder/v2/?address="</span>+address+<span class="string">'&amp;output=json&amp;ak='</span>+MyAK</span><br><span class="line">    encodedStr=urllib.parse.quote(queryStr, safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    rawStr=encodedStr+MySK</span><br><span class="line">    sn=(hashlib.md5(urllib.parse.quote_plus(rawStr).encode(<span class="string">"utf8"</span>)).hexdigest())</span><br><span class="line"></span><br><span class="line">    <span class="comment">#生成url  </span></span><br><span class="line">    url=urllib.parse.quote(<span class="string">"http://api.map.baidu.com"</span>+queryStr+<span class="string">"&amp;sn="</span>+sn,safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    print(<span class="string">'Retrieving'</span>,url)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-输入url，利用urllib从API读取数据"><a href="#2-输入url，利用urllib从API读取数据" class="headerlink" title="2. 输入url，利用urllib从API读取数据"></a>2. 输入url，利用urllib从API读取数据</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#从API读取数据</span></span><br><span class="line">uh=urllib.request.urlopen(url)</span><br><span class="line">data=uh.read().decode()</span><br><span class="line">print(<span class="string">'Retrieved'</span>,len(data),<span class="string">'characters'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-利用json对返回数据进行解析。"><a href="#3-利用json对返回数据进行解析。" class="headerlink" title="3. 利用json对返回数据进行解析。"></a>3. 利用json对返回数据进行解析。</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#解析数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        js=json.loads(data)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        js=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> js <span class="keyword">or</span> <span class="string">'status'</span><span class="keyword">not</span> <span class="keyword">in</span> js <span class="keyword">or</span> js[<span class="string">'status'</span>]!=<span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'======Failure===='</span>)</span><br><span class="line">        print(data)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(json.dumps(js,indent=<span class="number">4</span>,ensure_ascii=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+<p>以上代码可输出得到json格式的数据。例如，输入“百度大厦”后，程序输出的json格式数据如下所示：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"result"</span>: &#123;</span><br><span class="line">        <span class="attr">"location"</span>: &#123;</span><br><span class="line">            <span class="attr">"lng"</span>: <span class="number">116.30695597357376</span>,</span><br><span class="line">            <span class="attr">"lat"</span>: <span class="number">40.05738753357608</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"precise"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"confidence"</span>: <span class="number">80</span>,</span><br><span class="line">        <span class="attr">"comprehension"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">"level"</span>: <span class="string">"商务大厦"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在这里一开始中文字符<code>&quot;商务大厦&quot;</code>不能正确显示，我从文章<a href="https://www.cnblogs.com/mingjiatang/p/9527345.html" target="_blank" rel="noopener">python中文编码&amp;json中文输出问题</a>中找到了答案，在<code>json.dumps()</code>函数中，默认转换为 ASCII 编码，中文字符就无法转换显示，因此在<code>json.dumps()</code>中要设置<code>ensure_ascii=False</code>。</p>
+<p>最后，通过以下代码，可提取经纬度坐标等信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获取经纬度坐标和地址类型</span></span><br><span class="line">lat=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lat"</span>]</span><br><span class="line">lng=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lng"</span>]</span><br><span class="line">print(<span class="string">'纬度'</span>,lat,<span class="string">'经度'</span>,lng)</span><br><span class="line">level=js[<span class="string">"result"</span>][<span class="string">"level"</span>]</span><br><span class="line">print(<span class="string">'地址类型'</span>,level)</span><br></pre></td></tr></table></figure>
+<p>总结：按照规范发送 url 以及对返回 json 或 xml 格式数据正确解析，另外注意中文字符的编码问题，就可以上手API。怎么样？你也快来试试吧！</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一本书中的人生滋味</title>
     <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -113,47 +154,6 @@
       </categories>
       <tags>
         <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python编程之API入门：一 使用百度地图API查地理坐标</title>
-    <url>/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/</url>
-    <content><![CDATA[<p>在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。</p>
-<a id="more"></a>
-<p>API是”Application Programming Interface（应用程序编程接口）”的缩写。如果那一大堆的术语和定义让你头晕，不妨试着这样理解：网络服务商（比如百度、微博等）存有大量数据，我们可以查询数据，但是需要按照一定的格式/协议，否则服务商不知道我们的需求无法进行处理，我们拿到数据也看不懂。通过API接口规范，通信双方都能明白对方传送的信息和数据，同时也简化了操作（只要按照规定的格式输入，就可以得到已知格式的输出，我们无需了解具体实现的技术细节，是不是很省心呢？）</p>
-<p>下面以<a href="http://lbsyun.baidu.com/index.php?title=webapi" target="_blank" rel="noopener">百度地图Web服务API</a>的调用为例。</p>
-<img src="/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png" class title="百度地图API平台示意图"> 
-
-<p>要使用的是图中所示“正/逆地理编码服务”。在使用服务前，需要登录百度账号（如果没有就注册一个），申请成为百度开发者，然后创建一个你自己的应用，就可以收到一个对应的服务密钥(AK)。在服务配置页面，有两种校验方式，一种是IP白名单方式，一种是sn校验方式。我根据文章<a href="https://www.cnblogs.com/liao-sir/p/8367683.html" target="_blank" rel="noopener"><br>python实现百度地图API获取某地址的经纬度</a>中的介绍，选择了sn校验方式，这样页面上会有SK。请将AK和SK两个序列码保存好，这就是你个人的验证信息。下一步使用百度地图API时要用到。</p>
-<p>要编写的这个Python小程序实现的功能是：<strong>输入某个地址，得到相应的经纬度坐标信息</strong>。分三步实现：</p>
-<ol>
-<li>生成url（用于提交到API进行查询）</li>
-<li>与API交互，查询并返回数据（json格式） </li>
-<li>利用json解析并输出。</li>
-</ol>
-<p>下面分别介绍具体实现。</p>
-<h3 id="1-sn码及url的生成"><a href="#1-sn码及url的生成" class="headerlink" title="1. sn码及url的生成"></a>1. sn码及url的生成</h3><p>url= <a href="http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。" target="_blank" rel="noopener">http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。</a><br>需要注意的是：</p>
-<ul>
-<li>由于url中有中文字符串，需要使用函数<code>urllib.parse.quote(inputstr, safe=&quot;/:=&amp;?#+!$,;&#39;@()*[]&quot;)</code>转换一下编码。</li>
-<li>在url里output可以选择输出为json格式或xml格式，默认是xml格式。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,urllib.parse,urllib.error</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">MyAK=<span class="string">'这里请填入你的AK'</span></span><br><span class="line">MySK=<span class="string">'这里请填入你的SK'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    address = input(<span class="string">'输入地点：'</span>)</span><br><span class="line">    <span class="keyword">if</span> len(address)&lt;<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#产生sn码</span></span><br><span class="line">    queryStr=<span class="string">"/geocoder/v2/?address="</span>+address+<span class="string">'&amp;output=json&amp;ak='</span>+MyAK</span><br><span class="line">    encodedStr=urllib.parse.quote(queryStr, safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    rawStr=encodedStr+MySK</span><br><span class="line">    sn=(hashlib.md5(urllib.parse.quote_plus(rawStr).encode(<span class="string">"utf8"</span>)).hexdigest())</span><br><span class="line"></span><br><span class="line">    <span class="comment">#生成url  </span></span><br><span class="line">    url=urllib.parse.quote(<span class="string">"http://api.map.baidu.com"</span>+queryStr+<span class="string">"&amp;sn="</span>+sn,safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    print(<span class="string">'Retrieving'</span>,url)</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-输入url，利用urllib从API读取数据"><a href="#2-输入url，利用urllib从API读取数据" class="headerlink" title="2. 输入url，利用urllib从API读取数据"></a>2. 输入url，利用urllib从API读取数据</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#从API读取数据</span></span><br><span class="line">uh=urllib.request.urlopen(url)</span><br><span class="line">data=uh.read().decode()</span><br><span class="line">print(<span class="string">'Retrieved'</span>,len(data),<span class="string">'characters'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="3-利用json对返回数据进行解析。"><a href="#3-利用json对返回数据进行解析。" class="headerlink" title="3. 利用json对返回数据进行解析。"></a>3. 利用json对返回数据进行解析。</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#解析数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        js=json.loads(data)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        js=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> js <span class="keyword">or</span> <span class="string">'status'</span><span class="keyword">not</span> <span class="keyword">in</span> js <span class="keyword">or</span> js[<span class="string">'status'</span>]!=<span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'======Failure===='</span>)</span><br><span class="line">        print(data)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(json.dumps(js,indent=<span class="number">4</span>,ensure_ascii=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
-<p>以上代码可输出得到json格式的数据。例如，输入“百度大厦”后，程序输出的json格式数据如下所示：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"result"</span>: &#123;</span><br><span class="line">        <span class="attr">"location"</span>: &#123;</span><br><span class="line">            <span class="attr">"lng"</span>: <span class="number">116.30695597357376</span>,</span><br><span class="line">            <span class="attr">"lat"</span>: <span class="number">40.05738753357608</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"precise"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"confidence"</span>: <span class="number">80</span>,</span><br><span class="line">        <span class="attr">"comprehension"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">"level"</span>: <span class="string">"商务大厦"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，在这里一开始中文字符<code>&quot;商务大厦&quot;</code>不能正确显示，我从文章<a href="https://www.cnblogs.com/mingjiatang/p/9527345.html" target="_blank" rel="noopener">python中文编码&amp;json中文输出问题</a>中找到了答案，在<code>json.dumps()</code>函数中，默认转换为 ASCII 编码，中文字符就无法转换显示，因此在<code>json.dumps()</code>中要设置<code>ensure_ascii=False</code>。</p>
-<p>最后，通过以下代码，可提取经纬度坐标等信息。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获取经纬度坐标和地址类型</span></span><br><span class="line">lat=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lat"</span>]</span><br><span class="line">lng=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lng"</span>]</span><br><span class="line">print(<span class="string">'纬度'</span>,lat,<span class="string">'经度'</span>,lng)</span><br><span class="line">level=js[<span class="string">"result"</span>][<span class="string">"level"</span>]</span><br><span class="line">print(<span class="string">'地址类型'</span>,level)</span><br></pre></td></tr></table></figure>
-<p>总结：按照规范发送 url 以及对返回 json 或 xml 格式数据正确解析，另外注意中文字符的编码问题，就可以上手API。怎么样？你也快来试试吧！</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -241,31 +241,20 @@
       </tags>
   </entry>
   <entry>
-    <title>对肯福莱特世纪三部曲的讨论和思考</title>
-    <url>/2020/04/22/%E5%AF%B9%E8%82%AF%E7%A6%8F%E8%8E%B1%E7%89%B9%E4%B8%96%E7%BA%AA%E4%B8%89%E9%83%A8%E6%9B%B2%E7%9A%84%E8%AE%A8%E8%AE%BA%E5%92%8C%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年3月。</p>
-</blockquote>
-<p>经朋友推荐，我读了肯.福莱特（Ken Follett）的世纪三部曲：<strong>Fall of Giants（《巨人的陨落》）、Winter of the World（《世界的凛冬》）和 Edge of Eternity（《永恒的边缘》）</strong>。这套书讲述了二十世纪在英国、德国、美国、俄国（苏联）的几个家族跨越一个世纪的故事，包括一战、二战和冷战。看到书商的广告，全球读者平均几天看完这套书，一开始我还有点疑惑这套书是否真正有宣传中的吸引力。然而，打开第一本之后，我就停不下来，接着读完后面两本，一直到最后结束，我也掩卷沉思，仿佛和书中人物一起回忆往昔。肯.福莱特真的是一个讲故事高手，他把书中人物与重大历史事件结合，让读者在他们的故事中也看到了历史。</p>
+    <title>写作前的思考：Why&amp;How</title>
+    <url>/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&amp;How/</url>
+    <content><![CDATA[<p>经过一番努力，终于在github上建了这个博客小站。趁着现在仍然对写作抱有兴趣和热情，我记录下写作以及建立这个小站的初衷，以后动力不足时可以看一下充电。</p>
 <a id="more"></a>
 
-<img src="https://img1.doubanio.com/view/subject/l/public/s4494549.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+<img src="/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&How/writing.jpg" alt="Andrew Neel from Pexels" align="center">
 
-<p>当我在网上看对于这部作品的评论时，发现了不同的观点。一部分读者，比如像我这样的历史小白，认为肯.福莱特把历史写得鲜活生动，读起来很有趣；另一部分读者读过相关的近现代史，认为肯.福莱特以他自己的价值观在写历史，有的地方不够客观公正。这就涉及到历史小说中历史和虚构比重问题，以及作者能否代入过多自己的感情色彩。因为我刚读这类历史小说，我也无法评述，就作为后续读这类小说的一个思考题吧。</p>
-<p>总结一下网上对于三部作品的争议点，以便后续拓展阅读：</p>
-<p>1、<strong><em>Fall of Giants</em></strong>（《巨人的陨落》）是开山之作，评分也是三部曲中最高的。很多读者都认为它有一种史诗般的恢弘。而对这部作品不满意的读者恰恰是看过《圣殿春秋》后对肯.福莱特有较高期望的，他们认为肯.福莱特仍在用《圣殿春秋》的模式写这本书，对二十世纪初社会阶层的描写不够准确。在一战的描写中，似乎军官反而不如士兵有勇有谋。关于一战历史，有推荐：巴巴拉.塔奇曼著《八月炮火》。</p>
-<p>2、<strong><em>Winter of the World</em></strong>（《世界的凛冬》）写的是二战历史。有读者认为它的叙事模式借鉴了几十年前赫尔曼.沃克的《战争风云》，尤其是美国的Dewar一家作为总统的亲信，与《战争风云》里亨利上校一样，得以见证很多重要历史时刻。我正好读过《战争风云》，它以美国一个海军武官亨利上校一家为中心展开故事，里面对于军事战略、政治外交等描写较为精确详细。而《世界的凛冬》涉及人物、国家众多，对于罗斯福决策、与盟国协商的历史时刻着墨不多。但是，我觉得《世界的凛冬》的故事更加通俗，肯.福莱特描写人物感情还是很细致的。《战争风云》主要人物没有死亡，（不知道它的续集《战争与回忆》里是否会有），我个人认为，这样描写战争的残酷性感染力相对弱了一点。《世界的凛冬》则描写了多次死亡，军人、平民，亲人、朋友，各种情况，让人在心痛中更深地体会到战争的残酷无情、生命的脆弱、当下的可贵。</p>
-<p>3、<strong><em>Edge of Eternity</em></strong>（《永恒的边缘》）这部作品跨度几十年，作者难以顾全，只是挑了一部分历史进行描写，比如叱咤政坛的撒切尔夫人就没有提及。有读者认为作者对于美国、苏联政治的描写带有主观看法。感谢豆瓣网友ggarlic推荐相关历史作品：《光荣与梦想》、《极端的年代》。</p>
+
+<p>我最近在看fast.ai创始人Jeremy Howard老师的机器学习课程视频，其中他多次推荐博客写作。他认为，写技术博客可以很好地理解和运用知识。其中给我最大的启发就是技术博客的写作角度。在此之前，我一直认为，只有我对某个领域很懂，才可以写一些文章来帮助别人。其实不然。虽然我是新手小白，但是如果我弄懂了一个问题，就可以总结分享出来，帮助以后入门的小白。而且，新手小白反而更能理解新手容易遇到的困惑和问题。另外，这个博客可以作为学习笔记使用，整理知识点，方便自己日后查阅。而当别人遇到同样的问题需要解答时，也可发送博客文章给对方，高效地分享知识。</p>
+<p>平时我喜欢读书、语言学习、听轻音乐等。最近两三年我加大了英文原著阅读量，同时也对英文有声书兴趣正浓。因此，这个博客小站里也有一部分文章是写技术之外的兴趣爱好：书评、英语学习笔记、…。</p>
+<p>坚持写作，思考、表达，不断完善、不断提高。</p>
 ]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
       <tags>
-        <tag>英文原著</tag>
-        <tag>小说</tag>
-        <tag>历史</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -385,6 +374,61 @@
       </tags>
   </entry>
   <entry>
+    <title>我的读书视频列表~持续更新</title>
+    <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
+<a id="more"></a>
+<p><strong>2020年8月作品：</strong><br>9.<a href="https://www.bilibili.com/video/BV1fK4y1e7MM/" target="_blank" rel="noopener">硬科幻？软科幻？你喜欢哪种？附英文有声书介绍</a><br><strong>宁萌说：</strong> 本期分享我钟爱的两本科幻小说，还有英文有声书的介绍和收听链接。精心制作、重磅推荐，哈哈！说不定你也读过这两本书呢，快点开看看、加入讨论吧！</p>
+<p>8.<a href="https://www.bilibili.com/video/BV1j54y1i7tH/" target="_blank" rel="noopener">人工智能、5G，这些新技术你了解吗？</a><br><strong>宁萌说：</strong> 本期介绍两本科普新知类的书，身处这些新技术带来的改变中，了解一下很有必要，看看我分享的哪两本书呢？</p>
+<p><strong>2020年7月作品：</strong><br>7.<a href="https://www.bilibili.com/video/BV1Sv411q7T2/" target="_blank" rel="noopener">选专业、找工作，迷茫时看看这本小说</a><br><strong>宁萌说：</strong> 小伙伴们，在选专业、找工作时，你是否有过迷茫？是否思考过人生、梦想与现实？快来看看这本小说，也许会给你新的启发。</p>
+<p>6.<a href="https://www.bilibili.com/video/BV1eZ4y1u7RM" target="_blank" rel="noopener">一本书告诉你高效阅读的方法</a><br><strong>宁萌说：</strong> 这是一本让我反复阅读和思考的指南书，改变了我以前对于读书的认识，所以，虽然大家可能会不太感兴趣，我还是做了一期分享，因为，如果你看了，可能就会对你有帮助，你说呢？</p>
+<p>5.<a href="https://www.bilibili.com/video/BV1Nf4y1R77a" target="_blank" rel="noopener">B站CEO推荐的科普书，读了之后惊呼…</a><br><strong>宁萌说：</strong> 看了B站陈总的视频之后，我读了这本科普书，后来又看了两本，原来科普书也可以写得这么有趣！于是，趁热打铁制作了这一期分享推荐视频，哈哈！你看了吗？快快加入讨论……</p>
+<p>4.<a href="https://www.bilibili.com/video/BV15k4y1B7Tw" target="_blank" rel="noopener">英文原版书入门，选哪本好？这几本英文小说怎么样？</a><br><strong>宁萌说：</strong> 终于要和大家分享英文阅读了，这几本英文小说都不错，很适合刚开始进行英文原版阅读的小伙伴，用心推荐的，请看一下呀！</p>
+<p><strong>2020年6月作品：</strong><br>3.<a href="https://www.bilibili.com/video/BV1uD4y1S7Ym" target="_blank" rel="noopener">好书一本，让自己慢下来</a><br><strong>宁萌说：</strong> 这一期我尝试加了背景音乐，搭配上风景的视频，嘿嘿，这样来读一本散文集真是再合适不过，很舒缓放松呢！快来一起欣赏吧！</p>
+<p><strong>2020年5月作品：</strong></p>
+<p>2.<a href="https://www.bilibili.com/video/BV14t4y1C7t6" target="_blank" rel="noopener">618购书分享：一起来看看我买了哪些书？</a><br><strong>宁萌说：</strong> 五月底趁着购物节活动，买了几本书，忍不住就拍了开箱视频与小伙伴们分享，没想到反响不错，大家好像对于买书视频挺感兴趣，这也让我有了多制作几期读书分享视频的打算。</p>
+<p>1.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 介绍了一本英文童话书，很有趣的书哦！这是初学阶段，视频制作的比较简单粗糙，因为没设置好比例，导致最后视频上下有一条黑边，虽然观众说不太明显、感觉不到，自己觉得还挺抱歉的，谢谢大家的鼓励和包容！</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>小说</tag>
+        <tag>非虚构</tag>
+        <tag>科普</tag>
+        <tag>散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对肯福莱特世纪三部曲的讨论和思考</title>
+    <url>/2020/04/22/%E5%AF%B9%E8%82%AF%E7%A6%8F%E8%8E%B1%E7%89%B9%E4%B8%96%E7%BA%AA%E4%B8%89%E9%83%A8%E6%9B%B2%E7%9A%84%E8%AE%A8%E8%AE%BA%E5%92%8C%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年3月。</p>
+</blockquote>
+<p>经朋友推荐，我读了肯.福莱特（Ken Follett）的世纪三部曲：<strong>Fall of Giants（《巨人的陨落》）、Winter of the World（《世界的凛冬》）和 Edge of Eternity（《永恒的边缘》）</strong>。这套书讲述了二十世纪在英国、德国、美国、俄国（苏联）的几个家族跨越一个世纪的故事，包括一战、二战和冷战。看到书商的广告，全球读者平均几天看完这套书，一开始我还有点疑惑这套书是否真正有宣传中的吸引力。然而，打开第一本之后，我就停不下来，接着读完后面两本，一直到最后结束，我也掩卷沉思，仿佛和书中人物一起回忆往昔。肯.福莱特真的是一个讲故事高手，他把书中人物与重大历史事件结合，让读者在他们的故事中也看到了历史。</p>
+<a id="more"></a>
+
+<img src="https://img1.doubanio.com/view/subject/l/public/s4494549.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>当我在网上看对于这部作品的评论时，发现了不同的观点。一部分读者，比如像我这样的历史小白，认为肯.福莱特把历史写得鲜活生动，读起来很有趣；另一部分读者读过相关的近现代史，认为肯.福莱特以他自己的价值观在写历史，有的地方不够客观公正。这就涉及到历史小说中历史和虚构比重问题，以及作者能否代入过多自己的感情色彩。因为我刚读这类历史小说，我也无法评述，就作为后续读这类小说的一个思考题吧。</p>
+<p>总结一下网上对于三部作品的争议点，以便后续拓展阅读：</p>
+<p>1、<strong><em>Fall of Giants</em></strong>（《巨人的陨落》）是开山之作，评分也是三部曲中最高的。很多读者都认为它有一种史诗般的恢弘。而对这部作品不满意的读者恰恰是看过《圣殿春秋》后对肯.福莱特有较高期望的，他们认为肯.福莱特仍在用《圣殿春秋》的模式写这本书，对二十世纪初社会阶层的描写不够准确。在一战的描写中，似乎军官反而不如士兵有勇有谋。关于一战历史，有推荐：巴巴拉.塔奇曼著《八月炮火》。</p>
+<p>2、<strong><em>Winter of the World</em></strong>（《世界的凛冬》）写的是二战历史。有读者认为它的叙事模式借鉴了几十年前赫尔曼.沃克的《战争风云》，尤其是美国的Dewar一家作为总统的亲信，与《战争风云》里亨利上校一样，得以见证很多重要历史时刻。我正好读过《战争风云》，它以美国一个海军武官亨利上校一家为中心展开故事，里面对于军事战略、政治外交等描写较为精确详细。而《世界的凛冬》涉及人物、国家众多，对于罗斯福决策、与盟国协商的历史时刻着墨不多。但是，我觉得《世界的凛冬》的故事更加通俗，肯.福莱特描写人物感情还是很细致的。《战争风云》主要人物没有死亡，（不知道它的续集《战争与回忆》里是否会有），我个人认为，这样描写战争的残酷性感染力相对弱了一点。《世界的凛冬》则描写了多次死亡，军人、平民，亲人、朋友，各种情况，让人在心痛中更深地体会到战争的残酷无情、生命的脆弱、当下的可贵。</p>
+<p>3、<strong><em>Edge of Eternity</em></strong>（《永恒的边缘》）这部作品跨度几十年，作者难以顾全，只是挑了一部分历史进行描写，比如叱咤政坛的撒切尔夫人就没有提及。有读者认为作者对于美国、苏联政治的描写带有主观看法。感谢豆瓣网友ggarlic推荐相关历史作品：《光荣与梦想》、《极端的年代》。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>小说</tag>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>信息论之父香农</title>
     <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -426,67 +470,37 @@
       </tags>
   </entry>
   <entry>
-    <title>英文有声书和广播剧推荐之二</title>
-    <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/</url>
-    <content><![CDATA[<p>接着<a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">上一篇文章</a>，继续介绍好的英文有声书和广播剧。文中提供了相应的喜马拉雅/B站链接， <strong>只要点击“收听链接”项，就可直达作品页面收听，</strong> 感谢播主/up主的分享！</p>
-<a id="more"></a>
+    <title>智能时代的思考</title>
+    <url>/2020/04/22/%E6%99%BA%E8%83%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
 
 <blockquote>
-<p>8.英文有声书-类型：儿童文学<br>书名：Esio Trot<br>作者：Roald Dahl<br><a href="https://www.ximalaya.com/ertong/16804268/" target="_blank" rel="noopener">收听链接</a></p>
+<p>本文写于2017年5月。</p>
 </blockquote>
-<p>这本书的作者 Roald Dahl 写了很多儿童故事，其中就包括《查理和巧克力工厂》。</p>
-<p>这个小故事说的是一位男士爱慕楼下女邻居，却不敢表白。女邻居养了一只小乌龟，有一天聊天，女邻居说小乌龟为什么一直不长个呢？男士主动说他有生长咒语。那么，小乌龟长大了吗？它是怎么长大的呢？哈哈，有趣的小故事。</p>
-<blockquote>
-<p>9.英文有声书-类型：儿童文学<br>书名：The Giraffe and the Pelly and Me<br>作者：Roald Dahl<br>播讲者：Hugh Laurie<br><a href="https://www.ximalaya.com/youshengshu/19969604/" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>这个故事也是 Roald Dahl 写的。长颈鹿、鹈鹕和猴子组成了一个无梯子擦窗户公司，它们是怎么分工的呢？后来又有怎样的奇遇呢？</p>
-<p>这个有声书的精彩之处在于播讲者把里面的唱段唱出来了，非常欢快，很好听，而且各个角色也是活灵活现。我很喜欢这部作品。</p>
-<blockquote>
-<p>10.英文有声书-类型：儿童文学<br>书名：Alice’s Adventures in Wonderland<br>作者：Lewis Carroll<br><a href="https://www.ximalaya.com/youshengshu/18578323/" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>我在喜马拉雅试听了几个版本的开头，最后选了这个版本听，主要原因就是这个书里面的 Alice 也是由一个小女孩演绎的，声音里传递出来的人物性格、脾气都非常符合角色。</p>
-<blockquote>
-<p>11.英文广播剧：Love virtually<br>演员：David Tennant &amp;Emilia Fox<br><a href="https://www.ximalaya.com/waiyu/16100569/95143213" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>一封发错地址的邮件，牵起一段网络情缘。剧情设定有点类似于电影《电子情书（You Got a Mail）》，喜欢爱情故事的朋友不要错过。</p>
-<p>如果听完觉得意犹未尽，可以听续集Every Seventh Wave。</p>
-<blockquote>
-<p>12.英文广播剧：Turing’s Test<br>演员:Samuel Barnett &amp; Paul Kendrick<br><a href="https://www.ximalaya.com/waiyu/16100569/95113208" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>这个广播剧时间不长，只有半个小时。剧中主角是图灵的灵魂。图灵对于计算机、人工智能都有杰出的贡献，计算机学科最高奖“图灵奖”就是以他的名字命名，人工智能的经典测试：“图灵测试”也是由图灵提出。图灵因为同性恋身份被定罪，后来吃下含有氰化物的毒苹果身亡。这部剧就是设想图灵的灵魂与计算机之间的对话。演员感情充沛，听众很容易融入其中，感受到图灵的痛苦。</p>
-<p>Samuel Barnett 的演绎十分精彩，我也因此喜欢上了他的声音，接下来要推荐的两部作品都是由他主演或朗读的。</p>
-<blockquote>
-<p>13.英文广播剧：Cicero<br>主演：Samuel Barnett，饰演Marcus Tullius Cicero<br>George Naylor，饰演Quintus Tullius Cicero<br><a href="https://www.bilibili.com/video/BV16t411t7gF" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>这部广播剧讲述的是古罗马著名政治家、演说家、雄辩家 Cicero（西塞罗）年轻时的故事，当时 Cicero 正从事律师工作。强烈推荐第一集，Cicero 的法庭辩论，逻辑清晰，论证严谨，十分精彩！这个案子也让年轻的 Cicero 在律师界一举成名。</p>
-<blockquote>
-<p>14.英文有声书—类型：人物、回忆录<br>书名：My Week with Marilyn<br>播讲者：Samuel Barnett<br><a href="https://www.ximalaya.com/waiyu/4741469/" target="_blank" rel="noopener">收听链接</a></p>
-</blockquote>
-<p>书名中的 Marilyn 就是玛丽莲梦露，这本书回忆了作者在剧组工作时与梦露女神相处的一周。Samuel 的声线塑造年轻的男主角很贴切。这本书让我感到惊讶之处是，想不到大众女神 Marilyn 的内心是个敏感脆弱、渴望爱的小孩。<br>ps: 片尾有彩蛋，最后是一段 Marilyn 的歌声。</p>
+<p>吴军博士是在 Google 工作的自然语言处理与搜索专家，<strong>《智能时代：大数据与智能革命重新定义未来》</strong> 是他继《数学之美》、《文明之光》、《浪潮之巅》之后在 2016 年推出的最新力作。我读完这本书之后，最深刻的感受就是在思维方式上受到的冲击，它让我在看待数据和解决问题时有了新的视角和方法。</p>
+<a id="more"></a>
+
+<img src="https://img3.doubanio.com/view/subject/l/public/s29142393.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>这本书以去年大火的人机围棋大战开篇，介绍了 Google 的 AlphaGo 这一人工智能棋手，拉开了智能时代的大幕，然后讲述了大数据和智能技术如何改变我们的生活。作者在书中主要回答了以下问题：</p>
+<h4 id="一、人工智能问题如何转化为大数据问题并解决。"><a href="#一、人工智能问题如何转化为大数据问题并解决。" class="headerlink" title="一、人工智能问题如何转化为大数据问题并解决。"></a>一、人工智能问题如何转化为大数据问题并解决。</h4><p>以前解决人工智能问题主要集中在如何让机器像人脑一样思考问题，强调模型及算法。现在的人工智能则采用模型简单、以强大的计算能力为支撑，以大量数据积累为基础的数据驱动方法。通俗地说，大数据方法对于问题不是从“0”开始思考，而是经过学习、即结合已知的丰富经验进行分析。比如 AlphaGo，就是在积累、学习了成千上万棋手的棋谱后，根据当前棋谱计算下一步走哪里的胜算概率更大，由此决定走哪一步。</p>
+<p>这一转化也给了我们启示：当按部就班无法得到满意结果时，应该考虑换个思路、换个角度来解决问题。就像书中提到，以前解决语音识别问题、机器翻译问题，都需要相应的语音专家、语言学家，从发音过程、语言结构等方面进行分析。后来人们通过逆向思维分析发现，要得到结果可以有很多方法，就像处理黑箱问题一样，只要输入、输出符合条件，里面的过程可以近似拟合。用大数据和统计方法解决这些问题，跳出了以前固化的思维模型，结合大量数据学习，效果反而远超传统方法。</p>
+<h4 id="二、智能时代的思维革命。"><a href="#二、智能时代的思维革命。" class="headerlink" title="二、智能时代的思维革命。"></a>二、智能时代的思维革命。</h4><p>工业革命提出的机械思维认为万物都有因果关系、有确定的规律可循，这也成为了人类发现和认知世界的重要假设。然而，现实生活中存在不确定性以及不可测（或者说测不准），对这一类现象的发现挑战了人类的认知。例如对于股市的预测反过来会影响人们的买卖操作，进而有可能出现与预测相反的波动。</p>
+<p>那么应该如何处理这些问题呢？与其逃避、不如面对。科学家引入“信息”这一概念，通过加入信息减少不确定性来解决这一类问题，并结合大数据的应用出现了一种以结果为导向的新型思维方式，即大数据思维。其特点是：无假设条件、重视结果分析，由此得到一种新的事物关系：强关联关系。</p>
+<p>这一思维革命其实是人类更加理性客观世界的结果，针对事实分析事物联系，而不是去寻求因果关系。我觉得书中提到的药物开发的例子很有说服力。一般药品研发流程往往是先分析症状、查找病因，然后寻找能消除病因的物质。实际上，这种因果分析方法会造成可寻找的药物范围有限，因为我们人类对于很多疾病原因的认识并不明确，而有的药物其实可以治疗多种疾病。比如斯坦福大学医学院发现治疗心脏病的某种药对治疗胃病特别有效。以前这类发现只能通过医生在临床偶然发现。如果药企采用新的大数据思维方式，在研发时可以大胆主动地去探究药物与很多疾病之间的关联进而发现特效药，尽管有的结果看上去有些不可思议。</p>
+<p>在《大数据时代：生活，工作与思维的大变革》一书中，作者引用普林斯顿大学心理学专家，同时也是 2002 年诺贝尔经济学奖得主丹尼尔•卡尼曼（Daniel Kahneman）的观点，也对人类的思维模式进行了分析。卡尼曼指出，人有两种思维模式，第一种是不费力的快速思维，通过这种思维方式几秒钟就能得出结果；另一种是比较费力的慢性思维，对于特定的问题，需要考虑到位。快速思维模式使人们偏向用因果联系来看待周围的一切，即使这种关系并不存在。这是我们对已有的知识和信仰的执著。平时生活中，由于惰性，我们很少慢条斯理地思考问题，快速思维模式就占据了上风，因此我们会经常臆想出一些因果关系，最终导致了对世界的错误理解。回想一下，我们是不是很多时候都是凭着以前的“因果关系”认识进行快速思维，比如“天凉了，加衣服，不然会感冒的！”这句话初听上去很有道理，因为大家每个人成长中都或多或少听过，觉得很耳熟。实际上，穿得多少与感冒之间没有必然的因果关系。而我们在做一些重要决定时，就会采用第二种慢性思维分析问题，但是这种思考常常缓慢而痛苦，并且没有头绪，表现为犹豫不决、优柔寡断。现在好了，借助计算机强大的计算能力，我们可以更加科学理性地分析事实与思考问题。</p>
+<h4 id="三、新时代的机遇与挑战。"><a href="#三、新时代的机遇与挑战。" class="headerlink" title="三、新时代的机遇与挑战。"></a>三、新时代的机遇与挑战。</h4><p>“这是最好的时代，也是最坏的时代。”英国大文豪狄更斯的这句话用在这里实在是再恰当不过了。经历过工业革命、第二次工业革命、信息革命，新一轮的智能革命正在来临，并悄然改变人们的生活。现在购物、支付、出行等等都离不开互联网，我们进入了万物互联的“扫码”时代。同时，我们也看到，机器智能的崛起开始让很多人丢了饭碗，比如制造业。现在服务业也慢慢被机器智能所代替，比如随着电子化停车场、线上超市的发展，停车场管理人员、超市导购员等工作人员的数量都将大幅缩减。</p>
+<p>那么，如何拥抱智能时代？传统行业该何去何从？作者给出了很好的建议，传统行业可以通过与新技术融合产生新行业来得到发展。书中以小米和特斯拉为例，它们并不是手机公司、电动汽车公司等传统意义的制造公司，而是定义为互联网公司，即通过手机、电动汽车为平台、为顾客提供后续个性化的终端服务，这正是值得传统家电企业学习借鉴的。家电属于耐用品，很多家庭买了一台电器可以使用很多年，提高新产品的销售额很困难。然而，如果能通过智能终端收集数据、分析顾客使用需求并提供后续全面的个性化服务，可以收获比销售新机器更多的利润。</p>
+<p>智能时代的另一大挑战则是来自隐私安全方面。现在数据使用缺乏监管，很多时候为了获得APP、软件的使用权，我们都在收集使用数据一栏点击“同意”，可是，那些使用数据的公司会将数据拿来做什么，我们并不知道。当公司、团体可以收集用户数据进行数据挖掘甚至个人画像时，其实我们的隐私已经暴露无遗，甚至可能在不知情的情况下导致利益损害。比如，当航空公司发现某一顾客对价格要求不敏感时，可能给该顾客的报价就会偏高。</p>
+<p>针对这一问题，作者提出了两类解决办法：一是可以模糊处理，使处理数据的公司只能得到大概数据、不能得到精确的细节信息从而无法定位到个人。二是设立双向监视机制，使数据使用者在使用时留下痕迹，从而会规范其使用行为。我个人认为，数据的所有权、使用权目前亟需得到关注、重视与规范和约束。很多时候，人们往往轻易地将自身相关的数据交付出去，数据公司会如何利用数据，是否会危害我们的利益和安全，对此我们一无所知。如何在发挥数据价值与保证个人隐私安全之间平衡，也是值得我们深思的问题。</p>
+<p>在看这本书的时候，我跟随吴军博士一起追溯工业社会的科技发展，又展望智能时代的前景，惊讶于技术的发展之快，畅想不远的未来。在 ALphaGo 战胜韩国高手李世石后，很多人担忧机器人会超过人类甚至统治人类，对此我并不认同。机器智能最终还是要由人类制造、受控于人类，所以关键在于如何使用。如果说每一次新技术的出现就是一把双刃剑，那么结果的好坏就取决于人类将其应用到何处，所以，最后决定我们未来的不是机器人，而是我们人类自身！</p>
 ]]></content>
       <categories>
-        <category>英文有声</category>
+        <category>读书</category>
       </categories>
       <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>写作前的思考：Why&amp;How</title>
-    <url>/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&amp;How/</url>
-    <content><![CDATA[<p>经过一番努力，终于在github上建了这个博客小站。趁着现在仍然对写作抱有兴趣和热情，我记录下写作以及建立这个小站的初衷，以后动力不足时可以看一下充电。</p>
-<a id="more"></a>
-
-<img src="/2020/04/18/%E5%86%99%E4%BD%9C%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%9AWhy&How/writing.jpg" alt="Andrew Neel from Pexels" align="center">
-
-
-<p>我最近在看fast.ai创始人Jeremy Howard老师的机器学习课程视频，其中他多次推荐博客写作。他认为，写技术博客可以很好地理解和运用知识。其中给我最大的启发就是技术博客的写作角度。在此之前，我一直认为，只有我对某个领域很懂，才可以写一些文章来帮助别人。其实不然。虽然我是新手小白，但是如果我弄懂了一个问题，就可以总结分享出来，帮助以后入门的小白。而且，新手小白反而更能理解新手容易遇到的困惑和问题。另外，这个博客可以作为学习笔记使用，整理知识点，方便自己日后查阅。而当别人遇到同样的问题需要解答时，也可发送博客文章给对方，高效地分享知识。</p>
-<p>平时我喜欢读书、语言学习、听轻音乐等。最近两三年我加大了英文原著阅读量，同时也对英文有声书兴趣正浓。因此，这个博客小站里也有一部分文章是写技术之外的兴趣爱好：书评、英语学习笔记、…。</p>
-<p>坚持写作，思考、表达，不断完善、不断提高。</p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
       </tags>
   </entry>
   <entry>
@@ -494,8 +508,9 @@
     <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。</p>
 <a id="more"></a>
+<p><strong>2020年8月作品：</strong><br>13.【精读】《柳林风声》第二章列表 The Wind in the Willows<br><strong>宁萌说：</strong> 这一章的视频我制作得更加短小精练，同时搭配了好听了轻音乐，点击下面标题，直达播放页面。<br><a href="https://www.bilibili.com/video/BV17h411d7dt" target="_blank" rel="noopener">第1期-鼹鼠的提议</a><br><a href="https://www.bilibili.com/video/BV1nZ4y1M7dR" target="_blank" rel="noopener">第2期-初到蟾宫</a><br><a href="https://www.bilibili.com/video/BV1YA411Y7dR" target="_blank" rel="noopener">第3期-蟾儿又换爱好了</a><br><a href="https://www.bilibili.com/video/BV12f4y197zz" target="_blank" rel="noopener">第4期-蟾儿的计划</a><br><a href="https://www.bilibili.com/video/BV1mp4y1v71z" target="_blank" rel="noopener">第5期-说服的策略</a><br><a href="https://www.bilibili.com/video/BV1h54y1U7Sh" target="_blank" rel="noopener">第6期-出发了</a><br><a href="https://www.bilibili.com/video/BV15z4y1f72S" target="_blank" rel="noopener">第7期-旅行日记</a><br><a href="https://www.bilibili.com/video/BV1yV41127en" target="_blank" rel="noopener">第8期-“噗噗”来了</a><br><a href="https://www.bilibili.com/video/BV1QV41127Ct" target="_blank" rel="noopener">第9期-蟾儿魔怔了</a><br><a href="https://www.bilibili.com/video/BV1Lt4y1S7FE" target="_blank" rel="noopener">第10期-无奈的同伴</a><br><a href="https://www.bilibili.com/video/BV1A5411b7o4" target="_blank" rel="noopener">第11期-蟾儿“不虚此行”</a><br><a href="https://www.bilibili.com/video/BV1Zz4y1f7iq" target="_blank" rel="noopener">第12期-回家(本章读完)</a></p>
 <p><strong>2020年6月作品：</strong><br>12.<a href="https://www.bilibili.com/video/BV1Up4y1U7hf" target="_blank" rel="noopener">美景、轻音乐+读书，你喜欢吗？</a><br><strong>宁萌说：</strong> 从 The Wind in the Willows 《柳林风声》第一章中选了两段，读给您听，搭配上相应的美景和轻音乐，喜欢吗？快去欣赏一下吧！</p>
-<p>11.<strong>重磅推荐：</strong><a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br><strong>宁萌说：</strong> 这是一期视频合辑，里面有对 The Wind in the Willows 《柳林风声》第一章的精读，还有我精心制作的笔记字幕哦，更加易懂。因为我花了很多时间和心思在这个精读活动上，一边接收观众反馈，一边尝试改进，所以特别推荐您点开看一下，帮我提点改进建议啊，谢谢！ </p>
+<p>11.<strong>重磅推荐：【精读】</strong><a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br><strong>宁萌说：</strong> 这是一期视频合辑，里面有对 The Wind in the Willows 《柳林风声》第一章的精读，还有我精心制作的笔记字幕哦，更加易懂。因为我花了很多时间和心思在这个精读活动上，一边接收观众反馈，一边尝试改进，所以特别推荐您点开看一下，帮我提点改进建议啊，谢谢！ </p>
 <p><strong>2020年5月作品：</strong><br>10.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 我很喜欢 The Wind in the Willows 《柳林风声》这本书，很有趣，文笔优美，打算做精读。这一期是导读，简要介绍一下这本书。</p>
 <p>9.<a href="https://www.bilibili.com/video/BV1bC4y1H7Ay" target="_blank" rel="noopener">英语表达-怎么描述煎炸食物？</a><br><strong>宁萌说：</strong> 爱美食、爱生活的小伙伴不要错过呀！</p>
 <p>8.<a href="https://www.bilibili.com/video/BV1ue411W7ga" target="_blank" rel="noopener">英语表达-一关门想起钥匙落在屋里了……</a></p>
@@ -512,33 +527,6 @@
       </categories>
       <tags>
         <tag>英文原著</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的读书视频列表~持续更新</title>
-    <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌英语小站</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
-<a id="more"></a>
-<p><strong>2020年8月作品：</strong><br>9.<a href="https://www.bilibili.com/video/BV1fK4y1e7MM/" target="_blank" rel="noopener">硬科幻？软科幻？你喜欢哪种？附英文有声书介绍</a><br><strong>宁萌说：</strong> 本期分享我钟爱的两本科幻小说，还有英文有声书的介绍和收听链接。精心制作、重磅推荐，哈哈！说不定你也读过这两本书呢，快点开看看、加入讨论吧！</p>
-<p>8.<a href="https://www.bilibili.com/video/BV1j54y1i7tH/" target="_blank" rel="noopener">人工智能、5G，这些新技术你了解吗？</a><br><strong>宁萌说：</strong> 本期介绍两本科普新知类的书，身处这些新技术带来的改变中，了解一下很有必要，看看我分享的哪两本书呢？</p>
-<p><strong>2020年7月作品：</strong><br>7.<a href="https://www.bilibili.com/video/BV1Sv411q7T2/" target="_blank" rel="noopener">选专业、找工作，迷茫时看看这本小说</a><br><strong>宁萌说：</strong> 小伙伴们，在选专业、找工作时，你是否有过迷茫？是否思考过人生、梦想与现实？快来看看这本小说，也许会给你新的启发。</p>
-<p>6.<a href="https://www.bilibili.com/video/BV1eZ4y1u7RM" target="_blank" rel="noopener">一本书告诉你高效阅读的方法</a><br><strong>宁萌说：</strong> 这是一本让我反复阅读和思考的指南书，改变了我以前对于读书的认识，所以，虽然大家可能会不太感兴趣，我还是做了一期分享，因为，如果你看了，可能就会对你有帮助，你说呢？</p>
-<p>5.<a href="https://www.bilibili.com/video/BV1Nf4y1R77a" target="_blank" rel="noopener">B站CEO推荐的科普书，读了之后惊呼…</a><br><strong>宁萌说：</strong> 看了B站陈总的视频之后，我读了这本科普书，后来又看了两本，原来科普书也可以写得这么有趣！于是，趁热打铁制作了这一期分享推荐视频，哈哈！你看了吗？快快加入讨论……</p>
-<p>4.<a href="https://www.bilibili.com/video/BV15k4y1B7Tw" target="_blank" rel="noopener">英文原版书入门，选哪本好？这几本英文小说怎么样？</a><br><strong>宁萌说：</strong> 终于要和大家分享英文阅读了，这几本英文小说都不错，很适合刚开始进行英文原版阅读的小伙伴，用心推荐的，请看一下呀！</p>
-<p><strong>2020年6月作品：</strong><br>3.<a href="https://www.bilibili.com/video/BV1uD4y1S7Ym" target="_blank" rel="noopener">好书一本，让自己慢下来</a><br><strong>宁萌说：</strong> 这一期我尝试加了背景音乐，搭配上风景的视频，嘿嘿，这样来读一本散文集真是再合适不过，很舒缓放松呢！快来一起欣赏吧！</p>
-<p><strong>2020年5月作品：</strong></p>
-<p>2.<a href="https://www.bilibili.com/video/BV14t4y1C7t6" target="_blank" rel="noopener">618购书分享：一起来看看我买了哪些书？</a><br><strong>宁萌说：</strong> 五月底趁着购物节活动，买了几本书，忍不住就拍了开箱视频与小伙伴们分享，没想到反响不错，大家好像对于买书视频挺感兴趣，这也让我有了多制作几期读书分享视频的打算。</p>
-<p>1.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？带你了解……</a><br><strong>宁萌说：</strong> 介绍了一本英文童话书，很有趣的书哦！这是初学阶段，视频制作的比较简单粗糙，因为没设置好比例，导致最后视频上下有一条黑边，虽然观众说不太明显、感觉不到，自己觉得还挺抱歉的，谢谢大家的鼓励和包容！</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>小说</tag>
-        <tag>非虚构</tag>
-        <tag>科普</tag>
-        <tag>散文</tag>
       </tags>
   </entry>
   <entry>
@@ -570,114 +558,6 @@
         <tag>非虚构</tag>
         <tag>人物传记</tag>
         <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>许多记忆未曾诉说</title>
-    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
-    <content><![CDATA[<blockquote>
-<p>本文写于2019年5月</p>
-</blockquote>
-<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
-<a id="more"></a>
-
-<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
-
-<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
-<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
-<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
-<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读乔布斯传</title>
-    <url>/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</url>
-    <content><![CDATA[<blockquote>
-<p>本文写于2019年8月。</p>
-</blockquote>
-<p>最近读了Walter Isaacson 为乔布斯写的传记 <strong><em>Steve Jobs</em></strong>，书中关于乔布斯的创新和产品理念让我反复思索、很受启发。这是一本值得再读一遍的好书。</p>
-<a id="more"></a>
-
-
-<p>我想谈谈书中让我感悟最深的几点：(由于早段时间读了马斯克的传记，我认为马斯克和乔布斯在一些方面有相似之处，因此有些地方也对马斯克进行了介绍。）</p>
-<h4 id="1-创新"><a href="#1-创新" class="headerlink" title="1. 创新"></a>1. 创新</h4><p>公司创新的原动力在哪里？乔布斯认为这一动力来自研发设计人员、产品工程师，因此他坚持产品研发人员优先的原则。他曾经在访谈中提到一些大企业后来衰退的原因，就是销售人员取代产品研发人员在公司占据主导地位。当公司的主要精力不是放在产品上而只是为了迎合市场提高销量时，公司就失去了创新的动力。他有一个著名的论断：顾客其实不知道自己想要什么样的产品，因此不对现有市场进行调研，而是主动去发现潜在的需求和可能的市场，提供相应的产品。顾客只是没有见过这种新产品，新品一旦推出，会受欢迎。事实如此。在这一点上，马斯克和乔布斯有相似之处，他们都善于发现现有市场的短板或空白，然后由此发力，获得成功。比如乔布斯带领苹果走入音乐产业、手机产业…，马斯克发现银行在网上业务的空缺而开创网络支付。</p>
-<h4 id="2-热情与信念"><a href="#2-热情与信念" class="headerlink" title="2. 热情与信念"></a>2. 热情与信念</h4><p>这里就要提到乔布斯的“现实扭曲”(reality distortion)，即坚信他认定的事，不考虑由现实环境得出的相反结论。比如，他认为某件事可以办到，他也让本来持怀疑态度的其他人相信可以做到，然后尽全力去做，最后出人意料地真的实现了。这让我想到了马斯克的员工对于马斯克提出的工作任务不能直接回答impossible（不可能），只能是提出有什么困难障碍，马斯克想办法解决，这也让他的员工的潜能得到最大发挥。乔布斯和马斯克都是对于工作和梦想充满热情的人，他们全身心地投入其中，主观积极性发挥到极致，这种态度直接影响了他们周围的人，最终完成了许多本来预计不可能实现的工作。</p>
-<h4 id="3-禅宗对于乔布斯的影响"><a href="#3-禅宗对于乔布斯的影响" class="headerlink" title="3. 禅宗对于乔布斯的影响"></a>3. 禅宗对于乔布斯的影响</h4><p>受禅宗影响，乔布斯非常推崇<strong>简约</strong>。“ Simplicity is the ultimate sophistication. ”他在产品中要求工程师们做到这一点，产品简洁、易用。同时，他在自己的人生中也实践了这一点。他从十几岁起就成了一个虔诚的素食主义者，即便家财万贯，也没有去追求物质的享受。他关注的，就是如何把他视同孩子的苹果公司做到长久。</p>
-<p>禅宗对乔布斯的另一个影响就是<strong>专注</strong>。他重回苹果后大刀阔斧精简产品系列，依据两方面特点：大众/专业版与台式机/笔记本进行组合，把产品缩减到四种。他每年都会与公司杰出人才讨论列出下一年公司发展最想做的十件事。然后，重点是，他只保留前三项。这一点真是时间管理的精髓：重要性优先。把有限的时间和精力投入到最想要做的事情上，才能得到最好的结果。什么都想做，什么都尝试去做一点，最后可能就是虎头蛇尾，什么都做不好。</p>
-<h4 id="4-完美主义者"><a href="#4-完美主义者" class="headerlink" title="4. 完美主义者"></a>4. 完美主义者</h4><p>对完美的追求常常是辛苦的过程，但是，不得不说，读乔布斯传时，我也被乔布斯的完美主义所打动，正是这种极致的追求和精雕细琢，让人们在看到产品的一瞬间就感到愉悦。乔布斯常常提到他的理念：让科技和艺术结合，让人文与科学交融，苹果的产品正体现了这一点。另外，苹果的封闭平台、软硬件一体化设计与 Windows、Android 等开放平台的对比也在书中一次次提及。对此，乔布斯有他的理由，他认为要做一件好的产品，就必须从软件到硬件都关注到。他希望在自己手中将产品做到最佳呈现给顾客，顾客可以很容易就上手使用，而不用去学习复杂的操作手册。此外，一体化的过程也能让产品设计更加简约。</p>
-<h4 id="5-另一面的乔布斯。"><a href="#5-另一面的乔布斯。" class="headerlink" title="5. 另一面的乔布斯。"></a>5. 另一面的乔布斯。</h4><p>除了工匠精神、追求卓越产品的理性一面，书中还展现了他感性的一面。第一次知道乔布斯在和合作伙伴吵架时还会用眼泪助攻；第一次知道乔布斯常常直言不讳说出自己的想法和感受。最让员工哭笑不得的是他的态度转变之大之快，可能刚刚听员工汇报时还说设计的新品 shitty，过一会儿他想通了觉得这个方案确实新颖可行，又会向同事们热情介绍 the best thing ever，而且让人感觉这就是他的点子。但是，乔布斯同样非常重视交流和团队协作。这一点，从苹果研发与设计的互相促进、产品研讨会的高效反馈、Pixar 办公大楼别具心裁的门厅设计等等，都可以看到。</p>
-<p>以前我只听过乔布斯重回苹果这些年的传奇故事，这本书让我知道了年轻的乔布斯如何一步步成长，带领苹果公司走向巅峰。我很佩服乔布斯的远见卓识，他总是先人一步发现市场需求，推动创新、引领技术潮流。也不禁想象，如果他还在的话，苹果又会推出怎样让人惊奇的新产品呢？他去世前一段时间还关注到教育行业，认为教学也应该来到互联网上、实时互动。现在的网上课堂遍地开花，人们可以方便地获得知识，这或许也在一定程度上实现了乔布斯的构想。</p>
-<p>1997 年苹果 “ Think Different ” 广告中有一句话:<strong>“The people who are crazy enough to think they can change the world are the ones who do.”</strong> 我想， 乔布斯正是这样一个伟大的人物。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书的要领</title>
-    <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-
-<img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p>
-<a id="more"></a>
-
-<h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p>
-<ul>
-<li>这本书谈了什么？（主旨）</li>
-<li>作者是怎么阐述观点的？（论点、结构）</li>
-<li>这本书说的有道理吗？全部有道理，还是部分有道理？</li>
-<li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li>
-</ul>
-<h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center">
-
-<p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p>
-<h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p>
-<p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p>
-<p>2、把握书籍大致的架构、大纲。</p>
-<p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p>
-<p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p>
-<h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p>
-<p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p>
-<p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p>
-<p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p>
-<h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p>
-<p>主题阅读主要包括以下步骤：</p>
-<p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p>
-<p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p>
-<h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p>
-<p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p>
-<p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p>
-<p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p>
-<p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p>
-<p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p>
-<h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p>
-<p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
       </tags>
   </entry>
   <entry>
@@ -746,37 +626,50 @@
       </tags>
   </entry>
   <entry>
-    <title>智能时代的思考</title>
-    <url>/2020/04/22/%E6%99%BA%E8%83%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2017年5月。</p>
-</blockquote>
-<p>吴军博士是在 Google 工作的自然语言处理与搜索专家，<strong>《智能时代：大数据与智能革命重新定义未来》</strong> 是他继《数学之美》、《文明之光》、《浪潮之巅》之后在 2016 年推出的最新力作。我读完这本书之后，最深刻的感受就是在思维方式上受到的冲击，它让我在看待数据和解决问题时有了新的视角和方法。</p>
+    <title>英文有声书和广播剧推荐之二</title>
+    <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/</url>
+    <content><![CDATA[<p>接着<a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">上一篇文章</a>，继续介绍好的英文有声书和广播剧。文中提供了相应的喜马拉雅/B站链接， <strong>只要点击“收听链接”项，就可直达作品页面收听，</strong> 感谢播主/up主的分享！</p>
 <a id="more"></a>
 
-<img src="https://img3.doubanio.com/view/subject/l/public/s29142393.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>这本书以去年大火的人机围棋大战开篇，介绍了 Google 的 AlphaGo 这一人工智能棋手，拉开了智能时代的大幕，然后讲述了大数据和智能技术如何改变我们的生活。作者在书中主要回答了以下问题：</p>
-<h4 id="一、人工智能问题如何转化为大数据问题并解决。"><a href="#一、人工智能问题如何转化为大数据问题并解决。" class="headerlink" title="一、人工智能问题如何转化为大数据问题并解决。"></a>一、人工智能问题如何转化为大数据问题并解决。</h4><p>以前解决人工智能问题主要集中在如何让机器像人脑一样思考问题，强调模型及算法。现在的人工智能则采用模型简单、以强大的计算能力为支撑，以大量数据积累为基础的数据驱动方法。通俗地说，大数据方法对于问题不是从“0”开始思考，而是经过学习、即结合已知的丰富经验进行分析。比如 AlphaGo，就是在积累、学习了成千上万棋手的棋谱后，根据当前棋谱计算下一步走哪里的胜算概率更大，由此决定走哪一步。</p>
-<p>这一转化也给了我们启示：当按部就班无法得到满意结果时，应该考虑换个思路、换个角度来解决问题。就像书中提到，以前解决语音识别问题、机器翻译问题，都需要相应的语音专家、语言学家，从发音过程、语言结构等方面进行分析。后来人们通过逆向思维分析发现，要得到结果可以有很多方法，就像处理黑箱问题一样，只要输入、输出符合条件，里面的过程可以近似拟合。用大数据和统计方法解决这些问题，跳出了以前固化的思维模型，结合大量数据学习，效果反而远超传统方法。</p>
-<h4 id="二、智能时代的思维革命。"><a href="#二、智能时代的思维革命。" class="headerlink" title="二、智能时代的思维革命。"></a>二、智能时代的思维革命。</h4><p>工业革命提出的机械思维认为万物都有因果关系、有确定的规律可循，这也成为了人类发现和认知世界的重要假设。然而，现实生活中存在不确定性以及不可测（或者说测不准），对这一类现象的发现挑战了人类的认知。例如对于股市的预测反过来会影响人们的买卖操作，进而有可能出现与预测相反的波动。</p>
-<p>那么应该如何处理这些问题呢？与其逃避、不如面对。科学家引入“信息”这一概念，通过加入信息减少不确定性来解决这一类问题，并结合大数据的应用出现了一种以结果为导向的新型思维方式，即大数据思维。其特点是：无假设条件、重视结果分析，由此得到一种新的事物关系：强关联关系。</p>
-<p>这一思维革命其实是人类更加理性客观世界的结果，针对事实分析事物联系，而不是去寻求因果关系。我觉得书中提到的药物开发的例子很有说服力。一般药品研发流程往往是先分析症状、查找病因，然后寻找能消除病因的物质。实际上，这种因果分析方法会造成可寻找的药物范围有限，因为我们人类对于很多疾病原因的认识并不明确，而有的药物其实可以治疗多种疾病。比如斯坦福大学医学院发现治疗心脏病的某种药对治疗胃病特别有效。以前这类发现只能通过医生在临床偶然发现。如果药企采用新的大数据思维方式，在研发时可以大胆主动地去探究药物与很多疾病之间的关联进而发现特效药，尽管有的结果看上去有些不可思议。</p>
-<p>在《大数据时代：生活，工作与思维的大变革》一书中，作者引用普林斯顿大学心理学专家，同时也是 2002 年诺贝尔经济学奖得主丹尼尔•卡尼曼（Daniel Kahneman）的观点，也对人类的思维模式进行了分析。卡尼曼指出，人有两种思维模式，第一种是不费力的快速思维，通过这种思维方式几秒钟就能得出结果；另一种是比较费力的慢性思维，对于特定的问题，需要考虑到位。快速思维模式使人们偏向用因果联系来看待周围的一切，即使这种关系并不存在。这是我们对已有的知识和信仰的执著。平时生活中，由于惰性，我们很少慢条斯理地思考问题，快速思维模式就占据了上风，因此我们会经常臆想出一些因果关系，最终导致了对世界的错误理解。回想一下，我们是不是很多时候都是凭着以前的“因果关系”认识进行快速思维，比如“天凉了，加衣服，不然会感冒的！”这句话初听上去很有道理，因为大家每个人成长中都或多或少听过，觉得很耳熟。实际上，穿得多少与感冒之间没有必然的因果关系。而我们在做一些重要决定时，就会采用第二种慢性思维分析问题，但是这种思考常常缓慢而痛苦，并且没有头绪，表现为犹豫不决、优柔寡断。现在好了，借助计算机强大的计算能力，我们可以更加科学理性地分析事实与思考问题。</p>
-<h4 id="三、新时代的机遇与挑战。"><a href="#三、新时代的机遇与挑战。" class="headerlink" title="三、新时代的机遇与挑战。"></a>三、新时代的机遇与挑战。</h4><p>“这是最好的时代，也是最坏的时代。”英国大文豪狄更斯的这句话用在这里实在是再恰当不过了。经历过工业革命、第二次工业革命、信息革命，新一轮的智能革命正在来临，并悄然改变人们的生活。现在购物、支付、出行等等都离不开互联网，我们进入了万物互联的“扫码”时代。同时，我们也看到，机器智能的崛起开始让很多人丢了饭碗，比如制造业。现在服务业也慢慢被机器智能所代替，比如随着电子化停车场、线上超市的发展，停车场管理人员、超市导购员等工作人员的数量都将大幅缩减。</p>
-<p>那么，如何拥抱智能时代？传统行业该何去何从？作者给出了很好的建议，传统行业可以通过与新技术融合产生新行业来得到发展。书中以小米和特斯拉为例，它们并不是手机公司、电动汽车公司等传统意义的制造公司，而是定义为互联网公司，即通过手机、电动汽车为平台、为顾客提供后续个性化的终端服务，这正是值得传统家电企业学习借鉴的。家电属于耐用品，很多家庭买了一台电器可以使用很多年，提高新产品的销售额很困难。然而，如果能通过智能终端收集数据、分析顾客使用需求并提供后续全面的个性化服务，可以收获比销售新机器更多的利润。</p>
-<p>智能时代的另一大挑战则是来自隐私安全方面。现在数据使用缺乏监管，很多时候为了获得APP、软件的使用权，我们都在收集使用数据一栏点击“同意”，可是，那些使用数据的公司会将数据拿来做什么，我们并不知道。当公司、团体可以收集用户数据进行数据挖掘甚至个人画像时，其实我们的隐私已经暴露无遗，甚至可能在不知情的情况下导致利益损害。比如，当航空公司发现某一顾客对价格要求不敏感时，可能给该顾客的报价就会偏高。</p>
-<p>针对这一问题，作者提出了两类解决办法：一是可以模糊处理，使处理数据的公司只能得到大概数据、不能得到精确的细节信息从而无法定位到个人。二是设立双向监视机制，使数据使用者在使用时留下痕迹，从而会规范其使用行为。我个人认为，数据的所有权、使用权目前亟需得到关注、重视与规范和约束。很多时候，人们往往轻易地将自身相关的数据交付出去，数据公司会如何利用数据，是否会危害我们的利益和安全，对此我们一无所知。如何在发挥数据价值与保证个人隐私安全之间平衡，也是值得我们深思的问题。</p>
-<p>在看这本书的时候，我跟随吴军博士一起追溯工业社会的科技发展，又展望智能时代的前景，惊讶于技术的发展之快，畅想不远的未来。在 ALphaGo 战胜韩国高手李世石后，很多人担忧机器人会超过人类甚至统治人类，对此我并不认同。机器智能最终还是要由人类制造、受控于人类，所以关键在于如何使用。如果说每一次新技术的出现就是一把双刃剑，那么结果的好坏就取决于人类将其应用到何处，所以，最后决定我们未来的不是机器人，而是我们人类自身！</p>
+<blockquote>
+<p>8.英文有声书-类型：儿童文学<br>书名：Esio Trot<br>作者：Roald Dahl<br><a href="https://www.ximalaya.com/ertong/16804268/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这本书的作者 Roald Dahl 写了很多儿童故事，其中就包括《查理和巧克力工厂》。</p>
+<p>这个小故事说的是一位男士爱慕楼下女邻居，却不敢表白。女邻居养了一只小乌龟，有一天聊天，女邻居说小乌龟为什么一直不长个呢？男士主动说他有生长咒语。那么，小乌龟长大了吗？它是怎么长大的呢？哈哈，有趣的小故事。</p>
+<blockquote>
+<p>9.英文有声书-类型：儿童文学<br>书名：The Giraffe and the Pelly and Me<br>作者：Roald Dahl<br>播讲者：Hugh Laurie<br><a href="https://www.ximalaya.com/youshengshu/19969604/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这个故事也是 Roald Dahl 写的。长颈鹿、鹈鹕和猴子组成了一个无梯子擦窗户公司，它们是怎么分工的呢？后来又有怎样的奇遇呢？</p>
+<p>这个有声书的精彩之处在于播讲者把里面的唱段唱出来了，非常欢快，很好听，而且各个角色也是活灵活现。我很喜欢这部作品。</p>
+<blockquote>
+<p>10.英文有声书-类型：儿童文学<br>书名：Alice’s Adventures in Wonderland<br>作者：Lewis Carroll<br><a href="https://www.ximalaya.com/youshengshu/18578323/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>我在喜马拉雅试听了几个版本的开头，最后选了这个版本听，主要原因就是这个书里面的 Alice 也是由一个小女孩演绎的，声音里传递出来的人物性格、脾气都非常符合角色。</p>
+<blockquote>
+<p>11.英文广播剧：Love virtually<br>演员：David Tennant &amp;Emilia Fox<br><a href="https://www.ximalaya.com/waiyu/16100569/95143213" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>一封发错地址的邮件，牵起一段网络情缘。剧情设定有点类似于电影《电子情书（You Got a Mail）》，喜欢爱情故事的朋友不要错过。</p>
+<p>如果听完觉得意犹未尽，可以听续集Every Seventh Wave。</p>
+<blockquote>
+<p>12.英文广播剧：Turing’s Test<br>演员:Samuel Barnett &amp; Paul Kendrick<br><a href="https://www.ximalaya.com/waiyu/16100569/95113208" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这个广播剧时间不长，只有半个小时。剧中主角是图灵的灵魂。图灵对于计算机、人工智能都有杰出的贡献，计算机学科最高奖“图灵奖”就是以他的名字命名，人工智能的经典测试：“图灵测试”也是由图灵提出。图灵因为同性恋身份被定罪，后来吃下含有氰化物的毒苹果身亡。这部剧就是设想图灵的灵魂与计算机之间的对话。演员感情充沛，听众很容易融入其中，感受到图灵的痛苦。</p>
+<p>Samuel Barnett 的演绎十分精彩，我也因此喜欢上了他的声音，接下来要推荐的两部作品都是由他主演或朗读的。</p>
+<blockquote>
+<p>13.英文广播剧：Cicero<br>主演：Samuel Barnett，饰演Marcus Tullius Cicero<br>George Naylor，饰演Quintus Tullius Cicero<br><a href="https://www.bilibili.com/video/BV16t411t7gF" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>这部广播剧讲述的是古罗马著名政治家、演说家、雄辩家 Cicero（西塞罗）年轻时的故事，当时 Cicero 正从事律师工作。强烈推荐第一集，Cicero 的法庭辩论，逻辑清晰，论证严谨，十分精彩！这个案子也让年轻的 Cicero 在律师界一举成名。</p>
+<blockquote>
+<p>14.英文有声书—类型：人物、回忆录<br>书名：My Week with Marilyn<br>播讲者：Samuel Barnett<br><a href="https://www.ximalaya.com/waiyu/4741469/" target="_blank" rel="noopener">收听链接</a></p>
+</blockquote>
+<p>书名中的 Marilyn 就是玛丽莲梦露，这本书回忆了作者在剧组工作时与梦露女神相处的一周。Samuel 的声线塑造年轻的男主角很贴切。这本书让我感到惊讶之处是，想不到大众女神 Marilyn 的内心是个敏感脆弱、渴望爱的小孩。<br>ps: 片尾有彩蛋，最后是一段 Marilyn 的歌声。</p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>英文有声</category>
       </categories>
       <tags>
-        <tag>非虚构</tag>
-        <tag>科技</tag>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
       </tags>
   </entry>
   <entry>
@@ -809,6 +702,114 @@
       <tags>
         <tag>非虚构</tag>
         <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读乔布斯传</title>
+    <url>/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>本文写于2019年8月。</p>
+</blockquote>
+<p>最近读了Walter Isaacson 为乔布斯写的传记 <strong><em>Steve Jobs</em></strong>，书中关于乔布斯的创新和产品理念让我反复思索、很受启发。这是一本值得再读一遍的好书。</p>
+<a id="more"></a>
+
+
+<p>我想谈谈书中让我感悟最深的几点：(由于早段时间读了马斯克的传记，我认为马斯克和乔布斯在一些方面有相似之处，因此有些地方也对马斯克进行了介绍。）</p>
+<h4 id="1-创新"><a href="#1-创新" class="headerlink" title="1. 创新"></a>1. 创新</h4><p>公司创新的原动力在哪里？乔布斯认为这一动力来自研发设计人员、产品工程师，因此他坚持产品研发人员优先的原则。他曾经在访谈中提到一些大企业后来衰退的原因，就是销售人员取代产品研发人员在公司占据主导地位。当公司的主要精力不是放在产品上而只是为了迎合市场提高销量时，公司就失去了创新的动力。他有一个著名的论断：顾客其实不知道自己想要什么样的产品，因此不对现有市场进行调研，而是主动去发现潜在的需求和可能的市场，提供相应的产品。顾客只是没有见过这种新产品，新品一旦推出，会受欢迎。事实如此。在这一点上，马斯克和乔布斯有相似之处，他们都善于发现现有市场的短板或空白，然后由此发力，获得成功。比如乔布斯带领苹果走入音乐产业、手机产业…，马斯克发现银行在网上业务的空缺而开创网络支付。</p>
+<h4 id="2-热情与信念"><a href="#2-热情与信念" class="headerlink" title="2. 热情与信念"></a>2. 热情与信念</h4><p>这里就要提到乔布斯的“现实扭曲”(reality distortion)，即坚信他认定的事，不考虑由现实环境得出的相反结论。比如，他认为某件事可以办到，他也让本来持怀疑态度的其他人相信可以做到，然后尽全力去做，最后出人意料地真的实现了。这让我想到了马斯克的员工对于马斯克提出的工作任务不能直接回答impossible（不可能），只能是提出有什么困难障碍，马斯克想办法解决，这也让他的员工的潜能得到最大发挥。乔布斯和马斯克都是对于工作和梦想充满热情的人，他们全身心地投入其中，主观积极性发挥到极致，这种态度直接影响了他们周围的人，最终完成了许多本来预计不可能实现的工作。</p>
+<h4 id="3-禅宗对于乔布斯的影响"><a href="#3-禅宗对于乔布斯的影响" class="headerlink" title="3. 禅宗对于乔布斯的影响"></a>3. 禅宗对于乔布斯的影响</h4><p>受禅宗影响，乔布斯非常推崇<strong>简约</strong>。“ Simplicity is the ultimate sophistication. ”他在产品中要求工程师们做到这一点，产品简洁、易用。同时，他在自己的人生中也实践了这一点。他从十几岁起就成了一个虔诚的素食主义者，即便家财万贯，也没有去追求物质的享受。他关注的，就是如何把他视同孩子的苹果公司做到长久。</p>
+<p>禅宗对乔布斯的另一个影响就是<strong>专注</strong>。他重回苹果后大刀阔斧精简产品系列，依据两方面特点：大众/专业版与台式机/笔记本进行组合，把产品缩减到四种。他每年都会与公司杰出人才讨论列出下一年公司发展最想做的十件事。然后，重点是，他只保留前三项。这一点真是时间管理的精髓：重要性优先。把有限的时间和精力投入到最想要做的事情上，才能得到最好的结果。什么都想做，什么都尝试去做一点，最后可能就是虎头蛇尾，什么都做不好。</p>
+<h4 id="4-完美主义者"><a href="#4-完美主义者" class="headerlink" title="4. 完美主义者"></a>4. 完美主义者</h4><p>对完美的追求常常是辛苦的过程，但是，不得不说，读乔布斯传时，我也被乔布斯的完美主义所打动，正是这种极致的追求和精雕细琢，让人们在看到产品的一瞬间就感到愉悦。乔布斯常常提到他的理念：让科技和艺术结合，让人文与科学交融，苹果的产品正体现了这一点。另外，苹果的封闭平台、软硬件一体化设计与 Windows、Android 等开放平台的对比也在书中一次次提及。对此，乔布斯有他的理由，他认为要做一件好的产品，就必须从软件到硬件都关注到。他希望在自己手中将产品做到最佳呈现给顾客，顾客可以很容易就上手使用，而不用去学习复杂的操作手册。此外，一体化的过程也能让产品设计更加简约。</p>
+<h4 id="5-另一面的乔布斯。"><a href="#5-另一面的乔布斯。" class="headerlink" title="5. 另一面的乔布斯。"></a>5. 另一面的乔布斯。</h4><p>除了工匠精神、追求卓越产品的理性一面，书中还展现了他感性的一面。第一次知道乔布斯在和合作伙伴吵架时还会用眼泪助攻；第一次知道乔布斯常常直言不讳说出自己的想法和感受。最让员工哭笑不得的是他的态度转变之大之快，可能刚刚听员工汇报时还说设计的新品 shitty，过一会儿他想通了觉得这个方案确实新颖可行，又会向同事们热情介绍 the best thing ever，而且让人感觉这就是他的点子。但是，乔布斯同样非常重视交流和团队协作。这一点，从苹果研发与设计的互相促进、产品研讨会的高效反馈、Pixar 办公大楼别具心裁的门厅设计等等，都可以看到。</p>
+<p>以前我只听过乔布斯重回苹果这些年的传奇故事，这本书让我知道了年轻的乔布斯如何一步步成长，带领苹果公司走向巅峰。我很佩服乔布斯的远见卓识，他总是先人一步发现市场需求，推动创新、引领技术潮流。也不禁想象，如果他还在的话，苹果又会推出怎样让人惊奇的新产品呢？他去世前一段时间还关注到教育行业，认为教学也应该来到互联网上、实时互动。现在的网上课堂遍地开花，人们可以方便地获得知识，这或许也在一定程度上实现了乔布斯的构想。</p>
+<p>1997 年苹果 “ Think Different ” 广告中有一句话:<strong>“The people who are crazy enough to think they can change the world are the ones who do.”</strong> 我想， 乔布斯正是这样一个伟大的人物。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>人物传记</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>许多记忆未曾诉说</title>
+    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
+    <content><![CDATA[<blockquote>
+<p>本文写于2019年5月</p>
+</blockquote>
+<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
+<a id="more"></a>
+
+<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
+
+<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
+<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
+<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
+<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>小说</tag>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书的要领</title>
+    <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p>
+<a id="more"></a>
+
+<h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p>
+<ul>
+<li>这本书谈了什么？（主旨）</li>
+<li>作者是怎么阐述观点的？（论点、结构）</li>
+<li>这本书说的有道理吗？全部有道理，还是部分有道理？</li>
+<li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li>
+</ul>
+<h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center">
+
+<p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p>
+<h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p>
+<p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p>
+<p>2、把握书籍大致的架构、大纲。</p>
+<p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p>
+<p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p>
+<h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p>
+<p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p>
+<p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p>
+<p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p>
+<h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p>
+<p>主题阅读主要包括以下步骤：</p>
+<p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p>
+<p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p>
+<h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p>
+<p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p>
+<p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p>
+<p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p>
+<p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p>
+<p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p>
+<h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p>
+<p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
       </tags>
   </entry>
   <entry>
