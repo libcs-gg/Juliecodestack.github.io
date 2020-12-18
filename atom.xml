@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://juliecodestack.github.io/"/>
-  <updated>2020-12-03T12:55:08.150Z</updated>
+  <updated>2020-12-14T10:45:40.271Z</updated>
   <id>https://juliecodestack.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电脑上插入U盘不识别，怎么办？</title>
+    <link href="https://juliecodestack.github.io/2020/12/14/%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%92%E5%85%A5U%E7%9B%98%E4%B8%8D%E8%AF%86%E5%88%AB/"/>
+    <id>https://juliecodestack.github.io/2020/12/14/%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%92%E5%85%A5U%E7%9B%98%E4%B8%8D%E8%AF%86%E5%88%AB/</id>
+    <published>2020-12-14T10:26:53.000Z</published>
+    <updated>2020-12-14T10:45:40.271Z</updated>
+    
+    <content type="html"><![CDATA[<p>有几次把 Mp3 播放器或移动硬盘插入电脑不识别，电脑里连 U 盘的盘符都不显示，一开始还以为是播放器的数据线出问题了，后来找到解决方法，记录一下。</p><p>我的电脑是 Windows 10系统，首先要到“设备管理器”界面，有两种方法：<br>方法一、右键点击“此电脑”&gt;右键菜单中选择“管理”&gt;系统工具&gt;设备管理器；<br>方法二、同时按<code>Win</code>+<code>X</code>键，在弹出菜单中选择设备管理器，这种方法快多了，所以记住快捷键很重要。</p><p>在“设备管理器”界面中，找到“通用串行总线控制器”项，下方有“USB大容量存储设备”，右键点击该项，弹出菜单：<br>方法一、（我自己用过的），先点“卸载设备”，再点“扫描检测硬件改动”；<br>方法二、（网上介绍的，下次试试），点击“启用设备”。</p><p>参考文章：<br><a href="https://www.jb51.net/softjc/682868.html" target="_blank" rel="noopener">U盘不能识别怎么办 U盘无法识别的7种解决方法</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;有几次把 Mp3 播放器或移动硬盘插入电脑不识别，电脑里连 U 盘的盘符都不显示，一开始还以为是播放器的数据线出问题了，后来找到解决方法，记录一下。&lt;/p&gt;
+&lt;p&gt;我的电脑是 Windows 10系统，首先要到“设备管理器”界面，有两种方法：&lt;br&gt;方法一、右键点击“此电脑
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://juliecodestack.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="电脑" scheme="https://juliecodestack.github.io/tags/%E7%94%B5%E8%84%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>双显示器扩展显示时怎么移动鼠标到另一块屏？</title>
+    <link href="https://juliecodestack.github.io/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F/"/>
+    <id>https://juliecodestack.github.io/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F/</id>
+    <published>2020-12-14T09:04:04.000Z</published>
+    <updated>2020-12-14T11:43:47.929Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近为小笔记本加了一个大点的显示器，虽然设置为大屏显示，但有时开机时会出现设置为扩展显示器的情况，不知怎的，鼠标点半天，光标都移动不到另一块屏幕中，上网查找了一下答案，把解决方法记录一下。</p><p>我的电脑是 Windows10 系统，依次点击：开始菜单&gt;设置&gt;系统&gt;显示，进入“显示”设置中，看到如下图所示界面：<br><img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F2020-12-14-17-07-25.png" alt="显示器排列-左右"></p><p>原来两个显示器是按左右排列的，因此鼠标光标只有左右移动，才能切换到两块屏幕。我的两个屏幕是上下摆放的，因此我之前想当然地上下移动鼠标怎么也切换不到屏幕。由此，我又想到，那可不可以改变显示器排列，使之符合我的使用习惯呢？我拖动了一下两个显示器排列，改为2屏（外接大屏显示器）在上，1屏（笔记本电脑的小屏）在下，如图所示：<br><img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F2020-12-14-17-11-50.png" alt="显示器排列-上下"><br>然后点击<code>应用</code>按钮，再重新上下移动鼠标光标，成了，可以切换屏幕了！</p><p>另外，这里蓝色标识的1屏是主显示器，这是在哪里设置呢？</p><p>在下方我们看到有“多显示器设置”选项，当前1屏是主显示器，如果我们点击2，同时勾选多显示器设置下方的“设为主显示器”选项，就可以将2屏设置为主显示器，用蓝色标识。<br><img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F2020-12-14-17-09-11.png" alt="主显示器设置选项"></p><p>此外，当前是“扩展这些显示器（两个屏幕分别显示不同内容）”选项，点击下拉菜单还有“复制这些显示器”（两个屏显示内容相同）或 “仅在1/2上显示”的选项。<br><img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E6%80%8E%E4%B9%88%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87%E5%88%B0%E5%8F%A6%E4%B8%80%E5%9D%97%E5%B1%8F2020-12-14-17-09-33.png" alt="多显示器设置下拉菜单"></p><p>参考文章：<br>1.<a href="https://www.zhihu.com/question/50002939/answer/372662198" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/372662198</a></p><p>2.<a href="https://www.zhihu.com/question/50002939/answer/348352441" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/348352441</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近为小笔记本加了一个大点的显示器，虽然设置为大屏显示，但有时开机时会出现设置为扩展显示器的情况，不知怎的，鼠标点半天，光标都移动不到另一块屏幕中，上网查找了一下答案，把解决方法记录一下。&lt;/p&gt;
+&lt;p&gt;我的电脑是 Windows10 系统，依次点击：开始菜单&amp;gt;设置&amp;
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://juliecodestack.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="电脑" scheme="https://juliecodestack.github.io/tags/%E7%94%B5%E8%84%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub入门指南</title>
+    <link href="https://juliecodestack.github.io/2020/12/13/github%E5%85%A5%E9%97%A8/"/>
+    <id>https://juliecodestack.github.io/2020/12/13/github%E5%85%A5%E9%97%A8/</id>
+    <published>2020-12-13T02:46:25.000Z</published>
+    <updated>2020-12-18T12:27:04.670Z</updated>
+    
+    <content type="html"><![CDATA[<p>我去年入门 GitHub，一开始不知道从哪开始学，在网上查找了很多文章、教程学习。这篇文章就是以我刚学习时的小白视角写的，希望能帮助到想开始学习 GitHub 又不知如何上手的学习者。因为我也是初级水平，文中介绍的知识基于我自己的学习理解，如果有疏漏错误之处，欢迎您留言指正，谢谢！</p><p>新手小白可能会对 GitHub 有以下困惑：<br>1.GitHub 是个什么网站？<br>2.为什么一说学 GitHub，就听到人家说要学 Git？这两个有什么关联吗，是不是一回事？<br>3.听说 GitHub 是个开源社区，可以在上面与其他人一起切磋技术、完善代码，具体是怎么与别人交流呢？</p><p>下面，我从这几个方面进行解答。</p><h4 id="一、带你浏览-GitHub-网站，看看都有些什么？"><a href="#一、带你浏览-GitHub-网站，看看都有些什么？" class="headerlink" title="一、带你浏览 GitHub 网站，看看都有些什么？"></a>一、带你浏览 GitHub 网站，看看都有些什么？</h4><h5 id="1-注册账号"><a href="#1-注册账号" class="headerlink" title="1.注册账号"></a>1.注册账号</h5><p>打开 <a href="https://github.com/" target="_blank" rel="noopener">GitHub网站</a>，首页如下图所示，点击右上角<code>Sign up</code>按钮，进入注册页面。使用电子邮件注册，设置好用户名和密码，即可生成账号。完成注册后，点击旁边的<code>Sign in</code>按钮登录。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-13-10-46-55.png" alt="注册/登录页面"></p><h5 id="2-登录-GitHub，浏览页面"><a href="#2-登录-GitHub，浏览页面" class="headerlink" title="2.登录 GitHub，浏览页面"></a>2.登录 GitHub，浏览页面</h5><p>登录进去后，我们见到的页面分成三大版块，如下图所示，从左至右依次为：自己的仓库(Repositories)、关注的人的动态、发现新的热门/有趣仓库。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-13-11-44-23.png" alt="登录后首页示例"></p><blockquote><p>可能的疑问：Repository? 仓库？是不是有点不好理解？<br>我在初学时也遇到这一困惑。”repository”有“仓库”的意思，我们可以理解成存放项目所需的各类文件的仓库。等熟悉了之后，你会发现 GitHub 上各种仓库都有，不是只包含程序代码，还有学习课程文档等等，难怪会叫仓库，哈哈。Repository（仓库）在 GitHub 上有重要作用，我们以后的很多操作都是在 Repository（仓库）中进行。</p></blockquote><p>点击右上角的个人头像，在下拉列表中选择<code>Your profile</code>项，到达个人主页。下图所示为我的个人主页。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-13-12-49-14.png" alt="个人主页示例"></p><p>你如果打开另一个人的主页，看到的界面风格也大致如此。我在图中简要注明了页面中的各项功能，此外：</p><ol><li>点击账户名下方的<code>Edit profile</code>按钮，可以修改自己的个人信息，比如这里的一句话简介，公司、地址、联系方式等。而如果是别人的个人主页，这里我们看到的就是<code>Follow</code>（关注）按钮。</li><li>粉丝和关注的人数右边有个星星图标，这就是传说中的 Star。我们看技术文章可能常会遇到如“程序员必看！GitHub 上 Star 数过万的项目！”，“该项目在 GitHub 上迅速收获上千 Star 数” 类似的介绍，看来 Star 数是个很重要的标识哦！那么，Star 是什么意思呢？比如，我们觉得一个仓库不错，在右上角点个 Star，就相当于是收藏+点赞了，之后还可以在自己的主页中点击星星图标查看。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-13-13-06-34.png" alt="仓库页面-Star"></li><li>“Pinned”区域是自己的个人展示区，在自己的仓库中精选几个放到这里展示，让别人能很快发现你的闪光点。</li><li>活跃度表格：上面的绿色格子越多，颜色越深，说明该用户在 GitHub 上提交次数越多，是活跃用户。</li></ol><h4 id="二、GitHub-是-Git-软件用户的项目管理中心"><a href="#二、GitHub-是-Git-软件用户的项目管理中心" class="headerlink" title="二、GitHub 是 Git 软件用户的项目管理中心"></a>二、GitHub 是 Git 软件用户的项目管理中心</h4><h5 id="1-Git"><a href="#1-Git" class="headerlink" title="1. Git"></a>1. Git</h5><p>GitHub 之所以得此名，与一款分布式版本控制软件 Git 是分不开的。通俗地讲，Git 软件记录了你每次修改时的文件状态。更妙的是，如果你改着改着，又觉得以前的版本更好，还可以回溯呢，也就是说，有“后悔药”可吃了！同时， Git 也是一款极佳的协作软件。打个简单的比方，我和小红、小蓝三个人一起修改一篇文章，每个人改的地方可能都不一样，那么合并修改稿就是个头疼的事。或者，我先修改、再给小红修改、最后小蓝修改？这样效率又降低了。怎么办？用 Git，我们三个人可以建立修改分支，同时进行修改工作，最后合并分支。你可能会问，如果你们三个人在同一个地方做了不同的修改，还能合并吗？放心吧，软件考虑了这种“冲突”情况，有相应的解决办法。</p><p>既然 Git 可以协作，那总要有一个地方让使用的人们存放文件、修改等信息呀，就像控制中心一样，这样，GitHub 应运而生。这里多说一句，Git 的托管中心并不只有 GitHub 哦，GitHub 是方便个人用户、开源项目建立的网站。有的企业会自己搭建服务器和云盘构建托管中心，同样也是用 Git 软件进行协作管理。</p><p>那么，怎么用 Git 软件呢？<br>（1）先到 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git官网</a>下载安装 Git 软件。<br>（2）安装成功后，选定一个文件夹，在右键菜单中选择<code>Git Bash Here</code>，会弹出一个黑色的命令行界面，输入语句，就可以在当前文件夹中运行 Git 命令。</p><p>这里推荐学习一下<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰老师的Git教程</a>，讲解得明白易懂，从中我们可以了解 Git 的各种操作。然后，跟着教程的讲解，自己建个新文件夹动手练练。</p><h5 id="2-Git-基本命令"><a href="#2-Git-基本命令" class="headerlink" title="2.Git 基本命令"></a>2.Git 基本命令</h5><p>Git 命令还是挺多的，但是<strong>对新手来说，我们可以先掌握几个在 GitHub 上常用的 Git 基本命令</strong>：</p><p><strong>（1）提交修改：<code>git add</code>和 <code>git commit</code></strong><br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-14-15-14-31.png" alt="git操作示意图，图片来自Git官网"></p><p>上面的示意图来自 Git 官网，说明了 Git 中最重要的操作 “git add” 和 “git commit” 的工作流程。 Git 软件的核心是保存修改。working directory 是工作区，就是我们的电脑上当前工作的文件夹。staging area 可以理解成暂存区或者中转站，<code>git add .</code>（注意：这里 add 和<code>.</code>中间有个空格）提交了修改，放在 staging area 暂存，再通过 <code>git commit -m&quot;修改说明文字&quot;</code> 确定最终提交版。不要小看这个缓冲的暂存区，它为我们修改时提供了“后悔药”。这个效果就有点类似于我们平时在电脑上删除文件，文件不会直接删除，而是放到回收站中转一下。如果我们过后发现手抖误删了，还可以到回收站里把文件“还原”回去，或者确定都不需要了，就点击“清空回收站”，把这些文件都删除。</p><p><strong>（2）与远程仓库同步：<code>git pull</code> 和 <code>git push</code></strong></p><p>多人协作的情况，比如前面提到的我和小红、小蓝一起写文章的例子，可能每个人的修改不一致，要保持同步。要从远程仓库获取更新和推送自己的修改，就要用<code>git pull</code> 和 <code>git push</code>。前面提到的 <code>git commit</code> 是确定我自己最终的修改结果，<code>git push</code> 则是将这一修改结果提交到远程（比如 GitHub上）的 repository（仓库）保存。我始终记得廖雪峰老师教程里提的要点：每天开始工作的第一件事是 <code>git pull</code>，跟上项目最新的修改进度。结束一天工作、提交修改时，先 <code>git pull</code> 再 <code>git push</code>。</p><p><strong>（3）下载 repository（仓库）： <code>git clone</code></strong></p><p>打开一个仓库，我们会看到<code>Code</code>按钮，点击后，下面出现 HTTPS 地址和 SSH 地址。我们只要复制了这个地址，然后在电脑上右键点击存放文件夹，打开 Git Bash 客户端，输入命令行：<code>git clone 复制的地址</code>，就能下载这个仓库到本地电脑。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-16-20-33-57.png" alt="下载仓库示意图"><br>需要注意的是，用 HTTPS 地址需要账户验证。使用 SSH 地址则只需要第一次时提交 SSH Key 到 GitHub ，后续无需每次验证，很方便，接下来就会介绍如何配置 SSH Key。</p><blockquote><p>注：写这篇文章时，我也出现了一个困惑：不知道是否因为我已经用 SSH 验证了，我用<code>git clone HTTPS 地址</code>下载时，也没有要求输入账户名和密码验证。小伙伴们请把你们实践的结果告诉我一下呀，谢谢！</p></blockquote><h4 id="三、新手必备的GitHub基本操作"><a href="#三、新手必备的GitHub基本操作" class="headerlink" title="三、新手必备的GitHub基本操作"></a>三、新手必备的GitHub基本操作</h4><h5 id="1-配置SSH-Key"><a href="#1-配置SSH-Key" class="headerlink" title="1.配置SSH Key"></a>1.配置SSH Key</h5><p><strong>（1）第一次使用时，要配置一下账户。</strong></p><p>在 Git Bash 客户端，输入：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"这里输入你在GitHub的账户名"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"这里输入你在GitHub的注册邮箱名"</span></span><br></pre></td></tr></table></figure><p><strong>（2）检查是否已经有 SSH Key了，如果没有就生成一个。</strong></p><p>同样在 Git Bash 客户端，先后输入：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br></pre></td></tr></table></figure><p>和</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ls</span></span><br></pre></td></tr></table></figure><p>我的账户已经生成了 SSH Key，就有了下面所示的 id_ras 和 id_rsa.pub 。请注意，id_ras.pub 是公钥，后面要把这个公钥上传到 GitHub 上验证。id_rsa 是你自己的私钥，要保存好。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id_rsa  id_rsa.pub  known_hosts</span><br></pre></td></tr></table></figure><p>如果没有 SSH Key，就要输入以下命令行生成：</p><p><code>ssh-keygen -t rsa -C &quot;这里输入你在 GitHub 的注册邮箱&quot;</code></p><p>生成后再输入上面的<code>cd ~/.ssh</code>和<code>ls</code>命令，就可以看到 SSH Key 了。</p><p><strong>（3）复制公钥。</strong></p><p>在 Git Bash 客户端，输入以下命令行：</p><p><code>cat id_ras.pub</code></p><p>显示公钥文件内容，把它复制到剪贴板。</p><p><strong>（4）把复制的公钥添加到 GitHub 账户安装。</strong></p><p>登录 GitHub 账户，点击右上角个人头像的下拉菜单，如图所示：<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-18-11-48-27.png" alt="个人头像的菜单项"><br>依次点击 Settings &gt; SSH and GPG Keys，在 SSH Keys 页面右上角有个<code>New SSH Key</code>按钮，点击该按钮后，粘贴上刚才复制的公钥内容。里面的 “title”项就是为自己的 SSH Key 命个名，可根据个人喜好随意。</p><p><strong>（5）最后，检查一下是否成功安装 SSH Key。</strong></p><p>在 Git Bash 客户端运行命令：</p><p><code>$ ssh -T git@github.com</code></p><p>出现类似下面的提示，表示安装成功：</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi Juliecodestack! You<span class="symbol">'ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure><h5 id="2-我的第一个-GitHub-项目：如何新建上传仓库"><a href="#2-我的第一个-GitHub-项目：如何新建上传仓库" class="headerlink" title="2.我的第一个 GitHub 项目：如何新建上传仓库"></a>2.我的第一个 GitHub 项目：如何新建上传仓库</h5><p>学了这么多基本功，我们终于要练手了，哈哈，先来建一个自己的仓库玩玩吧！</p><p><strong>（1）在 GitHub 中新建仓库</strong></p><p>如下图所示，点击个人主页的 Repositories 项，再点击右方的<code>New</code>按钮，新建一个仓库。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-18-11-51-07.png" alt="仓库页面-新建按钮"></p><p>我这里做了一个简单的示范，如下图所示，你可以照着我的模板填，最后点击最下方的<code>Create repository</code>按钮，即可创建一个新的仓库。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-18-12-30-31.png" alt="新建仓库填写页面"></p><p>打开新建的仓库，如下图所示，这个仓库的 Readme 文档的内容就是刚才填入的仓库名和说明。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-18-12-34-00.png" alt="仓库页面-testexample2020"></p><p>我们点击<code>Code</code>按钮，复制 SSH 地址。</p><p><strong>（2）把仓库文件下载到电脑。</strong></p><p>假设我们要下载到电脑上的目标文件夹（为了描述方便，这里简称为文件夹 A），那么我们就右键点击文件夹 A ，在右键菜单中选择“Git Bash”，在 Git Bash 客户端输入命令行：</p><p><code>git clone SSH地址</code></p><p>这样，仓库就会下载到文件夹 A 中。</p><p><strong>（3）修改仓库文件，使用 Git 命令提交修改并推送至 GitHub。</strong></p><p>我们在文件夹 A 中打开下载的文件夹（比如这里是 testexample2020），使用 VSCode 或 Atom 编辑器（编辑器的使用方法可参考我的文章：<a href="https://zhuanlan.zhihu.com/p/216222290" target="_blank" rel="noopener">一篇文章带你快速入门Markdown</a>），在 Readme 文件里增加一行： <code>hello,world!</code>。再新建一个 main.py文件，输入一行简单的代码:<code>print(&quot;hello&quot;)</code>。</p><p>修改好了之后，我们右键点击文件夹 testexample2020（注意：此时不是在母文件夹 A 上使用 Git Bash 了），打开Git Bash 客户端，依次输入命令行：</p><p><code>git add .</code></p><p><code>git commit -m&quot;v0.1&quot;</code></p><p><code>git push</code></p><p>这样修改就推送到了 GitHub 上的仓库中。</p><p><strong>（4）登录 GitHub，查看一下仓库的变化。</strong></p><p>登录 GitHub 后我们发现，刚才做的改动都同步到了 GitHub 仓库中，如下图中标示：<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-18-12-58-52.png" alt="仓库页面-改动后"></p><h5 id="3-和别人一起做项目：Fork-和-Pull-request"><a href="#3-和别人一起做项目：Fork-和-Pull-request" class="headerlink" title="3.和别人一起做项目：Fork 和 Pull request"></a>3.和别人一起做项目：Fork 和 Pull request</h5><p>前面提到过，GitHub 是个开源社区，我们可以参加到开源项目之中，那么，具体是怎么操作呢？</p><p>举个我自己的例子来说明一下这个过程吧。<br><strong>（1）Fork 一个别人的仓库</strong> </p><p>我在学习 API 接口时，网上的微博 API 工具包很多是基于 Python2 写的，我在 Github 找到了一个 Python3 的版本 <a href="https://github.com/olwolf/sinaweibopy3" target="_blank" rel="noopener">sinaweibopy3</a>，如下图所示。我用了一下，觉得很好，看到作者没有写 Readme，我就想添加一个 Readme 说明文档，让别人能更快地了解这个仓库的功能和使用方法。换言之，我想对仓库做一些修改，先Fork 一下这个仓库到我自己那儿。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-17-16-45-16.png" alt="sinaweibopy3仓库页面"></p><p>Fork 之后，在我的仓库里就出现了一个相同的仓库 sinaweibopy3，如下图所示。不同之处在于，仓库名下方有个备注：”Forked from olwolf/sinaweibopy3”。为什么要 Fork 呢？Fork有“叉子”的意思，也就是从原仓库复制建一个我自己的分支，这样，我做的改动是在我自己的分支上，不会影响到原仓库，除非我提交的 Pull request 被接受后。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-17-16-50-50.png" alt="Fork的仓库"></p><p><strong>（2）对自己 Fork 的仓库做修改</strong></p><p>接下来，我就对 Fork 的 sinaweibopy3 仓库做修改，添加了一个 Readme 文档。具体方法请参考上一步 “2.我的第一个 GitHub 项目：如何新建上传仓库” 的示例，可以先<code>git clone</code>下载到本地文件夹，修改后再<code>git push</code>推送到 GitHub。</p><p><strong>（3）点击 Pull request。</strong></p><p><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-17-16-56-15.png" alt="Pull request示例"></p><p><strong>（4）等待原仓库的作者查看和决定是否接受修改。</strong></p><p>这里，仓库 sinaweibopy3 的原作者 olwolf 合并了我的修改，如图所示，这样原仓库中也增加了Readme文件。同时，我也因此成为了仓库贡献者(Contributors)之一。<br><img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github%E5%85%A5%E9%97%A82020-12-17-17-04-19.png" alt="接受Pull request后原仓库的变化"></p><h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><p>完成以上学习，我们基本上就入门了，接下来，你可以自己在 GitHub 上探索一下，比如搜索发现一些有趣的项目，关注一些高手大牛，加入到开源项目中，等等。最重要的是，动手练习，一旦上手实践，慢慢熟悉之后，你会发现没有开始想象的那么难，一起加油吧！</p><p>最后，推荐几个好的学习教程：</p><p>1.<a href="https://docs.github.com/en/free-pro-team@latest/github" target="_blank" rel="noopener">GitHub 帮助页面</a></p><p>2.<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰老师的Git教程</a></p><p>3.<a href="https://blog.csdn.net/u013778905/article/details/83501204" target="_blank" rel="noopener">GitHub如何配置SSH Key</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我去年入门 GitHub，一开始不知道从哪开始学，在网上查找了很多文章、教程学习。这篇文章就是以我刚学习时的小白视角写的，希望能帮助到想开始学习 GitHub 又不知如何上手的学习者。因为我也是初级水平，文中介绍的知识基于我自己的学习理解，如果有疏漏错误之处，欢迎您留言指正
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>读霍金人生简史的感悟</title>
@@ -203,7 +279,7 @@
     <link href="https://juliecodestack.github.io/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/"/>
     <id>https://juliecodestack.github.io/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</id>
     <published>2020-07-24T03:44:09.000Z</published>
-    <updated>2020-07-26T09:36:48.691Z</updated>
+    <updated>2020-12-14T09:45:04.465Z</updated>
     
     <content type="html"><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p><a id="more"></a><p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p><p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p><p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p><blockquote><p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p></blockquote><p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p><p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口的设置相同。</p><p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> <p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> <p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法可以灵活选择截图区域，我经常使用。</p><p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】键，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p><p>6.打开<a href="https://www.snipaste.com/" target="_blank" rel="noopener">Snipaste官网</a>，下载安装 Snipaste。点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p><blockquote><p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p></blockquote><p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p><p>参考文章：<br>1.<a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br>2.<a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>]]></content>
     
@@ -218,6 +294,8 @@
     
     
       <category term="软件" scheme="https://juliecodestack.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+      <category term="电脑" scheme="https://juliecodestack.github.io/tags/%E7%94%B5%E8%84%91/"/>
     
   </entry>
   
@@ -510,111 +588,6 @@
 &lt;/blockquote&gt;
 &lt;p&gt;提起香农，或许很多人都会感到陌生，可是，说到他的理论带来的福利——清晰的电话通信、浏览网页，…每个人都十分熟悉。&lt;strong&gt;香农( Claude Shannon, 1916-2001 )是信息论之父&lt;/strong&gt;，这一理论引领人们进入了信息时代。而在信息论之前，香农已经有了另一项伟大成果：将布尔函数引入到开关电路设计中，实现了从模拟电路向数字电路的转化。&lt;/p&gt;
 &lt;p&gt;看到这些伟大的成就，想必您也对香农产生了好奇，这是怎样的一位天才人物，他是如何进行科学研究的，他的一生有哪些故事呢？&lt;strong&gt;&lt;em&gt;A Mind at Play: How Claude Shannon Invented the Information Age&lt;/em&gt;&lt;/strong&gt;  这本书讲述了香农在工作、研究、生活的经历和故事，让我们得以走近香农，也走近那个时代的科学家。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书" scheme="https://juliecodestack.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="英文原著" scheme="https://juliecodestack.github.io/tags/%E8%8B%B1%E6%96%87%E5%8E%9F%E8%91%97/"/>
-    
-      <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
-    
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
-      <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>率真的科学家费曼</title>
-    <link href="https://juliecodestack.github.io/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/"/>
-    <id>https://juliecodestack.github.io/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</id>
-    <published>2020-04-22T13:06:25.000Z</published>
-    <updated>2020-11-29T11:20:30.325Z</updated>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><blockquote><p>本文写于2019年7月。</p></blockquote><p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p><img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center"><p>注：图书封面图片，来源：豆瓣</p><a id="more"></a><p>生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。</p><p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p><p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p><p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p><blockquote><p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本文写于2019年7月。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最近听了两本有声书 &lt;strong&gt;&lt;em&gt;Surely You’re Joking, Mr. Feynman!&lt;/em&gt;&lt;/strong&gt; 和 &lt;strong&gt;&lt;em&gt;What Do You Care What Other People Think?&lt;/em&gt;&lt;/strong&gt; ，让我走近并了解费曼这位科学家。&lt;strong&gt;&lt;em&gt;Surely You’re Joking, Mr. Feynman!&lt;/em&gt;&lt;/strong&gt; 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。&lt;strong&gt;&lt;em&gt;What Do You Care What Other People Think?&lt;/em&gt;&lt;/strong&gt; 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。&lt;/p&gt;
-&lt;img src=&quot;https://img1.doubanio.com/view/subject/l/public/s4259438.jpg&quot; width=&quot;260&quot; height=&quot;368&quot; alt=&quot;图书封面图片，来源：豆瓣&quot; align=&quot;center&quot;&gt;
-
-&lt;p&gt;注：图书封面图片，来源：豆瓣&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书" scheme="https://juliecodestack.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="英文原著" scheme="https://juliecodestack.github.io/tags/%E8%8B%B1%E6%96%87%E5%8E%9F%E8%91%97/"/>
-    
-      <category term="有声书" scheme="https://juliecodestack.github.io/tags/%E6%9C%89%E5%A3%B0%E4%B9%A6/"/>
-    
-      <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
-    
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
-      <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读乔布斯传</title>
-    <link href="https://juliecodestack.github.io/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/"/>
-    <id>https://juliecodestack.github.io/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</id>
-    <published>2020-04-22T13:05:45.000Z</published>
-    <updated>2020-04-26T07:51:35.798Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文写于2019年8月。</p></blockquote><p>最近读了Walter Isaacson 为乔布斯写的传记 <strong><em>Steve Jobs</em></strong>，书中关于乔布斯的创新和产品理念让我反复思索、很受启发。这是一本值得再读一遍的好书。</p><a id="more"></a><p>我想谈谈书中让我感悟最深的几点：(由于早段时间读了马斯克的传记，我认为马斯克和乔布斯在一些方面有相似之处，因此有些地方也对马斯克进行了介绍。）</p><h4 id="1-创新"><a href="#1-创新" class="headerlink" title="1. 创新"></a>1. 创新</h4><p>公司创新的原动力在哪里？乔布斯认为这一动力来自研发设计人员、产品工程师，因此他坚持产品研发人员优先的原则。他曾经在访谈中提到一些大企业后来衰退的原因，就是销售人员取代产品研发人员在公司占据主导地位。当公司的主要精力不是放在产品上而只是为了迎合市场提高销量时，公司就失去了创新的动力。他有一个著名的论断：顾客其实不知道自己想要什么样的产品，因此不对现有市场进行调研，而是主动去发现潜在的需求和可能的市场，提供相应的产品。顾客只是没有见过这种新产品，新品一旦推出，会受欢迎。事实如此。在这一点上，马斯克和乔布斯有相似之处，他们都善于发现现有市场的短板或空白，然后由此发力，获得成功。比如乔布斯带领苹果走入音乐产业、手机产业…，马斯克发现银行在网上业务的空缺而开创网络支付。</p><h4 id="2-热情与信念"><a href="#2-热情与信念" class="headerlink" title="2. 热情与信念"></a>2. 热情与信念</h4><p>这里就要提到乔布斯的“现实扭曲”(reality distortion)，即坚信他认定的事，不考虑由现实环境得出的相反结论。比如，他认为某件事可以办到，他也让本来持怀疑态度的其他人相信可以做到，然后尽全力去做，最后出人意料地真的实现了。这让我想到了马斯克的员工对于马斯克提出的工作任务不能直接回答impossible（不可能），只能是提出有什么困难障碍，马斯克想办法解决，这也让他的员工的潜能得到最大发挥。乔布斯和马斯克都是对于工作和梦想充满热情的人，他们全身心地投入其中，主观积极性发挥到极致，这种态度直接影响了他们周围的人，最终完成了许多本来预计不可能实现的工作。</p><h4 id="3-禅宗对于乔布斯的影响"><a href="#3-禅宗对于乔布斯的影响" class="headerlink" title="3. 禅宗对于乔布斯的影响"></a>3. 禅宗对于乔布斯的影响</h4><p>受禅宗影响，乔布斯非常推崇<strong>简约</strong>。“ Simplicity is the ultimate sophistication. ”他在产品中要求工程师们做到这一点，产品简洁、易用。同时，他在自己的人生中也实践了这一点。他从十几岁起就成了一个虔诚的素食主义者，即便家财万贯，也没有去追求物质的享受。他关注的，就是如何把他视同孩子的苹果公司做到长久。</p><p>禅宗对乔布斯的另一个影响就是<strong>专注</strong>。他重回苹果后大刀阔斧精简产品系列，依据两方面特点：大众/专业版与台式机/笔记本进行组合，把产品缩减到四种。他每年都会与公司杰出人才讨论列出下一年公司发展最想做的十件事。然后，重点是，他只保留前三项。这一点真是时间管理的精髓：重要性优先。把有限的时间和精力投入到最想要做的事情上，才能得到最好的结果。什么都想做，什么都尝试去做一点，最后可能就是虎头蛇尾，什么都做不好。</p><h4 id="4-完美主义者"><a href="#4-完美主义者" class="headerlink" title="4. 完美主义者"></a>4. 完美主义者</h4><p>对完美的追求常常是辛苦的过程，但是，不得不说，读乔布斯传时，我也被乔布斯的完美主义所打动，正是这种极致的追求和精雕细琢，让人们在看到产品的一瞬间就感到愉悦。乔布斯常常提到他的理念：让科技和艺术结合，让人文与科学交融，苹果的产品正体现了这一点。另外，苹果的封闭平台、软硬件一体化设计与 Windows、Android 等开放平台的对比也在书中一次次提及。对此，乔布斯有他的理由，他认为要做一件好的产品，就必须从软件到硬件都关注到。他希望在自己手中将产品做到最佳呈现给顾客，顾客可以很容易就上手使用，而不用去学习复杂的操作手册。此外，一体化的过程也能让产品设计更加简约。</p><h4 id="5-另一面的乔布斯。"><a href="#5-另一面的乔布斯。" class="headerlink" title="5. 另一面的乔布斯。"></a>5. 另一面的乔布斯。</h4><p>除了工匠精神、追求卓越产品的理性一面，书中还展现了他感性的一面。第一次知道乔布斯在和合作伙伴吵架时还会用眼泪助攻；第一次知道乔布斯常常直言不讳说出自己的想法和感受。最让员工哭笑不得的是他的态度转变之大之快，可能刚刚听员工汇报时还说设计的新品 shitty，过一会儿他想通了觉得这个方案确实新颖可行，又会向同事们热情介绍 the best thing ever，而且让人感觉这就是他的点子。但是，乔布斯同样非常重视交流和团队协作。这一点，从苹果研发与设计的互相促进、产品研讨会的高效反馈、Pixar 办公大楼别具心裁的门厅设计等等，都可以看到。</p><p>以前我只听过乔布斯重回苹果这些年的传奇故事，这本书让我知道了年轻的乔布斯如何一步步成长，带领苹果公司走向巅峰。我很佩服乔布斯的远见卓识，他总是先人一步发现市场需求，推动创新、引领技术潮流。也不禁想象，如果他还在的话，苹果又会推出怎样让人惊奇的新产品呢？他去世前一段时间还关注到教育行业，认为教学也应该来到互联网上、实时互动。现在的网上课堂遍地开花，人们可以方便地获得知识，这或许也在一定程度上实现了乔布斯的构想。</p><p>1997 年苹果 “ Think Different ” 广告中有一句话:<strong>“The people who are crazy enough to think they can change the world are the ones who do.”</strong> 我想， 乔布斯正是这样一个伟大的人物。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文写于2019年8月。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最近读了Walter Isaacson 为乔布斯写的传记 &lt;strong&gt;&lt;em&gt;Steve Jobs&lt;/em&gt;&lt;/strong&gt;，书中关于乔布斯的创新和产品理念让我反复思索、很受启发。这是一本值得再读一遍的好书。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书" scheme="https://juliecodestack.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="英文原著" scheme="https://juliecodestack.github.io/tags/%E8%8B%B1%E6%96%87%E5%8E%9F%E8%91%97/"/>
-    
-      <category term="非虚构" scheme="https://juliecodestack.github.io/tags/%E9%9D%9E%E8%99%9A%E6%9E%84/"/>
-    
-      <category term="人物传记" scheme="https://juliecodestack.github.io/tags/%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
-      <category term="科技" scheme="https://juliecodestack.github.io/tags/%E7%A7%91%E6%8A%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不一样的马斯克</title>
-    <link href="https://juliecodestack.github.io/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/"/>
-    <id>https://juliecodestack.github.io/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</id>
-    <published>2020-04-22T13:05:25.000Z</published>
-    <updated>2020-11-29T11:18:46.889Z</updated>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><blockquote><p>本文写于2019年6月。</p></blockquote><p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p><a id="more"></a><img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center"><p>注：本书封面图片，来源：豆瓣</p><p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p><p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p><p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p><p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;本文写于2019年6月。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;读 &lt;strong&gt;&lt;em&gt;Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future&lt;/em&gt;&lt;/strong&gt; 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。&lt;/p&gt;
     
     </summary>
     
