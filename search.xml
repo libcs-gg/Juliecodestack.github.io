@@ -201,7 +201,7 @@
 <p><code>git clone SSH地址</code></p>
 <p>这样，仓库就会下载到文件夹 A 中。</p>
 <p><strong>（3）修改仓库文件，使用 Git 命令提交修改并推送至 GitHub。</strong></p>
-<p>我们在文件夹 A 中打开下载的文件夹（比如这里是 testexample2020），使用 VSCode 或 Atom 编辑器（编辑器的使用方法可参考我的文章：<a href="https://zhuanlan.zhihu.com/p/216222290" target="_blank" rel="noopener">一篇文章带你快速入门Markdown</a>），在 Readme 文件里增加一行： <code>hello,world!</code>。再新建一个 main.py文件，输入一行简单的代码:<code>print(&quot;hello&quot;)</code>。</p>
+<p>我们在文件夹 A 中打开下载的文件夹（比如这里是 testexample2020），使用 VSCode 或 Atom 编辑器（编辑器的使用方法可参考我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/">一篇文章带你入门Markdown</a>），在 Readme 文件里增加一行： <code>hello,world!</code>。再新建一个 main.py文件，输入一行简单的代码:<code>print(&quot;hello&quot;)</code>。</p>
 <p>修改好了之后，我们右键点击文件夹 testexample2020（注意：此时不是在母文件夹 A 上使用 Git Bash 了），打开Git Bash 客户端，依次输入命令行：</p>
 <p><code>git add .</code></p>
 <p><code>git commit -m&quot;v0.1&quot;</code></p>
@@ -235,6 +235,14 @@
 <p>2.<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰老师的Git教程</a></p>
 <p>3.<a href="https://blog.csdn.net/u013778905/article/details/83501204" target="_blank" rel="noopener">GitHub如何配置SSH Key</a></p>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+        <tag>GitHub</tag>
+        <tag>Git</tag>
+      </tags>
   </entry>
   <entry>
     <title>一本书中的人生滋味</title>
