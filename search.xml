@@ -214,11 +214,11 @@
 <h5 id="3-和别人一起做项目：Fork-和-Pull-request"><a href="#3-和别人一起做项目：Fork-和-Pull-request" class="headerlink" title="3.和别人一起做项目：Fork 和 Pull request"></a>3.和别人一起做项目：Fork 和 Pull request</h5><p>前面提到过，GitHub 是个开源社区，我们可以参加到开源项目之中，那么，具体是怎么操作呢？</p>
 <p>举个我自己的例子来说明一下这个过程吧。</p>
 <p><strong>（1）Fork 一个别人的仓库</strong> </p>
-<p>我在学习 API 接口时，网上的微博 API 工具包很多是基于 Python2 写的，我在 Github 找到了一个 Python3 的版本 <a href="https://github.com/olwolf/sinaweibopy3" target="_blank" rel="noopener">sinaweibopy3</a>，如下图所示。我用了一下，觉得很好，看到作者没有写 Readme，我就想添加一个 Readme 说明文档，让别人能更快地了解这个仓库的功能和使用方法。换言之，我想对仓库做一些修改，先Fork 一下这个仓库到我自己那儿。</p>
+<p>我在学习 API 接口时，网上的微博 API 工具包很多是基于 Python2 写的，我在 Github 找到了一个 Python3 的版本 <a href="https://github.com/olwolf/sinaweibopy3" target="_blank" rel="noopener">sinaweibopy3</a>，如下图所示。我用了一下，觉得很好，看到作者没有写 Readme，我就想添加一个 Readme 说明文档，让别人能更快地了解这个仓库的功能和使用方法，也就是说，我想对这个仓库做一些修改。这种情况下，我就要先 Fork 一下这个仓库到我自己那儿。</p>
 <img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github入门2020-12-17-16-45-16.png" alt="sinaweibopy3仓库页面" align="center">
 
 <blockquote>
-<p><strong>为什么要 Fork 呢？</strong><br>Fork有“叉子”的意思，也就是从原仓库复制建一个我自己的分支，这样，我做的改动是在我自己的分支上，不会影响到原仓库，除非我提交的 Pull request 被接受后。</p>
+<p><strong>为什么要 Fork 呢？</strong><br>Fork有“叉子”的意思，也就是从原仓库复制建一个我自己的分支（分叉），这样，我做的改动只是在我自己的分支上，不会影响到原仓库，除非我提交的 Pull request 被接受后。</p>
 </blockquote>
 <p>Fork 之后，在我的仓库里就出现了一个相同的仓库 sinaweibopy3，如下图所示。不同之处在于，仓库名下方有个备注：”Forked from olwolf/sinaweibopy3”。</p>
 <img src="/2020/12/13/github%E5%85%A5%E9%97%A8/github入门2020-12-17-16-50-50.png" alt="Fork的仓库" align="center"> 
