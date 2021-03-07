@@ -20,7 +20,7 @@
 <p>为什么我会提到这个呢？因为我在刚学习使用 Jupyter Notebook 时就遇到过这个问题，下载了.ipynb文件，想自己运行一下看看，结果打开 Anaconda Prompt 命令行，输入命令：<br><code>jupyter notebook</code> </p>
 <p>怎么没有看到刚才下载的文件？而且，此时也不能打开其它文件夹，就只能查看当前命令所在的 C 盘里的用户文件夹。</p>
 <p>怎么办呢？我们需要在命令行里改变路径，转移到目标文件夹。</p>
-<p>举例来说明，比如现在要运行的文件在 E 盘的文件夹 folderA 中，打开 Anaconda Prompt 命令行，依次输入命令：<br><code>E:</code><br><code>cd folderA</code><br><code>jupyter notebook</code><br>这样，就改成了在 E 盘的文件夹 folderA 中运行 Jupyter Notebook，此时也就能找到我们要查看的文件。</p>
+<p>举例来说明，比如现在要运行的.ipynb文件在 E 盘的文件夹 folderA 中，打开 Anaconda Prompt 命令行，依次输入命令：<br><code>E:</code><br><code>cd folderA</code><br><code>jupyter notebook</code><br>这样，就改成了在 E 盘的文件夹 folderA 中运行 Jupyter Notebook，此时也就能找到我们要查看的文件。</p>
 <h4 id="工具包安装"><a href="#工具包安装" class="headerlink" title="工具包安装"></a>工具包安装</h4><p>我们运行Python程序时，可能会用到各种各样的工具包（或者说是库）。有的工具包在软件中已经安装，有的还没有安装，那么我们应该怎么安装呢？</p>
 <p>pip install 是常用的安装命令，在 Python 和 Anaconda 中都可以使用。而 Anaconda 中还可以使用 conda install 命令。</p>
 <p>比如，要安装 beautifulsoup4，可以是：<br><code>pip install beautifulsoup4</code><br>或者<br><code>conda install beautifulsoup4</code></p>
@@ -33,6 +33,41 @@
 <p>参考教程：<br>1.如何打开运行 Anaconda （GUI界面或命令行）：<a href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#cli-hello" target="_blank" rel="noopener">https://docs.anaconda.com/anaconda/user-guide/getting-started/#cli-hello</a></p>
 <p>2.conda 配置和更新：<a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html" target="_blank" rel="noopener">https://conda.io/projects/conda/en/latest/user-guide/getting-started.html</a></p>
 <p>3.Conda, pip, virtualenv 三种命令工具的对比：<a href="https://conda.io/projects/conda/en/latest/commands.html" target="_blank" rel="noopener">https://conda.io/projects/conda/en/latest/commands.html</a></p>
+]]></content>
+      <categories>
+        <category>机器学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Anaconda</tag>
+        <tag>Jupyter Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>21004</title>
+    <url>/2021/03/07/21004/</url>
+    <content><![CDATA[<blockquote>
+<p>注：本文中部分内容是 Python for Data Analysis (by Wes Mckinney) 一书的学习笔记。</p>
+</blockquote>
+<p>接着<a href="https://juliecodestack.github.io/2021/02/15/21003/">上一篇文章</a>，我们从 Anaconda 命令行打开 Jupyter Notebook，在浏览器中会看到类似下图的页面，下方还有文件夹或者文件的列表。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-05-11-35-28.png" alt="JupyterNotebook文件夹页面"></p>
+<p>点击图中箭头指示的【New】按钮，新建一个空白文档。</p>
+<a id="more"></a>
+<h4 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h4><p>打开新文档，我们看到如下界面:<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-05-11-45-49.png" alt="JupyterNotebook文档页面"></p>
+<p>图中标识了一些功能。其中，核心部分是编辑单元 (Cell)，Jupyter Notebook 最大的特点就是交互式编程。那么，这是什么样的交互式呢？我们在一个单元里编写一小段代码，按【Ctrl】+【Enter】键就可以运行看到效果，而不是像之前一样要把整个程序写完、调试运行。在 Jupyter Notebook 中 ，每一段单元程序都可以马上看到效果和反馈，这一特点也让很多老师都采用它来编写教材、程序示例。就我自己的学习体会而言，这样更容易练习、同时也让学习更有趣。我们在图中所示的下拉列表中可以选择单元是代码还是标记（Markdown文档），标记（md格式）可以用于写一些代码说明。</p>
+<h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>按【Ctrl】+【Enter】键：运行当前单元，编辑单元不变。<br>按【Shift】+【Enter】键：运行当前单元，编辑单元跳转到下一单元（如果下方没有单元，会新建一个空白单元）。<br>按【Alt】+【Enter】键：运行当前单元，同时在下方插入一个空白单元，编辑单元变为这个新单元。</p>
+<h4 id="运行-Python-文件"><a href="#运行-Python-文件" class="headerlink" title="运行 Python 文件"></a>运行 Python 文件</h4><p>%run file1.py与Anaconda Promt命令行中运行python file1.py效果相同。需要注意的是，file1.py需在Jupyter Notebook或者当前命令行运行的文件夹中，如果不是，要在文件前加上文件路径。</p>
+<h4 id="输入自动完成-【Tab】键"><a href="#输入自动完成-【Tab】键" class="headerlink" title="输入自动完成:【Tab】键"></a>输入自动完成:【Tab】键</h4><p>对初学者来说，“输入就忘”真是令人头疼的一件事。因为刚学习，很多操作不太熟悉，想要输入一段代码，却想不起来关键函数，怎么办？<br>别急，Jupyter Notebook非常贴心地提供了自动完成功能。</p>
+<p>1.名字自动完成：输入头几个字母，按【Tab】键，会搜索之前输入过和系统自带的变量或函数的名字，并提供结果。<br>例如，先定义函数变量l1和l2：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">l1</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">l2</span>=<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>再输入<code>l</code>，按【Tab】键，会弹出如下图所示的选择框，开始的两个就是刚才定义的变量 l1, l2，接下来的 lambda, len, list 等等是系统自带的函数或者对象名。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-10-31-18.png" alt="变量名的输入自动完成"></p>
+<p>2.当我们定义了一个对象(object)，比如列表型，字典型数据等，可以通过【Tab】键搜索到这个对象的所有函数和属性。<br>例如，定义一个字典型数据d1:<br><code>d1={&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3}</code><br>再输入<code>d1.</code>（注意这里有个<code>.</code>），按【Tab】键，会弹出如下图所示的选择框，这就是可用于字典型数据的所有操作。有时我们不确定某个函数能不能应用于当前数据类型，就可以通过这种方式查询。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-10-56-33.png" alt="object函数的输入自动完成"></p>
+<p>3.系统的工具库，可以用【Tab】键搜索到某个库的所有函数。<br>例如：引用 NumPy 工具包，然后输入<code>np.</code>，按【Tab】键，如下图所示，会弹出一个选择框，里面有大量函数，这里只展示前面几个。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-11-00-35.png" alt="工具包函数的输入自动完成"></p>
+<p>进一步地，在某个函数的变量定义时，输入变量名的头一个或几个字母，按【Tab】键，也会出现相应变量的列表，这在函数定义时很有帮助。比如有的函数定义的变量多，记不住，【Tab】键可以快速找到对应的变量。<br>例如，定义函数：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">def func1(aaa=<span class="number">1</span>,aab=<span class="number">2</span>,abc=<span class="number">3</span>,ccd=<span class="number">4</span>):</span><br><span class="line">    <span class="keyword">return</span> aaa,aab,abc,ccd</span><br></pre></td></tr></table></figure>
+<p>在括号内按【Tab】键，会有一个下拉列表，如下图所示，其中就有函数的变量aaa,aab,abc, 这里只列举了前几个。ccd也在列表中。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-12-09-59.png" alt="函数定义中变量名的输入自动完成1"><br>如果我们想要快速找到ccd这个变量，可以在括号内输入c，再按【Tab】键，<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-12-11-16.png" alt="函数定义中变量名的输入自动完成2"></p>
+<p>4.文件路径，比如输入路径E:/fileA/，按【Tab】键，在列表框中，除了显示一些Python库的基本函数之外，还会显示文件夹的文件路径。如果在输入时不记得文件具体的路径，可以用这种方法快速找到。结合前面介绍的 %run 命令，可以运行文件路径下的文件。</p>
+<h4 id="magic-语法"><a href="#magic-语法" class="headerlink" title="magic 语法"></a>magic 语法</h4><p>?函数名：显示函数说明<br>??函数名：显示函数说明和函数源代码<br>%run 文件名：（前面介绍过）在Jupyter Notebook中运行Python文件<br>%pwd ：显示当前运行文件夹路径</p>
+<h4 id="参考教程："><a href="#参考教程：" class="headerlink" title="参考教程："></a>参考教程：</h4><p>Python for Data Analysis by Wes Mckinney</p>
 ]]></content>
       <categories>
         <category>机器学习笔记</category>
@@ -72,6 +107,31 @@
       </tags>
   </entry>
   <entry>
+    <title>David Copperfield 读书笔记</title>
+    <url>/2020/10/19/DavidCopperfield%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>早段时间我听了 David Copperfield 的有声书，播讲者 Nicholas Boulton 演绎得特别好，让各个人物角色都呈现鲜明的特点。而且，他把书中抒发感慨的地方读得深情感人，让听众融入到作品的情绪之中。感谢 Nicholas Boulton 的朗读，让我用心体会 Charles Dickens （狄更斯）作品的精彩。读到狄更斯的作品，我忽然有一种相见恨晚的感觉，很喜欢狄更斯描写的细致入微、抒情时善用排比。我摘抄一些片段，与您一起欣赏学习。</p>
+<a id="more"></a>
+<p>我尤其钟爱这本书的前半部分，写 David Copperfield 童年时。特别是那些儿童特有的视角和想象力，天真、无邪、有趣，我读到的时候很好奇狄更斯是如何想到这些描述的。</p>
+<h4 id="天真无邪、奇妙有趣的儿童视角"><a href="#天真无邪、奇妙有趣的儿童视角" class="headerlink" title="天真无邪、奇妙有趣的儿童视角"></a>天真无邪、奇妙有趣的儿童视角</h4><p>1.David 回忆他的保姆 Peggotty 时，写了她红红的皮肤，然后就想象，她皮肤比苹果都要红，爱啄苹果的鸟儿为啥不啄她呢？<br>The first objects that assume a distinct presence before me, as I look far back, into the blank of my infancy, are my mother with her pretty hair and youthful shape, and Peggotty, with no shape at all, and eyes so dark that they seemed to darken their whole neighbourhood in her face, and <strong>cheeks and arms so hard and red that I wondered the birds didn’t peck her in preference to apples</strong>.</p>
+<p>2.小 David 跟着 Peggotty 去她哥哥家做客。他们是坐马车去的，这一段对于马儿的描写实在是太有趣了，我感觉这真的是儿童才会有的奇妙想象力。小 David 说马儿好像在偷懒，就想让目的地的人们等着，而且，这马儿好像为自己的想法而得意地轻声笑呢，估计 David 把这个天真的想法告诉车夫了，结果车夫告诉他，马儿只是在咳嗽呢（孩子，你想多了…）。<br>THE CARRIER’S horse was the laziest horse in the world, I should hope, and shuffled along, with his head down, as if he liked to keep people waiting to whom the packages were directed. <strong>I fancied, indeed, that he sometimes chuckled audibly over this reflection</strong>, but the carrier said he was only troubled with a cough.</p>
+<p>3.他们到达海边 Peggotty 哥哥 Mr. Peggott 家。Mr. Peggott 是一个渔夫，回家后热情地同 David 打招呼，然后说要出去用热水洗一下脸，因为凉水洗不掉污渍。不一会儿，他回来了，脸是干净了，但也洗得通红，这让小 David 联想到了虾、蟹等海鲜，进热水时是黑的，出来（煮熟时）却是通红的。<br>Having done the honours of his house in this hospitable manner, Mr. Peggotty went out to wash himself in a kettleful of hot water, remarking that ‘cold would never get his muck off.’ He soon returned, greatly improved in appearance; but so rubicund, that <strong>I couldn’t help thinking his face had this in common with the lobsters, crabs, and crawfish—that it went into the hot water very black and came out very red</strong>.</p>
+<p>4.书的开篇提到，David 是遗腹子，他的父亲在他出生前就去世了。几年后， David 的母亲嫁给了 Mr. Murdstone。Mr. Murdstone 和他妹妹住进来，对 David 并不好。比如这里背课文学习就是这样，他们很严厉，吓得小 David 更背不出来，本来记住一点，见到他们也全都忘了。这里就用了一个生动形象的描写，这些课文内容快速溜走，还不是一个词一个词或是一行行，而是一整页一整页地从他的脑子里溜走，就像穿上了溜冰鞋一样。<br>I felt the words of my lessons slipping off, not one by one, or line by line, but by the entire page; I tried to lay hold of them; but <strong>they seemed, if I may so express it, to have put skates on, and to skim away from me with a smoothness there was no checking</strong>.</p>
+<h4 id="两次分别"><a href="#两次分别" class="headerlink" title="两次分别"></a>两次分别</h4><p>书中有两次分别的情景也让我印象深刻。这两次分别之后不久，David 的生活都发生了重大变化。在分别时，他的母亲知道或者说有预感，而小 David 对此一无所知。一次是小 David 跟着 Peggotty 去她哥哥家做客，他不知道的是，他的母亲即将要和 Mr.Murdstone 结婚。另一次是小 David 学校的假期结束，他要返校了，此时，他的母亲身体不好。可能她自己预感到时日无多，而天真的小 David 并没多想。</p>
+<p>1.小 David 跟着 Peggotty 去她哥哥家做客，出发前他和母亲的分别。<br>It touches me nearly now, although I tell it lightly, to recollect how eager I was to leave my happy home; to think how little I suspected what I did leave for ever.<br>现在回想起来，David 才想到当初的自己一无所知，小孩子只是急切地想出去玩，却不知道自己将要离开或者说是失去什么。</p>
+<p>I am glad to recollect that when the carrier’s cart was at the gate, and my mother stood there kissing me, a grateful fondness for her and for the old place I had never turned my back upon before, made me cry. I am glad to know that my mother cried too, and that I felt her heart beat against mine.<br>I am glad to recollect that when the carrier began to move, my mother ran out at the gate, and called to him to stop, that she might kiss me once more. I am glad to dwell upon the earnestness and love with which she lifted up her face to mine, and did so.<br>David 的母亲没有告诉 David 即将发生的变化，只是将感情融入到深情的吻、依依惜别之中。</p>
+<p>2.小 David 假期结束，返校前和母亲的分别。<br>I kissed her, and my baby brother, and was very sorry then; but not sorry to go away, for the gulf between us was there, and the parting was there, every day. And it is not so much the embrace she gave me, that lives in my mind, though it was as fervent as could be, as what followed the embrace.<br>David 与母亲、弟弟告别，心中虽有不舍，但是同时他也知道 Murdstone 兄妹容不下他，他们让他和母亲之间也有了距离。</p>
+<p>I was in the carrier’s cart when I heard her calling to me. I looked out, and she stood at the garden-gate alone, holding her baby up in her arms for me to see. It was cold still weather; and not a hair on her head, nor a fold of her dress, was stirred, as she looked intently at me, holding up her child.<br>So I lost her. So I saw her afterwards, in my sleep at school—a silent presence near my bed—looking at me with the same intent face—holding up her baby in her arms.<br>我读到这两段时很心酸。这描写的是一个母亲和孩子分别的场景，母亲想让 David 记住她和他弟弟的样子，一直在门口高高抱起婴儿，让 David 回过头能看到。紧接着的一句 So I lost her. 更是让人落泪，以后 David 只能在梦里见到她。<br>这一段也让我回想起文学作品和生活中常见的一个场景：在外工作的孩子回乡看父母，要回去时，母亲也是这样一路送到路口。孩子都走出很远了，一回头，还能看到老母亲微微佝偻的身影在远处看着，见到孩子回头，又挥挥手。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>重装系统后如何配置hexo</title>
     <url>/2021/01/20/21002/</url>
     <content><![CDATA[<p>早段时间重装了系统，考虑到hexo博客需要在新系统安装配置，重装之前在网上查找学习了相关教程，在这里记录一下。</p>
@@ -103,6 +163,129 @@
       <tags>
         <tag>电脑</tag>
         <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown进阶</title>
+    <url>/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>在上一篇 <a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">Markdown 入门文章</a> 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？</p>
+<a id="more"></a>
+<h3 id="1-公式编辑利器"><a href="#1-公式编辑利器" class="headerlink" title="1. 公式编辑利器"></a>1. 公式编辑利器</h3><p><strong>问题：</strong> 有时我们会在文章中用到公式，如果一个个输进去，符号、标记需要花费很多时间，有没有更快捷的方法呢？</p>
+<p>有，这就是 Mathpix 。我们可以截取公式图片，然后在Mathpix 中识别并转换成相应的格式，再复制粘贴到 Markdown 文档中。</p>
+<p>到 <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix官网</a> 下载，首先我们要注册一个账号，免费账户一个月可使用 50 次；学生账户一个月可使用 100 次，需要使用学校邮箱注册；专业用户一个月需支付 4.99 美金，使用次数不限。如果不经常使用，注册一个免费用户就行，然后下载 Mathpix。</p>
+<p>打开 Mathpix 软件，登录刚才注册的账户。再打开要截取公式的页面，然后点击左上角的图标，如下图所示，就可以截图：<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-45-58.png" alt="Mathpix界面" align="center"> </p>
+<p>截取的公式图像会在 Mathpix 中自动显示并进行识别转换，如下图所示，我们可以选取所需要的格式。图中下方结果项里，第二个是行内公式，第三个是独立公式，只要点击图中箭头指示的按钮，可以复制内容，然后粘贴到 Markdown 文档中。图中最下面那条绿色的进度条代表置信度(Confidence)，进度条越长，表示转换的准确度和可靠性越高。<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-36-33.png" alt="Mathpix公式识别示例" align="center"> </p>
+<p>下面这个公式就是示例中从 Mathpix 复制粘贴到 Markdown 文档的效果。<br>$$z=w_{1} x_{1}+\ldots+w_{m} x_{m}$$</p>
+<h3 id="2-文档转换"><a href="#2-文档转换" class="headerlink" title="2. 文档转换"></a>2. 文档转换</h3><h4 id="VSCode-中将-Markdown-转换成-PDF-文档"><a href="#VSCode-中将-Markdown-转换成-PDF-文档" class="headerlink" title="VSCode 中将 Markdown 转换成 PDF 文档"></a>VSCode 中将 Markdown 转换成 PDF 文档</h4><p>Markdown 转 PDF，在<strong>预览视图</strong>中，点击右键菜单，这时会出现一系列文档转换方式，如图所示，<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown%E8%BF%9B%E9%98%B62020-07-26-10-31-08.png" alt><br>看到这个菜单你可能会想到用 PDF(prince) 选项，但是转换效果不如图中选择的 Chrome(Puppeteer)&gt; PDF 选项效果好，您可以尝试转换一下，对比一下输出的 PDF 文档显示效果。</p>
+<blockquote>
+<p>您是不是有顾虑，害怕转换后 Markdown 文档就变成 PDF 文档了？如果弄错了，原文档又找不回来了怎么办？<br>请放心，这个转换是另外输出一个 PDF 文档，不会对本身的 Markdown 文档做修改。</p>
+</blockquote>
+<h4 id="Markdown-转换成-Word-文档"><a href="#Markdown-转换成-Word-文档" class="headerlink" title="Markdown 转换成 Word 文档"></a>Markdown 转换成 Word 文档</h4><p>这里就要用到文档转换界的“瑞士军刀”——Pandoc，它能实现很多文档类型的转换。</p>
+<p>（1）如果您正在使用 Python，电脑中安装了 Anaconda，那么其中就包含了 Pandoc 模块，可以<strong>在 Anaconda 的命令行界面运行 Pandoc</strong>。</p>
+<p>比如，我要将文件名为“mdtest”的 Markdown 文档转换成 Word，先将 Anaconda 的命令行界面转换到 mdtest.md 所在文件夹，然后运行命令：<br><code>pandoc mdtest.md -o mdtest.docx</code><br>就会在当前文件夹中转换并新生成一个 mdtest.docx 文档。</p>
+<p>（2）<strong>Typora 或 VSCode 中 Markdown 转 Word 文档</strong><br>首先要安装 Pandoc 软件。进入<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">Pandoc官方网站下载页面</a>，点击最新的安装包，比如我是 Windows 系统，就选择 .msi 后缀的文件下载安装。</p>
+<blockquote>
+<p>您可能会有疑问，前面方法（1）中提到 Anaconda 包含了 Pandoc 模块，那我们还要再安装一次吗？<br>虽然 Anaconda 包含了 Pandoc，但是这一功能要在 Anaconda 命令行中使用。如果我们要在软件中操作，就需要单独安装 Pandoc。</p>
+</blockquote>
+<p>需要用到图形处理的交叉引用时，还要安装：<br><code>pip install pandoc-fignos</code></p>
+<p><strong>对于 Typora</strong>，现在点击菜单栏 File &gt; Export，选择 Word(.docx) 选项，即可导出 Word 文档。</p>
+<p><strong>对于 VScode</strong>，还需要<strong>在 Markdown 文档的开头加入以下语句</strong>，定义 Pandoc 转化后的文件格式。path 是转化后输出 Word 文档的存放位置，是必填项。后面三项根据需要选择，toc 是目录选项，true表示生成目录。请注意语句的缩进格式以及语句前后的<code>---</code>标记符。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"当前Markdown文档名"</span></span><br><span class="line"><span class="attr">output:</span></span><br><span class="line">    <span class="attr">word_document:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/当前Markdown文档名.docx</span></span><br><span class="line">        <span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">toc_depth:</span> <span class="number">6</span></span><br><span class="line">        <span class="attr">number_sections:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>然后在<strong>预览视图</strong>中，点击右键菜单中的 Pandoc 选项，即可完成文档转换。</p>
+<h4 id="Markdown-文档在线转换成富文本格式"><a href="#Markdown-文档在线转换成富文本格式" class="headerlink" title="Markdown 文档在线转换成富文本格式"></a>Markdown 文档在线转换成富文本格式</h4><p>现在大家都愿意在网上写文章分享交流知识，那么，您是否曾经花很多时间在微信文章等平台的排版上呢？</p>
+<p>前面提到，Markdown 可以极大缩短排版编辑时间。我们就想，要是用 Markdown 编辑器写文章，然后用类似上面介绍的文档转换工具转换成网络平台的格式就好了。</p>
+<p>答案是当然有，而且选择还不少，我在这里分享两款我用过的<strong>在线转换工具</strong>，如果您有觉得不错的转换工具，欢迎留言与大家交流分享。<br><a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">微信公众号格式化编辑器</a><br>特点：风格简洁，很适合排版文章。如果是诗歌可能换行、字号等不好调整。<br><a href="http://md.aclickall.com/" target="_blank" rel="noopener">Md2All</a><br>特点：功能强大，版式风格选择很多，如果略懂网页编辑Javascript的语法，还可以自己对版式调整。</p>
+<p>使用 Markdown 编辑文档时，您有哪些得心应手的效率工具呢？欢迎分享交流。</p>
+<p>参考文章：<br>1.<a href="https://blog.csdn.net/nkwshuyi/article/details/78714788" target="_blank" rel="noopener">如何用Markdown写论文？</a><br>2.<a href="https://www.jianshu.com/p/6ba04f669d0b" target="_blank" rel="noopener">Pandoc安装与使用（转）</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows系统的屏幕截图，你用过哪些方法？</title>
+    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</url>
+    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
+<a id="more"></a>
+<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
+<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
+<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
+<blockquote>
+<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
+</blockquote>
+<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
+<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口的设置相同。</p>
+<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
+
+
+
+
+<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
+
+
+
+<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法可以灵活选择截图区域，我经常使用。</p>
+<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】键，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
+<p>6.打开<a href="https://www.snipaste.com/" target="_blank" rel="noopener">Snipaste官网</a>，下载安装 Snipaste。点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
+<blockquote>
+<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
+</blockquote>
+<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p>
+<p>参考文章：<br>1.<a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br>2.<a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>电脑</tag>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python编程之API入门：一 使用百度地图API查地理坐标</title>
+    <url>/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/</url>
+    <content><![CDATA[<p>在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。</p>
+<a id="more"></a>
+<p>API是”Application Programming Interface（应用程序编程接口）”的缩写。如果那一大堆的术语和定义让你头晕，不妨试着这样理解：网络服务商（比如百度、微博等）存有大量数据，我们可以查询数据，但是需要按照一定的格式/协议，否则服务商不知道我们的需求无法进行处理，我们拿到数据也看不懂。通过API接口规范，通信双方都能明白对方传送的信息和数据，同时也简化了操作（只要按照规定的格式输入，就可以得到已知格式的输出，我们无需了解具体实现的技术细节，是不是很省心呢？）</p>
+<p>下面以<a href="http://lbsyun.baidu.com/index.php?title=webapi" target="_blank" rel="noopener">百度地图Web服务API</a>的调用为例。</p>
+<img src="/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png" class title="百度地图API平台示意图"> 
+
+<p>要使用的是图中所示“正/逆地理编码服务”。在使用服务前，需要登录百度账号（如果没有就注册一个），申请成为百度开发者，然后创建一个你自己的应用，就可以收到一个对应的服务密钥(AK)。在服务配置页面，有两种校验方式，一种是IP白名单方式，一种是sn校验方式。我根据文章<a href="https://www.cnblogs.com/liao-sir/p/8367683.html" target="_blank" rel="noopener"><br>python实现百度地图API获取某地址的经纬度</a>中的介绍，选择了sn校验方式，这样页面上会有SK。请将AK和SK两个序列码保存好，这就是你个人的验证信息。下一步使用百度地图API时要用到。</p>
+<p>要编写的这个Python小程序实现的功能是：<strong>输入某个地址，得到相应的经纬度坐标信息</strong>。分三步实现：</p>
+<ol>
+<li>生成url（用于提交到API进行查询）</li>
+<li>与API交互，查询并返回数据（json格式） </li>
+<li>利用json解析并输出。</li>
+</ol>
+<p>下面分别介绍具体实现。</p>
+<h3 id="1-sn码及url的生成"><a href="#1-sn码及url的生成" class="headerlink" title="1. sn码及url的生成"></a>1. sn码及url的生成</h3><p>url= <a href="http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。" target="_blank" rel="noopener">http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。</a><br>需要注意的是：</p>
+<ul>
+<li>由于url中有中文字符串，需要使用函数<code>urllib.parse.quote(inputstr, safe=&quot;/:=&amp;?#+!$,;&#39;@()*[]&quot;)</code>转换一下编码。</li>
+<li>在url里output可以选择输出为json格式或xml格式，默认是xml格式。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,urllib.parse,urllib.error</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">MyAK=<span class="string">'这里请填入你的AK'</span></span><br><span class="line">MySK=<span class="string">'这里请填入你的SK'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    address = input(<span class="string">'输入地点：'</span>)</span><br><span class="line">    <span class="keyword">if</span> len(address)&lt;<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#产生sn码</span></span><br><span class="line">    queryStr=<span class="string">"/geocoder/v2/?address="</span>+address+<span class="string">'&amp;output=json&amp;ak='</span>+MyAK</span><br><span class="line">    encodedStr=urllib.parse.quote(queryStr, safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    rawStr=encodedStr+MySK</span><br><span class="line">    sn=(hashlib.md5(urllib.parse.quote_plus(rawStr).encode(<span class="string">"utf8"</span>)).hexdigest())</span><br><span class="line"></span><br><span class="line">    <span class="comment">#生成url  </span></span><br><span class="line">    url=urllib.parse.quote(<span class="string">"http://api.map.baidu.com"</span>+queryStr+<span class="string">"&amp;sn="</span>+sn,safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    print(<span class="string">'Retrieving'</span>,url)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-输入url，利用urllib从API读取数据"><a href="#2-输入url，利用urllib从API读取数据" class="headerlink" title="2. 输入url，利用urllib从API读取数据"></a>2. 输入url，利用urllib从API读取数据</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#从API读取数据</span></span><br><span class="line">uh=urllib.request.urlopen(url)</span><br><span class="line">data=uh.read().decode()</span><br><span class="line">print(<span class="string">'Retrieved'</span>,len(data),<span class="string">'characters'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-利用json对返回数据进行解析。"><a href="#3-利用json对返回数据进行解析。" class="headerlink" title="3. 利用json对返回数据进行解析。"></a>3. 利用json对返回数据进行解析。</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#解析数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        js=json.loads(data)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        js=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> js <span class="keyword">or</span> <span class="string">'status'</span><span class="keyword">not</span> <span class="keyword">in</span> js <span class="keyword">or</span> js[<span class="string">'status'</span>]!=<span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'======Failure===='</span>)</span><br><span class="line">        print(data)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(json.dumps(js,indent=<span class="number">4</span>,ensure_ascii=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+<p>以上代码可输出得到json格式的数据。例如，输入“百度大厦”后，程序输出的json格式数据如下所示：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"result"</span>: &#123;</span><br><span class="line">        <span class="attr">"location"</span>: &#123;</span><br><span class="line">            <span class="attr">"lng"</span>: <span class="number">116.30695597357376</span>,</span><br><span class="line">            <span class="attr">"lat"</span>: <span class="number">40.05738753357608</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"precise"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"confidence"</span>: <span class="number">80</span>,</span><br><span class="line">        <span class="attr">"comprehension"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">"level"</span>: <span class="string">"商务大厦"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在这里一开始中文字符<code>&quot;商务大厦&quot;</code>不能正确显示，我从文章<a href="https://www.cnblogs.com/mingjiatang/p/9527345.html" target="_blank" rel="noopener">python中文编码&amp;json中文输出问题</a>中找到了答案，在<code>json.dumps()</code>函数中，默认转换为 ASCII 编码，中文字符就无法转换显示，因此在<code>json.dumps()</code>中要设置<code>ensure_ascii=False</code>。</p>
+<p>最后，通过以下代码，可提取经纬度坐标等信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获取经纬度坐标和地址类型</span></span><br><span class="line">lat=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lat"</span>]</span><br><span class="line">lng=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lng"</span>]</span><br><span class="line">print(<span class="string">'纬度'</span>,lat,<span class="string">'经度'</span>,lng)</span><br><span class="line">level=js[<span class="string">"result"</span>][<span class="string">"level"</span>]</span><br><span class="line">print(<span class="string">'地址类型'</span>,level)</span><br></pre></td></tr></table></figure>
+<p>总结：按照规范发送 url 以及对返回 json 或 xml 格式数据正确解析，另外注意中文字符的编码问题，就可以上手API。怎么样？你也快来试试吧！</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -159,154 +342,6 @@
       <tags>
         <tag>Python</tag>
         <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>David Copperfield 读书笔记</title>
-    <url>/2020/10/19/DavidCopperfield%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>早段时间我听了 David Copperfield 的有声书，播讲者 Nicholas Boulton 演绎得特别好，让各个人物角色都呈现鲜明的特点。而且，他把书中抒发感慨的地方读得深情感人，让听众融入到作品的情绪之中。感谢 Nicholas Boulton 的朗读，让我用心体会 Charles Dickens （狄更斯）作品的精彩。读到狄更斯的作品，我忽然有一种相见恨晚的感觉，很喜欢狄更斯描写的细致入微、抒情时善用排比。我摘抄一些片段，与您一起欣赏学习。</p>
-<a id="more"></a>
-<p>我尤其钟爱这本书的前半部分，写 David Copperfield 童年时。特别是那些儿童特有的视角和想象力，天真、无邪、有趣，我读到的时候很好奇狄更斯是如何想到这些描述的。</p>
-<h4 id="天真无邪、奇妙有趣的儿童视角"><a href="#天真无邪、奇妙有趣的儿童视角" class="headerlink" title="天真无邪、奇妙有趣的儿童视角"></a>天真无邪、奇妙有趣的儿童视角</h4><p>1.David 回忆他的保姆 Peggotty 时，写了她红红的皮肤，然后就想象，她皮肤比苹果都要红，爱啄苹果的鸟儿为啥不啄她呢？<br>The first objects that assume a distinct presence before me, as I look far back, into the blank of my infancy, are my mother with her pretty hair and youthful shape, and Peggotty, with no shape at all, and eyes so dark that they seemed to darken their whole neighbourhood in her face, and <strong>cheeks and arms so hard and red that I wondered the birds didn’t peck her in preference to apples</strong>.</p>
-<p>2.小 David 跟着 Peggotty 去她哥哥家做客。他们是坐马车去的，这一段对于马儿的描写实在是太有趣了，我感觉这真的是儿童才会有的奇妙想象力。小 David 说马儿好像在偷懒，就想让目的地的人们等着，而且，这马儿好像为自己的想法而得意地轻声笑呢，估计 David 把这个天真的想法告诉车夫了，结果车夫告诉他，马儿只是在咳嗽呢（孩子，你想多了…）。<br>THE CARRIER’S horse was the laziest horse in the world, I should hope, and shuffled along, with his head down, as if he liked to keep people waiting to whom the packages were directed. <strong>I fancied, indeed, that he sometimes chuckled audibly over this reflection</strong>, but the carrier said he was only troubled with a cough.</p>
-<p>3.他们到达海边 Peggotty 哥哥 Mr. Peggott 家。Mr. Peggott 是一个渔夫，回家后热情地同 David 打招呼，然后说要出去用热水洗一下脸，因为凉水洗不掉污渍。不一会儿，他回来了，脸是干净了，但也洗得通红，这让小 David 联想到了虾、蟹等海鲜，进热水时是黑的，出来（煮熟时）却是通红的。<br>Having done the honours of his house in this hospitable manner, Mr. Peggotty went out to wash himself in a kettleful of hot water, remarking that ‘cold would never get his muck off.’ He soon returned, greatly improved in appearance; but so rubicund, that <strong>I couldn’t help thinking his face had this in common with the lobsters, crabs, and crawfish—that it went into the hot water very black and came out very red</strong>.</p>
-<p>4.书的开篇提到，David 是遗腹子，他的父亲在他出生前就去世了。几年后， David 的母亲嫁给了 Mr. Murdstone。Mr. Murdstone 和他妹妹住进来，对 David 并不好。比如这里背课文学习就是这样，他们很严厉，吓得小 David 更背不出来，本来记住一点，见到他们也全都忘了。这里就用了一个生动形象的描写，这些课文内容快速溜走，还不是一个词一个词或是一行行，而是一整页一整页地从他的脑子里溜走，就像穿上了溜冰鞋一样。<br>I felt the words of my lessons slipping off, not one by one, or line by line, but by the entire page; I tried to lay hold of them; but <strong>they seemed, if I may so express it, to have put skates on, and to skim away from me with a smoothness there was no checking</strong>.</p>
-<h4 id="两次分别"><a href="#两次分别" class="headerlink" title="两次分别"></a>两次分别</h4><p>书中有两次分别的情景也让我印象深刻。这两次分别之后不久，David 的生活都发生了重大变化。在分别时，他的母亲知道或者说有预感，而小 David 对此一无所知。一次是小 David 跟着 Peggotty 去她哥哥家做客，他不知道的是，他的母亲即将要和 Mr.Murdstone 结婚。另一次是小 David 学校的假期结束，他要返校了，此时，他的母亲身体不好。可能她自己预感到时日无多，而天真的小 David 并没多想。</p>
-<p>1.小 David 跟着 Peggotty 去她哥哥家做客，出发前他和母亲的分别。<br>It touches me nearly now, although I tell it lightly, to recollect how eager I was to leave my happy home; to think how little I suspected what I did leave for ever.<br>现在回想起来，David 才想到当初的自己一无所知，小孩子只是急切地想出去玩，却不知道自己将要离开或者说是失去什么。</p>
-<p>I am glad to recollect that when the carrier’s cart was at the gate, and my mother stood there kissing me, a grateful fondness for her and for the old place I had never turned my back upon before, made me cry. I am glad to know that my mother cried too, and that I felt her heart beat against mine.<br>I am glad to recollect that when the carrier began to move, my mother ran out at the gate, and called to him to stop, that she might kiss me once more. I am glad to dwell upon the earnestness and love with which she lifted up her face to mine, and did so.<br>David 的母亲没有告诉 David 即将发生的变化，只是将感情融入到深情的吻、依依惜别之中。</p>
-<p>2.小 David 假期结束，返校前和母亲的分别。<br>I kissed her, and my baby brother, and was very sorry then; but not sorry to go away, for the gulf between us was there, and the parting was there, every day. And it is not so much the embrace she gave me, that lives in my mind, though it was as fervent as could be, as what followed the embrace.<br>David 与母亲、弟弟告别，心中虽有不舍，但是同时他也知道 Murdstone 兄妹容不下他，他们让他和母亲之间也有了距离。</p>
-<p>I was in the carrier’s cart when I heard her calling to me. I looked out, and she stood at the garden-gate alone, holding her baby up in her arms for me to see. It was cold still weather; and not a hair on her head, nor a fold of her dress, was stirred, as she looked intently at me, holding up her child.<br>So I lost her. So I saw her afterwards, in my sleep at school—a silent presence near my bed—looking at me with the same intent face—holding up her baby in her arms.<br>我读到这两段时很心酸。这描写的是一个母亲和孩子分别的场景，母亲想让 David 记住她和他弟弟的样子，一直在门口高高抱起婴儿，让 David 回过头能看到。紧接着的一句 So I lost her. 更是让人落泪，以后 David 只能在梦里见到她。<br>这一段也让我回想起文学作品和生活中常见的一个场景：在外工作的孩子回乡看父母，要回去时，母亲也是这样一路送到路口。孩子都走出很远了，一回头，还能看到老母亲微微佝偻的身影在远处看着，见到孩子回头，又挥挥手。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英语学习</tag>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown进阶</title>
-    <url>/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>在上一篇 <a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">Markdown 入门文章</a> 里，我们对 Markdown 这个写作和编辑利器有了初步认识。接下来，我们一起来看看还有哪些进一步提高编辑效率的工具方法？</p>
-<a id="more"></a>
-<h3 id="1-公式编辑利器"><a href="#1-公式编辑利器" class="headerlink" title="1. 公式编辑利器"></a>1. 公式编辑利器</h3><p><strong>问题：</strong> 有时我们会在文章中用到公式，如果一个个输进去，符号、标记需要花费很多时间，有没有更快捷的方法呢？</p>
-<p>有，这就是 Mathpix 。我们可以截取公式图片，然后在Mathpix 中识别并转换成相应的格式，再复制粘贴到 Markdown 文档中。</p>
-<p>到 <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix官网</a> 下载，首先我们要注册一个账号，免费账户一个月可使用 50 次；学生账户一个月可使用 100 次，需要使用学校邮箱注册；专业用户一个月需支付 4.99 美金，使用次数不限。如果不经常使用，注册一个免费用户就行，然后下载 Mathpix。</p>
-<p>打开 Mathpix 软件，登录刚才注册的账户。再打开要截取公式的页面，然后点击左上角的图标，如下图所示，就可以截图：<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-45-58.png" alt="Mathpix界面" align="center"> </p>
-<p>截取的公式图像会在 Mathpix 中自动显示并进行识别转换，如下图所示，我们可以选取所需要的格式。图中下方结果项里，第二个是行内公式，第三个是独立公式，只要点击图中箭头指示的按钮，可以复制内容，然后粘贴到 Markdown 文档中。图中最下面那条绿色的进度条代表置信度(Confidence)，进度条越长，表示转换的准确度和可靠性越高。<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown学习笔记补充2020-05-05-21-36-33.png" alt="Mathpix公式识别示例" align="center"> </p>
-<p>下面这个公式就是示例中从 Mathpix 复制粘贴到 Markdown 文档的效果。<br>$$z=w_{1} x_{1}+\ldots+w_{m} x_{m}$$</p>
-<h3 id="2-文档转换"><a href="#2-文档转换" class="headerlink" title="2. 文档转换"></a>2. 文档转换</h3><h4 id="VSCode-中将-Markdown-转换成-PDF-文档"><a href="#VSCode-中将-Markdown-转换成-PDF-文档" class="headerlink" title="VSCode 中将 Markdown 转换成 PDF 文档"></a>VSCode 中将 Markdown 转换成 PDF 文档</h4><p>Markdown 转 PDF，在<strong>预览视图</strong>中，点击右键菜单，这时会出现一系列文档转换方式，如图所示，<br><img src="/2020/07/24/Markdown%E7%9A%84%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/Markdown%E8%BF%9B%E9%98%B62020-07-26-10-31-08.png" alt><br>看到这个菜单你可能会想到用 PDF(prince) 选项，但是转换效果不如图中选择的 Chrome(Puppeteer)&gt; PDF 选项效果好，您可以尝试转换一下，对比一下输出的 PDF 文档显示效果。</p>
-<blockquote>
-<p>您是不是有顾虑，害怕转换后 Markdown 文档就变成 PDF 文档了？如果弄错了，原文档又找不回来了怎么办？<br>请放心，这个转换是另外输出一个 PDF 文档，不会对本身的 Markdown 文档做修改。</p>
-</blockquote>
-<h4 id="Markdown-转换成-Word-文档"><a href="#Markdown-转换成-Word-文档" class="headerlink" title="Markdown 转换成 Word 文档"></a>Markdown 转换成 Word 文档</h4><p>这里就要用到文档转换界的“瑞士军刀”——Pandoc，它能实现很多文档类型的转换。</p>
-<p>（1）如果您正在使用 Python，电脑中安装了 Anaconda，那么其中就包含了 Pandoc 模块，可以<strong>在 Anaconda 的命令行界面运行 Pandoc</strong>。</p>
-<p>比如，我要将文件名为“mdtest”的 Markdown 文档转换成 Word，先将 Anaconda 的命令行界面转换到 mdtest.md 所在文件夹，然后运行命令：<br><code>pandoc mdtest.md -o mdtest.docx</code><br>就会在当前文件夹中转换并新生成一个 mdtest.docx 文档。</p>
-<p>（2）<strong>Typora 或 VSCode 中 Markdown 转 Word 文档</strong><br>首先要安装 Pandoc 软件。进入<a href="https://pandoc.org/installing.html" target="_blank" rel="noopener">Pandoc官方网站下载页面</a>，点击最新的安装包，比如我是 Windows 系统，就选择 .msi 后缀的文件下载安装。</p>
-<blockquote>
-<p>您可能会有疑问，前面方法（1）中提到 Anaconda 包含了 Pandoc 模块，那我们还要再安装一次吗？<br>虽然 Anaconda 包含了 Pandoc，但是这一功能要在 Anaconda 命令行中使用。如果我们要在软件中操作，就需要单独安装 Pandoc。</p>
-</blockquote>
-<p>需要用到图形处理的交叉引用时，还要安装：<br><code>pip install pandoc-fignos</code></p>
-<p><strong>对于 Typora</strong>，现在点击菜单栏 File &gt; Export，选择 Word(.docx) 选项，即可导出 Word 文档。</p>
-<p><strong>对于 VScode</strong>，还需要<strong>在 Markdown 文档的开头加入以下语句</strong>，定义 Pandoc 转化后的文件格式。path 是转化后输出 Word 文档的存放位置，是必填项。后面三项根据需要选择，toc 是目录选项，true表示生成目录。请注意语句的缩进格式以及语句前后的<code>---</code>标记符。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"当前Markdown文档名"</span></span><br><span class="line"><span class="attr">output:</span></span><br><span class="line">    <span class="attr">word_document:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/当前Markdown文档名.docx</span></span><br><span class="line">        <span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">toc_depth:</span> <span class="number">6</span></span><br><span class="line">        <span class="attr">number_sections:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-<p>然后在<strong>预览视图</strong>中，点击右键菜单中的 Pandoc 选项，即可完成文档转换。</p>
-<h4 id="Markdown-文档在线转换成富文本格式"><a href="#Markdown-文档在线转换成富文本格式" class="headerlink" title="Markdown 文档在线转换成富文本格式"></a>Markdown 文档在线转换成富文本格式</h4><p>现在大家都愿意在网上写文章分享交流知识，那么，您是否曾经花很多时间在微信文章等平台的排版上呢？</p>
-<p>前面提到，Markdown 可以极大缩短排版编辑时间。我们就想，要是用 Markdown 编辑器写文章，然后用类似上面介绍的文档转换工具转换成网络平台的格式就好了。</p>
-<p>答案是当然有，而且选择还不少，我在这里分享两款我用过的<strong>在线转换工具</strong>，如果您有觉得不错的转换工具，欢迎留言与大家交流分享。<br><a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">微信公众号格式化编辑器</a><br>特点：风格简洁，很适合排版文章。如果是诗歌可能换行、字号等不好调整。<br><a href="http://md.aclickall.com/" target="_blank" rel="noopener">Md2All</a><br>特点：功能强大，版式风格选择很多，如果略懂网页编辑Javascript的语法，还可以自己对版式调整。</p>
-<p>使用 Markdown 编辑文档时，您有哪些得心应手的效率工具呢？欢迎分享交流。</p>
-<p>参考文章：<br>1.<a href="https://blog.csdn.net/nkwshuyi/article/details/78714788" target="_blank" rel="noopener">如何用Markdown写论文？</a><br>2.<a href="https://www.jianshu.com/p/6ba04f669d0b" target="_blank" rel="noopener">Pandoc安装与使用（转）</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>软件</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python编程之API入门：一 使用百度地图API查地理坐标</title>
-    <url>/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/</url>
-    <content><![CDATA[<p>在网络编程中，我们会和API打交道。那么，什么是API?如何使用API呢？本文分享了一下笔者对API的理解以及百度地图API的使用。</p>
-<a id="more"></a>
-<p>API是”Application Programming Interface（应用程序编程接口）”的缩写。如果那一大堆的术语和定义让你头晕，不妨试着这样理解：网络服务商（比如百度、微博等）存有大量数据，我们可以查询数据，但是需要按照一定的格式/协议，否则服务商不知道我们的需求无法进行处理，我们拿到数据也看不懂。通过API接口规范，通信双方都能明白对方传送的信息和数据，同时也简化了操作（只要按照规定的格式输入，就可以得到已知格式的输出，我们无需了解具体实现的技术细节，是不是很省心呢？）</p>
-<p>下面以<a href="http://lbsyun.baidu.com/index.php?title=webapi" target="_blank" rel="noopener">百度地图Web服务API</a>的调用为例。</p>
-<img src="/2020/04/18/Python%E7%BC%96%E7%A8%8B%E4%B9%8BAPI%E5%85%A5%E9%97%A8%EF%BC%9A%E4%B8%80-%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E6%9F%A5%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/02%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEAPI%E5%B9%B3%E5%8F%B0.png" class title="百度地图API平台示意图"> 
-
-<p>要使用的是图中所示“正/逆地理编码服务”。在使用服务前，需要登录百度账号（如果没有就注册一个），申请成为百度开发者，然后创建一个你自己的应用，就可以收到一个对应的服务密钥(AK)。在服务配置页面，有两种校验方式，一种是IP白名单方式，一种是sn校验方式。我根据文章<a href="https://www.cnblogs.com/liao-sir/p/8367683.html" target="_blank" rel="noopener"><br>python实现百度地图API获取某地址的经纬度</a>中的介绍，选择了sn校验方式，这样页面上会有SK。请将AK和SK两个序列码保存好，这就是你个人的验证信息。下一步使用百度地图API时要用到。</p>
-<p>要编写的这个Python小程序实现的功能是：<strong>输入某个地址，得到相应的经纬度坐标信息</strong>。分三步实现：</p>
-<ol>
-<li>生成url（用于提交到API进行查询）</li>
-<li>与API交互，查询并返回数据（json格式） </li>
-<li>利用json解析并输出。</li>
-</ol>
-<p>下面分别介绍具体实现。</p>
-<h3 id="1-sn码及url的生成"><a href="#1-sn码及url的生成" class="headerlink" title="1. sn码及url的生成"></a>1. sn码及url的生成</h3><p>url= <a href="http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。" target="_blank" rel="noopener">http://api.map.baidu.com/geocoder/v2/?address=“输入的地点名”&amp;output=json&amp;ak=&#39;你的AK码&#39;&amp;sn=&#39;你的sn码&#39;。</a><br>需要注意的是：</p>
-<ul>
-<li>由于url中有中文字符串，需要使用函数<code>urllib.parse.quote(inputstr, safe=&quot;/:=&amp;?#+!$,;&#39;@()*[]&quot;)</code>转换一下编码。</li>
-<li>在url里output可以选择输出为json格式或xml格式，默认是xml格式。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,urllib.parse,urllib.error</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">MyAK=<span class="string">'这里请填入你的AK'</span></span><br><span class="line">MySK=<span class="string">'这里请填入你的SK'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    address = input(<span class="string">'输入地点：'</span>)</span><br><span class="line">    <span class="keyword">if</span> len(address)&lt;<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#产生sn码</span></span><br><span class="line">    queryStr=<span class="string">"/geocoder/v2/?address="</span>+address+<span class="string">'&amp;output=json&amp;ak='</span>+MyAK</span><br><span class="line">    encodedStr=urllib.parse.quote(queryStr, safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    rawStr=encodedStr+MySK</span><br><span class="line">    sn=(hashlib.md5(urllib.parse.quote_plus(rawStr).encode(<span class="string">"utf8"</span>)).hexdigest())</span><br><span class="line"></span><br><span class="line">    <span class="comment">#生成url  </span></span><br><span class="line">    url=urllib.parse.quote(<span class="string">"http://api.map.baidu.com"</span>+queryStr+<span class="string">"&amp;sn="</span>+sn,safe=<span class="string">"/:=&amp;?#+!$,;'@()*[]"</span>)</span><br><span class="line">    print(<span class="string">'Retrieving'</span>,url)</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-输入url，利用urllib从API读取数据"><a href="#2-输入url，利用urllib从API读取数据" class="headerlink" title="2. 输入url，利用urllib从API读取数据"></a>2. 输入url，利用urllib从API读取数据</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#从API读取数据</span></span><br><span class="line">uh=urllib.request.urlopen(url)</span><br><span class="line">data=uh.read().decode()</span><br><span class="line">print(<span class="string">'Retrieved'</span>,len(data),<span class="string">'characters'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="3-利用json对返回数据进行解析。"><a href="#3-利用json对返回数据进行解析。" class="headerlink" title="3. 利用json对返回数据进行解析。"></a>3. 利用json对返回数据进行解析。</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#解析数据</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        js=json.loads(data)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        js=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> js <span class="keyword">or</span> <span class="string">'status'</span><span class="keyword">not</span> <span class="keyword">in</span> js <span class="keyword">or</span> js[<span class="string">'status'</span>]!=<span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'======Failure===='</span>)</span><br><span class="line">        print(data)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(json.dumps(js,indent=<span class="number">4</span>,ensure_ascii=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
-<p>以上代码可输出得到json格式的数据。例如，输入“百度大厦”后，程序输出的json格式数据如下所示：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"status"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"result"</span>: &#123;</span><br><span class="line">        <span class="attr">"location"</span>: &#123;</span><br><span class="line">            <span class="attr">"lng"</span>: <span class="number">116.30695597357376</span>,</span><br><span class="line">            <span class="attr">"lat"</span>: <span class="number">40.05738753357608</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"precise"</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"confidence"</span>: <span class="number">80</span>,</span><br><span class="line">        <span class="attr">"comprehension"</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">"level"</span>: <span class="string">"商务大厦"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，在这里一开始中文字符<code>&quot;商务大厦&quot;</code>不能正确显示，我从文章<a href="https://www.cnblogs.com/mingjiatang/p/9527345.html" target="_blank" rel="noopener">python中文编码&amp;json中文输出问题</a>中找到了答案，在<code>json.dumps()</code>函数中，默认转换为 ASCII 编码，中文字符就无法转换显示，因此在<code>json.dumps()</code>中要设置<code>ensure_ascii=False</code>。</p>
-<p>最后，通过以下代码，可提取经纬度坐标等信息。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#获取经纬度坐标和地址类型</span></span><br><span class="line">lat=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lat"</span>]</span><br><span class="line">lng=js[<span class="string">"result"</span>][<span class="string">"location"</span>][<span class="string">"lng"</span>]</span><br><span class="line">print(<span class="string">'纬度'</span>,lat,<span class="string">'经度'</span>,lng)</span><br><span class="line">level=js[<span class="string">"result"</span>][<span class="string">"level"</span>]</span><br><span class="line">print(<span class="string">'地址类型'</span>,level)</span><br></pre></td></tr></table></figure>
-<p>总结：按照规范发送 url 以及对返回 json 或 xml 格式数据正确解析，另外注意中文字符的编码问题，就可以上手API。怎么样？你也快来试试吧！</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows系统的屏幕截图，你用过哪些方法？</title>
-    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</url>
-    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
-<a id="more"></a>
-<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
-<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
-<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
-<blockquote>
-<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
-</blockquote>
-<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
-<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口的设置相同。</p>
-<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
-<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
-
-
-
-
-<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
-<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
-
-
-
-<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法可以灵活选择截图区域，我经常使用。</p>
-<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】键，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
-<p>6.打开<a href="https://www.snipaste.com/" target="_blank" rel="noopener">Snipaste官网</a>，下载安装 Snipaste。点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
-<blockquote>
-<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
-</blockquote>
-<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p>
-<p>参考文章：<br>1.<a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br>2.<a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
-        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -368,122 +403,6 @@
         <tag>非虚构</tag>
         <tag>人物传记</tag>
         <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一篇文章带你入门Markdown</title>
-    <url>/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/</url>
-    <content><![CDATA[<h3 id="1-为什么选择-Markdown？"><a href="#1-为什么选择-Markdown？" class="headerlink" title="1. 为什么选择 Markdown？"></a>1. 为什么选择 Markdown？</h3><p>正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：</p>
-<ul>
-<li>写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。</li>
-<li>在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。</li>
-<li>对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。<a id="more"></a>
-
-</li>
-</ul>
-<p>使用 Markdown之后，你就不用再为这些问题烦恼了。只需在写作时顺带加入几个标记符，文档就会显示为统一、规范的网页格式。而且，Markdown 还有以下优势：</p>
-<ul>
-<li><p><strong>Markdown编辑器平台统一。</strong> 如果你使用过网上的写作平台，可能就会发现，在支持富文本编辑器的平台，比如豆瓣，输入文档后还需要对标题、链接等重新编辑调整一下，而支持 Markdown 编辑器的平台，比如我的博客小站使用的hexo博客系统、或者CSDN， 输入文档后显示比较一致，标题、加粗、链接等都是使用的统一语法，无需对内容进行二次排版编辑。</p>
-</li>
-<li><p>现在有很多工具可以帮助我们<strong>将 Markdown 文档轻松转换为 PDF 或 Word 文档</strong>，这样，用 Markdown 写作，然后转换一下，可以省去很多排版编辑时间。</p>
-</li>
-</ul>
-<p>看到这里，您是不是也跃跃欲试，想开始用 Markdown 来编辑文档。那么，要在哪里用？怎么用呢？别着急，接着往下看。</p>
-<h3 id="2-怎么用-Markdown？"><a href="#2-怎么用-Markdown？" class="headerlink" title="2. 怎么用 Markdown？"></a>2. 怎么用 Markdown？</h3><p>我们要用好 Markdown，首先要学习一下它的语法。<br>听到“语法”，你是不是瞬间头大了？哈哈，不用担心，内容不多而且好记。当然，最好的办法是在练习中掌握：<strong>参考我的示例格式，自己输入内容练习几遍</strong>。下一节就会介绍编辑器的使用了，你可以先浏览一下本节内容，对 Markdown 的使用有个大致印象。</p>
-<h4 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h4><p>用 Markdown 编辑时，标题使用<code>#</code>进行标记，几级标题就在标题前加几个<code>#</code>，显示效果如下图所示。这里说明一下，我采用的是对照模式，左边为编辑输入，右边为预览显示，后面的示例也是这样。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-17-50-42.png" alt="标题编辑的对照示例" align="center"> 
-
-<p>可以对比一下各级标题显示字号、行间距的不同。另外，你可能会注意到，在<code>#</code>与文字间有一个空格。在使用中，我发现有的编辑器要求必须有空格，有的编辑器不做要求、可以识别，因此，建议还是加一个空格。</p>
-<h4 id="2-2-加粗、斜体"><a href="#2-2-加粗、斜体" class="headerlink" title="2.2 加粗、斜体"></a>2.2 加粗、斜体</h4><p>在加粗文字前后用<code>**</code>进行标记，在斜体文字前后用<code>*</code>标记，具体方法和显示效果如图所示：</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-18-09-35.png" alt="加粗和斜体的对照示例" align="center">
-
-<h4 id="2-3下划线、删除线"><a href="#2-3下划线、删除线" class="headerlink" title="2.3下划线、删除线"></a>2.3下划线、删除线</h4><p>在添加下划线的文字前后用<code>&lt;u&gt;</code>符号标记，在添加删除线的文字前后用<code>~~</code>符号标记，具体方法和显示效果如图所示：</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/Markdown学习笔记补充2020-05-05-17-32-10.png" alt="下划线、删除线的对照示例" align="center">
-
-<h4 id="2-4-引用、代码"><a href="#2-4-引用、代码" class="headerlink" title="2.4 引用、代码"></a>2.4 引用、代码</h4><p>在引用文字的前面使用<code>&gt;</code>标记。<br>编辑行内代码时，在代码前后使用 ` 符号标记（对应键盘位置为 【Tab】键上方）。<br>编辑代码块时，在代码前后使用 ``` 符号标记。此外，代码块前可以加上所使用的语言作为注释（比如 python），显示效果更佳。具体方法和显示效果如图所示：</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-00-59.png" alt="引用和代码的对照示例" align="center">
-
-<p>有时我们需要在文章中显示运行程序的结果，这时可以采用图中所示的方式，在结果前加上 text 注释。</p>
-<h4 id="2-5-列表"><a href="#2-5-列表" class="headerlink" title="2.5 列表"></a>2.5 列表</h4><p>Markdown 中采用<code>-</code>或<code>*</code>+空格的方式来标记无序列表，用<code>数字</code>+<code>.</code>+空格的方式来标记有序列表，具体方法和显示效果如图所示：</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-07-47.png" alt="列表的对照示例" align="center">
-
-<p>请注意示例中的有序列表。我们输入<code>数字</code>+<code>.</code>+空格，后续项会自动顺序编号，而如果始终输入<code>1</code>+<code>.</code>+空格，实际的显示效果也是顺序编号的。</p>
-<h4 id="2-6-公式"><a href="#2-6-公式" class="headerlink" title="2.6 公式"></a>2.6 公式</h4><p>在行内公式前后使用<code>$</code>标记，独立公式的前后使用<code>$$</code>标记，可以看下面的简单示例，更多公式的写法请参考网上的 Latex 语法。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-25-09-47-33.png" alt="公式的对照示例" align="center">
-
-<h4 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-04-08-59-02.png" alt="表格的对照示例" align="center">
-
-<p>图中示例展示了表格的写法，注意：第二行的分隔线对于生成表格至关重要。<br>另外，如果后期要进行文档转换，尤其是转换成 Word 文档，一定要先检查一下表格能否正常转换，我就遇到过转换成 Word 文档后、显示的表格是图中左侧原始编辑格式的情况。</p>
-<h4 id="2-8-插入网址链接和图片"><a href="#2-8-插入网址链接和图片" class="headerlink" title="2.8 插入网址链接和图片"></a>2.8 插入网址链接和图片</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-25-27.png" alt="插入网址和图片的对照示例" align="center">
-
-<p>如图中示例所示，对于网址链接，在[ ]内填写链接的文字说明，( )内填写对应的链接地址。这样，显示为文字说明部分，点击即可到达链接。</p>
-<p>图片链接的格式与此类似，同时，图片链接的文字说明前要加一个<code>!</code>符号标记。显示为图片。另外，虽然图片链接的文字说明一般不会显示，但是建议填写，因为如果网站的图片加载出现问题，图片无法正常显示，就会显示出文字说明，此时至少可以给读者提供一点图片的相关信息。</p>
-<p>细心的你可能会有一个疑问，图片链接如果是网络的还好办，如果是本地图片，把文档导入网络平台（比如CSDN）时，图片就无法正常显示了，怎么办？容易想到的办法是重新上传图片到网络平台并生成链接。但是，还有一种便捷的解决办法，就是把图片放到网络服务器中存储，这样就把本地图片“变成”网络图片，我们可以随时引用网络链接查看图片，这就是图床的原理。但是很抱歉，我现在还没有使用图床，等我用了之后，再写篇文章与大家分享。</p>
-<h4 id="2-9-排版规范"><a href="#2-9-排版规范" class="headerlink" title="2.9 排版规范"></a>2.9 排版规范</h4><p>最后补充一点，在 Markdown 写作时，了解一点排版规范对我们是有帮助的，这样显示的文章整洁美观，读者看着也舒服。向你推荐我读到的一篇介绍排版规范的好文：<a href="https://zhuanlan.zhihu.com/p/69376149" target="_blank" rel="noopener">会用 Markdown 还不够，还得知道排版规范</a>。</p>
-<h3 id="3-在哪用Markdown？"><a href="#3-在哪用Markdown？" class="headerlink" title="3. 在哪用Markdown？"></a>3. 在哪用Markdown？</h3><p>要写 Markdown 文档，一款得心应手的<strong>编辑器</strong>必不可少。我根据网友们的介绍和推荐，体验了几款受好评的编辑器，下面逐一介绍，看看您喜欢哪一款？</p>
-<h4 id="3-1-即写即显示：Typora"><a href="#3-1-即写即显示：Typora" class="headerlink" title="3.1 即写即显示：Typora"></a>3.1 即写即显示：Typora</h4><p>点击<a href="https://typora.io/" target="_blank" rel="noopener">Typora官网</a>，可以下载 Typora。</p>
-<p>Typora 的最大特点就是即写即显示，有点像打字机 ( Typewriter ) 的效果，这样看来，这个名字很贴切。请看一下 <a href="https://typora.io/img/beta.mp4" target="_blank" rel="noopener">Typora使用展示-27秒小视频</a>，会对这种编辑体验有更多了解。</p>
-<p>Typora 的页面干净整齐，插入图片、公式等十分便捷，因此受到众多 Markdown 写作者们的喜爱。</p>
-<p><strong>1.一键插入图片</strong><br>如果您是第一次安装 Typora，需要在 File&gt;Preferences&gt;Image 里，选择插入图片的存放位置，默认设置是无操作。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-07-08-11-45-58.png" alt="Typora中Image设置界面" align="center">
-
-<p>如图所示，在下拉列表中选择 Copy image to ./${filename}.assets，这样图片会复制一份到当前文档名.assests 子文件夹中（如果没有会自动新建一个）。另外，您可能注意到，在下拉列表下方有几个勾选项，比如，是否对本地图片按此操作（这一项一定要勾选），是否对网络图片按此操作，是否使用相对路径，等等，可以根据需要选择，对比效果后确定自己的设置，图中就是我在 Typora 中的设置，您可以参照着对自己的 Typora 进行设置。</p>
-<p>使用 Typora 插入图片非常轻松。如果是屏幕截图，以我自己使用的 Windows 系统为例，可以直接用【Windows】+【Shift】+【S】 键，或者打开微信后用 【Alt】+【A】键进行截图，然后使用 【Ctrl】+【V】 键，或者是在右键菜单中选择 Paste 把截图插入到文档。如果是本地图片，可以从存放文件夹中把图片直接拖动到文档中的编辑位置。然后，剩下的事就不用管了，因为 Typora 会帮我们全部做好，包括将图片自动复制到 当前文档名.assets文件夹，Markdown 文档里也会生成图片链接，是不是很贴心呢？</p>
-<p><strong>2.文档转换</strong><br>如下图所示，点击菜单栏 File &gt; Export，然后选择你想要的文件类型（比如 PDF、Word），可以实现文档转换。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-43-05.png" alt="Typora文档转换菜单选项" align="center">
-
-<p>但是，我现在没有经常使用 Typora，主要是还不适应即写即显示、不能对照看原始编辑的设置。如果有和我一样习惯的小伙伴，可以看看接下来的两款编辑器。</p>
-<h4 id="3-2-对照显示：Atom-VSCode"><a href="#3-2-对照显示：Atom-VSCode" class="headerlink" title="3.2 对照显示：Atom, VSCode"></a>3.2 对照显示：Atom, VSCode</h4><p>这两款编辑器大同小异，都是可以预览、对照显示的。Atom 由 Github 出品，可以从<a href="https://atom.io/" target="_blank" rel="noopener">Atom官网</a>下载。 VSCode, 全称为 Visual Studio Code，由微软出品，可以从<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode官网</a>下载。</p>
-<p>有一点请注意，要使这两款编辑器发挥最佳性能，需要安装插件（Packages/ Extensions），下面以我现在使用的 VSCode 为例进行说明。</p>
-<p><strong>1.安装扩展（Extensions）</strong></p>
-<p>点击菜单栏 File &gt; Preferences &gt; Extensions，如图中所示：</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-25-52.png" alt="扩展的菜单选项" align="center">
-
-<p>然后在搜索栏中搜索扩展并安装：<code>Markdown All in One</code>，<code>Markdown Preview Enhanced</code>，<code>Paste Image</code>。下图中我给出了一个示例，在搜索栏输入” markdown preview enhanced “，在未安装的扩展名右下角会有一个显示为<code>install</code>的绿色按钮，点击即可安装。这里因为我已经安装了该扩展，所以没有显示，而在我尚未安装的扩展下方就显示了<code>install</code>按钮。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-22-56.png" alt="安装扩展示例" align="center">
-
-
-
-<p><strong>2.扩展设置</strong></p>
-<p>此外，Paste Image 扩展在安装后还要进行设置。点击 File &gt; Preferences &gt; Settings，在搜索栏中输入：” Paste Image “，在结果中找到：<br>Name Prefix 一栏，填入<code>${currentFileNameWithoutExt}</code>；<br>Path 一栏，填入<code>${currentFileDir}/imgs</code>，具体如下图所示。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-41-07.png" alt="Paste Image 扩展设置" align="center">
-
-
-<p><strong>3.预览视图与文章目录</strong></p>
-<p>安装了上面介绍的扩展后，重新在 VSCode 中打开一篇文档，可以看到右上方会出现预览按钮，点击下图中箭头指示的第一个按钮，即可出现 Preview 预览窗格。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-20-43.png" alt="预览窗格按钮" align="center">
-
-<p>在预览视图中，点击下图中箭头指示的第一个按钮，可以显示文章的目录。图中右侧显示的就是本文的目录。目录显示即为文章的大纲，对于我们阅读时理清文章脉络、写作时构建文章框架很有帮助。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-24-16-20-36.png" alt="文章目录显示按钮及显示效果" align="center">
-
-<p>还有一种显示文章目录的方法，就是在文章开头处加上<code>[TOC]</code>，显示效果与上图的目录视图类似，您不妨也试一试，看看效果如何呀。</p>
-<p><strong>4.快速贴图</strong></p>
-<p>因为安装了 Paste Image 扩展，VSCode 中截图贴图十分方便。以我自己使用的 Windows 系统为例，截图后打开要插入图片的文档，使用 <code>Ctrl</code>+<code>Alt</code>+<code>V</code> 键，图片就会自动复制到 Markdown 文档目录下的 imgs 文件夹中，同时在文档中自动生成了图片链接。</p>
-<p>但是与 Typora 相比，VSCode还有一点不足：不能拖动本地图片到文档实现自动插入图片，也可能是我还没有安装所需的扩展，如果您知道这个使用方法，请告诉我一下哦，谢谢！</p>
-<p><strong>5.文档转换</strong></p>
-<p>在<strong>预览视图</strong>中，点击鼠标右键，将出现下图所示的菜单栏，此时可以选择需要的文件类型进行转换。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-45-39.png" alt="VSCode中右键菜单的文档转换选项" align="center">
-
-
-<h4 id="3-3-多平台协作：印象笔记"><a href="#3-3-多平台协作：印象笔记" class="headerlink" title="3.3 多平台协作：印象笔记"></a>3.3 多平台协作：印象笔记</h4><p>有时我们可能在这个电脑上写了一点文字，然后又换个地方、换了电脑，这种情况下，要把文档传过去才能继续编辑吗？</p>
-<p>当然不用那么麻烦！可以使用多平台工具：印象笔记。印象笔记现在融合了马克飞象的功能，可以编辑 Markdown 文章了。这样要收集灵感、创意进行写作，就更加方便了。我这篇文章的初稿就是在印象笔记上写的。</p>
-<p>如下图所示，打开印象笔记后，在新建笔记右方有个窗格图标（图中箭头指示位置），点击后有多种文档格式，选择 “ Markdown “，即可新建一个 Markdown文档。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-21-12.png" alt="印象笔记中新建Markdown文档" align="center">
-
-
-<p>打开文档后，在右上方有一个编辑/预览切换按钮，如下图中箭头标示位置，点击之后文档可以在对照编辑（类似 VSCode 的显示模式）和预览模式 (类似 Typora 的显示模式，但是不能编辑) 之间切换，这样，如果只看文档显示效果，就可以点击这个按钮，切换到预览模式。</p>
-<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-25-39.png" alt="Markdown文档对照编辑/预览模式切换按钮" align="center">
-
-
-<p>有一点请注意，印象笔记在电脑端可以编辑写作 Markdown 文档，在手机端只能看预览效果、不能对 Markdown 文档编辑修改。</p>
-<p>好了，看到这里，相信您对于 Markdown 有了初步的了解。但是，Markdown 编辑器的诸多优点，还要等您使用后才能真正体会，所以，现在就点击文章中的链接安装软件，然后跟着示例编辑一个文档试试吧！</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>软件</tag>
-        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -655,6 +574,122 @@
       </tags>
   </entry>
   <entry>
+    <title>一篇文章带你入门Markdown</title>
+    <url>/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/</url>
+    <content><![CDATA[<h3 id="1-为什么选择-Markdown？"><a href="#1-为什么选择-Markdown？" class="headerlink" title="1. 为什么选择 Markdown？"></a>1. 为什么选择 Markdown？</h3><p>正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：</p>
+<ul>
+<li>写好文章后设定文档标题、字号、间距、加粗等排版工作，要花费大量时间。</li>
+<li>在插入网址链接时，显示出一长串网址，不够简洁美观。要是能够把链接显示为简要文字说明，点击文字就可以到达网址就好了。</li>
+<li>对于程序员来说，文档中经常需要插入代码，可是 Word 中没有能直接突出显示代码的效果。如果能像代码编辑器里一样，对函数、部分语句等突出标识，看着就清晰多了。<a id="more"></a>
+
+</li>
+</ul>
+<p>使用 Markdown之后，你就不用再为这些问题烦恼了。只需在写作时顺带加入几个标记符，文档就会显示为统一、规范的网页格式。而且，Markdown 还有以下优势：</p>
+<ul>
+<li><p><strong>Markdown编辑器平台统一。</strong> 如果你使用过网上的写作平台，可能就会发现，在支持富文本编辑器的平台，比如豆瓣，输入文档后还需要对标题、链接等重新编辑调整一下，而支持 Markdown 编辑器的平台，比如我的博客小站使用的hexo博客系统、或者CSDN， 输入文档后显示比较一致，标题、加粗、链接等都是使用的统一语法，无需对内容进行二次排版编辑。</p>
+</li>
+<li><p>现在有很多工具可以帮助我们<strong>将 Markdown 文档轻松转换为 PDF 或 Word 文档</strong>，这样，用 Markdown 写作，然后转换一下，可以省去很多排版编辑时间。</p>
+</li>
+</ul>
+<p>看到这里，您是不是也跃跃欲试，想开始用 Markdown 来编辑文档。那么，要在哪里用？怎么用呢？别着急，接着往下看。</p>
+<h3 id="2-怎么用-Markdown？"><a href="#2-怎么用-Markdown？" class="headerlink" title="2. 怎么用 Markdown？"></a>2. 怎么用 Markdown？</h3><p>我们要用好 Markdown，首先要学习一下它的语法。<br>听到“语法”，你是不是瞬间头大了？哈哈，不用担心，内容不多而且好记。当然，最好的办法是在练习中掌握：<strong>参考我的示例格式，自己输入内容练习几遍</strong>。下一节就会介绍编辑器的使用了，你可以先浏览一下本节内容，对 Markdown 的使用有个大致印象。</p>
+<h4 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h4><p>用 Markdown 编辑时，标题使用<code>#</code>进行标记，几级标题就在标题前加几个<code>#</code>，显示效果如下图所示。这里说明一下，我采用的是对照模式，左边为编辑输入，右边为预览显示，后面的示例也是这样。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-17-50-42.png" alt="标题编辑的对照示例" align="center"> 
+
+<p>可以对比一下各级标题显示字号、行间距的不同。另外，你可能会注意到，在<code>#</code>与文字间有一个空格。在使用中，我发现有的编辑器要求必须有空格，有的编辑器不做要求、可以识别，因此，建议还是加一个空格。</p>
+<h4 id="2-2-加粗、斜体"><a href="#2-2-加粗、斜体" class="headerlink" title="2.2 加粗、斜体"></a>2.2 加粗、斜体</h4><p>在加粗文字前后用<code>**</code>进行标记，在斜体文字前后用<code>*</code>标记，具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-18-09-35.png" alt="加粗和斜体的对照示例" align="center">
+
+<h4 id="2-3下划线、删除线"><a href="#2-3下划线、删除线" class="headerlink" title="2.3下划线、删除线"></a>2.3下划线、删除线</h4><p>在添加下划线的文字前后用<code>&lt;u&gt;</code>符号标记，在添加删除线的文字前后用<code>~~</code>符号标记，具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/Markdown学习笔记补充2020-05-05-17-32-10.png" alt="下划线、删除线的对照示例" align="center">
+
+<h4 id="2-4-引用、代码"><a href="#2-4-引用、代码" class="headerlink" title="2.4 引用、代码"></a>2.4 引用、代码</h4><p>在引用文字的前面使用<code>&gt;</code>标记。<br>编辑行内代码时，在代码前后使用 ` 符号标记（对应键盘位置为 【Tab】键上方）。<br>编辑代码块时，在代码前后使用 ``` 符号标记。此外，代码块前可以加上所使用的语言作为注释（比如 python），显示效果更佳。具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-00-59.png" alt="引用和代码的对照示例" align="center">
+
+<p>有时我们需要在文章中显示运行程序的结果，这时可以采用图中所示的方式，在结果前加上 text 注释。</p>
+<h4 id="2-5-列表"><a href="#2-5-列表" class="headerlink" title="2.5 列表"></a>2.5 列表</h4><p>Markdown 中采用<code>-</code>或<code>*</code>+空格的方式来标记无序列表，用<code>数字</code>+<code>.</code>+空格的方式来标记有序列表，具体方法和显示效果如图所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-07-47.png" alt="列表的对照示例" align="center">
+
+<p>请注意示例中的有序列表。我们输入<code>数字</code>+<code>.</code>+空格，后续项会自动顺序编号，而如果始终输入<code>1</code>+<code>.</code>+空格，实际的显示效果也是顺序编号的。</p>
+<h4 id="2-6-公式"><a href="#2-6-公式" class="headerlink" title="2.6 公式"></a>2.6 公式</h4><p>在行内公式前后使用<code>$</code>标记，独立公式的前后使用<code>$$</code>标记，可以看下面的简单示例，更多公式的写法请参考网上的 Latex 语法。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-25-09-47-33.png" alt="公式的对照示例" align="center">
+
+<h4 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-04-08-59-02.png" alt="表格的对照示例" align="center">
+
+<p>图中示例展示了表格的写法，注意：第二行的分隔线对于生成表格至关重要。<br>另外，如果后期要进行文档转换，尤其是转换成 Word 文档，一定要先检查一下表格能否正常转换，我就遇到过转换成 Word 文档后、显示的表格是图中左侧原始编辑格式的情况。</p>
+<h4 id="2-8-插入网址链接和图片"><a href="#2-8-插入网址链接和图片" class="headerlink" title="2.8 插入网址链接和图片"></a>2.8 插入网址链接和图片</h4><img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-20-25-27.png" alt="插入网址和图片的对照示例" align="center">
+
+<p>如图中示例所示，对于网址链接，在[ ]内填写链接的文字说明，( )内填写对应的链接地址。这样，显示为文字说明部分，点击即可到达链接。</p>
+<p>图片链接的格式与此类似，同时，图片链接的文字说明前要加一个<code>!</code>符号标记。显示为图片。另外，虽然图片链接的文字说明一般不会显示，但是建议填写，因为如果网站的图片加载出现问题，图片无法正常显示，就会显示出文字说明，此时至少可以给读者提供一点图片的相关信息。</p>
+<p>细心的你可能会有一个疑问，图片链接如果是网络的还好办，如果是本地图片，把文档导入网络平台（比如CSDN）时，图片就无法正常显示了，怎么办？容易想到的办法是重新上传图片到网络平台并生成链接。但是，还有一种便捷的解决办法，就是把图片放到网络服务器中存储，这样就把本地图片“变成”网络图片，我们可以随时引用网络链接查看图片，这就是图床的原理。但是很抱歉，我现在还没有使用图床，等我用了之后，再写篇文章与大家分享。</p>
+<h4 id="2-9-排版规范"><a href="#2-9-排版规范" class="headerlink" title="2.9 排版规范"></a>2.9 排版规范</h4><p>最后补充一点，在 Markdown 写作时，了解一点排版规范对我们是有帮助的，这样显示的文章整洁美观，读者看着也舒服。向你推荐我读到的一篇介绍排版规范的好文：<a href="https://zhuanlan.zhihu.com/p/69376149" target="_blank" rel="noopener">会用 Markdown 还不够，还得知道排版规范</a>。</p>
+<h3 id="3-在哪用Markdown？"><a href="#3-在哪用Markdown？" class="headerlink" title="3. 在哪用Markdown？"></a>3. 在哪用Markdown？</h3><p>要写 Markdown 文档，一款得心应手的<strong>编辑器</strong>必不可少。我根据网友们的介绍和推荐，体验了几款受好评的编辑器，下面逐一介绍，看看您喜欢哪一款？</p>
+<h4 id="3-1-即写即显示：Typora"><a href="#3-1-即写即显示：Typora" class="headerlink" title="3.1 即写即显示：Typora"></a>3.1 即写即显示：Typora</h4><p>点击<a href="https://typora.io/" target="_blank" rel="noopener">Typora官网</a>，可以下载 Typora。</p>
+<p>Typora 的最大特点就是即写即显示，有点像打字机 ( Typewriter ) 的效果，这样看来，这个名字很贴切。请看一下 <a href="https://typora.io/img/beta.mp4" target="_blank" rel="noopener">Typora使用展示-27秒小视频</a>，会对这种编辑体验有更多了解。</p>
+<p>Typora 的页面干净整齐，插入图片、公式等十分便捷，因此受到众多 Markdown 写作者们的喜爱。</p>
+<p><strong>1.一键插入图片</strong><br>如果您是第一次安装 Typora，需要在 File&gt;Preferences&gt;Image 里，选择插入图片的存放位置，默认设置是无操作。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-07-08-11-45-58.png" alt="Typora中Image设置界面" align="center">
+
+<p>如图所示，在下拉列表中选择 Copy image to ./${filename}.assets，这样图片会复制一份到当前文档名.assests 子文件夹中（如果没有会自动新建一个）。另外，您可能注意到，在下拉列表下方有几个勾选项，比如，是否对本地图片按此操作（这一项一定要勾选），是否对网络图片按此操作，是否使用相对路径，等等，可以根据需要选择，对比效果后确定自己的设置，图中就是我在 Typora 中的设置，您可以参照着对自己的 Typora 进行设置。</p>
+<p>使用 Typora 插入图片非常轻松。如果是屏幕截图，以我自己使用的 Windows 系统为例，可以直接用【Windows】+【Shift】+【S】 键，或者打开微信后用 【Alt】+【A】键进行截图，然后使用 【Ctrl】+【V】 键，或者是在右键菜单中选择 Paste 把截图插入到文档。如果是本地图片，可以从存放文件夹中把图片直接拖动到文档中的编辑位置。然后，剩下的事就不用管了，因为 Typora 会帮我们全部做好，包括将图片自动复制到 当前文档名.assets文件夹，Markdown 文档里也会生成图片链接，是不是很贴心呢？</p>
+<p><strong>2.文档转换</strong><br>如下图所示，点击菜单栏 File &gt; Export，然后选择你想要的文件类型（比如 PDF、Word），可以实现文档转换。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-43-05.png" alt="Typora文档转换菜单选项" align="center">
+
+<p>但是，我现在没有经常使用 Typora，主要是还不适应即写即显示、不能对照看原始编辑的设置。如果有和我一样习惯的小伙伴，可以看看接下来的两款编辑器。</p>
+<h4 id="3-2-对照显示：Atom-VSCode"><a href="#3-2-对照显示：Atom-VSCode" class="headerlink" title="3.2 对照显示：Atom, VSCode"></a>3.2 对照显示：Atom, VSCode</h4><p>这两款编辑器大同小异，都是可以预览、对照显示的。Atom 由 Github 出品，可以从<a href="https://atom.io/" target="_blank" rel="noopener">Atom官网</a>下载。 VSCode, 全称为 Visual Studio Code，由微软出品，可以从<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode官网</a>下载。</p>
+<p>有一点请注意，要使这两款编辑器发挥最佳性能，需要安装插件（Packages/ Extensions），下面以我现在使用的 VSCode 为例进行说明。</p>
+<p><strong>1.安装扩展（Extensions）</strong></p>
+<p>点击菜单栏 File &gt; Preferences &gt; Extensions，如图中所示：</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-25-52.png" alt="扩展的菜单选项" align="center">
+
+<p>然后在搜索栏中搜索扩展并安装：<code>Markdown All in One</code>，<code>Markdown Preview Enhanced</code>，<code>Paste Image</code>。下图中我给出了一个示例，在搜索栏输入” markdown preview enhanced “，在未安装的扩展名右下角会有一个显示为<code>install</code>的绿色按钮，点击即可安装。这里因为我已经安装了该扩展，所以没有显示，而在我尚未安装的扩展下方就显示了<code>install</code>按钮。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-22-56.png" alt="安装扩展示例" align="center">
+
+
+
+<p><strong>2.扩展设置</strong></p>
+<p>此外，Paste Image 扩展在安装后还要进行设置。点击 File &gt; Preferences &gt; Settings，在搜索栏中输入：” Paste Image “，在结果中找到：<br>Name Prefix 一栏，填入<code>${currentFileNameWithoutExt}</code>；<br>Path 一栏，填入<code>${currentFileDir}/imgs</code>，具体如下图所示。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-41-07.png" alt="Paste Image 扩展设置" align="center">
+
+
+<p><strong>3.预览视图与文章目录</strong></p>
+<p>安装了上面介绍的扩展后，重新在 VSCode 中打开一篇文档，可以看到右上方会出现预览按钮，点击下图中箭头指示的第一个按钮，即可出现 Preview 预览窗格。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-16-20-43.png" alt="预览窗格按钮" align="center">
+
+<p>在预览视图中，点击下图中箭头指示的第一个按钮，可以显示文章的目录。图中右侧显示的就是本文的目录。目录显示即为文章的大纲，对于我们阅读时理清文章脉络、写作时构建文章框架很有帮助。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/一篇文章带你入门Markdown2020-07-24-16-20-36.png" alt="文章目录显示按钮及显示效果" align="center">
+
+<p>还有一种显示文章目录的方法，就是在文章开头处加上<code>[TOC]</code>，显示效果与上图的目录视图类似，您不妨也试一试，看看效果如何呀。</p>
+<p><strong>4.快速贴图</strong></p>
+<p>因为安装了 Paste Image 扩展，VSCode 中截图贴图十分方便。以我自己使用的 Windows 系统为例，截图后打开要插入图片的文档，使用 <code>Ctrl</code>+<code>Alt</code>+<code>V</code> 键，图片就会自动复制到 Markdown 文档目录下的 imgs 文件夹中，同时在文档中自动生成了图片链接。</p>
+<p>但是与 Typora 相比，VSCode还有一点不足：不能拖动本地图片到文档实现自动插入图片，也可能是我还没有安装所需的扩展，如果您知道这个使用方法，请告诉我一下哦，谢谢！</p>
+<p><strong>5.文档转换</strong></p>
+<p>在<strong>预览视图</strong>中，点击鼠标右键，将出现下图所示的菜单栏，此时可以选择需要的文件类型进行转换。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-45-39.png" alt="VSCode中右键菜单的文档转换选项" align="center">
+
+
+<h4 id="3-3-多平台协作：印象笔记"><a href="#3-3-多平台协作：印象笔记" class="headerlink" title="3.3 多平台协作：印象笔记"></a>3.3 多平台协作：印象笔记</h4><p>有时我们可能在这个电脑上写了一点文字，然后又换个地方、换了电脑，这种情况下，要把文档传过去才能继续编辑吗？</p>
+<p>当然不用那么麻烦！可以使用多平台工具：印象笔记。印象笔记现在融合了马克飞象的功能，可以编辑 Markdown 文章了。这样要收集灵感、创意进行写作，就更加方便了。我这篇文章的初稿就是在印象笔记上写的。</p>
+<p>如下图所示，打开印象笔记后，在新建笔记右方有个窗格图标（图中箭头指示位置），点击后有多种文档格式，选择 “ Markdown “，即可新建一个 Markdown文档。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-21-12.png" alt="印象笔记中新建Markdown文档" align="center">
+
+
+<p>打开文档后，在右上方有一个编辑/预览切换按钮，如下图中箭头标示位置，点击之后文档可以在对照编辑（类似 VSCode 的显示模式）和预览模式 (类似 Typora 的显示模式，但是不能编辑) 之间切换，这样，如果只看文档显示效果，就可以点击这个按钮，切换到预览模式。</p>
+<img src="/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/浅显易懂的Markdown入门教程2020-05-03-21-25-39.png" alt="Markdown文档对照编辑/预览模式切换按钮" align="center">
+
+
+<p>有一点请注意，印象笔记在电脑端可以编辑写作 Markdown 文档，在手机端只能看预览效果、不能对 Markdown 文档编辑修改。</p>
+<p>好了，看到这里，相信您对于 Markdown 有了初步的了解。但是，Markdown 编辑器的诸多优点，还要等您使用后才能真正体会，所以，现在就点击文章中的链接安装软件，然后跟着示例编辑一个文档试试吧！</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>软件</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>信息论之父香农</title>
     <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -717,69 +752,6 @@
       </tags>
   </entry>
   <entry>
-    <title>双显示器扩展显示时怎么移动鼠标到另一块屏？</title>
-    <url>/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/</url>
-    <content><![CDATA[<p>最近为小笔记本加了一个大点的显示器，虽然设置为大屏显示，但有时开机会出现设置为扩展显示器的情况，不知怎的，鼠标点半天，光标都移动不到另一块屏幕中，上网查找了一下答案，把解决方法记录一下。</p>
-<a id="more"></a>
-<p>我的电脑是 Windows10 系统，依次点击：开始菜单&gt;设置&gt;系统&gt;显示，进入“显示”设置中，看到如下图所示界面：</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-07-25.png" alt="显示器排列-左右" align="center"> 
-
-<p><strong>原来默认两个显示器是按左右排列的，因此鼠标光标只有左右移动，才能在两块屏幕间切换。</strong></p>
-<p>我的两个屏幕是上下摆放的，之前我想当然地上下移动鼠标，难怪怎么也切换不到屏幕。由此，我又想到，那可不可以改变显示器排列，使之符合我的使用习惯呢？我拖动了一下两个显示器排列，改为2屏（外接大屏显示器）在上，1屏（笔记本电脑的小屏）在下，如下图所示：</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-11-50.png" alt="显示器排列-上下" align="center">
-
-<p>然后点击<code>应用</code>按钮，再重新上下移动鼠标光标，成了，这下可以切换到另一块屏幕了！</p>
-<p>另外，这里蓝色标识的1屏是主显示器，在哪里设置主显示器呢？</p>
-<p>在下方我们看到有“多显示器设置”选项，当前1屏是主显示器，如果我们点击2，同时勾选多显示器设置下方的“设为主显示器”选项，就可以将2屏设置为主显示器，用蓝色标识。</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-11.png" alt="主显示器设置选项" align="center">
-
-<p>此外，当前是“扩展这些显示器（两个屏幕分别显示不同内容）”选项，点击下拉菜单还有“复制这些显示器”（两个屏幕显示内容相同）或 “仅在1（或2）上显示”的选项。</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-33.png" alt="多显示器设置下拉菜单" align="center">
-
-<p>参考文章：<br>1.<a href="https://www.zhihu.com/question/50002939/answer/372662198" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/372662198</a></p>
-<p>2.<a href="https://www.zhihu.com/question/50002939/answer/348352441" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/348352441</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何有效学习？</title>
-    <url>/2020/11/29/%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-
-<img src="https://img1.doubanio.com/view/subject/l/public/s29897337.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>这是一本教我们如何有效学习的书。读这本书时，我常常回想自己学习中使用的方法，哪些效果好？哪些效果差？我惊奇地发现，自己学得好时，都或多或少用到了书中提到的方法，比如：穿插学习、自我检测、反思、将知识用自己的方式讲解和举例、等等，而书中还有更多方法值得我学习。这本书并不是简单枯燥地讲解方法，而在同时介绍了很多例子，让我们更容易理解和应用。在当今飞速发展的社会中，我们都需要做一个终身学习者，不断提升自我。因此，我推荐您读一遍这本书，或许会让您在提高效率的同时学得更好，达到事半功倍的效果。</p>
-<a id="more"></a>
-<h4 id="自以为很努力，其实在做无用功？"><a href="#自以为很努力，其实在做无用功？" class="headerlink" title="自以为很努力，其实在做无用功？"></a>自以为很努力，其实在做无用功？</h4><p>书中提到，很多人喜欢在读书时划线、标注，多读几遍，认为这样就学到了知识。其实，这是一种被动吸收，并没有什么效果，只是因为读起来更流畅，会给自己造成一种对知识熟悉的假象。看到这里，我回想起以前自己书里的那些标记…… 此外，我标注的有些地方是虽然觉得很好、但也不想深入思考,于是就记录下来以后再看，其实也就是偷懒的办法。</p>
-<p><strong>原来，这样的学习只是在感动自己、自以为很努力呀？！那么，怎样才能真正学好知识呢？</strong></p>
-<h4 id="有间隔的检索和巩固、反思"><a href="#有间隔的检索和巩固、反思" class="headerlink" title="有间隔的检索和巩固、反思"></a>有间隔的检索和巩固、反思</h4><p>真正对学习效果有帮助的方法，是隔一段时间后，以测验的方式进行检索回忆。</p>
-<p>测验？！读书时经历了大大小小的考试，现在听到考试就头晕啊……</p>
-<p>其实，测验并不需要以考试的形式进行，也可以是学完一节课、一章之后，结合课后的习题，给自己提问。此时，不要去查阅书或笔记，仅凭脑子里的印象来回忆这个知识点。你很快会发现，看书或听课时很认真，觉得听明白了，可是有时看到问题却怎么都想不起来了。我们就先努力回想，再来查阅书和笔记。换一种思路，测验也是检测知识掌握情况的工具，它让我们更加清楚哪里没有弄懂、哪里没掌握，接下来的复习巩固也更加有针对性。</p>
-<p>同时，我们还可以根据自己的学习情况，及时地反思总结，不断改进。比如，碰到这种情况，自己当时是怎么做的，做得好不好，需要怎样改进。下次遇到类似的情况，我们就能从容应对，学习、工作中都是如此。其实，很多同学（包括我自己）都总结过错题集，这也是一种形式的反思，遇到错题、分析自己出错的原因，解题方法不对？知识点没掌握？加以改进提高，甚至举一反三，下次遇到类似的题目就能答得更快更好。</p>
-<h4 id="生成式学习，带着问题思考"><a href="#生成式学习，带着问题思考" class="headerlink" title="生成式学习，带着问题思考"></a>生成式学习，带着问题思考</h4><p>这个理念与《如何阅读一本书》相似（欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/">读书的要领</a>），即：我们要做一个主动的学习者。比如读一本书，这本书讲一个什么问题？在没看书之前，我们先想一想，自己会如何分析和解决这一问题，然后再来看作者介绍的方法。因为引入了自己的思考，即使方法不同，也会对这一问题产生深刻印象。</p>
-<p>对于实际应用的技能，我们更应该在解决实际问题中学习提高。这方面我也有类似的体会。在英语学习中，记单词、短语，再怎么复习背诵，过一段时间也容易忘。但是，如果在交流、表达中遇到、使用过，尤其自己一开始绞尽脑汁没想到这个表达，查找到再记忆，就不容易忘了。学习编程和软件操作也是如此，开始时很认真地看教程视频和教材，好像语法、算法都知道一些，但应用起来还是不太熟悉，只会一些基本的操作。可是，如果有明确的目标，比如，要实现一个什么样的软件功能，自己试着去完成，遇到错误再调试、不懂的函数定义上网查找，这样，无形中倒逼自己去补充不懂的知识点，学起来效果确实更好一些。</p>
-<h4 id="细化"><a href="#细化" class="headerlink" title="细化"></a>细化</h4><p>细化就是用自己的方式把知识点表达出来，可以举个实际应用的例子，也可以结合已学的知识点，等等。这也是掌握和巩固知识的一个好方法。以我自己的学习举例，比如在学习机器学习的基本概念时，讲到机器学习包括有监督学习和无监督学习，二者的区别就在于训练时有没有给出目标变量，这样有点抽象。而换个方式，我觉得这就像两组学生要考试，先给他们模拟题复习备考（训练），一组给了复习题答案（有监督学习），一组没有给复习题答案（无监督学习）。经过这样的讲解和应用，对知识的理解进一步加深了。</p>
-<h4 id="穿插学习"><a href="#穿插学习" class="headerlink" title="穿插学习"></a>穿插学习</h4><p>我们习惯于有条理地学习，先学第一部分/步，熟练了再学第二部分/步，……。作者指出，穿插学习不同类型、不同难度的部分，学习效果反而更好。仔细一想也是如此，我们在实际中面对的情况都是随机出现的，可能需要我们用到一个或多个知识点，很难遇到完全是哪个学习单元的应用场景。穿插学习能增强我们融会贯通和灵活应对的能力。</p>
-<p>穿插学习的理念，和我在 <a href="https://juliecodestack.github.io/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/">分享我的单词记忆方法</a> 一文中提到的“用乱序单词本而不是字母顺序单词本”，是不是有相通之处呢？</p>
-<p>以上是我在读这本书时印象较深的几种学习方法。书中还有一些人们应用这些学习方法提高学习效果的例子，启发我们思考：应该怎样在学习和工作中应用这些方法？</p>
-<p>这本书让我审视并思考如何改进自己的学习方法，读了之后带给我的收获让我有一种惊喜感，值得一读。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>非虚构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对肯福莱特世纪三部曲的讨论和思考</title>
     <url>/2020/04/22/%E5%AF%B9%E8%82%AF%E7%A6%8F%E8%8E%B1%E7%89%B9%E4%B8%96%E7%BA%AA%E4%B8%89%E9%83%A8%E6%9B%B2%E7%9A%84%E8%AE%A8%E8%AE%BA%E5%92%8C%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -806,54 +778,6 @@
         <tag>英文原著</tag>
         <tag>小说</tag>
         <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分享我的单词记忆方法</title>
-    <url>/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>在与学英语的同学、朋友的交流中，我发现大家在背单词上主要有以下困惑：</p>
-<ul>
-<li>背单词很容易忘，记不住，怎么办？</li>
-<li>单词/短语一词多义，头好大啊。。。</li>
-<li>怎么才能快速记单词？</li>
-<li>不知道怎么把单词的不同意思应用到自己的写作表达里呢？</li>
-</ul>
-<p>我学的是理工科专业，但是我一直对英语很感兴趣，也参加了不少英语考试和竞赛，取得了一些成绩。因为喜欢，我在英语学习中投入了很多时间，也曾遇到过提升的平台期、有过困惑，尝试了不同方法，因此积累了一些经验，在这里与大家交流分享。</p>
-<a id="more"></a>
-<h4 id="1-背单词的理念"><a href="#1-背单词的理念" class="headerlink" title="1.背单词的理念"></a>1.背单词的理念</h4><p>请回想一下：你背单词时，是怎么背的？</p>
-<p>是记住单词对应的中文意思，一个英语词汇+一个中文意思的组合吗？</p>
-<img src="/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/words.jpg" width="368" height="260" alt="图片来源:skitterphoto from pexels" align="center">
-
-<p>注：图片来源: skitterphoto from pexels</p>
-<p>那么，你觉得这种方法有效吗？</p>
-<p>可能你也发现，背了很快又忘了。<strong>单词要放在句子里记忆。</strong> 单词组成句子，而单词也只有融入句子中才能展现灵活多变的意思。我们记单词时，记住句子，同时就是记住了单词应用的语境，在脑子里形成画面感，更容易记住，也不容易忘。</p>
-<h4 id="2-单词本的选择和记单词方法"><a href="#2-单词本的选择和记单词方法" class="headerlink" title="2.单词本的选择和记单词方法"></a>2.单词本的选择和记单词方法</h4><p>在考试前为了突击提高词汇量，我也曾经拿着单词本每天背单词，现在有了各种背单词APP，但是挑选和学习的方法大致相同。我的经验是：</p>
-<p>1.选择 <strong>乱序单词本</strong>，因为按字母顺序背单词很容易弄混。乱序也符合我们遇到单词的情况，再见到这个单词时，更容易适应并认出。</p>
-<p>2.单词本一定要有 <strong>例句</strong>。正如前面所说的，只背英语单词和中文释义，我们会发现几乎没有效果。单词要融入句子中记忆，才能更好理解单词的词性、使用的语境等。</p>
-<p>3.<strong>筛选法记忆</strong>。<br>首先说一下，这一方法的要点是：<strong>不断缩小我们要背单词的范围、集中突破 + 隔一段时间复习巩固</strong>。具体操作如下：</p>
-<p>第一遍 浏览：标记不认识的单词（评估自己词汇掌握量）；<br>第二遍 强化记忆：只背第一遍标记的不认识单词（有重点地记）；<br>第三遍 浏览：对还不熟悉的单词，换个符号再加个标记(复习巩固）；<br>…<br>如此重复几遍，大概80-90%的单词都熟悉了。</p>
-<h4 id="3-掌握和应用单词的诀窍"><a href="#3-掌握和应用单词的诀窍" class="headerlink" title="3. 掌握和应用单词的诀窍"></a>3. 掌握和应用单词的诀窍</h4><p><strong>背单词的效果要通过阅读巩固</strong>。就像别人刚向我们介绍一个人，一开始我们只知道人名，并不熟悉。只有后面打了交道、相处了，才会对这个人熟悉起来。单词也是一样，背单词只是建立一个印象，我们要知道这个单词一般用在哪里、怎么用、表达什么意思（有时还要考虑书面语-口语、褒义-贬义等细节），就要通过阅读来学习。我在考试准备时，会把很大一部分备考时间用于做阅读理解题目，我觉得这是一举两得的工作。</p>
-<p>另一方面，我们还可以通过阅读英文原著和听英文有声书来巩固已学词汇和学习生词。我的体会是：当听读的输入提高之后，会感觉到掌握词汇量的增大。因为在听读英文书的过程中，我们不知不觉就在语境中记住了单词，而且这是单词应用的语境。此外，许多单词一词多义，背单词本只是学习主要释义，而在阅读英文原著时，能学到很多单词的灵活表达，这可能是单词基本义推广到的比喻义、扩展义等等，如果我们见到了这种情况，稍微一联想，就能记住并灵活运用，但是没见到这种语境，可能就不敢去用。</p>
-<p>这样干巴巴地讲还是没有说服力，下面我举几个例子，你一看就明白了。</p>
-<p>Storm 的基本义是“暴风雨”、名词，可是在读英文书中我经常见到 storm 的动词用法，例如，在争吵过后出现这样一句话：He stormed out of the room. 结合上下文，我理解到这个表达就是说他大发雷霆、气势汹汹地走出了房间。在这里，storm和基本义不同，但又有关联（这个气势和暴风雨给人的感觉相似），相当于引申义，是不是很形象？这样，在写作时，描述某人生气发火，我们就不会只想到angry、anger, 在合适的地方也能用上这个词。</p>
-<p>福尔摩斯探案集里有一集，提及让福尔摩斯也感到棋逢对手的一位女性，是这样写的：”In his eyes she eclipses and predominates the whole of her sex.” 我们以前在单词本里可能只看到 eclipse 是“日食/月食”，就是太阳/月亮被遮住了。这里却是 eclipse 的动词用法：she eclipses the whole of her sex. 她把其他女性的光芒都遮住了—&gt;可以推测到，这就是指让其他人都黯然失色，这个比喻义用得很妙吧？当你要描述某人非常优秀、非常出色时，就不会只想到 be better than，用上这个词，能让人眼前一亮呢。</p>
-<p>Whistle 有“口哨声、吹口哨”的意思。你想一下，当风很大的时候，是不是能听到呜呜的声音，和口哨声有点像，我们来看阿加莎的《东方快车谋杀案》(<em>Murder on the Orient Express</em>) 里这一句：”A cold wind came whistling down the platform. Both men shivered.” ，这里用了 whistle 描述呼啸的冷风。再进一步联想战场上子弹、炮弹飞速穿过的声音，接着看《柳林风声》(<em>The Wind in the Willows</em>) 里这一句:” Toad prudently dropped flat in the road, and Bang! a bullet whistled over his head.”，这里就用了 whistle 描述子弹飞速而过。掌握 whistle 的这个“呼啸”的词义，我们以后描写刮风就不用只写 blow 了。</p>
-<p>短语也是如此，一个短语往往有多种用法和意思，在阅读中可以更好地记住，比如，我听哈利波特有声书时，老听到 be taken back 的表达，例如 She was taken back by his words. 表达一种吃惊、不安的感觉，正好 back 这个词也有“退缩”的意思，多遇到几次就记住了，下次遇到 be taken back 头脑中就会反应出意思。类似的语境我们也就可以尝试用上这个短语，而不是只想到 surprise 了。</p>
-<p>通过这些有趣的例子，你会发现，我们多听多读之后，增加了输入，熟悉了单词应用的语境，单词也就从陌生人变成了我们的朋友，我们知道它们一般喜欢出现在哪里。这样，我们既记住了单词，又知道怎么应用。</p>
-<h4 id="4-推荐"><a href="#4-推荐" class="headerlink" title="4. 推荐"></a>4. 推荐</h4><p>总之，要想真正有效地提高词汇量，我建议不要只把时间用在单词本上，多一条途径：通过扩大阅读量来记忆和巩固，会事半功倍。</p>
-<p>如果你的备考时间紧，可以多做一些考试的阅读理解题。如果你的学习时间充裕一些，可以读一些英文原著，从简单的、自己感兴趣的开始，比如童话、通俗小说、侦探小说、科幻小说等等均可。书虫系列也很好，但前提是你能克制住、不去看中文对照。哈哈，我就会忍不住看中文对照，所以我选择英文原著。</p>
-<p>我在B站做了一些英文童话经典 <em>The Wind in the Willows</em>（《柳林风声》）的精读视频，讲解生词和好的表达，配有笔记字幕，或许对你开始英文原著阅读有帮助，点击看看：<a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br>此外，推荐一下<a href="https://juliecodestack.github.io/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/">我的英语学习视频列表</a>，里面有我制作的所有英语学习视频链接和简介，欢迎收看呀！</p>
-<p>除了阅读，听英文有声书也是一个不错的选择，有的播讲者声情并茂，会让你更加喜欢英文书，而且这也是一种语境熏陶，时间长了，下次你读到类似的句子，你也会模仿这样的语音语调读出来。我就是一个英文有声书爱好者，哈哈，我整理了自己听过觉得不错的有声书，供您参考，欢迎点击阅读：<br><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">英文有声书和广播剧推荐之一</a></p>
-<p><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/">英文有声书和广播剧推荐之二</a></p>
-<p>你有哪些记单词的好方法呢？欢迎在评论区留言交流。</p>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>英语学习</tag>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
       </tags>
   </entry>
   <entry>
@@ -893,6 +817,69 @@
       </tags>
   </entry>
   <entry>
+    <title>如何有效学习？</title>
+    <url>/2020/11/29/%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+
+<img src="https://img1.doubanio.com/view/subject/l/public/s29897337.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>这是一本教我们如何有效学习的书。读这本书时，我常常回想自己学习中使用的方法，哪些效果好？哪些效果差？我惊奇地发现，自己学得好时，都或多或少用到了书中提到的方法，比如：穿插学习、自我检测、反思、将知识用自己的方式讲解和举例、等等，而书中还有更多方法值得我学习。这本书并不是简单枯燥地讲解方法，而在同时介绍了很多例子，让我们更容易理解和应用。在当今飞速发展的社会中，我们都需要做一个终身学习者，不断提升自我。因此，我推荐您读一遍这本书，或许会让您在提高效率的同时学得更好，达到事半功倍的效果。</p>
+<a id="more"></a>
+<h4 id="自以为很努力，其实在做无用功？"><a href="#自以为很努力，其实在做无用功？" class="headerlink" title="自以为很努力，其实在做无用功？"></a>自以为很努力，其实在做无用功？</h4><p>书中提到，很多人喜欢在读书时划线、标注，多读几遍，认为这样就学到了知识。其实，这是一种被动吸收，并没有什么效果，只是因为读起来更流畅，会给自己造成一种对知识熟悉的假象。看到这里，我回想起以前自己书里的那些标记…… 此外，我标注的有些地方是虽然觉得很好、但也不想深入思考,于是就记录下来以后再看，其实也就是偷懒的办法。</p>
+<p><strong>原来，这样的学习只是在感动自己、自以为很努力呀？！那么，怎样才能真正学好知识呢？</strong></p>
+<h4 id="有间隔的检索和巩固、反思"><a href="#有间隔的检索和巩固、反思" class="headerlink" title="有间隔的检索和巩固、反思"></a>有间隔的检索和巩固、反思</h4><p>真正对学习效果有帮助的方法，是隔一段时间后，以测验的方式进行检索回忆。</p>
+<p>测验？！读书时经历了大大小小的考试，现在听到考试就头晕啊……</p>
+<p>其实，测验并不需要以考试的形式进行，也可以是学完一节课、一章之后，结合课后的习题，给自己提问。此时，不要去查阅书或笔记，仅凭脑子里的印象来回忆这个知识点。你很快会发现，看书或听课时很认真，觉得听明白了，可是有时看到问题却怎么都想不起来了。我们就先努力回想，再来查阅书和笔记。换一种思路，测验也是检测知识掌握情况的工具，它让我们更加清楚哪里没有弄懂、哪里没掌握，接下来的复习巩固也更加有针对性。</p>
+<p>同时，我们还可以根据自己的学习情况，及时地反思总结，不断改进。比如，碰到这种情况，自己当时是怎么做的，做得好不好，需要怎样改进。下次遇到类似的情况，我们就能从容应对，学习、工作中都是如此。其实，很多同学（包括我自己）都总结过错题集，这也是一种形式的反思，遇到错题、分析自己出错的原因，解题方法不对？知识点没掌握？加以改进提高，甚至举一反三，下次遇到类似的题目就能答得更快更好。</p>
+<h4 id="生成式学习，带着问题思考"><a href="#生成式学习，带着问题思考" class="headerlink" title="生成式学习，带着问题思考"></a>生成式学习，带着问题思考</h4><p>这个理念与《如何阅读一本书》相似（欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/">读书的要领</a>），即：我们要做一个主动的学习者。比如读一本书，这本书讲一个什么问题？在没看书之前，我们先想一想，自己会如何分析和解决这一问题，然后再来看作者介绍的方法。因为引入了自己的思考，即使方法不同，也会对这一问题产生深刻印象。</p>
+<p>对于实际应用的技能，我们更应该在解决实际问题中学习提高。这方面我也有类似的体会。在英语学习中，记单词、短语，再怎么复习背诵，过一段时间也容易忘。但是，如果在交流、表达中遇到、使用过，尤其自己一开始绞尽脑汁没想到这个表达，查找到再记忆，就不容易忘了。学习编程和软件操作也是如此，开始时很认真地看教程视频和教材，好像语法、算法都知道一些，但应用起来还是不太熟悉，只会一些基本的操作。可是，如果有明确的目标，比如，要实现一个什么样的软件功能，自己试着去完成，遇到错误再调试、不懂的函数定义上网查找，这样，无形中倒逼自己去补充不懂的知识点，学起来效果确实更好一些。</p>
+<h4 id="细化"><a href="#细化" class="headerlink" title="细化"></a>细化</h4><p>细化就是用自己的方式把知识点表达出来，可以举个实际应用的例子，也可以结合已学的知识点，等等。这也是掌握和巩固知识的一个好方法。以我自己的学习举例，比如在学习机器学习的基本概念时，讲到机器学习包括有监督学习和无监督学习，二者的区别就在于训练时有没有给出目标变量，这样有点抽象。而换个方式，我觉得这就像两组学生要考试，先给他们模拟题复习备考（训练），一组给了复习题答案（有监督学习），一组没有给复习题答案（无监督学习）。经过这样的讲解和应用，对知识的理解进一步加深了。</p>
+<h4 id="穿插学习"><a href="#穿插学习" class="headerlink" title="穿插学习"></a>穿插学习</h4><p>我们习惯于有条理地学习，先学第一部分/步，熟练了再学第二部分/步，……。作者指出，穿插学习不同类型、不同难度的部分，学习效果反而更好。仔细一想也是如此，我们在实际中面对的情况都是随机出现的，可能需要我们用到一个或多个知识点，很难遇到完全是哪个学习单元的应用场景。穿插学习能增强我们融会贯通和灵活应对的能力。</p>
+<p>穿插学习的理念，和我在 <a href="https://juliecodestack.github.io/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/">分享我的单词记忆方法</a> 一文中提到的“用乱序单词本而不是字母顺序单词本”，是不是有相通之处呢？</p>
+<p>以上是我在读这本书时印象较深的几种学习方法。书中还有一些人们应用这些学习方法提高学习效果的例子，启发我们思考：应该怎样在学习和工作中应用这些方法？</p>
+<p>这本书让我审视并思考如何改进自己的学习方法，读了之后带给我的收获让我有一种惊喜感，值得一读。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>非虚构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双显示器扩展显示时怎么移动鼠标到另一块屏？</title>
+    <url>/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/</url>
+    <content><![CDATA[<p>最近为小笔记本加了一个大点的显示器，虽然设置为大屏显示，但有时开机会出现设置为扩展显示器的情况，不知怎的，鼠标点半天，光标都移动不到另一块屏幕中，上网查找了一下答案，把解决方法记录一下。</p>
+<a id="more"></a>
+<p>我的电脑是 Windows10 系统，依次点击：开始菜单&gt;设置&gt;系统&gt;显示，进入“显示”设置中，看到如下图所示界面：</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-07-25.png" alt="显示器排列-左右" align="center"> 
+
+<p><strong>原来默认两个显示器是按左右排列的，因此鼠标光标只有左右移动，才能在两块屏幕间切换。</strong></p>
+<p>我的两个屏幕是上下摆放的，之前我想当然地上下移动鼠标，难怪怎么也切换不到屏幕。由此，我又想到，那可不可以改变显示器排列，使之符合我的使用习惯呢？我拖动了一下两个显示器排列，改为2屏（外接大屏显示器）在上，1屏（笔记本电脑的小屏）在下，如下图所示：</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-11-50.png" alt="显示器排列-上下" align="center">
+
+<p>然后点击<code>应用</code>按钮，再重新上下移动鼠标光标，成了，这下可以切换到另一块屏幕了！</p>
+<p>另外，这里蓝色标识的1屏是主显示器，在哪里设置主显示器呢？</p>
+<p>在下方我们看到有“多显示器设置”选项，当前1屏是主显示器，如果我们点击2，同时勾选多显示器设置下方的“设为主显示器”选项，就可以将2屏设置为主显示器，用蓝色标识。</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-11.png" alt="主显示器设置选项" align="center">
+
+<p>此外，当前是“扩展这些显示器（两个屏幕分别显示不同内容）”选项，点击下拉菜单还有“复制这些显示器”（两个屏幕显示内容相同）或 “仅在1（或2）上显示”的选项。</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-33.png" alt="多显示器设置下拉菜单" align="center">
+
+<p>参考文章：<br>1.<a href="https://www.zhihu.com/question/50002939/answer/372662198" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/372662198</a></p>
+<p>2.<a href="https://www.zhihu.com/question/50002939/answer/348352441" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/348352441</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>电脑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的英语学习视频列表~持续更新</title>
     <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌Julie</a>。</p>
@@ -919,118 +906,6 @@
       <tags>
         <tag>英语学习</tag>
         <tag>英文原著</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>智能时代的思考</title>
-    <url>/2020/04/22/%E6%99%BA%E8%83%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2017年5月。</p>
-</blockquote>
-<p>吴军博士是在 Google 工作的自然语言处理与搜索专家，<strong>《智能时代：大数据与智能革命重新定义未来》</strong> 是他继《数学之美》、《文明之光》、《浪潮之巅》之后在 2016 年推出的最新力作。我读完这本书之后，最深刻的感受就是在思维方式上受到的冲击，它让我在看待数据和解决问题时有了新的视角和方法。</p>
-<a id="more"></a>
-
-<img src="https://img3.doubanio.com/view/subject/l/public/s29142393.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>这本书以去年大火的人机围棋大战开篇，介绍了 Google 的 AlphaGo 这一人工智能棋手，拉开了智能时代的大幕，然后讲述了大数据和智能技术如何改变我们的生活。作者在书中主要回答了以下问题：</p>
-<h4 id="一、人工智能问题如何转化为大数据问题并解决。"><a href="#一、人工智能问题如何转化为大数据问题并解决。" class="headerlink" title="一、人工智能问题如何转化为大数据问题并解决。"></a>一、人工智能问题如何转化为大数据问题并解决。</h4><p>以前解决人工智能问题主要集中在如何让机器像人脑一样思考问题，强调模型及算法。现在的人工智能则采用模型简单、以强大的计算能力为支撑，以大量数据积累为基础的数据驱动方法。通俗地说，大数据方法对于问题不是从“0”开始思考，而是经过学习、即结合已知的丰富经验进行分析。比如 AlphaGo，就是在积累、学习了成千上万棋手的棋谱后，根据当前棋谱计算下一步走哪里的胜算概率更大，由此决定走哪一步。</p>
-<p>这一转化也给了我们启示：当按部就班无法得到满意结果时，应该考虑换个思路、换个角度来解决问题。就像书中提到，以前解决语音识别问题、机器翻译问题，都需要相应的语音专家、语言学家，从发音过程、语言结构等方面进行分析。后来人们通过逆向思维分析发现，要得到结果可以有很多方法，就像处理黑箱问题一样，只要输入、输出符合条件，里面的过程可以近似拟合。用大数据和统计方法解决这些问题，跳出了以前固化的思维模型，结合大量数据学习，效果反而远超传统方法。</p>
-<h4 id="二、智能时代的思维革命。"><a href="#二、智能时代的思维革命。" class="headerlink" title="二、智能时代的思维革命。"></a>二、智能时代的思维革命。</h4><p>工业革命提出的机械思维认为万物都有因果关系、有确定的规律可循，这也成为了人类发现和认知世界的重要假设。然而，现实生活中存在不确定性以及不可测（或者说测不准），对这一类现象的发现挑战了人类的认知。例如对于股市的预测反过来会影响人们的买卖操作，进而有可能出现与预测相反的波动。</p>
-<p>那么应该如何处理这些问题呢？与其逃避、不如面对。科学家引入“信息”这一概念，通过加入信息减少不确定性来解决这一类问题，并结合大数据的应用出现了一种以结果为导向的新型思维方式，即大数据思维。其特点是：无假设条件、重视结果分析，由此得到一种新的事物关系：强关联关系。</p>
-<p>这一思维革命其实是人类更加理性客观世界的结果，针对事实分析事物联系，而不是去寻求因果关系。我觉得书中提到的药物开发的例子很有说服力。一般药品研发流程往往是先分析症状、查找病因，然后寻找能消除病因的物质。实际上，这种因果分析方法会造成可寻找的药物范围有限，因为我们人类对于很多疾病原因的认识并不明确，而有的药物其实可以治疗多种疾病。比如斯坦福大学医学院发现治疗心脏病的某种药对治疗胃病特别有效。以前这类发现只能通过医生在临床偶然发现。如果药企采用新的大数据思维方式，在研发时可以大胆主动地去探究药物与很多疾病之间的关联进而发现特效药，尽管有的结果看上去有些不可思议。</p>
-<p>在《大数据时代：生活，工作与思维的大变革》一书中，作者引用普林斯顿大学心理学专家，同时也是 2002 年诺贝尔经济学奖得主丹尼尔•卡尼曼（Daniel Kahneman）的观点，也对人类的思维模式进行了分析。卡尼曼指出，人有两种思维模式，第一种是不费力的快速思维，通过这种思维方式几秒钟就能得出结果；另一种是比较费力的慢性思维，对于特定的问题，需要考虑到位。快速思维模式使人们偏向用因果联系来看待周围的一切，即使这种关系并不存在。这是我们对已有的知识和信仰的执著。平时生活中，由于惰性，我们很少慢条斯理地思考问题，快速思维模式就占据了上风，因此我们会经常臆想出一些因果关系，最终导致了对世界的错误理解。回想一下，我们是不是很多时候都是凭着以前的“因果关系”认识进行快速思维，比如“天凉了，加衣服，不然会感冒的！”这句话初听上去很有道理，因为大家每个人成长中都或多或少听过，觉得很耳熟。实际上，穿得多少与感冒之间没有必然的因果关系。而我们在做一些重要决定时，就会采用第二种慢性思维分析问题，但是这种思考常常缓慢而痛苦，并且没有头绪，表现为犹豫不决、优柔寡断。现在好了，借助计算机强大的计算能力，我们可以更加科学理性地分析事实与思考问题。</p>
-<h4 id="三、新时代的机遇与挑战。"><a href="#三、新时代的机遇与挑战。" class="headerlink" title="三、新时代的机遇与挑战。"></a>三、新时代的机遇与挑战。</h4><p>“这是最好的时代，也是最坏的时代。”英国大文豪狄更斯的这句话用在这里实在是再恰当不过了。经历过工业革命、第二次工业革命、信息革命，新一轮的智能革命正在来临，并悄然改变人们的生活。现在购物、支付、出行等等都离不开互联网，我们进入了万物互联的“扫码”时代。同时，我们也看到，机器智能的崛起开始让很多人丢了饭碗，比如制造业。现在服务业也慢慢被机器智能所代替，比如随着电子化停车场、线上超市的发展，停车场管理人员、超市导购员等工作人员的数量都将大幅缩减。</p>
-<p>那么，如何拥抱智能时代？传统行业该何去何从？作者给出了很好的建议，传统行业可以通过与新技术融合产生新行业来得到发展。书中以小米和特斯拉为例，它们并不是手机公司、电动汽车公司等传统意义的制造公司，而是定义为互联网公司，即通过手机、电动汽车为平台、为顾客提供后续个性化的终端服务，这正是值得传统家电企业学习借鉴的。家电属于耐用品，很多家庭买了一台电器可以使用很多年，提高新产品的销售额很困难。然而，如果能通过智能终端收集数据、分析顾客使用需求并提供后续全面的个性化服务，可以收获比销售新机器更多的利润。</p>
-<p>智能时代的另一大挑战则是来自隐私安全方面。现在数据使用缺乏监管，很多时候为了获得APP、软件的使用权，我们都在收集使用数据一栏点击“同意”，可是，那些使用数据的公司会将数据拿来做什么，我们并不知道。当公司、团体可以收集用户数据进行数据挖掘甚至个人画像时，其实我们的隐私已经暴露无遗，甚至可能在不知情的情况下导致利益损害。比如，当航空公司发现某一顾客对价格要求不敏感时，可能给该顾客的报价就会偏高。</p>
-<p>针对这一问题，作者提出了两类解决办法：一是可以模糊处理，使处理数据的公司只能得到大概数据、不能得到精确的细节信息从而无法定位到个人。二是设立双向监视机制，使数据使用者在使用时留下痕迹，从而会规范其使用行为。我个人认为，数据的所有权、使用权目前亟需得到关注、重视与规范和约束。很多时候，人们往往轻易地将自身相关的数据交付出去，数据公司会如何利用数据，是否会危害我们的利益和安全，对此我们一无所知。如何在发挥数据价值与保证个人隐私安全之间平衡，也是值得我们深思的问题。</p>
-<p>在看这本书的时候，我跟随吴军博士一起追溯工业社会的科技发展，又展望智能时代的前景，惊讶于技术的发展之快，畅想不远的未来。在 ALphaGo 战胜韩国高手李世石后，很多人担忧机器人会超过人类甚至统治人类，对此我并不认同。机器智能最终还是要由人类制造、受控于人类，所以关键在于如何使用。如果说每一次新技术的出现就是一把双刃剑，那么结果的好坏就取决于人类将其应用到何处，所以，最后决定我们未来的不是机器人，而是我们人类自身！</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>非虚构</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的读书视频列表~持续更新</title>
-    <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌Julie</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
-<a id="more"></a>
-<p><strong>注：列表顺序：由前至后 依次为 最近作品至较早作品</strong></p>
-<h3 id="2021年1月作品："><a href="#2021年1月作品：" class="headerlink" title="2021年1月作品："></a>2021年1月作品：</h3><p>11.<a href="https://www.bilibili.com/video/BV1gK411u71Z" target="_blank" rel="noopener">【购书分享】我买了哪几本英文名著呢？快来看看吧！</a></p>
-<p>10.<a href="https://www.bilibili.com/video/BV14f4y1y7me" target="_blank" rel="noopener">【购书分享】几本英文儿童文学作品</a></p>
-<h3 id="2020年8月作品："><a href="#2020年8月作品：" class="headerlink" title="2020年8月作品："></a>2020年8月作品：</h3><p>9.<a href="https://www.bilibili.com/video/BV1fK4y1e7MM/" target="_blank" rel="noopener">【读书分享】硬科幻？软科幻？你喜欢哪种？附英文有声书介绍</a><br><strong>宁萌说：</strong> 本期分享我钟爱的两本科幻小说，还有英文有声书的介绍和收听链接。精心制作、重磅推荐，哈哈！说不定你也读过这两本书呢，快点开看看、加入讨论吧！</p>
-<p>8.<a href="https://www.bilibili.com/video/BV1j54y1i7tH/" target="_blank" rel="noopener">【读书分享】人工智能、5G，这些新技术你了解吗？</a><br><strong>宁萌说：</strong> 本期介绍两本科普新知类的书，身处这些新技术带来的改变中，了解一下很有必要，看看我分享的哪两本书呢？</p>
-<h3 id="2020年7月作品："><a href="#2020年7月作品：" class="headerlink" title="2020年7月作品："></a>2020年7月作品：</h3><p>7.<a href="https://www.bilibili.com/video/BV1Sv411q7T2/" target="_blank" rel="noopener">【读书分享】选专业、找工作，迷茫时看看毛姆的这本小说</a><br><strong>宁萌说：</strong> 小伙伴们，在选专业、找工作时，你是否有过迷茫？是否思考过人生、梦想与现实？快来看看这本小说，也许会给你新的启发。</p>
-<p>6.<a href="https://www.bilibili.com/video/BV1eZ4y1u7RM" target="_blank" rel="noopener">【读书分享】如何阅读一本书？学习高效阅读的方法</a><br><strong>宁萌说：</strong> 这是一本让我反复阅读和思考的指南书，改变了我以前对于读书的认识，所以，虽然大家可能会不太感兴趣，我还是做了一期分享，因为，如果你看了，可能就会对你有帮助，你说呢？</p>
-<p>5.<a href="https://www.bilibili.com/video/BV1Nf4y1R77a" target="_blank" rel="noopener">【读书分享】B站CEO推荐的科普书，读了之后惊呼…</a><br><strong>宁萌说：</strong> 看了B站陈总的视频之后，我读了这本科普书，后来又看了两本，原来科普书也可以写得这么有趣！于是，趁热打铁制作了这一期分享推荐视频，哈哈！你看了吗？快快加入讨论……</p>
-<p>4.<a href="https://www.bilibili.com/video/BV15k4y1B7Tw" target="_blank" rel="noopener">【读书分享】英文原版书入门，来看看这几本书</a><br><strong>宁萌说：</strong> 终于要和大家分享英文阅读了，这几本英文小说都不错，很适合刚开始进行英文原版阅读的小伙伴，用心推荐的，请看一下呀！</p>
-<h3 id="2020年6月作品："><a href="#2020年6月作品：" class="headerlink" title="2020年6月作品："></a>2020年6月作品：</h3><p>3.<a href="https://www.bilibili.com/video/BV1uD4y1S7Ym" target="_blank" rel="noopener">【读书分享】好书一本，让自己慢下来</a><br><strong>宁萌说：</strong> 这一期我尝试加了背景音乐，搭配上风景的视频，嘿嘿，这样来读一本散文集真是再合适不过，很舒缓放松呢！快来一起欣赏吧！</p>
-<h3 id="2020年5月作品："><a href="#2020年5月作品：" class="headerlink" title="2020年5月作品："></a>2020年5月作品：</h3><p>2.<a href="https://www.bilibili.com/video/BV14t4y1C7t6" target="_blank" rel="noopener">【购书分享】五月我买了哪些书？一起来看看</a><br><strong>宁萌说：</strong> 五月底趁着购物节活动，买了几本书，忍不住就拍了开箱视频与小伙伴们分享，没想到反响不错，大家好像对于买书视频挺感兴趣，这也让我有了多制作几期读书分享视频的打算。</p>
-<p>1.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">【读书分享】与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？</a><br><strong>宁萌说：</strong> 介绍了一本英文童话书 <strong>The Wind in the Willows</strong>，很有趣的书哦！这是初学阶段，视频制作的比较简单粗糙，因为没设置好比例，导致最后视频上下有一条黑边，虽然观众说不太明显、感觉不到，自己觉得还挺抱歉的，谢谢大家的鼓励和包容！</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>小说</tag>
-        <tag>非虚构</tag>
-        <tag>科普</tag>
-        <tag>散文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>率真的科学家费曼</title>
-    <url>/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年7月。</p>
-</blockquote>
-<p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p>
-<img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center">
-
-<p>注：图书封面图片，来源：豆瓣</p>
-<a id="more"></a>
-<p>生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。</p>
-<p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p>
-<p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p>
-<p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p>
-<blockquote>
-<p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑上插入U盘不识别，怎么办？</title>
-    <url>/2020/12/14/%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%92%E5%85%A5U%E7%9B%98%E4%B8%8D%E8%AF%86%E5%88%AB/</url>
-    <content><![CDATA[<p>有几次把 Mp3 播放器或移动硬盘插入电脑不识别，电脑里连 U 盘的盘符都不显示，一开始还以为是播放器的数据线出问题了，后来找到解决方法，记录一下。</p>
-<a id="more"></a>
-<p>我的电脑是 Windows 10系统，首先要到“设备管理器”界面，有两种方法：<br>方法一、右键点击“此电脑”&gt;右键菜单中选择“管理”&gt;系统工具&gt;设备管理器；<br>方法二、同时按<code>Win</code>+<code>X</code>键，在弹出菜单中选择设备管理器，这种方法快多了，所以记住快捷键很重要。</p>
-<p>在“设备管理器”界面中，找到“通用串行总线控制器”项，下方有“USB大容量存储设备”，右键点击该项，弹出菜单：<br>方法一、（我自己用过的），先点“卸载设备”，再点“扫描检测硬件改动”；<br>方法二、（网上介绍的，下次试试），点击“启用设备”。</p>
-<p>参考文章：<br><a href="https://www.jb51.net/softjc/682868.html" target="_blank" rel="noopener">U盘不能识别怎么办 U盘无法识别的7种解决方法</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
       </tags>
   </entry>
   <entry>
@@ -1095,6 +970,145 @@
       </tags>
   </entry>
   <entry>
+    <title>我的读书视频列表~持续更新</title>
+    <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌Julie</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
+<a id="more"></a>
+<p><strong>注：列表顺序：由前至后 依次为 最近作品至较早作品</strong></p>
+<h3 id="2021年1月作品："><a href="#2021年1月作品：" class="headerlink" title="2021年1月作品："></a>2021年1月作品：</h3><p>11.<a href="https://www.bilibili.com/video/BV1gK411u71Z" target="_blank" rel="noopener">【购书分享】我买了哪几本英文名著呢？快来看看吧！</a></p>
+<p>10.<a href="https://www.bilibili.com/video/BV14f4y1y7me" target="_blank" rel="noopener">【购书分享】几本英文儿童文学作品</a></p>
+<h3 id="2020年8月作品："><a href="#2020年8月作品：" class="headerlink" title="2020年8月作品："></a>2020年8月作品：</h3><p>9.<a href="https://www.bilibili.com/video/BV1fK4y1e7MM/" target="_blank" rel="noopener">【读书分享】硬科幻？软科幻？你喜欢哪种？附英文有声书介绍</a><br><strong>宁萌说：</strong> 本期分享我钟爱的两本科幻小说，还有英文有声书的介绍和收听链接。精心制作、重磅推荐，哈哈！说不定你也读过这两本书呢，快点开看看、加入讨论吧！</p>
+<p>8.<a href="https://www.bilibili.com/video/BV1j54y1i7tH/" target="_blank" rel="noopener">【读书分享】人工智能、5G，这些新技术你了解吗？</a><br><strong>宁萌说：</strong> 本期介绍两本科普新知类的书，身处这些新技术带来的改变中，了解一下很有必要，看看我分享的哪两本书呢？</p>
+<h3 id="2020年7月作品："><a href="#2020年7月作品：" class="headerlink" title="2020年7月作品："></a>2020年7月作品：</h3><p>7.<a href="https://www.bilibili.com/video/BV1Sv411q7T2/" target="_blank" rel="noopener">【读书分享】选专业、找工作，迷茫时看看毛姆的这本小说</a><br><strong>宁萌说：</strong> 小伙伴们，在选专业、找工作时，你是否有过迷茫？是否思考过人生、梦想与现实？快来看看这本小说，也许会给你新的启发。</p>
+<p>6.<a href="https://www.bilibili.com/video/BV1eZ4y1u7RM" target="_blank" rel="noopener">【读书分享】如何阅读一本书？学习高效阅读的方法</a><br><strong>宁萌说：</strong> 这是一本让我反复阅读和思考的指南书，改变了我以前对于读书的认识，所以，虽然大家可能会不太感兴趣，我还是做了一期分享，因为，如果你看了，可能就会对你有帮助，你说呢？</p>
+<p>5.<a href="https://www.bilibili.com/video/BV1Nf4y1R77a" target="_blank" rel="noopener">【读书分享】B站CEO推荐的科普书，读了之后惊呼…</a><br><strong>宁萌说：</strong> 看了B站陈总的视频之后，我读了这本科普书，后来又看了两本，原来科普书也可以写得这么有趣！于是，趁热打铁制作了这一期分享推荐视频，哈哈！你看了吗？快快加入讨论……</p>
+<p>4.<a href="https://www.bilibili.com/video/BV15k4y1B7Tw" target="_blank" rel="noopener">【读书分享】英文原版书入门，来看看这几本书</a><br><strong>宁萌说：</strong> 终于要和大家分享英文阅读了，这几本英文小说都不错，很适合刚开始进行英文原版阅读的小伙伴，用心推荐的，请看一下呀！</p>
+<h3 id="2020年6月作品："><a href="#2020年6月作品：" class="headerlink" title="2020年6月作品："></a>2020年6月作品：</h3><p>3.<a href="https://www.bilibili.com/video/BV1uD4y1S7Ym" target="_blank" rel="noopener">【读书分享】好书一本，让自己慢下来</a><br><strong>宁萌说：</strong> 这一期我尝试加了背景音乐，搭配上风景的视频，嘿嘿，这样来读一本散文集真是再合适不过，很舒缓放松呢！快来一起欣赏吧！</p>
+<h3 id="2020年5月作品："><a href="#2020年5月作品：" class="headerlink" title="2020年5月作品："></a>2020年5月作品：</h3><p>2.<a href="https://www.bilibili.com/video/BV14t4y1C7t6" target="_blank" rel="noopener">【购书分享】五月我买了哪些书？一起来看看</a><br><strong>宁萌说：</strong> 五月底趁着购物节活动，买了几本书，忍不住就拍了开箱视频与小伙伴们分享，没想到反响不错，大家好像对于买书视频挺感兴趣，这也让我有了多制作几期读书分享视频的打算。</p>
+<p>1.<a href="https://www.bilibili.com/video/BV1XK411H7H9" target="_blank" rel="noopener">【读书分享】与《爱丽丝漫游奇境》齐名，这部英文童话经典讲了什么？</a><br><strong>宁萌说：</strong> 介绍了一本英文童话书 <strong>The Wind in the Willows</strong>，很有趣的书哦！这是初学阶段，视频制作的比较简单粗糙，因为没设置好比例，导致最后视频上下有一条黑边，虽然观众说不太明显、感觉不到，自己觉得还挺抱歉的，谢谢大家的鼓励和包容！</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>小说</tag>
+        <tag>非虚构</tag>
+        <tag>科普</tag>
+        <tag>散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能时代的思考</title>
+    <url>/2020/04/22/%E6%99%BA%E8%83%BD%E6%97%B6%E4%BB%A3%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2017年5月。</p>
+</blockquote>
+<p>吴军博士是在 Google 工作的自然语言处理与搜索专家，<strong>《智能时代：大数据与智能革命重新定义未来》</strong> 是他继《数学之美》、《文明之光》、《浪潮之巅》之后在 2016 年推出的最新力作。我读完这本书之后，最深刻的感受就是在思维方式上受到的冲击，它让我在看待数据和解决问题时有了新的视角和方法。</p>
+<a id="more"></a>
+
+<img src="https://img3.doubanio.com/view/subject/l/public/s29142393.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>这本书以去年大火的人机围棋大战开篇，介绍了 Google 的 AlphaGo 这一人工智能棋手，拉开了智能时代的大幕，然后讲述了大数据和智能技术如何改变我们的生活。作者在书中主要回答了以下问题：</p>
+<h4 id="一、人工智能问题如何转化为大数据问题并解决。"><a href="#一、人工智能问题如何转化为大数据问题并解决。" class="headerlink" title="一、人工智能问题如何转化为大数据问题并解决。"></a>一、人工智能问题如何转化为大数据问题并解决。</h4><p>以前解决人工智能问题主要集中在如何让机器像人脑一样思考问题，强调模型及算法。现在的人工智能则采用模型简单、以强大的计算能力为支撑，以大量数据积累为基础的数据驱动方法。通俗地说，大数据方法对于问题不是从“0”开始思考，而是经过学习、即结合已知的丰富经验进行分析。比如 AlphaGo，就是在积累、学习了成千上万棋手的棋谱后，根据当前棋谱计算下一步走哪里的胜算概率更大，由此决定走哪一步。</p>
+<p>这一转化也给了我们启示：当按部就班无法得到满意结果时，应该考虑换个思路、换个角度来解决问题。就像书中提到，以前解决语音识别问题、机器翻译问题，都需要相应的语音专家、语言学家，从发音过程、语言结构等方面进行分析。后来人们通过逆向思维分析发现，要得到结果可以有很多方法，就像处理黑箱问题一样，只要输入、输出符合条件，里面的过程可以近似拟合。用大数据和统计方法解决这些问题，跳出了以前固化的思维模型，结合大量数据学习，效果反而远超传统方法。</p>
+<h4 id="二、智能时代的思维革命。"><a href="#二、智能时代的思维革命。" class="headerlink" title="二、智能时代的思维革命。"></a>二、智能时代的思维革命。</h4><p>工业革命提出的机械思维认为万物都有因果关系、有确定的规律可循，这也成为了人类发现和认知世界的重要假设。然而，现实生活中存在不确定性以及不可测（或者说测不准），对这一类现象的发现挑战了人类的认知。例如对于股市的预测反过来会影响人们的买卖操作，进而有可能出现与预测相反的波动。</p>
+<p>那么应该如何处理这些问题呢？与其逃避、不如面对。科学家引入“信息”这一概念，通过加入信息减少不确定性来解决这一类问题，并结合大数据的应用出现了一种以结果为导向的新型思维方式，即大数据思维。其特点是：无假设条件、重视结果分析，由此得到一种新的事物关系：强关联关系。</p>
+<p>这一思维革命其实是人类更加理性客观世界的结果，针对事实分析事物联系，而不是去寻求因果关系。我觉得书中提到的药物开发的例子很有说服力。一般药品研发流程往往是先分析症状、查找病因，然后寻找能消除病因的物质。实际上，这种因果分析方法会造成可寻找的药物范围有限，因为我们人类对于很多疾病原因的认识并不明确，而有的药物其实可以治疗多种疾病。比如斯坦福大学医学院发现治疗心脏病的某种药对治疗胃病特别有效。以前这类发现只能通过医生在临床偶然发现。如果药企采用新的大数据思维方式，在研发时可以大胆主动地去探究药物与很多疾病之间的关联进而发现特效药，尽管有的结果看上去有些不可思议。</p>
+<p>在《大数据时代：生活，工作与思维的大变革》一书中，作者引用普林斯顿大学心理学专家，同时也是 2002 年诺贝尔经济学奖得主丹尼尔•卡尼曼（Daniel Kahneman）的观点，也对人类的思维模式进行了分析。卡尼曼指出，人有两种思维模式，第一种是不费力的快速思维，通过这种思维方式几秒钟就能得出结果；另一种是比较费力的慢性思维，对于特定的问题，需要考虑到位。快速思维模式使人们偏向用因果联系来看待周围的一切，即使这种关系并不存在。这是我们对已有的知识和信仰的执著。平时生活中，由于惰性，我们很少慢条斯理地思考问题，快速思维模式就占据了上风，因此我们会经常臆想出一些因果关系，最终导致了对世界的错误理解。回想一下，我们是不是很多时候都是凭着以前的“因果关系”认识进行快速思维，比如“天凉了，加衣服，不然会感冒的！”这句话初听上去很有道理，因为大家每个人成长中都或多或少听过，觉得很耳熟。实际上，穿得多少与感冒之间没有必然的因果关系。而我们在做一些重要决定时，就会采用第二种慢性思维分析问题，但是这种思考常常缓慢而痛苦，并且没有头绪，表现为犹豫不决、优柔寡断。现在好了，借助计算机强大的计算能力，我们可以更加科学理性地分析事实与思考问题。</p>
+<h4 id="三、新时代的机遇与挑战。"><a href="#三、新时代的机遇与挑战。" class="headerlink" title="三、新时代的机遇与挑战。"></a>三、新时代的机遇与挑战。</h4><p>“这是最好的时代，也是最坏的时代。”英国大文豪狄更斯的这句话用在这里实在是再恰当不过了。经历过工业革命、第二次工业革命、信息革命，新一轮的智能革命正在来临，并悄然改变人们的生活。现在购物、支付、出行等等都离不开互联网，我们进入了万物互联的“扫码”时代。同时，我们也看到，机器智能的崛起开始让很多人丢了饭碗，比如制造业。现在服务业也慢慢被机器智能所代替，比如随着电子化停车场、线上超市的发展，停车场管理人员、超市导购员等工作人员的数量都将大幅缩减。</p>
+<p>那么，如何拥抱智能时代？传统行业该何去何从？作者给出了很好的建议，传统行业可以通过与新技术融合产生新行业来得到发展。书中以小米和特斯拉为例，它们并不是手机公司、电动汽车公司等传统意义的制造公司，而是定义为互联网公司，即通过手机、电动汽车为平台、为顾客提供后续个性化的终端服务，这正是值得传统家电企业学习借鉴的。家电属于耐用品，很多家庭买了一台电器可以使用很多年，提高新产品的销售额很困难。然而，如果能通过智能终端收集数据、分析顾客使用需求并提供后续全面的个性化服务，可以收获比销售新机器更多的利润。</p>
+<p>智能时代的另一大挑战则是来自隐私安全方面。现在数据使用缺乏监管，很多时候为了获得APP、软件的使用权，我们都在收集使用数据一栏点击“同意”，可是，那些使用数据的公司会将数据拿来做什么，我们并不知道。当公司、团体可以收集用户数据进行数据挖掘甚至个人画像时，其实我们的隐私已经暴露无遗，甚至可能在不知情的情况下导致利益损害。比如，当航空公司发现某一顾客对价格要求不敏感时，可能给该顾客的报价就会偏高。</p>
+<p>针对这一问题，作者提出了两类解决办法：一是可以模糊处理，使处理数据的公司只能得到大概数据、不能得到精确的细节信息从而无法定位到个人。二是设立双向监视机制，使数据使用者在使用时留下痕迹，从而会规范其使用行为。我个人认为，数据的所有权、使用权目前亟需得到关注、重视与规范和约束。很多时候，人们往往轻易地将自身相关的数据交付出去，数据公司会如何利用数据，是否会危害我们的利益和安全，对此我们一无所知。如何在发挥数据价值与保证个人隐私安全之间平衡，也是值得我们深思的问题。</p>
+<p>在看这本书的时候，我跟随吴军博士一起追溯工业社会的科技发展，又展望智能时代的前景，惊讶于技术的发展之快，畅想不远的未来。在 ALphaGo 战胜韩国高手李世石后，很多人担忧机器人会超过人类甚至统治人类，对此我并不认同。机器智能最终还是要由人类制造、受控于人类，所以关键在于如何使用。如果说每一次新技术的出现就是一把双刃剑，那么结果的好坏就取决于人类将其应用到何处，所以，最后决定我们未来的不是机器人，而是我们人类自身！</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>非虚构</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>率真的科学家费曼</title>
+    <url>/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年7月。</p>
+</blockquote>
+<p>最近听了两本有声书 <strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 和 <strong><em>What Do You Care What Other People Think?</em></strong> ，让我走近并了解费曼这位科学家。<strong><em>Surely You’re Joking, Mr. Feynman!</em></strong> 有很多小故事，就像朋友之间的聊天，读过之后知道了很多关于费曼的趣闻轶事。<strong><em>What Do You Care What Other People Think?</em></strong> 不如前者有名，但我特别推荐一读，里面对于教育、科学、研究等等的讨论和思考，让人很受启发。</p>
+<img src="https://img1.doubanio.com/view/subject/l/public/s4259438.jpg" width="260" height="368" alt="图书封面图片，来源：豆瓣" align="center">
+
+<p>注：图书封面图片，来源：豆瓣</p>
+<a id="more"></a>
+<p>生活中的费曼是个率真的人，幽默风趣。他谈论自己泡吧、画画、打鼓、开密码锁然后恶作剧等等，让人忍俊不禁。他淡泊名利，对于工资、甚至诺贝尔奖都看得很淡，一开始听到这些故事感到难以置信，随后又领会到这确实是一种科学家的纯粹，做研究只是因为喜欢科学，因为兴趣，而非名利。但费曼并没有通常人们想象中的天才的孤僻，他对于第一任妻子阿琳的不离不弃、一往情深，让人动容。得知多年的恋人阿琳得了重病，他依然和她结了婚，把她安排在工作地附近的医院，工作之余就去看她，陪她走过了生命最后的岁月。</p>
+<p>工作中的费曼对待科学非常严谨认真。他对于教科书审阅的意见，以及在挑战者号失事的调查中，基于事实而不是汇报进行的细致分析、对于最后报告结论的坚持，都让人感受到他的认真，这也是科研人应该具备的一种态度。</p>
+<p>值得一提的是费曼对于学习和教育的独到见解。他批评填鸭式背诵教育，认为靠记忆知识点，既没学到知识，又费时间，而这些知识点其实可以很容易查找到。他认为学习重点应该放在应用，思考这些知识如何应用，然后去实践、去试错。他的动手能力很强，从小就开始捣鼓电子元件、收音机等，遇到问题常常想到做各种实验来验证或纠正自己的分析。对于这一点，或许我们可以从他父亲的教育方式中得到线索。他回忆小时候父亲带他去郊外观察，第二天其他小伙伴们都能说出看到了某种鸟、甚至这种鸟在各种语言里叫什么名字，而他一问三不知，那他学了什么呢？原来，父亲教他观察鸟儿的行为习性，思考为什么会这样，进而引导他分析得出大自然的规律。多么巧妙的引导式教学！费曼也曾经说过对儿子的期望，他说不会push孩子去成为科学家、教授（这里引用了原词push，当时听到这句话的时候对于never push印象太深了）。实际上，他挺希望孩子去做一些实际的工作，比如工人。但是，他也略带自豪地承认没想到儿子还是子承父业，当了教授。</p>
+<p>在 <strong><em>What Do You Care What Other People Think?</em></strong> 的后记里，费曼讨论了科学的价值这一哲学问题，在谈到科学发展的双刃剑效应时，他引用了佛家的一句话:“ To every man is given the key to the gates of heaven; the same key opens the gates of hell.” 同时，他在海边沉思的一段话也写得很优美，有一种物理学家的浪漫，摘录最后的一小节作为结尾：</p>
+<blockquote>
+<p>“ Stands at the sea,<br>wonders at wondering: I<br>a universe of atoms,<br>an atom in the universe.”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>非虚构</tag>
+        <tag>人物传记</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑上插入U盘不识别，怎么办？</title>
+    <url>/2020/12/14/%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%92%E5%85%A5U%E7%9B%98%E4%B8%8D%E8%AF%86%E5%88%AB/</url>
+    <content><![CDATA[<p>有几次把 Mp3 播放器或移动硬盘插入电脑不识别，电脑里连 U 盘的盘符都不显示，一开始还以为是播放器的数据线出问题了，后来找到解决方法，记录一下。</p>
+<a id="more"></a>
+<p>我的电脑是 Windows 10系统，首先要到“设备管理器”界面，有两种方法：<br>方法一、右键点击“此电脑”&gt;右键菜单中选择“管理”&gt;系统工具&gt;设备管理器；<br>方法二、同时按<code>Win</code>+<code>X</code>键，在弹出菜单中选择设备管理器，这种方法快多了，所以记住快捷键很重要。</p>
+<p>在“设备管理器”界面中，找到“通用串行总线控制器”项，下方有“USB大容量存储设备”，右键点击该项，弹出菜单：<br>方法一、（我自己用过的），先点“卸载设备”，再点“扫描检测硬件改动”；<br>方法二、（网上介绍的，下次试试），点击“启用设备”。</p>
+<p>参考文章：<br><a href="https://www.jb51.net/softjc/682868.html" target="_blank" rel="noopener">U盘不能识别怎么办 U盘无法识别的7种解决方法</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>电脑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>许多记忆未曾诉说</title>
+    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
+    <content><![CDATA[<blockquote>
+<p>本文写于2019年5月</p>
+</blockquote>
+<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
+<a id="more"></a>
+
+<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
+
+<p>注：Dan Stevens，图片来自网络</p>
+<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
+<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
+<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
+<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>小说</tag>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>英文有声书和广播剧推荐之二</title>
     <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/</url>
     <content><![CDATA[<p>接着<a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">上一篇文章</a>，继续介绍好的英文有声书和广播剧。</p>
@@ -1143,33 +1157,6 @@
       </tags>
   </entry>
   <entry>
-    <title>许多记忆未曾诉说</title>
-    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
-    <content><![CDATA[<blockquote>
-<p>本文写于2019年5月</p>
-</blockquote>
-<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
-<a id="more"></a>
-
-<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
-
-<p>注：Dan Stevens，图片来自网络</p>
-<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
-<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
-<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
-<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读乔布斯传</title>
     <url>/2020/04/22/%E8%AF%BB%E4%B9%94%E5%B8%83%E6%96%AF%E4%BC%A0/</url>
     <content><![CDATA[<blockquote>
@@ -1194,6 +1181,70 @@
       </categories>
       <tags>
         <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>人物传记</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读尤瓦尔赫拉利的简史三部曲</title>
+    <url>/2020/04/22/%E8%AF%BB%E5%B0%A4%E7%93%A6%E5%B0%94%E8%B5%AB%E6%8B%89%E5%88%A9%E7%9A%84%E7%AE%80%E5%8F%B2%E4%B8%89%E9%83%A8%E6%9B%B2/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年3月。</p>
+</blockquote>
+<p>当我慕名打开尤瓦尔赫拉利的《人类简史》时，心中还有几分怀疑。印象中，简史类的书都是循一条线索，从很久以前讲到现在，看到一半就兴趣索然、读不下去了。然而，这本书让我眼前一亮，同时也大开眼界、或者说是脑洞大开。作者没有用时间线索加叙事的方式来写历史，而是以一种全新的哲学观点、宏观角度看待人类。他分析了远古社会、农业社会、工业社会，甚至展望未来，从社会、宗教、文化、生物学等多个方面进行分析，当需要举例说明佐证观点时，信手拈来一段历史故事娓娓道来，各大洲历史、多个种族文化宗教均有提及，让人不由得佩服他的博学。</p>
+<a id="more"></a>
+
+<img src="https://img3.doubanio.com/view/subject/l/public/s27814883.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>《未来简史》和《今日简史》分别是对《人类简史》中关于未来的设想和关于今日的思考展开阐述，基本的论点源自《人类简史》。下面将这三本书（或称简史三部曲）中引人思考的观点列出。</p>
+<p>1、智人（书中对现代人类的一种称谓）之所以能在地球上众多物种中胜出，是因为智人能够进行大规模合作，而合作是通过虚构的故事来构建。我们可能意识不到，货币、国家、宗教、企业，等等，都是“想象”出来的，基于此，远隔千里的陌生人之间才有了信任和合作，进而有了巨大的力量。</p>
+<p>2、现在的人类置身科技高度发达的社会，可还是远古狩猎采集者的心智、远古农民的胃。这一点很有意思。初看上去觉得不可思议、滑稽可笑，人类都进化几千上万年了，基因的力量还是如此强大吗？但仔细想想，我们身处钢筋水泥的城市里，是否总在怀念大自然的无拘无束、自由自在？很多时候的情绪、下意识的思维是否仍和祖先一样？现代社会的美味珍馐这么多，但人类钟情的食物大多是高热量的食物，对于这一类食物的喜爱正是祖先们的生存需要和选择。</p>
+<p>3、为什么18世纪工业革命后欧洲迅速崛起，而亚洲却没有跟上步伐？我在读到中国近代史时总会思考这个问题。书中作者提出了一种观点，工业革命中欧洲在科学领域认识并承认了自我的无知，愿意为新知去探索发现。而当时亚洲的国家，君王的思想还停留在以自我、吾国为中心的层面，以为自己的疆土就是全部，也就失去了前进的动力。欧洲在进入资本主义社会后，在开拓殖民地的过程中，科学、知识为军事、经济、政治服务的同时又得到其支持，互相促进、互相发展。</p>
+<p>4、知识和历史的相互作用：知识如果不能改变行为，就没有用处。但知识一旦改变了行为，本身就立刻失去了意义。研究历史的目的，是为了开拓视野，发现许多的可能。<br>书中还谈到了历史的真实性。历史就是一种叙事故事，不同的人有不同的视角。在古代，权贵、精英阶层才会著史，因此我们只会读到英雄人物的故事，而找不到关于平凡百姓的生平故事。</p>
+<p>5、从种族主义到文化主义的微妙变化，不同文化之间的隔阂与融入的问题，引人深思。在文化层面，人们常常拒绝承认变化，总认为自己和祖先一脉相承。其实，对于人类群体，与其用延续性定义，不如看发生了什么。</p>
+<p>6、关于战争，作者认为，以前的战争（古代战争以及两次世界大战）往往收获颇丰，可以攻城掠地、抢夺资源。现在的资源是知识，这让战争的产出变少，成本变大，因此发动战争的意愿降低。</p>
+<p>7、对于未来展望，作者认为生物科技和计算机算法将对人类社会产生重要和颠覆性的影响。一方面，人工智能取代人类，将出现“无用阶级”：这一部分人存在，但没有工作，对社会而言，无足轻重。另一方面，生物科技的发展将加强健康人类的功能，或许价钱不菲，精英阶层或资产阶级可以通过搭上这列快车到达超人类（更美丽、更聪明、保持年轻），于是，在生理层面扩大了阶级分化。<br>还有一种危险：数字独裁。算法操控我们的一切。算法了解我们，我们依赖算法。为什么会这样，为什么算法会掌握我们的数据？仔细回想，当我们想要获得免费服务或小礼品时，是不是奉上自己的隐私数据去换取呢？在商家眼中，我们其实不是用户，而是商品。公民个人数据安全问题不容忽视，数据所有权亟待规范，这一点在我以前读过的有关大数据的书中也有谈论，但是似乎还没有好的解决方案提出。<br>作者悲哀地说，人类可能面临升级了身体和大脑，却失去了心智的危险，从升级版的黑猩猩变成了放大版的蚂蚁…</p>
+<p>8、从面对未来挑战出发，作者提出了他的观点：人类应该多认识自己，认识自己的心智。<br>人类其实很少真的自己思考，总是以群体为单位思考。现在很多人对自己的理解常常是从别人的观点出发，活在别人的目光中，活在朋友圈、微博动态里。作者的建议：从现在开始，好好感受自己的体验，赶在大数据和算法操控影响我们之前，好好认识自己。</p>
+<p>读到此，我已经分不清这是一本历史书还是哲学书，作者带我们从宇宙俯视整个人类，回故漫漫历史长河，展望无垠未来，在这之中思考的问题，还是属于哲学问题：我是谁？我和外在世界的联系与关系？我属于哪个群体？（书中提到人类属于社交动物）我的人生意义怎样？等等，当跳出了一般历史学的思维角度，如作者预期的那样，我的视野变得开拓，忽然又发现自己的渺小、人类在宇宙中的渺小，我们应该有一种谦卑的心对待自然、对待环境。以此时的心情，我忽然想到陈子昂的《登幽州台歌》——“前不见古人，后不见来者，念天地之悠悠，独怆然而涕下”。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>非虚构</tag>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读霍金人生简史的感悟</title>
+    <url>/2020/12/03/%E8%AF%BB%E9%9C%8D%E9%87%91%E4%BA%BA%E7%94%9F%E7%AE%80%E5%8F%B2%E7%9A%84%E6%84%9F%E6%82%9F/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+
+<p>我曾经看到简书上朋友 <a href="https://www.jianshu.com/u/7qy9Se" target="_blank" rel="noopener">随机运动</a> 对这本书的推荐：<a href="https://www.jianshu.com/p/dfed9b16b6a5" target="_blank" rel="noopener">读书笔记,《My Brief History》</a>，当时留下了印象，最近听了有声书版本。书如其名，这是一本简洁的书，篇幅不长，包括两方面内容，一是霍金的人生回顾；二是介绍了他的理论研究。有声书有一个特别之处是每一章的开头都是霍金特有的声音朗读的。</p>
+<img src="https://img2.doubanio.com/view/subject/l/public/s26859702.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<a id="more"></a>
+
+<p>在书中，霍金回顾了自己的成长经历，他在二十出头的年纪，就被诊断得了 肌萎缩侧索硬化症（ALS），医生说不知道他能活多久。得知自己的病情时，他感到震惊、无法接受，他问过：“为什么是自己？”也曾觉得沮丧难过。但是，他又想到，正因为生命有限，时日无多，才更加发现生命的可贵，还有很多想完成、值得做的事。“<em>When you are faced with the possibility of an early death, it makes you realize that life is worth living and that there are lots of things you want to do.</em>” </p>
+<p>后面的人生中，他的病情逐渐加重，也遇到各种困难，但是“办法总比困难多”。书中让我印象很深的一个地方是，当霍金不能发声后，科技公司帮他制作了一套电子传感的计算机系统，连接声音合成器就可以发声。书中提到，这个电子系统大约一分钟处理3个词，可生成语音（就是后来我们听到的机械的语音）或者存成文档。霍金就是用这个系统，写了他的论文、多部科普著作、演讲等等。他提到写作 <strong><em>A Brief History of Time</em></strong>（《时间简史》）时，得了肺炎住院，好在有计算机系统帮助他继续写作，“虽然它有点慢，但我也思考得慢，因此倒也适合我的节奏。”一分钟3个词，这个速度与霍金的众多著作相比，我们无法想象霍金付出了多少汗水和心血。</p>
+<p>另一方面，霍金在介绍他的理论研究时，讲解得通俗易懂、生动有趣，虽然偶尔有的名词（比如: Cauchy surface）还是要通过上网搜索查阅才明白。文中有一句话让我很受启发：“<em>In science, finding the right formulation of a problem is often the key to solving it,……</em>” 就是说，科学研究中，解决问题的关键往往在于正确的表述问题。看来，学会提问很重要。只有明确了真正要解决的是什么问题，才能切中要点，解决问题。</p>
+<p>这是我第一次详细了解霍金的人生，而这些经历让我感触最深的一点就是：我们的能力和所能达成的目标，其实不是由外在条件决定，而在于我们内在思维的广度。就像这本书最后一章的标题所言：“No Boundaries”，我们不应给自己设限，要发掘自己的潜力，勇敢去探索和体验，让自己的人生更加精彩。霍金一生中的大部分时间在同疾病做抗争，但他并没有因此消极度日，更没有停下自己探索世界的脚步，而是孜孜不倦地进行宇宙探索研究。他也到全球各地旅行，去体验了潜水艇和热气球，甚至还有失重飞行。他的一生充实又精彩。</p>
+<p>我不由得想起几年前看过的一本书——程浩写的《站在两个世界的边缘》(欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/12/03/%E4%BB%A5%E5%BE%AE%E7%AC%91%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F/">以微笑面对人生</a>)，程浩因为身体原因从小就不能走路，常常呆在家里或是住院治疗。他选择了通过阅读和写作来充实自己的人生。读他的文章，你能感受到他敏锐的洞察力和思考，他的幽默风趣，而他的坚强乐观也通过文字给我们传递着力量。</p>
+<p>每个人的一生中，不免会遇到大大小小的困难、挫折，甚至失败、病痛。在痛苦、低落时，读一读霍金或是程浩的书，会让人振作精神、直面挑战、勇敢前行。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
         <tag>非虚构</tag>
         <tag>人物传记</tag>
         <tag>科技</tag>
@@ -1303,67 +1354,51 @@
       </tags>
   </entry>
   <entry>
-    <title>读霍金人生简史的感悟</title>
-    <url>/2020/12/03/%E8%AF%BB%E9%9C%8D%E9%87%91%E4%BA%BA%E7%94%9F%E7%AE%80%E5%8F%B2%E7%9A%84%E6%84%9F%E6%82%9F/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-
-<p>我曾经看到简书上朋友 <a href="https://www.jianshu.com/u/7qy9Se" target="_blank" rel="noopener">随机运动</a> 对这本书的推荐：<a href="https://www.jianshu.com/p/dfed9b16b6a5" target="_blank" rel="noopener">读书笔记,《My Brief History》</a>，当时留下了印象，最近听了有声书版本。书如其名，这是一本简洁的书，篇幅不长，包括两方面内容，一是霍金的人生回顾；二是介绍了他的理论研究。有声书有一个特别之处是每一章的开头都是霍金特有的声音朗读的。</p>
-<img src="https://img2.doubanio.com/view/subject/l/public/s26859702.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
+    <title>分享我的单词记忆方法</title>
+    <url>/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>在与学英语的同学、朋友的交流中，我发现大家在背单词上主要有以下困惑：</p>
+<ul>
+<li>背单词很容易忘，记不住，怎么办？</li>
+<li>单词/短语一词多义，头好大啊。。。</li>
+<li>怎么才能快速记单词？</li>
+<li>不知道怎么把单词的不同意思应用到自己的写作表达里呢？</li>
+</ul>
+<p>我学的是理工科专业，但是我一直对英语很感兴趣，也参加了不少英语考试和竞赛，取得了一些成绩。因为喜欢，我在英语学习中投入了很多时间，也曾遇到过提升的平台期、有过困惑，尝试了不同方法，因此积累了一些经验，在这里与大家交流分享。</p>
 <a id="more"></a>
+<h4 id="1-背单词的理念"><a href="#1-背单词的理念" class="headerlink" title="1.背单词的理念"></a>1.背单词的理念</h4><p>请回想一下：你背单词时，是怎么背的？</p>
+<p>是记住单词对应的中文意思，一个英语词汇+一个中文意思的组合吗？</p>
+<img src="/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/words.jpg" width="368" height="260" alt="图片来源:skitterphoto from pexels" align="center">
 
-<p>在书中，霍金回顾了自己的成长经历，他在二十出头的年纪，就被诊断得了 肌萎缩侧索硬化症（ALS），医生说不知道他能活多久。得知自己的病情时，他感到震惊、无法接受，他问过：“为什么是自己？”也曾觉得沮丧难过。但是，他又想到，正因为生命有限，时日无多，才更加发现生命的可贵，还有很多想完成、值得做的事。“<em>When you are faced with the possibility of an early death, it makes you realize that life is worth living and that there are lots of things you want to do.</em>” </p>
-<p>后面的人生中，他的病情逐渐加重，也遇到各种困难，但是“办法总比困难多”。书中让我印象很深的一个地方是，当霍金不能发声后，科技公司帮他制作了一套电子传感的计算机系统，连接声音合成器就可以发声。书中提到，这个电子系统大约一分钟处理3个词，可生成语音（就是后来我们听到的机械的语音）或者存成文档。霍金就是用这个系统，写了他的论文、多部科普著作、演讲等等。他提到写作 <strong><em>A Brief History of Time</em></strong>（《时间简史》）时，得了肺炎住院，好在有计算机系统帮助他继续写作，“虽然它有点慢，但我也思考得慢，因此倒也适合我的节奏。”一分钟3个词，这个速度与霍金的众多著作相比，我们无法想象霍金付出了多少汗水和心血。</p>
-<p>另一方面，霍金在介绍他的理论研究时，讲解得通俗易懂、生动有趣，虽然偶尔有的名词（比如: Cauchy surface）还是要通过上网搜索查阅才明白。文中有一句话让我很受启发：“<em>In science, finding the right formulation of a problem is often the key to solving it,……</em>” 就是说，科学研究中，解决问题的关键往往在于正确的表述问题。看来，学会提问很重要。只有明确了真正要解决的是什么问题，才能切中要点，解决问题。</p>
-<p>这是我第一次详细了解霍金的人生，而这些经历让我感触最深的一点就是：我们的能力和所能达成的目标，其实不是由外在条件决定，而在于我们内在思维的广度。就像这本书最后一章的标题所言：“No Boundaries”，我们不应给自己设限，要发掘自己的潜力，勇敢去探索和体验，让自己的人生更加精彩。霍金一生中的大部分时间在同疾病做抗争，但他并没有因此消极度日，更没有停下自己探索世界的脚步，而是孜孜不倦地进行宇宙探索研究。他也到全球各地旅行，去体验了潜水艇和热气球，甚至还有失重飞行。他的一生充实又精彩。</p>
-<p>我不由得想起几年前看过的一本书——程浩写的《站在两个世界的边缘》(欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/12/03/%E4%BB%A5%E5%BE%AE%E7%AC%91%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F/">以微笑面对人生</a>)，程浩因为身体原因从小就不能走路，常常呆在家里或是住院治疗。他选择了通过阅读和写作来充实自己的人生。读他的文章，你能感受到他敏锐的洞察力和思考，他的幽默风趣，而他的坚强乐观也通过文字给我们传递着力量。</p>
-<p>每个人的一生中，不免会遇到大大小小的困难、挫折，甚至失败、病痛。在痛苦、低落时，读一读霍金或是程浩的书，会让人振作精神、直面挑战、勇敢前行。</p>
+<p>注：图片来源: skitterphoto from pexels</p>
+<p>那么，你觉得这种方法有效吗？</p>
+<p>可能你也发现，背了很快又忘了。<strong>单词要放在句子里记忆。</strong> 单词组成句子，而单词也只有融入句子中才能展现灵活多变的意思。我们记单词时，记住句子，同时就是记住了单词应用的语境，在脑子里形成画面感，更容易记住，也不容易忘。</p>
+<h4 id="2-单词本的选择和记单词方法"><a href="#2-单词本的选择和记单词方法" class="headerlink" title="2.单词本的选择和记单词方法"></a>2.单词本的选择和记单词方法</h4><p>在考试前为了突击提高词汇量，我也曾经拿着单词本每天背单词，现在有了各种背单词APP，但是挑选和学习的方法大致相同。我的经验是：</p>
+<p>1.选择 <strong>乱序单词本</strong>，因为按字母顺序背单词很容易弄混。乱序也符合我们遇到单词的情况，再见到这个单词时，更容易适应并认出。</p>
+<p>2.单词本一定要有 <strong>例句</strong>。正如前面所说的，只背英语单词和中文释义，我们会发现几乎没有效果。单词要融入句子中记忆，才能更好理解单词的词性、使用的语境等。</p>
+<p>3.<strong>筛选法记忆</strong>。<br>首先说一下，这一方法的要点是：<strong>不断缩小我们要背单词的范围、集中突破 + 隔一段时间复习巩固</strong>。具体操作如下：</p>
+<p>第一遍 浏览：标记不认识的单词（评估自己词汇掌握量）；<br>第二遍 强化记忆：只背第一遍标记的不认识单词（有重点地记）；<br>第三遍 浏览：对还不熟悉的单词，换个符号再加个标记(复习巩固）；<br>…<br>如此重复几遍，大概80-90%的单词都熟悉了。</p>
+<h4 id="3-掌握和应用单词的诀窍"><a href="#3-掌握和应用单词的诀窍" class="headerlink" title="3. 掌握和应用单词的诀窍"></a>3. 掌握和应用单词的诀窍</h4><p><strong>背单词的效果要通过阅读巩固</strong>。就像别人刚向我们介绍一个人，一开始我们只知道人名，并不熟悉。只有后面打了交道、相处了，才会对这个人熟悉起来。单词也是一样，背单词只是建立一个印象，我们要知道这个单词一般用在哪里、怎么用、表达什么意思（有时还要考虑书面语-口语、褒义-贬义等细节），就要通过阅读来学习。我在考试准备时，会把很大一部分备考时间用于做阅读理解题目，我觉得这是一举两得的工作。</p>
+<p>另一方面，我们还可以通过阅读英文原著和听英文有声书来巩固已学词汇和学习生词。我的体会是：当听读的输入提高之后，会感觉到掌握词汇量的增大。因为在听读英文书的过程中，我们不知不觉就在语境中记住了单词，而且这是单词应用的语境。此外，许多单词一词多义，背单词本只是学习主要释义，而在阅读英文原著时，能学到很多单词的灵活表达，这可能是单词基本义推广到的比喻义、扩展义等等，如果我们见到了这种情况，稍微一联想，就能记住并灵活运用，但是没见到这种语境，可能就不敢去用。</p>
+<p>这样干巴巴地讲还是没有说服力，下面我举几个例子，你一看就明白了。</p>
+<p>Storm 的基本义是“暴风雨”、名词，可是在读英文书中我经常见到 storm 的动词用法，例如，在争吵过后出现这样一句话：He stormed out of the room. 结合上下文，我理解到这个表达就是说他大发雷霆、气势汹汹地走出了房间。在这里，storm和基本义不同，但又有关联（这个气势和暴风雨给人的感觉相似），相当于引申义，是不是很形象？这样，在写作时，描述某人生气发火，我们就不会只想到angry、anger, 在合适的地方也能用上这个词。</p>
+<p>福尔摩斯探案集里有一集，提及让福尔摩斯也感到棋逢对手的一位女性，是这样写的：”In his eyes she eclipses and predominates the whole of her sex.” 我们以前在单词本里可能只看到 eclipse 是“日食/月食”，就是太阳/月亮被遮住了。这里却是 eclipse 的动词用法：she eclipses the whole of her sex. 她把其他女性的光芒都遮住了—&gt;可以推测到，这就是指让其他人都黯然失色，这个比喻义用得很妙吧？当你要描述某人非常优秀、非常出色时，就不会只想到 be better than，用上这个词，能让人眼前一亮呢。</p>
+<p>Whistle 有“口哨声、吹口哨”的意思。你想一下，当风很大的时候，是不是能听到呜呜的声音，和口哨声有点像，我们来看阿加莎的《东方快车谋杀案》(<em>Murder on the Orient Express</em>) 里这一句：”A cold wind came whistling down the platform. Both men shivered.” ，这里用了 whistle 描述呼啸的冷风。再进一步联想战场上子弹、炮弹飞速穿过的声音，接着看《柳林风声》(<em>The Wind in the Willows</em>) 里这一句:” Toad prudently dropped flat in the road, and Bang! a bullet whistled over his head.”，这里就用了 whistle 描述子弹飞速而过。掌握 whistle 的这个“呼啸”的词义，我们以后描写刮风就不用只写 blow 了。</p>
+<p>短语也是如此，一个短语往往有多种用法和意思，在阅读中可以更好地记住，比如，我听哈利波特有声书时，老听到 be taken back 的表达，例如 She was taken back by his words. 表达一种吃惊、不安的感觉，正好 back 这个词也有“退缩”的意思，多遇到几次就记住了，下次遇到 be taken back 头脑中就会反应出意思。类似的语境我们也就可以尝试用上这个短语，而不是只想到 surprise 了。</p>
+<p>通过这些有趣的例子，你会发现，我们多听多读之后，增加了输入，熟悉了单词应用的语境，单词也就从陌生人变成了我们的朋友，我们知道它们一般喜欢出现在哪里。这样，我们既记住了单词，又知道怎么应用。</p>
+<h4 id="4-推荐"><a href="#4-推荐" class="headerlink" title="4. 推荐"></a>4. 推荐</h4><p>总之，要想真正有效地提高词汇量，我建议不要只把时间用在单词本上，多一条途径：通过扩大阅读量来记忆和巩固，会事半功倍。</p>
+<p>如果你的备考时间紧，可以多做一些考试的阅读理解题。如果你的学习时间充裕一些，可以读一些英文原著，从简单的、自己感兴趣的开始，比如童话、通俗小说、侦探小说、科幻小说等等均可。书虫系列也很好，但前提是你能克制住、不去看中文对照。哈哈，我就会忍不住看中文对照，所以我选择英文原著。</p>
+<p>我在B站做了一些英文童话经典 <em>The Wind in the Willows</em>（《柳林风声》）的精读视频，讲解生词和好的表达，配有笔记字幕，或许对你开始英文原著阅读有帮助，点击看看：<a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br>此外，推荐一下<a href="https://juliecodestack.github.io/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/">我的英语学习视频列表</a>，里面有我制作的所有英语学习视频链接和简介，欢迎收看呀！</p>
+<p>除了阅读，听英文有声书也是一个不错的选择，有的播讲者声情并茂，会让你更加喜欢英文书，而且这也是一种语境熏陶，时间长了，下次你读到类似的句子，你也会模仿这样的语音语调读出来。我就是一个英文有声书爱好者，哈哈，我整理了自己听过觉得不错的有声书，供您参考，欢迎点击阅读：<br><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">英文有声书和广播剧推荐之一</a></p>
+<p><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/">英文有声书和广播剧推荐之二</a></p>
+<p>你有哪些记单词的好方法呢？欢迎在评论区留言交流。</p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>英语</category>
       </categories>
       <tags>
+        <tag>英语学习</tag>
         <tag>英文原著</tag>
         <tag>有声书</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读尤瓦尔赫拉利的简史三部曲</title>
-    <url>/2020/04/22/%E8%AF%BB%E5%B0%A4%E7%93%A6%E5%B0%94%E8%B5%AB%E6%8B%89%E5%88%A9%E7%9A%84%E7%AE%80%E5%8F%B2%E4%B8%89%E9%83%A8%E6%9B%B2/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年3月。</p>
-</blockquote>
-<p>当我慕名打开尤瓦尔赫拉利的《人类简史》时，心中还有几分怀疑。印象中，简史类的书都是循一条线索，从很久以前讲到现在，看到一半就兴趣索然、读不下去了。然而，这本书让我眼前一亮，同时也大开眼界、或者说是脑洞大开。作者没有用时间线索加叙事的方式来写历史，而是以一种全新的哲学观点、宏观角度看待人类。他分析了远古社会、农业社会、工业社会，甚至展望未来，从社会、宗教、文化、生物学等多个方面进行分析，当需要举例说明佐证观点时，信手拈来一段历史故事娓娓道来，各大洲历史、多个种族文化宗教均有提及，让人不由得佩服他的博学。</p>
-<a id="more"></a>
-
-<img src="https://img3.doubanio.com/view/subject/l/public/s27814883.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>《未来简史》和《今日简史》分别是对《人类简史》中关于未来的设想和关于今日的思考展开阐述，基本的论点源自《人类简史》。下面将这三本书（或称简史三部曲）中引人思考的观点列出。</p>
-<p>1、智人（书中对现代人类的一种称谓）之所以能在地球上众多物种中胜出，是因为智人能够进行大规模合作，而合作是通过虚构的故事来构建。我们可能意识不到，货币、国家、宗教、企业，等等，都是“想象”出来的，基于此，远隔千里的陌生人之间才有了信任和合作，进而有了巨大的力量。</p>
-<p>2、现在的人类置身科技高度发达的社会，可还是远古狩猎采集者的心智、远古农民的胃。这一点很有意思。初看上去觉得不可思议、滑稽可笑，人类都进化几千上万年了，基因的力量还是如此强大吗？但仔细想想，我们身处钢筋水泥的城市里，是否总在怀念大自然的无拘无束、自由自在？很多时候的情绪、下意识的思维是否仍和祖先一样？现代社会的美味珍馐这么多，但人类钟情的食物大多是高热量的食物，对于这一类食物的喜爱正是祖先们的生存需要和选择。</p>
-<p>3、为什么18世纪工业革命后欧洲迅速崛起，而亚洲却没有跟上步伐？我在读到中国近代史时总会思考这个问题。书中作者提出了一种观点，工业革命中欧洲在科学领域认识并承认了自我的无知，愿意为新知去探索发现。而当时亚洲的国家，君王的思想还停留在以自我、吾国为中心的层面，以为自己的疆土就是全部，也就失去了前进的动力。欧洲在进入资本主义社会后，在开拓殖民地的过程中，科学、知识为军事、经济、政治服务的同时又得到其支持，互相促进、互相发展。</p>
-<p>4、知识和历史的相互作用：知识如果不能改变行为，就没有用处。但知识一旦改变了行为，本身就立刻失去了意义。研究历史的目的，是为了开拓视野，发现许多的可能。<br>书中还谈到了历史的真实性。历史就是一种叙事故事，不同的人有不同的视角。在古代，权贵、精英阶层才会著史，因此我们只会读到英雄人物的故事，而找不到关于平凡百姓的生平故事。</p>
-<p>5、从种族主义到文化主义的微妙变化，不同文化之间的隔阂与融入的问题，引人深思。在文化层面，人们常常拒绝承认变化，总认为自己和祖先一脉相承。其实，对于人类群体，与其用延续性定义，不如看发生了什么。</p>
-<p>6、关于战争，作者认为，以前的战争（古代战争以及两次世界大战）往往收获颇丰，可以攻城掠地、抢夺资源。现在的资源是知识，这让战争的产出变少，成本变大，因此发动战争的意愿降低。</p>
-<p>7、对于未来展望，作者认为生物科技和计算机算法将对人类社会产生重要和颠覆性的影响。一方面，人工智能取代人类，将出现“无用阶级”：这一部分人存在，但没有工作，对社会而言，无足轻重。另一方面，生物科技的发展将加强健康人类的功能，或许价钱不菲，精英阶层或资产阶级可以通过搭上这列快车到达超人类（更美丽、更聪明、保持年轻），于是，在生理层面扩大了阶级分化。<br>还有一种危险：数字独裁。算法操控我们的一切。算法了解我们，我们依赖算法。为什么会这样，为什么算法会掌握我们的数据？仔细回想，当我们想要获得免费服务或小礼品时，是不是奉上自己的隐私数据去换取呢？在商家眼中，我们其实不是用户，而是商品。公民个人数据安全问题不容忽视，数据所有权亟待规范，这一点在我以前读过的有关大数据的书中也有谈论，但是似乎还没有好的解决方案提出。<br>作者悲哀地说，人类可能面临升级了身体和大脑，却失去了心智的危险，从升级版的黑猩猩变成了放大版的蚂蚁…</p>
-<p>8、从面对未来挑战出发，作者提出了他的观点：人类应该多认识自己，认识自己的心智。<br>人类其实很少真的自己思考，总是以群体为单位思考。现在很多人对自己的理解常常是从别人的观点出发，活在别人的目光中，活在朋友圈、微博动态里。作者的建议：从现在开始，好好感受自己的体验，赶在大数据和算法操控影响我们之前，好好认识自己。</p>
-<p>读到此，我已经分不清这是一本历史书还是哲学书，作者带我们从宇宙俯视整个人类，回故漫漫历史长河，展望无垠未来，在这之中思考的问题，还是属于哲学问题：我是谁？我和外在世界的联系与关系？我属于哪个群体？（书中提到人类属于社交动物）我的人生意义怎样？等等，当跳出了一般历史学的思维角度，如作者预期的那样，我的视野变得开拓，忽然又发现自己的渺小、人类在宇宙中的渺小，我们应该有一种谦卑的心对待自然、对待环境。以此时的心情，我忽然想到陈子昂的《登幽州台歌》——“前不见古人，后不见来者，念天地之悠悠，独怆然而涕下”。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>非虚构</tag>
-        <tag>历史</tag>
       </tags>
   </entry>
 </search>
