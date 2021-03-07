@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>录屏软件OBS入门笔记</title>
+    <url>/2021/01/20/21001/</url>
+    <content><![CDATA[<p>最近我想学习一下怎么录屏，就上网查找了一下教程，本文为我记录的学习笔记，详细教程请参考文末链接。</p>
+<a id="more"></a>
+<h4 id="工具选择"><a href="#工具选择" class="headerlink" title="工具选择"></a>工具选择</h4><p>我用的是 Windows系统，可以用系统自带的游戏录屏，但是功能单一。也可以用OBS、Bandicam等专业软件。最后我选择 OBS 这款开源免费的软件。</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>OBS，全称Open Broadcaster Software，录像、录屏和直播均可。<br>到<a href="https://obsproject.com/" target="_blank" rel="noopener">OBS官网</a>下载，小诀窍：用<strong>迅雷</strong>下载。</p>
+<h4 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h4><h5 id="1-重要的控件栏"><a href="#1-重要的控件栏" class="headerlink" title="1.重要的控件栏"></a>1.重要的控件栏</h5><p>如图所示为控件栏，在屏幕的右侧，点击【开始录制】按钮就可以录屏了，然后再点同一个按钮停止录制。【开始推流】是用于直播，还需要到直播间获取地址。<br>录完后在页面左上角的菜单栏，依次点击：【文件】&gt;【显示录像】，可以查看录制的视频。<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-24-12-56-41.png" alt="控件栏"></p>
+<blockquote>
+<p>注：我在使用时没有出现录屏黑屏的情况。如果有黑屏，文末链接1和2都有介绍解决方法，可以学习一下。</p>
+</blockquote>
+<p>在录之前还有<strong>一些参数需要设置</strong>，点击【设置】&gt;【输出】，默认输出模式是“简单”，视频码率选 4000（<strong>思考</strong>：网上也有说3000？后续查看），音频比特率320。<br>现在，<strong>输出模式改为选择“高级”</strong>，编码选VBR，4000-6000（思考：是否可以3000-5000？后续查看）。“串流”页（用于直播）里选音轨1输出，“录像”页选音轨2和3输出，同时还可以在此页选择录制视频存储路径。“音频”页设置比特率：轨道1：320；轨道2/3：160（加起来不超过320）。<br>在“设置”页面点击【音频】，采样率选择44.1kHz。在麦克风和桌面音频里分别选择对应使用的设备。<br>在“设置”页面点击【视频】，基础/输出分辨率均为1920x1080，FPS（帧率）为30。</p>
+<blockquote>
+<p>注：以上参数设置均参照B站<a href="https://www.bilibili.com/video/BV1wt4y1Q7rV" target="_blank" rel="noopener">向天笑SkyRoar的OBS教程</a>（文末的链接3），感谢！这个教程很详细，讲解清晰明白，强烈推荐。</p>
+</blockquote>
+<h5 id="2-混音器设置"><a href="#2-混音器设置" class="headerlink" title="2.混音器设置"></a>2.混音器设置</h5><p>上面提到音轨设置，录音时也要据此设置混音器。<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-24-13-27-40.png" alt="混音器选项"><br>如图所示，点击混音器中右侧的齿轮图标，选择【高级音频属性】，进入以下页面：<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-24-13-29-02.png" alt="高级音频属性选项"><br>采用上图的设置之后，轨道 1 混合了麦克风声音和桌面声音，轨道 2 和轨道 3 则只录制一种声音。结合步骤 1 的输出设置，可以达到：直播时声音效果好；同时，又可以对录像的音频分别进行调节（麦克风和桌面声音是独立音轨）。<br><strong>问题</strong>：根据我的尝试，只能听到轨道2的声音，导入万兴喵影也只有一条音轨。请教了讲解教程的up主，如果把视频导入Pr,Vegas等软件里可以看到两条音轨，后续有机会尝试一下。</p>
+<h5 id="3-录制场景设置"><a href="#3-录制场景设置" class="headerlink" title="3.录制场景设置"></a>3.录制场景设置</h5><p>OBS软件页面的左下角为场景设置。<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-20-20-51-31.png" alt="场景和来源选项"><br>如图所示，可以在“场景”里新建（点击“+”），设置多个录视频的场景，这对于直播尤其实用，比如，桌面软件运行、录制游戏、PPT、图片展示（课间/中场休息），等等。提前设置好了场景，我们就可以在直播时快速切换。</p>
+<p>场景右边的“来源”里，可以添加拍摄来源为捕获显示器/摄像头/窗口/游戏等，也可以选择图像、文字等。<br>如图中所示，注意：（1）后添加的排在上面，会覆盖前面的。可以拖动来源排列上下顺序。（2）设置好后别忘了点右边的锁标记，固定住。</p>
+<p>参考教程：<br>1.几种录屏工具简要介绍：<a href="https://www.bilibili.com/video/BV1jt411J7Wt" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1jt411J7Wt</a><br>2.obs下载技巧：<a href="https://www.bilibili.com/video/BV19z4y1f7CF" target="_blank" rel="noopener">https://www.bilibili.com/video/BV19z4y1f7CF</a><br>3.很棒的OBS完整教程，包括直播和录像：<a href="https://www.bilibili.com/video/BV1wt4y1Q7rV" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1wt4y1Q7rV</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>电脑</tag>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重装系统后如何配置hexo</title>
+    <url>/2021/01/20/21002/</url>
+    <content><![CDATA[<p>早段时间重装了系统，考虑到hexo博客需要在新系统安装配置，重装之前在网上查找学习了相关教程，在这里记录一下。</p>
+<a id="more"></a>
+<p><strong>提示：因为重新配置hexo已经过了一段时间，所以每个步骤我记录得不够详细准确，仅供您参考。如需重装系统配置hexo，请一定要先做好备份保存再尝试。</strong></p>
+<h3 id="重要的准备工作"><a href="#重要的准备工作" class="headerlink" title="重要的准备工作"></a>重要的准备工作</h3><p>首先，<strong>最重要的一点：在重装系统之前，备份保存</strong> 硬盘里hexo博客文件夹（就是hexo博客存储的文件夹。） 因为不知道哪些文件需要用，所以我把整个文件夹都保存下来。</p>
+<h3 id="重装系统之后"><a href="#重装系统之后" class="headerlink" title="重装系统之后"></a>重装系统之后</h3><h4 id="1-安装软件-git-和-Node-js"><a href="#1-安装软件-git-和-Node-js" class="headerlink" title="1.安装软件 git 和 Node.js"></a>1.安装软件 git 和 Node.js</h4><p>git下载地址：<a href="https://git-scm.com/" target="_blank" rel="noopener">git官网</a><br>Node.js下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a> </p>
+<p><strong>注</strong>：因为有一段时间了，以下的步骤2，3，5，6 我不记得具体是在哪个文件夹上运行Git Bash 客户端，是当前盘？还是 hexo 博客存储文件夹？下次安装要记录一下。</p>
+<h4 id="2-配置SSH-Key"><a href="#2-配置SSH-Key" class="headerlink" title="2.配置SSH Key"></a>2.配置SSH Key</h4><p>在 Git Bash 客户端，输入：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"这里输入在GitHub的账户名"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"这里输入在GitHub的注册邮箱名"</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"这里输入在 GitHub 的注册邮箱"</span></span><br></pre></td></tr></table></figure>
+
+<p>接着在 Git Bash 客户端，输入命令行：</p>
+<p><code>cat id_ras.pub</code></p>
+<p>这样会显示公钥文件内容，把它复制到剪贴板。</p>
+<p>登录 GitHub 账户，点击右上角个人头像的下拉菜单，依次点击 Settings &gt; SSH and GPG Keys，在 SSH Keys 页面右上角有个<code>New SSH Key</code>按钮，点击该按钮后，粘贴上刚才复制的公钥内容。这样，SSH Key 就配置好了。</p>
+<p><strong>思考</strong>：我当时按照这个配置的，但是忘记看一下重装之前的SSH Key是不是还在，是否有必要重新配置，下次重装时要看一下。</p>
+<h4 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h4><p>在 Git Bash 客户端输入:<br><code>npm install hexo-cli -g</code></p>
+<h4 id="4-删除hexo博客文件夹里的部分文件"><a href="#4-删除hexo博客文件夹里的部分文件" class="headerlink" title="4.删除hexo博客文件夹里的部分文件"></a>4.删除hexo博客文件夹里的部分文件</h4><p><strong>提示：为防止误操作，稳妥起见，执行本操作之前，还是在另外一个盘再存储一份hexo博客文件夹保存为好。</strong></p>
+<p><strong>保留_config.yml, themes/, source/, scaffolds/, package.json, .gitignore 这些文件/文件夹，</strong> 其它可以删除。</p>
+<h4 id="5-安装文件"><a href="#5-安装文件" class="headerlink" title="5.安装文件"></a>5.安装文件</h4><p>在Git Bash 客户端输入<br><code>npm install</code></p>
+<h4 id="6-安装部署"><a href="#6-安装部署" class="headerlink" title="6.安装部署"></a>6.安装部署</h4><p>在Git Bash 客户端输入：<br><code>npm install hexo-deployer-git --save</code></p>
+<h4 id="7-运行"><a href="#7-运行" class="headerlink" title="7.运行"></a>7.运行</h4><p>最后，在博客文件夹上，运行Git Bash 客户端，依次输入以下命令：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code></p>
+<p>然后查看是否配置成功。</p>
+<p>参考文章：<br><a href="https://www.jianshu.com/p/b9a636d45bcd" target="_blank" rel="noopener">重装系统后重新部署恢复 Hexo blog</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>电脑</tag>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python入门：安装 Python 软件，Anaconda</title>
     <url>/2021/02/15/21003/</url>
     <content><![CDATA[<p>“工欲善其事，必先利其器”。在机器学习领域，经常使用的一个工具就是 Python 软件。Python 怎么安装和使用呢？</p>
@@ -44,69 +106,6 @@
       </tags>
   </entry>
   <entry>
-    <title>21004</title>
-    <url>/2021/03/07/21004/</url>
-    <content><![CDATA[<blockquote>
-<p>注：本文中部分内容是 Python for Data Analysis (by Wes Mckinney) 一书的学习笔记。</p>
-</blockquote>
-<p>接着<a href="https://juliecodestack.github.io/2021/02/15/21003/">上一篇文章</a>，我们从 Anaconda 命令行打开 Jupyter Notebook，在浏览器中会看到类似下图的页面，下方还有文件夹或者文件的列表。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-05-11-35-28.png" alt="JupyterNotebook文件夹页面"></p>
-<p>点击图中箭头指示的【New】按钮，新建一个空白文档。</p>
-<a id="more"></a>
-<h4 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h4><p>打开新文档，我们看到如下界面:<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-05-11-45-49.png" alt="JupyterNotebook文档页面"></p>
-<p>图中标识了一些功能。其中，核心部分是编辑单元 (Cell)，Jupyter Notebook 最大的特点就是交互式编程。那么，这是什么样的交互式呢？我们在一个单元里编写一小段代码，按【Ctrl】+【Enter】键就可以运行看到效果，而不是像之前一样要把整个程序写完、调试运行。在 Jupyter Notebook 中 ，每一段单元程序都可以马上看到效果和反馈，这一特点也让很多老师都采用它来编写教材、程序示例。就我自己的学习体会而言，这样更容易练习、同时也让学习更有趣。我们在图中所示的下拉列表中可以选择单元是代码还是标记（Markdown文档），标记（md格式）可以用于写一些代码说明。</p>
-<h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>按【Ctrl】+【Enter】键：运行当前单元，编辑单元不变。<br>按【Shift】+【Enter】键：运行当前单元，编辑单元跳转到下一单元（如果下方没有单元，会新建一个空白单元）。<br>按【Alt】+【Enter】键：运行当前单元，同时在下方插入一个空白单元，编辑单元变为这个新单元。</p>
-<h4 id="运行-Python-文件"><a href="#运行-Python-文件" class="headerlink" title="运行 Python 文件"></a>运行 Python 文件</h4><p>%run file1.py与Anaconda Promt命令行中运行python file1.py效果相同。需要注意的是，file1.py需在Jupyter Notebook或者当前命令行运行的文件夹中，如果不是，要在文件前加上文件路径。</p>
-<h4 id="输入自动完成-【Tab】键"><a href="#输入自动完成-【Tab】键" class="headerlink" title="输入自动完成:【Tab】键"></a>输入自动完成:【Tab】键</h4><p>对初学者来说，“输入就忘”真是令人头疼的一件事。因为刚学习，很多操作不太熟悉，想要输入一段代码，却想不起来关键函数，怎么办？<br>别急，Jupyter Notebook非常贴心地提供了自动完成功能。</p>
-<p>1.名字自动完成：输入头几个字母，按【Tab】键，会搜索之前输入过和系统自带的变量或函数的名字，并提供结果。<br>例如，先定义函数变量l1和l2：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">l1</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">l2</span>=<span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>再输入<code>l</code>，按【Tab】键，会弹出如下图所示的选择框，开始的两个就是刚才定义的变量 l1, l2，接下来的 lambda, len, list 等等是系统自带的函数或者对象名。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-10-31-18.png" alt="变量名的输入自动完成"></p>
-<p>2.当我们定义了一个对象(object)，比如列表型，字典型数据等，可以通过【Tab】键搜索到这个对象的所有函数和属性。<br>例如，定义一个字典型数据d1:<br><code>d1={&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3}</code><br>再输入<code>d1.</code>（注意这里有个<code>.</code>），按【Tab】键，会弹出如下图所示的选择框，这就是可用于字典型数据的所有操作。有时我们不确定某个函数能不能应用于当前数据类型，就可以通过这种方式查询。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-10-56-33.png" alt="object函数的输入自动完成"></p>
-<p>3.系统的工具库，可以用【Tab】键搜索到某个库的所有函数。<br>例如：引用 NumPy 工具包，然后输入<code>np.</code>，按【Tab】键，如下图所示，会弹出一个选择框，里面有大量函数，这里只展示前面几个。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-11-00-35.png" alt="工具包函数的输入自动完成"></p>
-<p>进一步地，在某个函数的变量定义时，输入变量名的头一个或几个字母，按【Tab】键，也会出现相应变量的列表，这在函数定义时很有帮助。比如有的函数定义的变量多，记不住，【Tab】键可以快速找到对应的变量。<br>例如，定义函数：</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">def func1(aaa=<span class="number">1</span>,aab=<span class="number">2</span>,abc=<span class="number">3</span>,ccd=<span class="number">4</span>):</span><br><span class="line">    <span class="keyword">return</span> aaa,aab,abc,ccd</span><br></pre></td></tr></table></figure>
-<p>在括号内按【Tab】键，会有一个下拉列表，如下图所示，其中就有函数的变量aaa,aab,abc, 这里只列举了前几个。ccd也在列表中。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-12-09-59.png" alt="函数定义中变量名的输入自动完成1"><br>如果我们想要快速找到ccd这个变量，可以在括号内输入c，再按【Tab】键，<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-12-11-16.png" alt="函数定义中变量名的输入自动完成2"></p>
-<p>4.文件路径，比如输入路径E:/fileA/，按【Tab】键，在列表框中，除了显示一些Python库的基本函数之外，还会显示文件夹的文件路径。如果在输入时不记得文件具体的路径，可以用这种方法快速找到。结合前面介绍的 %run 命令，可以运行文件路径下的文件。</p>
-<h4 id="magic-语法"><a href="#magic-语法" class="headerlink" title="magic 语法"></a>magic 语法</h4><p>?函数名：显示函数说明<br>??函数名：显示函数说明和函数源代码<br>%run 文件名：（前面介绍过）在Jupyter Notebook中运行Python文件<br>%pwd ：显示当前运行文件夹路径</p>
-<h4 id="参考教程："><a href="#参考教程：" class="headerlink" title="参考教程："></a>参考教程：</h4><p>Python for Data Analysis by Wes Mckinney</p>
-]]></content>
-      <categories>
-        <category>机器学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Anaconda</tag>
-        <tag>Jupyter Notebook</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>录屏软件OBS入门笔记</title>
-    <url>/2021/01/20/21001/</url>
-    <content><![CDATA[<p>最近我想学习一下怎么录屏，就上网查找了一下教程，本文为我记录的学习笔记，详细教程请参考文末链接。</p>
-<a id="more"></a>
-<h4 id="工具选择"><a href="#工具选择" class="headerlink" title="工具选择"></a>工具选择</h4><p>我用的是 Windows系统，可以用系统自带的游戏录屏，但是功能单一。也可以用OBS、Bandicam等专业软件。最后我选择 OBS 这款开源免费的软件。</p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>OBS，全称Open Broadcaster Software，录像、录屏和直播均可。<br>到<a href="https://obsproject.com/" target="_blank" rel="noopener">OBS官网</a>下载，小诀窍：用<strong>迅雷</strong>下载。</p>
-<h4 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h4><h5 id="1-重要的控件栏"><a href="#1-重要的控件栏" class="headerlink" title="1.重要的控件栏"></a>1.重要的控件栏</h5><p>如图所示为控件栏，在屏幕的右侧，点击【开始录制】按钮就可以录屏了，然后再点同一个按钮停止录制。【开始推流】是用于直播，还需要到直播间获取地址。<br>录完后在页面左上角的菜单栏，依次点击：【文件】&gt;【显示录像】，可以查看录制的视频。<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-24-12-56-41.png" alt="控件栏"></p>
-<blockquote>
-<p>注：我在使用时没有出现录屏黑屏的情况。如果有黑屏，文末链接1和2都有介绍解决方法，可以学习一下。</p>
-</blockquote>
-<p>在录之前还有<strong>一些参数需要设置</strong>，点击【设置】&gt;【输出】，默认输出模式是“简单”，视频码率选 4000（<strong>思考</strong>：网上也有说3000？后续查看），音频比特率320。<br>现在，<strong>输出模式改为选择“高级”</strong>，编码选VBR，4000-6000（思考：是否可以3000-5000？后续查看）。“串流”页（用于直播）里选音轨1输出，“录像”页选音轨2和3输出，同时还可以在此页选择录制视频存储路径。“音频”页设置比特率：轨道1：320；轨道2/3：160（加起来不超过320）。<br>在“设置”页面点击【音频】，采样率选择44.1kHz。在麦克风和桌面音频里分别选择对应使用的设备。<br>在“设置”页面点击【视频】，基础/输出分辨率均为1920x1080，FPS（帧率）为30。</p>
-<blockquote>
-<p>注：以上参数设置均参照B站<a href="https://www.bilibili.com/video/BV1wt4y1Q7rV" target="_blank" rel="noopener">向天笑SkyRoar的OBS教程</a>（文末的链接3），感谢！这个教程很详细，讲解清晰明白，强烈推荐。</p>
-</blockquote>
-<h5 id="2-混音器设置"><a href="#2-混音器设置" class="headerlink" title="2.混音器设置"></a>2.混音器设置</h5><p>上面提到音轨设置，录音时也要据此设置混音器。<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-24-13-27-40.png" alt="混音器选项"><br>如图所示，点击混音器中右侧的齿轮图标，选择【高级音频属性】，进入以下页面：<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-24-13-29-02.png" alt="高级音频属性选项"><br>采用上图的设置之后，轨道 1 混合了麦克风声音和桌面声音，轨道 2 和轨道 3 则只录制一种声音。结合步骤 1 的输出设置，可以达到：直播时声音效果好；同时，又可以对录像的音频分别进行调节（麦克风和桌面声音是独立音轨）。<br><strong>问题</strong>：根据我的尝试，只能听到轨道2的声音，导入万兴喵影也只有一条音轨。请教了讲解教程的up主，如果把视频导入Pr,Vegas等软件里可以看到两条音轨，后续有机会尝试一下。</p>
-<h5 id="3-录制场景设置"><a href="#3-录制场景设置" class="headerlink" title="3.录制场景设置"></a>3.录制场景设置</h5><p>OBS软件页面的左下角为场景设置。<br><img src="/2021/01/20/21001/OBS%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B02021-01-20-20-51-31.png" alt="场景和来源选项"><br>如图所示，可以在“场景”里新建（点击“+”），设置多个录视频的场景，这对于直播尤其实用，比如，桌面软件运行、录制游戏、PPT、图片展示（课间/中场休息），等等。提前设置好了场景，我们就可以在直播时快速切换。</p>
-<p>场景右边的“来源”里，可以添加拍摄来源为捕获显示器/摄像头/窗口/游戏等，也可以选择图像、文字等。<br>如图中所示，注意：（1）后添加的排在上面，会覆盖前面的。可以拖动来源排列上下顺序。（2）设置好后别忘了点右边的锁标记，固定住。</p>
-<p>参考教程：<br>1.几种录屏工具简要介绍：<a href="https://www.bilibili.com/video/BV1jt411J7Wt" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1jt411J7Wt</a><br>2.obs下载技巧：<a href="https://www.bilibili.com/video/BV19z4y1f7CF" target="_blank" rel="noopener">https://www.bilibili.com/video/BV19z4y1f7CF</a><br>3.很棒的OBS完整教程，包括直播和录像：<a href="https://www.bilibili.com/video/BV1wt4y1Q7rV" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1wt4y1Q7rV</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
-        <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>David Copperfield 读书笔记</title>
     <url>/2020/10/19/DavidCopperfield%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>早段时间我听了 David Copperfield 的有声书，播讲者 Nicholas Boulton 演绎得特别好，让各个人物角色都呈现鲜明的特点。而且，他把书中抒发感慨的地方读得深情感人，让听众融入到作品的情绪之中。感谢 Nicholas Boulton 的朗读，让我用心体会 Charles Dickens （狄更斯）作品的精彩。读到狄更斯的作品，我忽然有一种相见恨晚的感觉，很喜欢狄更斯描写的细致入微、抒情时善用排比。我摘抄一些片段，与您一起欣赏学习。</p>
@@ -129,40 +128,6 @@
         <tag>英语学习</tag>
         <tag>英文原著</tag>
         <tag>有声书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重装系统后如何配置hexo</title>
-    <url>/2021/01/20/21002/</url>
-    <content><![CDATA[<p>早段时间重装了系统，考虑到hexo博客需要在新系统安装配置，重装之前在网上查找学习了相关教程，在这里记录一下。</p>
-<a id="more"></a>
-<p><strong>提示：因为重新配置hexo已经过了一段时间，所以每个步骤我记录得不够详细准确，仅供您参考。如需重装系统配置hexo，请一定要先做好备份保存再尝试。</strong></p>
-<h3 id="重要的准备工作"><a href="#重要的准备工作" class="headerlink" title="重要的准备工作"></a>重要的准备工作</h3><p>首先，<strong>最重要的一点：在重装系统之前，备份保存</strong> 硬盘里hexo博客文件夹（就是hexo博客存储的文件夹。） 因为不知道哪些文件需要用，所以我把整个文件夹都保存下来。</p>
-<h3 id="重装系统之后"><a href="#重装系统之后" class="headerlink" title="重装系统之后"></a>重装系统之后</h3><h4 id="1-安装软件-git-和-Node-js"><a href="#1-安装软件-git-和-Node-js" class="headerlink" title="1.安装软件 git 和 Node.js"></a>1.安装软件 git 和 Node.js</h4><p>git下载地址：<a href="https://git-scm.com/" target="_blank" rel="noopener">git官网</a><br>Node.js下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a> </p>
-<p><strong>注</strong>：因为有一段时间了，以下的步骤2，3，5，6 我不记得具体是在哪个文件夹上运行Git Bash 客户端，是当前盘？还是 hexo 博客存储文件夹？下次安装要记录一下。</p>
-<h4 id="2-配置SSH-Key"><a href="#2-配置SSH-Key" class="headerlink" title="2.配置SSH Key"></a>2.配置SSH Key</h4><p>在 Git Bash 客户端，输入：</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"这里输入在GitHub的账户名"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"这里输入在GitHub的注册邮箱名"</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"这里输入在 GitHub 的注册邮箱"</span></span><br></pre></td></tr></table></figure>
-
-<p>接着在 Git Bash 客户端，输入命令行：</p>
-<p><code>cat id_ras.pub</code></p>
-<p>这样会显示公钥文件内容，把它复制到剪贴板。</p>
-<p>登录 GitHub 账户，点击右上角个人头像的下拉菜单，依次点击 Settings &gt; SSH and GPG Keys，在 SSH Keys 页面右上角有个<code>New SSH Key</code>按钮，点击该按钮后，粘贴上刚才复制的公钥内容。这样，SSH Key 就配置好了。</p>
-<p><strong>思考</strong>：我当时按照这个配置的，但是忘记看一下重装之前的SSH Key是不是还在，是否有必要重新配置，下次重装时要看一下。</p>
-<h4 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h4><p>在 Git Bash 客户端输入:<br><code>npm install hexo-cli -g</code></p>
-<h4 id="4-删除hexo博客文件夹里的部分文件"><a href="#4-删除hexo博客文件夹里的部分文件" class="headerlink" title="4.删除hexo博客文件夹里的部分文件"></a>4.删除hexo博客文件夹里的部分文件</h4><p><strong>提示：为防止误操作，稳妥起见，执行本操作之前，还是在另外一个盘再存储一份hexo博客文件夹保存为好。</strong></p>
-<p><strong>保留_config.yml, themes/, source/, scaffolds/, package.json, .gitignore 这些文件/文件夹，</strong> 其它可以删除。</p>
-<h4 id="5-安装文件"><a href="#5-安装文件" class="headerlink" title="5.安装文件"></a>5.安装文件</h4><p>在Git Bash 客户端输入<br><code>npm install</code></p>
-<h4 id="6-安装部署"><a href="#6-安装部署" class="headerlink" title="6.安装部署"></a>6.安装部署</h4><p>在Git Bash 客户端输入：<br><code>npm install hexo-deployer-git --save</code></p>
-<h4 id="7-运行"><a href="#7-运行" class="headerlink" title="7.运行"></a>7.运行</h4><p>最后，在博客文件夹上，运行Git Bash 客户端，依次输入以下命令：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code></p>
-<p>然后查看是否配置成功。</p>
-<p>参考文章：<br><a href="https://www.jianshu.com/p/b9a636d45bcd" target="_blank" rel="noopener">重装系统后重新部署恢复 Hexo blog</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
-        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -204,47 +169,6 @@
       <tags>
         <tag>软件</tag>
         <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows系统的屏幕截图，你用过哪些方法？</title>
-    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</url>
-    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
-<a id="more"></a>
-<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
-<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
-<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
-<blockquote>
-<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
-</blockquote>
-<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
-<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口的设置相同。</p>
-<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
-<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
-
-
-
-
-<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
-<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
-
-
-
-<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法可以灵活选择截图区域，我经常使用。</p>
-<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】键，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
-<p>6.打开<a href="https://www.snipaste.com/" target="_blank" rel="noopener">Snipaste官网</a>，下载安装 Snipaste。点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
-<blockquote>
-<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
-</blockquote>
-<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p>
-<p>参考文章：<br>1.<a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br>2.<a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
-        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -345,64 +269,44 @@
       </tags>
   </entry>
   <entry>
-    <title>一本书中的人生滋味</title>
-    <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-<img src="https://img3.doubanio.com/view/subject/l/public/s4608452.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<blockquote>
-<p>本文写于2019年11月。</p>
-</blockquote>
-<p>今天我想给大家推荐一本英文科幻小说 <strong>Flowers for Algernon（《献给阿尔吉侬的花束》）</strong>。</p>
+    <title>Windows系统的屏幕截图，你用过哪些方法？</title>
+    <url>/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/</url>
+    <content><![CDATA[<p>我们在写作电脑教程或笔记类文章时，配上操作运行时的一些屏幕截图，可以让文章更加明白易懂。那么，您一般都是用什么方法截图呢？</p>
 <a id="more"></a>
-<p>最早我是在一个科幻作品的指南资源帖中看到对这部作品的推荐和介绍，楼主介绍这本书时说，读完这本书，他静静地蒙在被子里哭了一场，这让我印象深刻。这是怎样的一部科幻作品呢？带着这样的疑问，我开始了阅读之旅。我先读了一点文字版，发现开篇就有很多错别字（卖个关子，原因稍后介绍），很不适应，感觉自己读到了盗版书，没有看下去。后来无意中在喜马拉雅听到了有声书版本，播讲者把错别字转换为迟缓语速和停顿的形式，我比较能接受。此外，朗读者的声音年轻，有大男孩的感觉，符合主人公 Charlie 的年龄特点。</p>
-<p>作者 Daniel Keyes 学过心理学，善于描写心理。 1959年，Keyes 在《奇幻与科幻杂志》首度发表短篇的 Flowers for Algernon，赢得雨果奖的肯定，1966年将其扩展成长篇后又再次荣获该年度星云奖，一举囊括了科幻小说界最重要的两项大奖。那么，这部小说讲了怎样的一个故事呢？</p>
-<p>书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以 Charlie 日记的形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。书开篇和末尾的日记，正是作者按照 Charlie 智力低时的书写能力，故意用错别字写的。而书名里提到的 Algernon 是试验的小老鼠的名字，它比 Charlie 先做手术，智力得到成倍提高，比手术前的 Charlie 还要聪明。另一方面，Algernon 也充当了预言者的角色，它的一系列变化提前预示了 Charlie 在手术后将经历的智力提升、情绪变化、智力退化、身体衰落。而与 Algernon 不同的是，身处人类社会之中的 Charlie 体会到更多人生滋味，遇到人际关系的困惑，经历大喜大悲、得而复失。</p>
-<p>读这本书，我的心里总是觉得酸楚、五味杂陈。人们常说，不如做一个快乐的傻子。书中也是这样，弱智时的 Charlie 只想让周围的人快乐，善良单纯的他总是微笑友善地对待每一个人。随着他手术后一天天变聪明，他突然意识到原来别人的快乐竟来自于对他的取笑捉弄，他无法接受，感到生气、愤怒。而具有讽刺意味的是，周围的人同样也无法接受他的改变（由于是试验手术，Charlie 不能告诉大家），他们不能容忍自己的智商竟然不如傻子。于是，Charlie 遭到嫉妒和排挤，大家觉得他傲慢无礼。Charlie 被解雇，离开了工作十几年的店。可是，后来有一段时间 Charlie 的智力退化到原来的低水平，他短暂地回到店里工作，有新同事欺负他时，那些老同事又都站出来保护他，这一点让人稍感欣慰。人性真是复杂而捉摸不透。</p>
-<p>书中也探讨了一个人智力飞速增长时伴随而来的心理成长过程。Charlie 的智力水平终于从儿童到达正常成人甚至天才，但他的心理却还在儿童阶段，需要一段时间来成长。这一过程中有的描写很像青少年成长的历程，比如我们成长到某个阶段时，也许会发现原来小时候的偶像，自己心目中很聪明很厉害的人只是一个普通人。书中就有这样一个有趣的例子，Charlie 成为天才后发现以前自己眼中的天才——给他做手术的教授们，并非他原来想象中的知识渊博，他们也只是平凡人，他们也有很多不懂的地方，也为名利所累，这给 Charlie 带来一次小小的心灵冲击。</p>
-<p>而当 Charlie 记忆的阀门打开，儿时的记忆大多带给他伤痛和恐惧，每次他的回忆都让人心疼。Charlie 好强的母亲不想让别人知道儿子的智力不足，她先是想尽办法给 Charlie 治病，在生了一个健康女儿之后，又对 Charlie 开始打骂，最后送走 Charlie。当我读到 Charlie 乖巧、笨拙地只想蜷缩在厨房角落里，害怕母亲的责骂和驱赶，可是，最后这个家也没有他小小身躯的容身之处时，忍不住心酸落泪。童年给 Charlie 留下了心理创伤，以致他对于爱情、女人总是向往又不敢接近。但是，他最终选择了原谅，并且在自己高智商时去见了母亲一面，希望母亲能为此时的他感到骄傲。当他们相认时，Charlie 的智商正是顶峰时期，他是个天才，知识渊博，通晓多国语言，可是，出乎意料地，他开口第一句，回到曾经的傻傻的状态：“Ma…”，听到这一句时，我哽咽了。一个人不管如何变化，在父母面前，大概还是会变回最初的那个小孩，一个想得到“你是个好孩子”肯定的小孩。</p>
-<p>读完这本书，我也想静静地坐一会儿，默默流泪。为了什么流泪呢？是因为同情 Charlie 的境遇，还是因为想到 Charlie 所经历的，其实也是压缩版的人生？成长、迷茫、痛苦、原谅、善良…我们每个人也在经历、思考，然后改变、成长。此外，这本书还告诉我们，每一个生命，弱小或是强大，愚笨或是聪明，都值得也需要被尊重和爱。</p>
+<p>我看到网上的工具教程文章，学习使用了 <strong>Windows系统的几种屏幕截图方法</strong>，在这里总结一下，与大家分享。如果您有其它方法，欢迎多多交流指教。</p>
+<p>1.按【PrtSc】键，会自动<strong>全屏截图</strong>，图像保存在剪贴板。</p>
+<p>2.按【Windows】+【PrtSc】键，会自动<strong>全屏截图</strong>，图像同时保存在剪贴板和屏幕截图文件夹中（该文件夹路径：C盘 &gt; 用户 &gt; 电脑的用户名 &gt; 图片 &gt; 屏幕截图）。</p>
+<blockquote>
+<p>注：【Windows】键在左侧键盘、紧邻【Alt】键的左边，键盘上有一个像窗口的图标。</p>
+</blockquote>
+<p>3.按【Alt】+【PrtSc】键，会自动对<strong>当前窗口截图</strong>，图像保存在剪贴板。</p>
+<p>看到这里，你可能有点困惑：<strong>全屏截图和窗口截图有什么区别呢？</strong><br>可以对比下面两张截图的屏幕范围，两次截图时屏幕和窗口的设置相同。</p>
+<p>按【PrtSc】键（或者按【Windows】+【PrtSc】键），全屏截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-18.png" alt="全屏截图效果" align="center"> 
+
+
+
+
+<p>按【Alt】+【PrtSc】键，当前窗口截图效果：</p>
+<img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-46-41.png" alt="当前窗口截图效果" align="center"> 
+
+
+
+<p>4.按【Windows】+【Shift】+【S】键，屏幕会出现图标，可以矩形、任意形状截图，窗口截图或者全屏截图，图像保存在剪贴板。这个方法可以灵活选择截图区域，我经常使用。</p>
+<p>5.打开电脑端微信，然后用微信截图功能，按【Alt】+【A】键，可以任意形状截图，还可以对图片简单标注，标注完成后，点击最右边的勾选图标，内容复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-53-04.png" alt="微信截图示例" align="center"></p>
+<p>6.打开<a href="https://www.snipaste.com/" target="_blank" rel="noopener">Snipaste官网</a>，下载安装 Snipaste。点击 Snipaste 图标后，屏幕上会出现选择框，可以选择任意区域，此时下面会出现一组标注选项，标注完成后，点击最右边的复制图标，即可复制到剪贴板。<br><img src="/2020/07/24/Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE/Windows截屏方法总结2020-05-06-21-21-25.png" alt="Snipaste截图示例" align="center"></p>
+<blockquote>
+<p>注：5.6.这两种方式，可以对图片进行标注、标记等处理，功能更为强大，非常实用。</p>
+</blockquote>
+<p><strong>好了，屏幕截图复制到剪贴板之后，如何插入到 文档，比如 Markdown 文档中呢？</strong><br>在 Markdown 编辑器 Typora 或 VSCode 中（首先需要简单设置或安装扩展），按下【Ctrl】+【V】键或【Ctrl】+【Alt】+【V】键，软件即可自动完成插入图片的后续工作。了解更多详细操作，您可以阅读我的文章：<a href="https://juliecodestack.github.io/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/#more">一篇文章带你入门Markdown</a>。</p>
+<p>参考文章：<br>1.<a href="https://zhuanlan.zhihu.com/p/130940509" target="_blank" rel="noopener">windows 10 如何截图</a><br>2.<a href="https://mp.weixin.qq.com/s/YGyHTc2uZ4igDggBsAjIIw" target="_blank" rel="noopener">截屏，真的不是微信和QQ才有的</a></p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>科幻</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不一样的马斯克</title>
-    <url>/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>本文写于2019年6月。</p>
-</blockquote>
-<p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p>
-<a id="more"></a>
-
-<img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p>
-<p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p>
-<p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p>
-<p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
-        <tag>人物传记</tag>
-        <tag>科技</tag>
+        <tag>电脑</tag>
+        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -549,31 +453,6 @@
       </tags>
   </entry>
   <entry>
-    <title>以微笑面对人生</title>
-    <url>/2020/12/03/%E4%BB%A5%E5%BE%AE%E7%AC%91%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-<blockquote>
-<p>注：本文写于2016年。</p>
-</blockquote>
-<p>这本《站在两个世界的边缘》可以说是一本不是励志书、但胜似励志书的文集。我每一次阅读都能从中汲取到正能量，在精神上得到激励。书的作者程浩是一名90后的少年，从他对自己的戏称“职业病人”、“深度宅男”，可以看出他经历的病痛与苦难，然而，如果你以为这本书就是他与疾病的斗争史，那就错了。程浩说，他反感别人给他贴上“自强不息”、“励志”的标签，因为“活着，是每个人的希望；活得好，是每个人的欲望。这是每个活着的人(无论健康与否)都应该做到的。”他写的都是他生活的新疆小城的故事、他成长的故事、以及他对于人生和世界的思考、对爱情的憧憬。</p>
-<a id="more"></a>
-
-<img src="https://img3.doubanio.com/view/subject/l/public/s27066060.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>程浩从小生病，而且收到过厚厚一沓的病危通知单，因此，他比同龄人更早开始思考人生的意义、对于生命的看法也更加成熟。以前他常常困惑，如果他的人生注定短暂，那他来世界上走一遭有什么意义呢？最终，他想明白了，“人生的问题无非是要想明白这三个问题：我想要什么？我还有什么？我能放弃什么?”他提的这三个问题很纯粹，在回答中你会发现自己应该珍惜的现在和想要追求的梦想、以及可以为梦想付出的努力。最终，他选择了通过阅读和写作来充实自己的人生，有一段时间，他每天阅读量达到十万至二十万字之多，从书中他汲取到了营养与精神，然后写下一篇篇文章。他的文字睿智风趣、旁征博引、富含思辨、积极乐观，从文字中我看到的是一个朝气蓬勃、意气风发的翩翩少年。</p>
-<p>书读完之后，程浩的那些文字依然在我的脑海浮现。“生命的本身就是坚强的，就是不会轻易服输的；它或许要经历狂风骤雨，还需要承受贫困交加；但生命的本质，更像时间；它无法阻挡，无法重复，任何困难都无法成为它的桎梏；你一觉醒来，它依然继续。”是的，不管我们遇到多大的困难和挫折，只要咬牙挺过来了，明天，又是全新的一天。生活，依然继续前行。他在知乎上回答了很多问题，产生了很多金句，其中就包括“真正牛逼的，不是那些可以随口拿来夸耀的事迹，而是那些在困境中依然保持微笑的凡人。”如果你结合文章中他自述与疾病顽强斗争的成长史来看，会对这句话有很深的体会。除此之外，还有很多，比如有人提问说自己学什么都三天打鱼两天晒网坚持不下去怎么办，他说：“送你一句话：‘今天不想跑，所以才去跑，这才是长距离跑者的思维方式’——村上春树。其实村上这个道理可以用在任何地方。‘今天不想背单词，所以才去背单词，这才是考六级学生的思维方式。’今天不想写代码，所以才去写代码，这才是优秀程序员的思维方式。’ 今天不想吃药，所以才去吃药，这才是职业病人的思维方式。’”通过打比方，他道出了一个道理：很多时候我们要去做一件事是因为我们应该去做，而不是根据自己的心情。</p>
-<p>这本书也让我对于人生有了新的思考。人生苦短，但我们也应该过好每一天，让自己的生命有意义，并尽可能地照亮他人。当我遇到了困难、病痛、失意与挫折，想想程浩的坚强和乐观，就好像得到了一份力量，鼓励我继续前进！</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>非虚构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一篇文章带你入门Markdown</title>
     <url>/2020/07/24/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E5%85%A5%E9%97%A8Markdown/</url>
     <content><![CDATA[<h3 id="1-为什么选择-Markdown？"><a href="#1-为什么选择-Markdown？" class="headerlink" title="1. 为什么选择 Markdown？"></a>1. 为什么选择 Markdown？</h3><p>正在看这篇文章的您很可能还没有使用过 Markdown 编辑器，平时写文档、排版编辑以 Word 为主吧，那么，您是否遇到过以下问题：</p>
@@ -690,6 +569,92 @@
       </tags>
   </entry>
   <entry>
+    <title>不一样的马斯克</title>
+    <url>/2020/04/22/%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E9%A9%AC%E6%96%AF%E5%85%8B/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>本文写于2019年6月。</p>
+</blockquote>
+<p>读 <strong><em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</em></strong> 这本传记之前，我听到的都是关于马斯克的传说，特斯拉、猎鹰系列火箭… 能够同时涉足如此多的领域、管理几家公司，我想马斯克应该是个天才型人物，以过人的头脑和见识取得了成功。</p>
+<a id="more"></a>
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s28351575.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>这本书改变了我的想法。读的过程中，我的脑子里时常冒出那段著名的“天将降大任于斯人也，必先苦其心志、劳其筋骨、…”。没有谁的成功是轻而易举的。世人看到的都是表面的风光，少有人看到他爬到山顶的途中遇到的坎坷、留下的汗水和泪水。然而，这也正是马斯克最打动我的，他的字典里没有“不”、“不可能”这样的字眼，他会分析如何去实现、有什么困难或问题，然后一一解决。他的所作所为或许有些疯狂，但这也是他超越现在之处，因为他着眼于未来。Google 创始人 Larry Page 说，“ Good ideas are always crazy until they’re not.” X.com（后来合并了，成为了现在的Paypal）的出现改变了人们的支付方式和习惯； Tesla（特斯拉）之后，新能源电动车如雨后春笋般出现，改变了人们对于汽车的认识和选择；或许SpaceX（太空探索技术公司）的火箭也会在若干年后改变我们的生活，火星、外太空将不再那么遥远…</p>
+<p>书中让我印象深刻的另一点，就是马斯克巧妙地将硅谷精简高效的工作方式引入到传统工业中（航天、汽车），产生了新的变革。比如设计研发人员的办公地点就“点缀”在工厂车间之中，让修改、测试十分快捷。从一个行业跨越到一个新的行业，专业知识不太精通可能是一个短板，但是同时也避免了固守陈规，比如马斯克就用了很多新的理念来设计和生产，这都是传统行业的从业者不想做或是不敢做的，但是马斯克的大胆创新和尝试取得了成效，也让他的跨领域成为优势。举个例子，坐车时我们可能会遇到一些不合适的地方，比如后排空间狭小等。很多人会说，以前就是这样设计，一直这样，没办法…马斯克不这么看，为什么不能改变？他和设计人员一起讨论想办法，特斯拉的 SUV 就采用了鹰翼式设计，方便家长安放儿童座椅。我到网上看了图片，确实很人性化。这也给我们启示，如何更好地进行跨领域、跨学科融合？</p>
+<p>让我格外高兴的一点就是马斯克也很喜欢读书，小时候就是个小书迷，到后面连百科全书都拿来啃。成立 Space X 他也读了很多专业书籍，但他还找到了一个快速学习的方法：向员工提专业问题。他招的都是高材生，他们一开始以为老板要检验一下自己的真才实学，于是滔滔不绝地详细讲解一通，后来发现，原来马斯克正在快速吸收知识呢! 终身学习、不断探知新的领域，这也是我们应该努力做到的。</p>
+<p>这本书让我认识了一个不一样的马斯克，也带给我很多关于创新、热情、乐观的思考，值得一读。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+        <tag>人物传记</tag>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>以微笑面对人生</title>
+    <url>/2020/12/03/%E4%BB%A5%E5%BE%AE%E7%AC%91%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+<blockquote>
+<p>注：本文写于2016年。</p>
+</blockquote>
+<p>这本《站在两个世界的边缘》可以说是一本不是励志书、但胜似励志书的文集。我每一次阅读都能从中汲取到正能量，在精神上得到激励。书的作者程浩是一名90后的少年，从他对自己的戏称“职业病人”、“深度宅男”，可以看出他经历的病痛与苦难，然而，如果你以为这本书就是他与疾病的斗争史，那就错了。程浩说，他反感别人给他贴上“自强不息”、“励志”的标签，因为“活着，是每个人的希望；活得好，是每个人的欲望。这是每个活着的人(无论健康与否)都应该做到的。”他写的都是他生活的新疆小城的故事、他成长的故事、以及他对于人生和世界的思考、对爱情的憧憬。</p>
+<a id="more"></a>
+
+<img src="https://img3.doubanio.com/view/subject/l/public/s27066060.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>程浩从小生病，而且收到过厚厚一沓的病危通知单，因此，他比同龄人更早开始思考人生的意义、对于生命的看法也更加成熟。以前他常常困惑，如果他的人生注定短暂，那他来世界上走一遭有什么意义呢？最终，他想明白了，“人生的问题无非是要想明白这三个问题：我想要什么？我还有什么？我能放弃什么?”他提的这三个问题很纯粹，在回答中你会发现自己应该珍惜的现在和想要追求的梦想、以及可以为梦想付出的努力。最终，他选择了通过阅读和写作来充实自己的人生，有一段时间，他每天阅读量达到十万至二十万字之多，从书中他汲取到了营养与精神，然后写下一篇篇文章。他的文字睿智风趣、旁征博引、富含思辨、积极乐观，从文字中我看到的是一个朝气蓬勃、意气风发的翩翩少年。</p>
+<p>书读完之后，程浩的那些文字依然在我的脑海浮现。“生命的本身就是坚强的，就是不会轻易服输的；它或许要经历狂风骤雨，还需要承受贫困交加；但生命的本质，更像时间；它无法阻挡，无法重复，任何困难都无法成为它的桎梏；你一觉醒来，它依然继续。”是的，不管我们遇到多大的困难和挫折，只要咬牙挺过来了，明天，又是全新的一天。生活，依然继续前行。他在知乎上回答了很多问题，产生了很多金句，其中就包括“真正牛逼的，不是那些可以随口拿来夸耀的事迹，而是那些在困境中依然保持微笑的凡人。”如果你结合文章中他自述与疾病顽强斗争的成长史来看，会对这句话有很深的体会。除此之外，还有很多，比如有人提问说自己学什么都三天打鱼两天晒网坚持不下去怎么办，他说：“送你一句话：‘今天不想跑，所以才去跑，这才是长距离跑者的思维方式’——村上春树。其实村上这个道理可以用在任何地方。‘今天不想背单词，所以才去背单词，这才是考六级学生的思维方式。’今天不想写代码，所以才去写代码，这才是优秀程序员的思维方式。’ 今天不想吃药，所以才去吃药，这才是职业病人的思维方式。’”通过打比方，他道出了一个道理：很多时候我们要去做一件事是因为我们应该去做，而不是根据自己的心情。</p>
+<p>这本书也让我对于人生有了新的思考。人生苦短，但我们也应该过好每一天，让自己的生命有意义，并尽可能地照亮他人。当我遇到了困难、病痛、失意与挫折，想想程浩的坚强和乐观，就好像得到了一份力量，鼓励我继续前进！</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>非虚构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一本书中的人生滋味</title>
+    <url>/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+<img src="https://img3.doubanio.com/view/subject/l/public/s4608452.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<blockquote>
+<p>本文写于2019年11月。</p>
+</blockquote>
+<p>今天我想给大家推荐一本英文科幻小说 <strong>Flowers for Algernon（《献给阿尔吉侬的花束》）</strong>。</p>
+<a id="more"></a>
+<p>最早我是在一个科幻作品的指南资源帖中看到对这部作品的推荐和介绍，楼主介绍这本书时说，读完这本书，他静静地蒙在被子里哭了一场，这让我印象深刻。这是怎样的一部科幻作品呢？带着这样的疑问，我开始了阅读之旅。我先读了一点文字版，发现开篇就有很多错别字（卖个关子，原因稍后介绍），很不适应，感觉自己读到了盗版书，没有看下去。后来无意中在喜马拉雅听到了有声书版本，播讲者把错别字转换为迟缓语速和停顿的形式，我比较能接受。此外，朗读者的声音年轻，有大男孩的感觉，符合主人公 Charlie 的年龄特点。</p>
+<p>作者 Daniel Keyes 学过心理学，善于描写心理。 1959年，Keyes 在《奇幻与科幻杂志》首度发表短篇的 Flowers for Algernon，赢得雨果奖的肯定，1966年将其扩展成长篇后又再次荣获该年度星云奖，一举囊括了科幻小说界最重要的两项大奖。那么，这部小说讲了怎样的一个故事呢？</p>
+<p>书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以 Charlie 日记的形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。书开篇和末尾的日记，正是作者按照 Charlie 智力低时的书写能力，故意用错别字写的。而书名里提到的 Algernon 是试验的小老鼠的名字，它比 Charlie 先做手术，智力得到成倍提高，比手术前的 Charlie 还要聪明。另一方面，Algernon 也充当了预言者的角色，它的一系列变化提前预示了 Charlie 在手术后将经历的智力提升、情绪变化、智力退化、身体衰落。而与 Algernon 不同的是，身处人类社会之中的 Charlie 体会到更多人生滋味，遇到人际关系的困惑，经历大喜大悲、得而复失。</p>
+<p>读这本书，我的心里总是觉得酸楚、五味杂陈。人们常说，不如做一个快乐的傻子。书中也是这样，弱智时的 Charlie 只想让周围的人快乐，善良单纯的他总是微笑友善地对待每一个人。随着他手术后一天天变聪明，他突然意识到原来别人的快乐竟来自于对他的取笑捉弄，他无法接受，感到生气、愤怒。而具有讽刺意味的是，周围的人同样也无法接受他的改变（由于是试验手术，Charlie 不能告诉大家），他们不能容忍自己的智商竟然不如傻子。于是，Charlie 遭到嫉妒和排挤，大家觉得他傲慢无礼。Charlie 被解雇，离开了工作十几年的店。可是，后来有一段时间 Charlie 的智力退化到原来的低水平，他短暂地回到店里工作，有新同事欺负他时，那些老同事又都站出来保护他，这一点让人稍感欣慰。人性真是复杂而捉摸不透。</p>
+<p>书中也探讨了一个人智力飞速增长时伴随而来的心理成长过程。Charlie 的智力水平终于从儿童到达正常成人甚至天才，但他的心理却还在儿童阶段，需要一段时间来成长。这一过程中有的描写很像青少年成长的历程，比如我们成长到某个阶段时，也许会发现原来小时候的偶像，自己心目中很聪明很厉害的人只是一个普通人。书中就有这样一个有趣的例子，Charlie 成为天才后发现以前自己眼中的天才——给他做手术的教授们，并非他原来想象中的知识渊博，他们也只是平凡人，他们也有很多不懂的地方，也为名利所累，这给 Charlie 带来一次小小的心灵冲击。</p>
+<p>而当 Charlie 记忆的阀门打开，儿时的记忆大多带给他伤痛和恐惧，每次他的回忆都让人心疼。Charlie 好强的母亲不想让别人知道儿子的智力不足，她先是想尽办法给 Charlie 治病，在生了一个健康女儿之后，又对 Charlie 开始打骂，最后送走 Charlie。当我读到 Charlie 乖巧、笨拙地只想蜷缩在厨房角落里，害怕母亲的责骂和驱赶，可是，最后这个家也没有他小小身躯的容身之处时，忍不住心酸落泪。童年给 Charlie 留下了心理创伤，以致他对于爱情、女人总是向往又不敢接近。但是，他最终选择了原谅，并且在自己高智商时去见了母亲一面，希望母亲能为此时的他感到骄傲。当他们相认时，Charlie 的智商正是顶峰时期，他是个天才，知识渊博，通晓多国语言，可是，出乎意料地，他开口第一句，回到曾经的傻傻的状态：“Ma…”，听到这一句时，我哽咽了。一个人不管如何变化，在父母面前，大概还是会变回最初的那个小孩，一个想得到“你是个好孩子”肯定的小孩。</p>
+<p>读完这本书，我也想静静地坐一会儿，默默流泪。为了什么流泪呢？是因为同情 Charlie 的境遇，还是因为想到 Charlie 所经历的，其实也是压缩版的人生？成长、迷茫、痛苦、原谅、善良…我们每个人也在经历、思考，然后改变、成长。此外，这本书还告诉我们，每一个生命，弱小或是强大，愚笨或是聪明，都值得也需要被尊重和爱。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
+        <tag>小说</tag>
+        <tag>科幻</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>信息论之父香农</title>
     <url>/2020/04/22/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B9%8B%E7%88%B6%E9%A6%99%E5%86%9C/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -752,6 +717,104 @@
       </tags>
   </entry>
   <entry>
+    <title>双显示器扩展显示时怎么移动鼠标到另一块屏？</title>
+    <url>/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/</url>
+    <content><![CDATA[<p>最近为小笔记本加了一个大点的显示器，虽然设置为大屏显示，但有时开机会出现设置为扩展显示器的情况，不知怎的，鼠标点半天，光标都移动不到另一块屏幕中，上网查找了一下答案，把解决方法记录一下。</p>
+<a id="more"></a>
+<p>我的电脑是 Windows10 系统，依次点击：开始菜单&gt;设置&gt;系统&gt;显示，进入“显示”设置中，看到如下图所示界面：</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-07-25.png" alt="显示器排列-左右" align="center"> 
+
+<p><strong>原来默认两个显示器是按左右排列的，因此鼠标光标只有左右移动，才能在两块屏幕间切换。</strong></p>
+<p>我的两个屏幕是上下摆放的，之前我想当然地上下移动鼠标，难怪怎么也切换不到屏幕。由此，我又想到，那可不可以改变显示器排列，使之符合我的使用习惯呢？我拖动了一下两个显示器排列，改为2屏（外接大屏显示器）在上，1屏（笔记本电脑的小屏）在下，如下图所示：</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-11-50.png" alt="显示器排列-上下" align="center">
+
+<p>然后点击<code>应用</code>按钮，再重新上下移动鼠标光标，成了，这下可以切换到另一块屏幕了！</p>
+<p>另外，这里蓝色标识的1屏是主显示器，在哪里设置主显示器呢？</p>
+<p>在下方我们看到有“多显示器设置”选项，当前1屏是主显示器，如果我们点击2，同时勾选多显示器设置下方的“设为主显示器”选项，就可以将2屏设置为主显示器，用蓝色标识。</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-11.png" alt="主显示器设置选项" align="center">
+
+<p>此外，当前是“扩展这些显示器（两个屏幕分别显示不同内容）”选项，点击下拉菜单还有“复制这些显示器”（两个屏幕显示内容相同）或 “仅在1（或2）上显示”的选项。</p>
+<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-33.png" alt="多显示器设置下拉菜单" align="center">
+
+<p>参考文章：<br>1.<a href="https://www.zhihu.com/question/50002939/answer/372662198" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/372662198</a></p>
+<p>2.<a href="https://www.zhihu.com/question/50002939/answer/348352441" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/348352441</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>电脑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jupyter Notebook使用</title>
+    <url>/2021/03/07/21004/</url>
+    <content><![CDATA[<blockquote>
+<p>注：本文中部分内容是 Python for Data Analysis (by Wes Mckinney) 一书的学习笔记。</p>
+</blockquote>
+<p>接着<a href="https://juliecodestack.github.io/2021/02/15/21003/">上一篇文章</a>，我们从 Anaconda 命令行打开 Jupyter Notebook，在浏览器中会看到类似下图的页面，下方还有文件夹或者文件的列表。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-05-11-35-28.png" alt="JupyterNotebook文件夹页面"></p>
+<p>点击图中箭头指示的【New】按钮，新建一个空白文档。</p>
+<a id="more"></a>
+<h4 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h4><p>打开新文档，我们看到如下界面:<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-05-11-45-49.png" alt="JupyterNotebook文档页面"></p>
+<p>图中标识了一些功能。其中，核心部分是编辑单元 (Cell)，Jupyter Notebook 最大的特点就是交互式编程。那么，这是什么样的交互式呢？我们在一个单元里编写一小段代码，按【Ctrl】+【Enter】键就可以运行看到效果，而不是像之前一样要把整个程序写完、调试运行。在 Jupyter Notebook 中 ，每一段单元程序都可以马上看到效果和反馈，这一特点也让很多老师都采用它来编写教材、程序示例。就我自己的学习体会而言，这样更容易练习、同时也让学习更有趣。我们在图中所示的下拉列表中可以选择单元是代码还是标记（Markdown文档），标记（md格式）可以用于写一些代码说明。</p>
+<h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>按【Ctrl】+【Enter】键：运行当前单元，编辑单元不变。<br>按【Shift】+【Enter】键：运行当前单元，编辑单元跳转到下一单元（如果下方没有单元，会新建一个空白单元）。<br>按【Alt】+【Enter】键：运行当前单元，同时在下方插入一个空白单元，编辑单元变为这个新单元。</p>
+<h4 id="运行-Python-文件"><a href="#运行-Python-文件" class="headerlink" title="运行 Python 文件"></a>运行 Python 文件</h4><p>%run file1.py与Anaconda Promt命令行中运行python file1.py效果相同。需要注意的是，file1.py需在Jupyter Notebook或者当前命令行运行的文件夹中，如果不是，要在文件前加上文件路径。</p>
+<h4 id="输入自动完成-【Tab】键"><a href="#输入自动完成-【Tab】键" class="headerlink" title="输入自动完成:【Tab】键"></a>输入自动完成:【Tab】键</h4><p>对初学者来说，“输入就忘”真是令人头疼的一件事。因为刚学习，很多操作不太熟悉，想要输入一段代码，却想不起来关键函数，怎么办？<br>别急，Jupyter Notebook非常贴心地提供了自动完成功能。</p>
+<p>1.名字自动完成：输入头几个字母，按【Tab】键，会搜索之前输入过和系统自带的变量或函数的名字，并提供结果。<br>例如，先定义函数变量l1和l2：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">l1</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">l2</span>=<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>再输入<code>l</code>，按【Tab】键，会弹出如下图所示的选择框，开始的两个就是刚才定义的变量 l1, l2，接下来的 lambda, len, list 等等是系统自带的函数或者对象名。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-10-31-18.png" alt="变量名的输入自动完成"></p>
+<p>2.当我们定义了一个对象(object)，比如列表型，字典型数据等，可以通过【Tab】键搜索到这个对象的所有函数和属性。<br>例如，定义一个字典型数据d1:<br><code>d1={&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3}</code><br>再输入<code>d1.</code>（注意这里有个<code>.</code>），按【Tab】键，会弹出如下图所示的选择框，这就是可用于字典型数据的所有操作。有时我们不确定某个函数能不能应用于当前数据类型，就可以通过这种方式查询。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-10-56-33.png" alt="object函数的输入自动完成"></p>
+<p>3.系统的工具库，可以用【Tab】键搜索到某个库的所有函数。<br>例如：引用 NumPy 工具包，然后输入<code>np.</code>，按【Tab】键，如下图所示，会弹出一个选择框，里面有大量函数，这里只展示前面几个。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-11-00-35.png" alt="工具包函数的输入自动完成"></p>
+<p>进一步地，在某个函数的变量定义时，输入变量名的头一个或几个字母，按【Tab】键，也会出现相应变量的列表，这在函数定义时很有帮助。比如有的函数定义的变量多，记不住，【Tab】键可以快速找到对应的变量。<br>例如，定义函数：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">def func1(aaa=<span class="number">1</span>,aab=<span class="number">2</span>,abc=<span class="number">3</span>,ccd=<span class="number">4</span>):</span><br><span class="line">    <span class="keyword">return</span> aaa,aab,abc,ccd</span><br></pre></td></tr></table></figure>
+<p>在括号内按【Tab】键，会有一个下拉列表，如下图所示，其中就有函数的变量aaa,aab,abc, 这里只列举了前几个。ccd也在列表中。<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-12-09-59.png" alt="函数定义中变量名的输入自动完成1"><br>如果我们想要快速找到ccd这个变量，可以在括号内输入c，再按【Tab】键，<br><img src="/2021/03/07/21004/jupyternotebook%E4%BD%BF%E7%94%A82021-02-24-12-11-16.png" alt="函数定义中变量名的输入自动完成2"></p>
+<p>4.文件路径，比如输入路径E:/fileA/，按【Tab】键，在列表框中，除了显示一些Python库的基本函数之外，还会显示文件夹的文件路径。如果在输入时不记得文件具体的路径，可以用这种方法快速找到。结合前面介绍的 %run 命令，可以运行文件路径下的文件。</p>
+<h4 id="magic-语法"><a href="#magic-语法" class="headerlink" title="magic 语法"></a>magic 语法</h4><p>?函数名：显示函数说明<br>??函数名：显示函数说明和函数源代码<br>%run 文件名：（前面介绍过）在Jupyter Notebook中运行Python文件<br>%pwd ：显示当前运行文件夹路径</p>
+<h4 id="参考教程："><a href="#参考教程：" class="headerlink" title="参考教程："></a>参考教程：</h4><p>Python for Data Analysis by Wes Mckinney</p>
+]]></content>
+      <categories>
+        <category>机器学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Anaconda</tag>
+        <tag>Jupyter Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何有效学习？</title>
+    <url>/2020/11/29/%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+
+<img src="https://img1.doubanio.com/view/subject/l/public/s29897337.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>这是一本教我们如何有效学习的书。读这本书时，我常常回想自己学习中使用的方法，哪些效果好？哪些效果差？我惊奇地发现，自己学得好时，都或多或少用到了书中提到的方法，比如：穿插学习、自我检测、反思、将知识用自己的方式讲解和举例、等等，而书中还有更多方法值得我学习。这本书并不是简单枯燥地讲解方法，而在同时介绍了很多例子，让我们更容易理解和应用。在当今飞速发展的社会中，我们都需要做一个终身学习者，不断提升自我。因此，我推荐您读一遍这本书，或许会让您在提高效率的同时学得更好，达到事半功倍的效果。</p>
+<a id="more"></a>
+<h4 id="自以为很努力，其实在做无用功？"><a href="#自以为很努力，其实在做无用功？" class="headerlink" title="自以为很努力，其实在做无用功？"></a>自以为很努力，其实在做无用功？</h4><p>书中提到，很多人喜欢在读书时划线、标注，多读几遍，认为这样就学到了知识。其实，这是一种被动吸收，并没有什么效果，只是因为读起来更流畅，会给自己造成一种对知识熟悉的假象。看到这里，我回想起以前自己书里的那些标记…… 此外，我标注的有些地方是虽然觉得很好、但也不想深入思考,于是就记录下来以后再看，其实也就是偷懒的办法。</p>
+<p><strong>原来，这样的学习只是在感动自己、自以为很努力呀？！那么，怎样才能真正学好知识呢？</strong></p>
+<h4 id="有间隔的检索和巩固、反思"><a href="#有间隔的检索和巩固、反思" class="headerlink" title="有间隔的检索和巩固、反思"></a>有间隔的检索和巩固、反思</h4><p>真正对学习效果有帮助的方法，是隔一段时间后，以测验的方式进行检索回忆。</p>
+<p>测验？！读书时经历了大大小小的考试，现在听到考试就头晕啊……</p>
+<p>其实，测验并不需要以考试的形式进行，也可以是学完一节课、一章之后，结合课后的习题，给自己提问。此时，不要去查阅书或笔记，仅凭脑子里的印象来回忆这个知识点。你很快会发现，看书或听课时很认真，觉得听明白了，可是有时看到问题却怎么都想不起来了。我们就先努力回想，再来查阅书和笔记。换一种思路，测验也是检测知识掌握情况的工具，它让我们更加清楚哪里没有弄懂、哪里没掌握，接下来的复习巩固也更加有针对性。</p>
+<p>同时，我们还可以根据自己的学习情况，及时地反思总结，不断改进。比如，碰到这种情况，自己当时是怎么做的，做得好不好，需要怎样改进。下次遇到类似的情况，我们就能从容应对，学习、工作中都是如此。其实，很多同学（包括我自己）都总结过错题集，这也是一种形式的反思，遇到错题、分析自己出错的原因，解题方法不对？知识点没掌握？加以改进提高，甚至举一反三，下次遇到类似的题目就能答得更快更好。</p>
+<h4 id="生成式学习，带着问题思考"><a href="#生成式学习，带着问题思考" class="headerlink" title="生成式学习，带着问题思考"></a>生成式学习，带着问题思考</h4><p>这个理念与《如何阅读一本书》相似（欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/">读书的要领</a>），即：我们要做一个主动的学习者。比如读一本书，这本书讲一个什么问题？在没看书之前，我们先想一想，自己会如何分析和解决这一问题，然后再来看作者介绍的方法。因为引入了自己的思考，即使方法不同，也会对这一问题产生深刻印象。</p>
+<p>对于实际应用的技能，我们更应该在解决实际问题中学习提高。这方面我也有类似的体会。在英语学习中，记单词、短语，再怎么复习背诵，过一段时间也容易忘。但是，如果在交流、表达中遇到、使用过，尤其自己一开始绞尽脑汁没想到这个表达，查找到再记忆，就不容易忘了。学习编程和软件操作也是如此，开始时很认真地看教程视频和教材，好像语法、算法都知道一些，但应用起来还是不太熟悉，只会一些基本的操作。可是，如果有明确的目标，比如，要实现一个什么样的软件功能，自己试着去完成，遇到错误再调试、不懂的函数定义上网查找，这样，无形中倒逼自己去补充不懂的知识点，学起来效果确实更好一些。</p>
+<h4 id="细化"><a href="#细化" class="headerlink" title="细化"></a>细化</h4><p>细化就是用自己的方式把知识点表达出来，可以举个实际应用的例子，也可以结合已学的知识点，等等。这也是掌握和巩固知识的一个好方法。以我自己的学习举例，比如在学习机器学习的基本概念时，讲到机器学习包括有监督学习和无监督学习，二者的区别就在于训练时有没有给出目标变量，这样有点抽象。而换个方式，我觉得这就像两组学生要考试，先给他们模拟题复习备考（训练），一组给了复习题答案（有监督学习），一组没有给复习题答案（无监督学习）。经过这样的讲解和应用，对知识的理解进一步加深了。</p>
+<h4 id="穿插学习"><a href="#穿插学习" class="headerlink" title="穿插学习"></a>穿插学习</h4><p>我们习惯于有条理地学习，先学第一部分/步，熟练了再学第二部分/步，……。作者指出，穿插学习不同类型、不同难度的部分，学习效果反而更好。仔细一想也是如此，我们在实际中面对的情况都是随机出现的，可能需要我们用到一个或多个知识点，很难遇到完全是哪个学习单元的应用场景。穿插学习能增强我们融会贯通和灵活应对的能力。</p>
+<p>穿插学习的理念，和我在 <a href="https://juliecodestack.github.io/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/">分享我的单词记忆方法</a> 一文中提到的“用乱序单词本而不是字母顺序单词本”，是不是有相通之处呢？</p>
+<p>以上是我在读这本书时印象较深的几种学习方法。书中还有一些人们应用这些学习方法提高学习效果的例子，启发我们思考：应该怎样在学习和工作中应用这些方法？</p>
+<p>这本书让我审视并思考如何改进自己的学习方法，读了之后带给我的收获让我有一种惊喜感，值得一读。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>非虚构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>对肯福莱特世纪三部曲的讨论和思考</title>
     <url>/2020/04/22/%E5%AF%B9%E8%82%AF%E7%A6%8F%E8%8E%B1%E7%89%B9%E4%B8%96%E7%BA%AA%E4%B8%89%E9%83%A8%E6%9B%B2%E7%9A%84%E8%AE%A8%E8%AE%BA%E5%92%8C%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -778,6 +841,54 @@
         <tag>英文原著</tag>
         <tag>小说</tag>
         <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分享我的单词记忆方法</title>
+    <url>/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>在与学英语的同学、朋友的交流中，我发现大家在背单词上主要有以下困惑：</p>
+<ul>
+<li>背单词很容易忘，记不住，怎么办？</li>
+<li>单词/短语一词多义，头好大啊。。。</li>
+<li>怎么才能快速记单词？</li>
+<li>不知道怎么把单词的不同意思应用到自己的写作表达里呢？</li>
+</ul>
+<p>我学的是理工科专业，但是我一直对英语很感兴趣，也参加了不少英语考试和竞赛，取得了一些成绩。因为喜欢，我在英语学习中投入了很多时间，也曾遇到过提升的平台期、有过困惑，尝试了不同方法，因此积累了一些经验，在这里与大家交流分享。</p>
+<a id="more"></a>
+<h4 id="1-背单词的理念"><a href="#1-背单词的理念" class="headerlink" title="1.背单词的理念"></a>1.背单词的理念</h4><p>请回想一下：你背单词时，是怎么背的？</p>
+<p>是记住单词对应的中文意思，一个英语词汇+一个中文意思的组合吗？</p>
+<img src="/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/words.jpg" width="368" height="260" alt="图片来源:skitterphoto from pexels" align="center">
+
+<p>注：图片来源: skitterphoto from pexels</p>
+<p>那么，你觉得这种方法有效吗？</p>
+<p>可能你也发现，背了很快又忘了。<strong>单词要放在句子里记忆。</strong> 单词组成句子，而单词也只有融入句子中才能展现灵活多变的意思。我们记单词时，记住句子，同时就是记住了单词应用的语境，在脑子里形成画面感，更容易记住，也不容易忘。</p>
+<h4 id="2-单词本的选择和记单词方法"><a href="#2-单词本的选择和记单词方法" class="headerlink" title="2.单词本的选择和记单词方法"></a>2.单词本的选择和记单词方法</h4><p>在考试前为了突击提高词汇量，我也曾经拿着单词本每天背单词，现在有了各种背单词APP，但是挑选和学习的方法大致相同。我的经验是：</p>
+<p>1.选择 <strong>乱序单词本</strong>，因为按字母顺序背单词很容易弄混。乱序也符合我们遇到单词的情况，再见到这个单词时，更容易适应并认出。</p>
+<p>2.单词本一定要有 <strong>例句</strong>。正如前面所说的，只背英语单词和中文释义，我们会发现几乎没有效果。单词要融入句子中记忆，才能更好理解单词的词性、使用的语境等。</p>
+<p>3.<strong>筛选法记忆</strong>。<br>首先说一下，这一方法的要点是：<strong>不断缩小我们要背单词的范围、集中突破 + 隔一段时间复习巩固</strong>。具体操作如下：</p>
+<p>第一遍 浏览：标记不认识的单词（评估自己词汇掌握量）；<br>第二遍 强化记忆：只背第一遍标记的不认识单词（有重点地记）；<br>第三遍 浏览：对还不熟悉的单词，换个符号再加个标记(复习巩固）；<br>…<br>如此重复几遍，大概80-90%的单词都熟悉了。</p>
+<h4 id="3-掌握和应用单词的诀窍"><a href="#3-掌握和应用单词的诀窍" class="headerlink" title="3. 掌握和应用单词的诀窍"></a>3. 掌握和应用单词的诀窍</h4><p><strong>背单词的效果要通过阅读巩固</strong>。就像别人刚向我们介绍一个人，一开始我们只知道人名，并不熟悉。只有后面打了交道、相处了，才会对这个人熟悉起来。单词也是一样，背单词只是建立一个印象，我们要知道这个单词一般用在哪里、怎么用、表达什么意思（有时还要考虑书面语-口语、褒义-贬义等细节），就要通过阅读来学习。我在考试准备时，会把很大一部分备考时间用于做阅读理解题目，我觉得这是一举两得的工作。</p>
+<p>另一方面，我们还可以通过阅读英文原著和听英文有声书来巩固已学词汇和学习生词。我的体会是：当听读的输入提高之后，会感觉到掌握词汇量的增大。因为在听读英文书的过程中，我们不知不觉就在语境中记住了单词，而且这是单词应用的语境。此外，许多单词一词多义，背单词本只是学习主要释义，而在阅读英文原著时，能学到很多单词的灵活表达，这可能是单词基本义推广到的比喻义、扩展义等等，如果我们见到了这种情况，稍微一联想，就能记住并灵活运用，但是没见到这种语境，可能就不敢去用。</p>
+<p>这样干巴巴地讲还是没有说服力，下面我举几个例子，你一看就明白了。</p>
+<p>Storm 的基本义是“暴风雨”、名词，可是在读英文书中我经常见到 storm 的动词用法，例如，在争吵过后出现这样一句话：He stormed out of the room. 结合上下文，我理解到这个表达就是说他大发雷霆、气势汹汹地走出了房间。在这里，storm和基本义不同，但又有关联（这个气势和暴风雨给人的感觉相似），相当于引申义，是不是很形象？这样，在写作时，描述某人生气发火，我们就不会只想到angry、anger, 在合适的地方也能用上这个词。</p>
+<p>福尔摩斯探案集里有一集，提及让福尔摩斯也感到棋逢对手的一位女性，是这样写的：”In his eyes she eclipses and predominates the whole of her sex.” 我们以前在单词本里可能只看到 eclipse 是“日食/月食”，就是太阳/月亮被遮住了。这里却是 eclipse 的动词用法：she eclipses the whole of her sex. 她把其他女性的光芒都遮住了—&gt;可以推测到，这就是指让其他人都黯然失色，这个比喻义用得很妙吧？当你要描述某人非常优秀、非常出色时，就不会只想到 be better than，用上这个词，能让人眼前一亮呢。</p>
+<p>Whistle 有“口哨声、吹口哨”的意思。你想一下，当风很大的时候，是不是能听到呜呜的声音，和口哨声有点像，我们来看阿加莎的《东方快车谋杀案》(<em>Murder on the Orient Express</em>) 里这一句：”A cold wind came whistling down the platform. Both men shivered.” ，这里用了 whistle 描述呼啸的冷风。再进一步联想战场上子弹、炮弹飞速穿过的声音，接着看《柳林风声》(<em>The Wind in the Willows</em>) 里这一句:” Toad prudently dropped flat in the road, and Bang! a bullet whistled over his head.”，这里就用了 whistle 描述子弹飞速而过。掌握 whistle 的这个“呼啸”的词义，我们以后描写刮风就不用只写 blow 了。</p>
+<p>短语也是如此，一个短语往往有多种用法和意思，在阅读中可以更好地记住，比如，我听哈利波特有声书时，老听到 be taken back 的表达，例如 She was taken back by his words. 表达一种吃惊、不安的感觉，正好 back 这个词也有“退缩”的意思，多遇到几次就记住了，下次遇到 be taken back 头脑中就会反应出意思。类似的语境我们也就可以尝试用上这个短语，而不是只想到 surprise 了。</p>
+<p>通过这些有趣的例子，你会发现，我们多听多读之后，增加了输入，熟悉了单词应用的语境，单词也就从陌生人变成了我们的朋友，我们知道它们一般喜欢出现在哪里。这样，我们既记住了单词，又知道怎么应用。</p>
+<h4 id="4-推荐"><a href="#4-推荐" class="headerlink" title="4. 推荐"></a>4. 推荐</h4><p>总之，要想真正有效地提高词汇量，我建议不要只把时间用在单词本上，多一条途径：通过扩大阅读量来记忆和巩固，会事半功倍。</p>
+<p>如果你的备考时间紧，可以多做一些考试的阅读理解题。如果你的学习时间充裕一些，可以读一些英文原著，从简单的、自己感兴趣的开始，比如童话、通俗小说、侦探小说、科幻小说等等均可。书虫系列也很好，但前提是你能克制住、不去看中文对照。哈哈，我就会忍不住看中文对照，所以我选择英文原著。</p>
+<p>我在B站做了一些英文童话经典 <em>The Wind in the Willows</em>（《柳林风声》）的精读视频，讲解生词和好的表达，配有笔记字幕，或许对你开始英文原著阅读有帮助，点击看看：<a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br>此外，推荐一下<a href="https://juliecodestack.github.io/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/">我的英语学习视频列表</a>，里面有我制作的所有英语学习视频链接和简介，欢迎收看呀！</p>
+<p>除了阅读，听英文有声书也是一个不错的选择，有的播讲者声情并茂，会让你更加喜欢英文书，而且这也是一种语境熏陶，时间长了，下次你读到类似的句子，你也会模仿这样的语音语调读出来。我就是一个英文有声书爱好者，哈哈，我整理了自己听过觉得不错的有声书，供您参考，欢迎点击阅读：<br><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">英文有声书和广播剧推荐之一</a></p>
+<p><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/">英文有声书和广播剧推荐之二</a></p>
+<p>你有哪些记单词的好方法呢？欢迎在评论区留言交流。</p>
+]]></content>
+      <categories>
+        <category>英语</category>
+      </categories>
+      <tags>
+        <tag>英语学习</tag>
+        <tag>英文原著</tag>
+        <tag>有声书</tag>
       </tags>
   </entry>
   <entry>
@@ -817,69 +928,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何有效学习？</title>
-    <url>/2020/11/29/%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-
-<img src="https://img1.doubanio.com/view/subject/l/public/s29897337.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>这是一本教我们如何有效学习的书。读这本书时，我常常回想自己学习中使用的方法，哪些效果好？哪些效果差？我惊奇地发现，自己学得好时，都或多或少用到了书中提到的方法，比如：穿插学习、自我检测、反思、将知识用自己的方式讲解和举例、等等，而书中还有更多方法值得我学习。这本书并不是简单枯燥地讲解方法，而在同时介绍了很多例子，让我们更容易理解和应用。在当今飞速发展的社会中，我们都需要做一个终身学习者，不断提升自我。因此，我推荐您读一遍这本书，或许会让您在提高效率的同时学得更好，达到事半功倍的效果。</p>
-<a id="more"></a>
-<h4 id="自以为很努力，其实在做无用功？"><a href="#自以为很努力，其实在做无用功？" class="headerlink" title="自以为很努力，其实在做无用功？"></a>自以为很努力，其实在做无用功？</h4><p>书中提到，很多人喜欢在读书时划线、标注，多读几遍，认为这样就学到了知识。其实，这是一种被动吸收，并没有什么效果，只是因为读起来更流畅，会给自己造成一种对知识熟悉的假象。看到这里，我回想起以前自己书里的那些标记…… 此外，我标注的有些地方是虽然觉得很好、但也不想深入思考,于是就记录下来以后再看，其实也就是偷懒的办法。</p>
-<p><strong>原来，这样的学习只是在感动自己、自以为很努力呀？！那么，怎样才能真正学好知识呢？</strong></p>
-<h4 id="有间隔的检索和巩固、反思"><a href="#有间隔的检索和巩固、反思" class="headerlink" title="有间隔的检索和巩固、反思"></a>有间隔的检索和巩固、反思</h4><p>真正对学习效果有帮助的方法，是隔一段时间后，以测验的方式进行检索回忆。</p>
-<p>测验？！读书时经历了大大小小的考试，现在听到考试就头晕啊……</p>
-<p>其实，测验并不需要以考试的形式进行，也可以是学完一节课、一章之后，结合课后的习题，给自己提问。此时，不要去查阅书或笔记，仅凭脑子里的印象来回忆这个知识点。你很快会发现，看书或听课时很认真，觉得听明白了，可是有时看到问题却怎么都想不起来了。我们就先努力回想，再来查阅书和笔记。换一种思路，测验也是检测知识掌握情况的工具，它让我们更加清楚哪里没有弄懂、哪里没掌握，接下来的复习巩固也更加有针对性。</p>
-<p>同时，我们还可以根据自己的学习情况，及时地反思总结，不断改进。比如，碰到这种情况，自己当时是怎么做的，做得好不好，需要怎样改进。下次遇到类似的情况，我们就能从容应对，学习、工作中都是如此。其实，很多同学（包括我自己）都总结过错题集，这也是一种形式的反思，遇到错题、分析自己出错的原因，解题方法不对？知识点没掌握？加以改进提高，甚至举一反三，下次遇到类似的题目就能答得更快更好。</p>
-<h4 id="生成式学习，带着问题思考"><a href="#生成式学习，带着问题思考" class="headerlink" title="生成式学习，带着问题思考"></a>生成式学习，带着问题思考</h4><p>这个理念与《如何阅读一本书》相似（欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/">读书的要领</a>），即：我们要做一个主动的学习者。比如读一本书，这本书讲一个什么问题？在没看书之前，我们先想一想，自己会如何分析和解决这一问题，然后再来看作者介绍的方法。因为引入了自己的思考，即使方法不同，也会对这一问题产生深刻印象。</p>
-<p>对于实际应用的技能，我们更应该在解决实际问题中学习提高。这方面我也有类似的体会。在英语学习中，记单词、短语，再怎么复习背诵，过一段时间也容易忘。但是，如果在交流、表达中遇到、使用过，尤其自己一开始绞尽脑汁没想到这个表达，查找到再记忆，就不容易忘了。学习编程和软件操作也是如此，开始时很认真地看教程视频和教材，好像语法、算法都知道一些，但应用起来还是不太熟悉，只会一些基本的操作。可是，如果有明确的目标，比如，要实现一个什么样的软件功能，自己试着去完成，遇到错误再调试、不懂的函数定义上网查找，这样，无形中倒逼自己去补充不懂的知识点，学起来效果确实更好一些。</p>
-<h4 id="细化"><a href="#细化" class="headerlink" title="细化"></a>细化</h4><p>细化就是用自己的方式把知识点表达出来，可以举个实际应用的例子，也可以结合已学的知识点，等等。这也是掌握和巩固知识的一个好方法。以我自己的学习举例，比如在学习机器学习的基本概念时，讲到机器学习包括有监督学习和无监督学习，二者的区别就在于训练时有没有给出目标变量，这样有点抽象。而换个方式，我觉得这就像两组学生要考试，先给他们模拟题复习备考（训练），一组给了复习题答案（有监督学习），一组没有给复习题答案（无监督学习）。经过这样的讲解和应用，对知识的理解进一步加深了。</p>
-<h4 id="穿插学习"><a href="#穿插学习" class="headerlink" title="穿插学习"></a>穿插学习</h4><p>我们习惯于有条理地学习，先学第一部分/步，熟练了再学第二部分/步，……。作者指出，穿插学习不同类型、不同难度的部分，学习效果反而更好。仔细一想也是如此，我们在实际中面对的情况都是随机出现的，可能需要我们用到一个或多个知识点，很难遇到完全是哪个学习单元的应用场景。穿插学习能增强我们融会贯通和灵活应对的能力。</p>
-<p>穿插学习的理念，和我在 <a href="https://juliecodestack.github.io/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/">分享我的单词记忆方法</a> 一文中提到的“用乱序单词本而不是字母顺序单词本”，是不是有相通之处呢？</p>
-<p>以上是我在读这本书时印象较深的几种学习方法。书中还有一些人们应用这些学习方法提高学习效果的例子，启发我们思考：应该怎样在学习和工作中应用这些方法？</p>
-<p>这本书让我审视并思考如何改进自己的学习方法，读了之后带给我的收获让我有一种惊喜感，值得一读。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>非虚构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>双显示器扩展显示时怎么移动鼠标到另一块屏？</title>
-    <url>/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/</url>
-    <content><![CDATA[<p>最近为小笔记本加了一个大点的显示器，虽然设置为大屏显示，但有时开机会出现设置为扩展显示器的情况，不知怎的，鼠标点半天，光标都移动不到另一块屏幕中，上网查找了一下答案，把解决方法记录一下。</p>
-<a id="more"></a>
-<p>我的电脑是 Windows10 系统，依次点击：开始菜单&gt;设置&gt;系统&gt;显示，进入“显示”设置中，看到如下图所示界面：</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-07-25.png" alt="显示器排列-左右" align="center"> 
-
-<p><strong>原来默认两个显示器是按左右排列的，因此鼠标光标只有左右移动，才能在两块屏幕间切换。</strong></p>
-<p>我的两个屏幕是上下摆放的，之前我想当然地上下移动鼠标，难怪怎么也切换不到屏幕。由此，我又想到，那可不可以改变显示器排列，使之符合我的使用习惯呢？我拖动了一下两个显示器排列，改为2屏（外接大屏显示器）在上，1屏（笔记本电脑的小屏）在下，如下图所示：</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-11-50.png" alt="显示器排列-上下" align="center">
-
-<p>然后点击<code>应用</code>按钮，再重新上下移动鼠标光标，成了，这下可以切换到另一块屏幕了！</p>
-<p>另外，这里蓝色标识的1屏是主显示器，在哪里设置主显示器呢？</p>
-<p>在下方我们看到有“多显示器设置”选项，当前1屏是主显示器，如果我们点击2，同时勾选多显示器设置下方的“设为主显示器”选项，就可以将2屏设置为主显示器，用蓝色标识。</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-11.png" alt="主显示器设置选项" align="center">
-
-<p>此外，当前是“扩展这些显示器（两个屏幕分别显示不同内容）”选项，点击下拉菜单还有“复制这些显示器”（两个屏幕显示内容相同）或 “仅在1（或2）上显示”的选项。</p>
-<img src="/2020/12/14/%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E6%89%A9%E5%B1%95%E6%98%BE%E7%A4%BA%E6%97%B6%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87/双显示器扩展显示时移动鼠标2020-12-14-17-09-33.png" alt="多显示器设置下拉菜单" align="center">
-
-<p>参考文章：<br>1.<a href="https://www.zhihu.com/question/50002939/answer/372662198" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/372662198</a></p>
-<p>2.<a href="https://www.zhihu.com/question/50002939/answer/348352441" target="_blank" rel="noopener">https://www.zhihu.com/question/50002939/answer/348352441</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>电脑</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的英语学习视频列表~持续更新</title>
     <url>/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<p>接着上一篇：<a href="https://juliecodestack.github.io/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/#more">我的读书视频列表</a> ，B站萌新up主还制作了一些英语学习视频呢，哈哈。<strong>我在这里做一个索引列表，持续更新</strong>。欢迎您点击收看，请多多交流指教！<br>来B站找我玩—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌Julie</a>。</p>
@@ -909,67 +957,6 @@
       </tags>
   </entry>
   <entry>
-    <title>英文有声书和广播剧推荐之一</title>
-    <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/</url>
-    <content><![CDATA[<p>近两年我对英文有声书很感兴趣，我觉得有声书的魅力在于播讲者让书的语言生动起来，同时又忠于原著，给读者（听众）留有一些想象的空间，可以自己“描绘”角色形象。听有声书给了我很多美好的回忆，跟着书中的人物高兴或者悲伤，听着听着，有时一个人也哈哈大笑，有时又泪眼朦胧。现在我想到听过的某本书，脑子里会浮现出听书时让我印象深刻的话，以及播讲者读这句话的声音、语气、情绪。</p>
-<p>最近听哈利波特有声书时，播讲者 Jim Dale 在录音结尾说的一段话我挺认同。他说，回想我们小时候最初的阅读能力就是通过听父母读故事书获得。听书对于孩子阅读习惯和读书兴趣的培养很重要。我认为，听有声书是培养语感的好方法，而且有声书一般有故事情节，更能激发我们上下文联想的能力。此外，听有声书可以和一些简单的工作同时进行，比如散步、做家务等等，高效地利用时间。</p>
-<p>说了这么多有声书的好处，您是不是也跃跃欲试，想开始英文有声书之旅呢？那么，问题来了，听什么？去哪里找资源？</p>
-<a id="more"></a>
-
-<h4 id="听什么？"><a href="#听什么？" class="headerlink" title="听什么？"></a>听什么？</h4><p>建议从自己感兴趣的题材入手。爱情、科幻、侦探、悬疑、童话…，都可以。就我自己的经验而言，听之前我会搜索一下这本书的简介，了解大概的故事情节、人物等信息，这样听的时候更容易集中注意力。对于找不到简介的作品，我就会先听，听到一半左右，弄清了大致情节和人物关系，如果和前面听书时的重点有偏差，我就回到开头再听一遍，这样就能把握整本书的大致情节，理解作者的意思。</p>
-<h4 id="听不懂怎么办？"><a href="#听不懂怎么办？" class="headerlink" title="听不懂怎么办？"></a>听不懂怎么办？</h4><p>请回想一下，我们小时候，一开始是不是也不能完全听懂读懂，会遇到好多“生词”？有时我们结合上下文、故事情节推测出来意思，有时查字典、问老师之后明白了意思。这里也是一样，不用追求每词都听清楚、每词必懂，而是像我们听别人说话一样，让自己进入语境中，抓住主要意思。</p>
-<h4 id="去哪里找资源？"><a href="#去哪里找资源？" class="headerlink" title="去哪里找资源？"></a>去哪里找资源？</h4><p>1.Audible是最大的有声书平台，可以<strong>付费购买</strong>上面的有声书资源。每个专辑的页面有几分钟的试听，还有听友的收听评价可供参考。<br>2.有网友分享了一些资源，帮助大家英语学习使用，感谢！比如：豆瓣上的英文有声书小组，可以看到有声书推荐和介绍。比如：喜马拉雅、哔哩哔哩（B站）。 </p>
-<h4 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h4><p>我把自己听过的英文有声书和广播剧中觉得好的作品整理总结，分享给您参考。</p>
-<blockquote>
-<p>1.英文有声书-类型：都市爱情，<br>书名：Rage of Angels<br>作者：Sidney Sheldon<br>播讲者：Lorelei King </p>
-</blockquote>
-<p>这部小说的作者是大名鼎鼎的畅销书作家 Sidney Sheldon，他被誉为说故事高手，书中人物描写、用词等都很棒。</p>
-<p>小说讲的是一位刚工作的年轻女律师 Jennifer 的成长之路（其中描写了几个案子和精彩的法庭辩护），以及她与参议员、黑手党老大之间的情感纠葛。以现在的眼光来看，可能剧情略显俗套，因为这是上世纪八十年代写的小说，现在的人们看多了各种都市剧，已经熟悉了这类题材的套路，哈哈。</p>
-<p>之所以首推这部作品，是因为它让我第一次体会到了有声书“绘声绘色”的感觉。播讲者让书中的每个人物都栩栩如生，就拿法庭辩护来说，正方公诉律师检察官、反方辩护律师、嫌疑人、原告、被告、法官，这么多人物，大段对白，看书都很容易就把各个人物说的话弄混了，而播讲者通过不同的声音、语速、语气，把各个人物分别塑造出来，你能感受到不同人物的不同性格、脾气，让听众有强烈的现场感。</p>
-<blockquote>
-<p>2.英文有声书-类型：科幻，<br>书名：I, Robot<br>作者：Isaac Asimov<br>播讲者：Scott Brick </p>
-</blockquote>
-<p>这是大名鼎鼎的科幻小说作家阿西莫夫（Isaac Asimov）的作品，里面有九个小故事，都是关于机器人和人类的故事。书中还有著名的 <strong>“机器人三定律”</strong>：</p>
-<p>一、机器人不能伤害人类，或者看到人类有危险而坐视不管；<br>二、机器人必须服从人类的命令，除非与定律一冲突的情况；<br>三、在不违反定律一、二的情况下，机器人要自保。</p>
-<p>书中很多故事都是围绕“三定律”产生的悖论情况展开讨论。 这本短篇小说集发表于六十多年前，可是现在看来仍不过时，精彩至极！听完之后，以前关于人工智能、科幻的诸多想法、认知就在我的脑海中翻腾碰撞，让我不停回想。更重要的一点，这本书让我联想到现在对于人工智能的利弊讨论，这一问题的根源在人类自身，解决问题的钥匙在人类手中。</p>
-<p>一开始听播讲者 Scott Brick 的声音觉得有些平淡，但是耐心听完第一个小故事之后，就越来越入迷。现在想起这部作品，我脑子里还会回响起各种声音：</p>
-<ul>
-<li>小女孩惊喜地呼喊机器人“Robbie”；</li>
-<li>机器人中的“笛卡尔”Cutie 一本正经地说“I myself, exist, because I think”；</li>
-<li>“Liar”那一集的最后，机器人的痛苦崩溃；</li>
-<li>机器Brain思考中被Susan打断，他的那声呆萌的“Huh?”；…</li>
-</ul>
-<p>无一不活灵活现。播讲者让机器人鲜活起来，让我在想象这些机器人时不再想到冰冷的机器和机械的语音，而是也有情感，也会失落、伤心、纠结、迷茫、生气。其实想想也是，机器人由人类制造，自然也会带有人类的行为模式。总之，这本书值得一听、值得一读。</p>
-<blockquote>
-<p>3.英文有声书-类型：科幻，<br>书名：Flowers for Algernon<br>作者：Daniel Keyes</p>
-</blockquote>
-<p>这部小说先后获得科幻小说界最重要的两项大奖：雨果奖、星云奖。看到这里您可能会好奇，这部小说为何能屡获殊荣？它有何特别或是精彩之处？</p>
-<p>作者在书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以Charlie的日记形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。读这本书，跟着 Charlie 一起在短时间内品尝人生百味，心情起起伏伏、思绪万千。书中的心理描写很细致真实。了解更多本书，欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/#more">一本书中的人生滋味</a></p>
-<p>这本书的特别之处在于，作者是根据 Charlie 不同时期的智力水平来写日记，因此，书开篇和末尾的日记有很多错别字。如果看文字版，可能需要适应一下。但是有声书里是通过另一种方式来呈现，从开始语气的迟缓、停顿等，到智力提升之后语速加快、增加情绪，播讲者演绎的很好，给人感觉就像在听 Charlie 自己读日记一样。</p>
-<blockquote>
-<p>4.英文有声书-类型：非虚构，科学，人物传记<br>书名：Surely You’re Joking, Mr. Feynman!<br>作者：Richard P. Feynman<br>播讲者：Raymond Todd   </p>
-</blockquote>
-<p>这本书的作者就是参加了原子弹研制、得过诺贝尔奖的物理学家费曼。书中有很多有趣的小故事，让我看到了费曼的率真、对于科学的好奇探索和严谨执着。让我印象最深的一点是他提到怎样的学习、教育才是有效的，不是背诵知识点，而是去总结、去验证、试错。费曼也很幽默“调皮”，他多才多艺，学语言、画画、打鼓…有时还会恶作剧，有些故事也让我意识到人们有时会陷入固定思维，反而不能做出最好的判断和选择。</p>
-<blockquote>
-<p>5.英文有声书-类型：非虚构，科学，人物传记<br>书名：What Do You Care What Other People Think?<br>作者：Richard P. Feynman</p>
-</blockquote>
-<p>这本书同样是物理学家费曼的作品， 上一本书 <strong>Surely You’re Joking, Mr. Feynman!</strong> 比较幽默风趣，让人了解生活中的费曼，这本书给我启发和思考则更多。书中讲到费曼父亲的教育方法、费曼对阿琳的一往情深、以及他对于挑战者号失事的分析和思考，都让人印象深刻。特别推荐读一读后记，费曼从哲学的角度分析了科学的价值、科学的双刃剑效应，他对未来的思考等等。科学一直在发展，但是我们对于人类自己所知的还太少，还需要去发现可能性、去探索、怀疑、求证。</p>
-<p>听了这两本有关费曼的书之后，我写了一篇书评，欢迎点击阅读：<a href="https://juliecodestack.github.io/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/#more">率真的科学家费曼</a></p>
-<blockquote>
-<p>6.英文广播剧：Copenhagen<br>演员：<br>Benedict Cumberbatch(“卷福”)，饰演Werner Heisenberg(海森堡)<br>Simon Russell Beale，饰演Niels Bohr (玻尔)<br>Greta Scacchi，饰演Margrethe Bohr(玻尔夫人)</p>
-</blockquote>
-<p>二战期间，1941年，德国物理学家海森堡在到访哥本哈根之时，曾与他的老师——物理学家玻尔有一次会面。因为双方都是原子能领域的重要科学家，又分属战争敌对国，这次见面引起世人的诸多猜测。而双方后来对会谈内容讳莫如深，让这件事情显得更加神秘，他们谈了什么？与原子弹研制有怎样的关系？本剧设想了玻尔夫妇和海森堡在天堂对这次见面内容的回忆，演绎得很精彩。在他们三人的争吵和回忆中，听众对于科学的双刃剑效应、科学家的国界等问题会有很多思考。</p>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>英语学习</tag>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的读书视频列表~持续更新</title>
     <url>/2020/07/22/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<p>Hi，好久不见！最近这段时间，我到B站去体验了一下当up主的感觉，欢迎来B站找我玩呀—&gt;<a href="https://space.bilibili.com/40990299" target="_blank" rel="noopener">宁萌Julie</a>。我从零开始学习视频制作，不断改进，制作了一些读书和英语学习的小视频。<strong>我在这里做一个读书视频的索引列表，持续更新</strong>。赶快点开看看都分享了哪些书呀，有你喜欢的那一本吗？</p>
@@ -992,8 +979,8 @@
       </categories>
       <tags>
         <tag>英文原著</tag>
-        <tag>小说</tag>
         <tag>非虚构</tag>
+        <tag>小说</tag>
         <tag>科普</tag>
         <tag>散文</tag>
       </tags>
@@ -1082,30 +1069,64 @@
       </tags>
   </entry>
   <entry>
-    <title>许多记忆未曾诉说</title>
-    <url>/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/</url>
-    <content><![CDATA[<blockquote>
-<p>本文写于2019年5月</p>
-</blockquote>
-<p>今天要和大家说一部有声书 <strong><em>My Dear I Wanted to Tell You</em></strong>。最早吸引我的，是这本有声书开头播放的音乐，悠扬舒缓，就像某个有阳光的午后想起一段往事时的背景乐。再加上又是丹丹龙（Dan Stevens）朗读，完美！</p>
+    <title>英文有声书和广播剧推荐之一</title>
+    <url>/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/</url>
+    <content><![CDATA[<p>近两年我对英文有声书很感兴趣，我觉得有声书的魅力在于播讲者让书的语言生动起来，同时又忠于原著，给读者（听众）留有一些想象的空间，可以自己“描绘”角色形象。听有声书给了我很多美好的回忆，跟着书中的人物高兴或者悲伤，听着听着，有时一个人也哈哈大笑，有时又泪眼朦胧。现在我想到听过的某本书，脑子里会浮现出听书时让我印象深刻的话，以及播讲者读这句话的声音、语气、情绪。</p>
+<p>最近听哈利波特有声书时，播讲者 Jim Dale 在录音结尾说的一段话我挺认同。他说，回想我们小时候最初的阅读能力就是通过听父母读故事书获得。听书对于孩子阅读习惯和读书兴趣的培养很重要。我认为，听有声书是培养语感的好方法，而且有声书一般有故事情节，更能激发我们上下文联想的能力。此外，听有声书可以和一些简单的工作同时进行，比如散步、做家务等等，高效地利用时间。</p>
+<p>说了这么多有声书的好处，您是不是也跃跃欲试，想开始英文有声书之旅呢？那么，问题来了，听什么？去哪里找资源？</p>
 <a id="more"></a>
 
-<img src="/2020/04/22/%E8%AE%B8%E5%A4%9A%E8%AE%B0%E5%BF%86%E6%9C%AA%E6%9B%BE%E8%AF%89%E8%AF%B4/DanStevens.jpg" alt="Dan Stevens，图片来自网络" align="center">
-
-<p>注：Dan Stevens，图片来自网络</p>
-<p>这是关于一战的悲伤故事，虽然最后的结局还算完满。一般写战争的小说，很多聚焦在战场的厮杀、英雄人物的塑造，或是战术战略的描写分析，极少有作品关注战争带来的创伤。这部小说以两对恋人为主要人物，描写了战争对于军人及后方的人们带来的伤痛。</p>
-<p>Peter Locke 在与 Julia 结婚后不久即踏上征程。Julia 在家日日盼望 Peter 的归来。4年里，Peter 中途回来休过一次假，但是 Julia 发现他们之间疏远了，Peter 变得无法接近。Peter 冷漠的背后，是内心的煎熬：虽然回到宁静的后方，他脑海中挥之不去的还是战场上的血肉横飞、尸横遍野、以及死去的战友，这些可怕的记忆，他没法向妻子倾诉。本该是亲密快乐的一次相聚，最终却成了别扭尴尬的相处，造成两个人的隔阂。停战后，Peter 没有立即回家，而是在外面夜夜买醉。我想到了电影《猎鹿人》。它讲述了经常一起打猎野鹿的三个好朋友去参加越战的故事，战争完全改变了他们的人生。当他们被越军俘虏后，被迫参加“俄罗斯轮盘”赌局决定生死。他们幸运地逃了出来，后来失散了。其中 Nick 在医院康复后，留在了越南，成为了地下轮盘赌场的赌徒。当时我还和朋友讨论，我觉得 Nick 不像是失去理智的，他在轮盘赌局现场不是像 Steven 一样表现出极度害怕，而是难以接受自己和朋友之中有一个人要在赌局中死去。而且，他答应过在家乡等着他的女朋友他会回去。后来他的行为我觉得难以理解。但是，通过 <strong><em>My Dear I Wanted to Tell You</em></strong> 这本书中对 Peter Locke 的心理描写，我似乎有点理解了 Nick 的心理，他的精神在轮盘赌局里受到了强烈刺激，后来成为了梦靥，和 Peter 一样，他无法回到原来的人生，只想逃离一切。</p>
-<p>Riley Purefoy 和 Nadine Waveney 这对恋人的故事则让我心碎，中间一度落泪。他们冲破了家庭的阻挠、克服了两地的分离，最后，当他们近在咫尺之时，却是残忍的别离。Riley 在战争中炸伤毁容回到后方医院，Nadine 来探望他很多次，他拒绝见她，最后谎称他有了新女友、与她分别。Riley 是为了不成为 Nadine 的负担？还是如他的护理 Rose Locke（Peter的堂妹）所说，他对于 Nadine 没有信心、觉得她无法面对这一现实？Nadine 伤心之余申请去了前线当战地护理人员，用工作麻醉自己。也许作者也心有不忍，让这一对恋人在停战后又见面了。Nadine 才知道 Riley 的谎言，她质问他为什么要这样，是怕她会离开他，所以他先主动分手吗？Riley 说，不，我怕你留下，因为同情我。Nadine 说，是，我会留下，但是，是因为爱。作者描写了 Riley 受伤后的心理变化，从开始的痛苦、迷茫、绝望; 到去拜访阵亡战友家人时，小女孩看到他的面容后并没有反应强烈，儿童的纯真打动了他，让他觉得自己的创伤不是那么恐怖，无须如此介意。在漫长的疗愈中，他一度封闭自己，拒绝了恋人的关怀, 最后，一个孩子给了他突然的温暖和信心，让他有勇气走入外面的世界、面对未来的人生，毕竟，他才刚刚 22 岁啊。有了这一转变，Riley 和 Nadine 再次相遇时，他们才能走到一起。我们总说，人要坚强地面对挫折与困难。然而，当不幸降临时，人们大都一时无法接受与应对，或许都要经历一段类似 Riley 的艰难的心路历程，才能平淡地看待人生的起起伏伏。</p>
-<p>如果没有战争，这些年轻人都会过着甜蜜的生活，一起憧憬未来，一起去游览外面的世界。可是，战争将他们的人生彻底改变。虽然战火已经熄灭，他们身上的创伤已经难以抚平。结尾，作者说，生活静静地继续，也许吧，让时间的河流冲淡伤痛的记忆… </p>
+<h4 id="听什么？"><a href="#听什么？" class="headerlink" title="听什么？"></a>听什么？</h4><p>建议从自己感兴趣的题材入手。爱情、科幻、侦探、悬疑、童话…，都可以。就我自己的经验而言，听之前我会搜索一下这本书的简介，了解大概的故事情节、人物等信息，这样听的时候更容易集中注意力。对于找不到简介的作品，我就会先听，听到一半左右，弄清了大致情节和人物关系，如果和前面听书时的重点有偏差，我就回到开头再听一遍，这样就能把握整本书的大致情节，理解作者的意思。</p>
+<h4 id="听不懂怎么办？"><a href="#听不懂怎么办？" class="headerlink" title="听不懂怎么办？"></a>听不懂怎么办？</h4><p>请回想一下，我们小时候，一开始是不是也不能完全听懂读懂，会遇到好多“生词”？有时我们结合上下文、故事情节推测出来意思，有时查字典、问老师之后明白了意思。这里也是一样，不用追求每词都听清楚、每词必懂，而是像我们听别人说话一样，让自己进入语境中，抓住主要意思。</p>
+<h4 id="去哪里找资源？"><a href="#去哪里找资源？" class="headerlink" title="去哪里找资源？"></a>去哪里找资源？</h4><p>1.Audible是最大的有声书平台，可以<strong>付费购买</strong>上面的有声书资源。每个专辑的页面有几分钟的试听，还有听友的收听评价可供参考。<br>2.有网友分享了一些资源，帮助大家英语学习使用，感谢！比如：豆瓣上的英文有声书小组，可以看到有声书推荐和介绍。比如：喜马拉雅、哔哩哔哩（B站）。 </p>
+<h4 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h4><p>我把自己听过的英文有声书和广播剧中觉得好的作品整理总结，分享给您参考。</p>
+<blockquote>
+<p>1.英文有声书-类型：都市爱情，<br>书名：Rage of Angels<br>作者：Sidney Sheldon<br>播讲者：Lorelei King </p>
+</blockquote>
+<p>这部小说的作者是大名鼎鼎的畅销书作家 Sidney Sheldon，他被誉为说故事高手，书中人物描写、用词等都很棒。</p>
+<p>小说讲的是一位刚工作的年轻女律师 Jennifer 的成长之路（其中描写了几个案子和精彩的法庭辩护），以及她与参议员、黑手党老大之间的情感纠葛。以现在的眼光来看，可能剧情略显俗套，因为这是上世纪八十年代写的小说，现在的人们看多了各种都市剧，已经熟悉了这类题材的套路，哈哈。</p>
+<p>之所以首推这部作品，是因为它让我第一次体会到了有声书“绘声绘色”的感觉。播讲者让书中的每个人物都栩栩如生，就拿法庭辩护来说，正方公诉律师检察官、反方辩护律师、嫌疑人、原告、被告、法官，这么多人物，大段对白，看书都很容易就把各个人物说的话弄混了，而播讲者通过不同的声音、语速、语气，把各个人物分别塑造出来，你能感受到不同人物的不同性格、脾气，让听众有强烈的现场感。</p>
+<blockquote>
+<p>2.英文有声书-类型：科幻，<br>书名：I, Robot<br>作者：Isaac Asimov<br>播讲者：Scott Brick </p>
+</blockquote>
+<p>这是大名鼎鼎的科幻小说作家阿西莫夫（Isaac Asimov）的作品，里面有九个小故事，都是关于机器人和人类的故事。书中还有著名的 <strong>“机器人三定律”</strong>：</p>
+<p>一、机器人不能伤害人类，或者看到人类有危险而坐视不管；<br>二、机器人必须服从人类的命令，除非与定律一冲突的情况；<br>三、在不违反定律一、二的情况下，机器人要自保。</p>
+<p>书中很多故事都是围绕“三定律”产生的悖论情况展开讨论。 这本短篇小说集发表于六十多年前，可是现在看来仍不过时，精彩至极！听完之后，以前关于人工智能、科幻的诸多想法、认知就在我的脑海中翻腾碰撞，让我不停回想。更重要的一点，这本书让我联想到现在对于人工智能的利弊讨论，这一问题的根源在人类自身，解决问题的钥匙在人类手中。</p>
+<p>一开始听播讲者 Scott Brick 的声音觉得有些平淡，但是耐心听完第一个小故事之后，就越来越入迷。现在想起这部作品，我脑子里还会回响起各种声音：</p>
+<ul>
+<li>小女孩惊喜地呼喊机器人“Robbie”；</li>
+<li>机器人中的“笛卡尔”Cutie 一本正经地说“I myself, exist, because I think”；</li>
+<li>“Liar”那一集的最后，机器人的痛苦崩溃；</li>
+<li>机器Brain思考中被Susan打断，他的那声呆萌的“Huh?”；…</li>
+</ul>
+<p>无一不活灵活现。播讲者让机器人鲜活起来，让我在想象这些机器人时不再想到冰冷的机器和机械的语音，而是也有情感，也会失落、伤心、纠结、迷茫、生气。其实想想也是，机器人由人类制造，自然也会带有人类的行为模式。总之，这本书值得一听、值得一读。</p>
+<blockquote>
+<p>3.英文有声书-类型：科幻，<br>书名：Flowers for Algernon<br>作者：Daniel Keyes</p>
+</blockquote>
+<p>这部小说先后获得科幻小说界最重要的两项大奖：雨果奖、星云奖。看到这里您可能会好奇，这部小说为何能屡获殊荣？它有何特别或是精彩之处？</p>
+<p>作者在书中设想了有一种脑部手术可以提高智力。先天弱智的 Charlie 在32岁时作为试验对象接受了这种外科手术，短时间内智力快速提升，顶峰时达到天才智商，然后又开始退化。这本书以Charlie的日记形式，记录了他在手术前后几个月内经历的人情冷暖和悲喜交加。读这本书，跟着 Charlie 一起在短时间内品尝人生百味，心情起起伏伏、思绪万千。书中的心理描写很细致真实。了解更多本书，欢迎阅读我的书评：<a href="https://juliecodestack.github.io/2020/04/22/%E4%B8%80%E6%9C%AC%E4%B9%A6%E4%B8%AD%E7%9A%84%E4%BA%BA%E7%94%9F%E6%BB%8B%E5%91%B3/#more">一本书中的人生滋味</a></p>
+<p>这本书的特别之处在于，作者是根据 Charlie 不同时期的智力水平来写日记，因此，书开篇和末尾的日记有很多错别字。如果看文字版，可能需要适应一下。但是有声书里是通过另一种方式来呈现，从开始语气的迟缓、停顿等，到智力提升之后语速加快、增加情绪，播讲者演绎的很好，给人感觉就像在听 Charlie 自己读日记一样。</p>
+<blockquote>
+<p>4.英文有声书-类型：非虚构，科学，人物传记<br>书名：Surely You’re Joking, Mr. Feynman!<br>作者：Richard P. Feynman<br>播讲者：Raymond Todd   </p>
+</blockquote>
+<p>这本书的作者就是参加了原子弹研制、得过诺贝尔奖的物理学家费曼。书中有很多有趣的小故事，让我看到了费曼的率真、对于科学的好奇探索和严谨执着。让我印象最深的一点是他提到怎样的学习、教育才是有效的，不是背诵知识点，而是去总结、去验证、试错。费曼也很幽默“调皮”，他多才多艺，学语言、画画、打鼓…有时还会恶作剧，有些故事也让我意识到人们有时会陷入固定思维，反而不能做出最好的判断和选择。</p>
+<blockquote>
+<p>5.英文有声书-类型：非虚构，科学，人物传记<br>书名：What Do You Care What Other People Think?<br>作者：Richard P. Feynman</p>
+</blockquote>
+<p>这本书同样是物理学家费曼的作品， 上一本书 <strong>Surely You’re Joking, Mr. Feynman!</strong> 比较幽默风趣，让人了解生活中的费曼，这本书给我启发和思考则更多。书中讲到费曼父亲的教育方法、费曼对阿琳的一往情深、以及他对于挑战者号失事的分析和思考，都让人印象深刻。特别推荐读一读后记，费曼从哲学的角度分析了科学的价值、科学的双刃剑效应，他对未来的思考等等。科学一直在发展，但是我们对于人类自己所知的还太少，还需要去发现可能性、去探索、怀疑、求证。</p>
+<p>听了这两本有关费曼的书之后，我写了一篇书评，欢迎点击阅读：<a href="https://juliecodestack.github.io/2020/04/22/%E7%8E%87%E7%9C%9F%E7%9A%84%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%B4%B9%E6%9B%BC/#more">率真的科学家费曼</a></p>
+<blockquote>
+<p>6.英文广播剧：Copenhagen<br>演员：<br>Benedict Cumberbatch(“卷福”)，饰演Werner Heisenberg(海森堡)<br>Simon Russell Beale，饰演Niels Bohr (玻尔)<br>Greta Scacchi，饰演Margrethe Bohr(玻尔夫人)</p>
+</blockquote>
+<p>二战期间，1941年，德国物理学家海森堡在到访哥本哈根之时，曾与他的老师——物理学家玻尔有一次会面。因为双方都是原子能领域的重要科学家，又分属战争敌对国，这次见面引起世人的诸多猜测。而双方后来对会谈内容讳莫如深，让这件事情显得更加神秘，他们谈了什么？与原子弹研制有怎样的关系？本剧设想了玻尔夫妇和海森堡在天堂对这次见面内容的回忆，演绎得很精彩。在他们三人的争吵和回忆中，听众对于科学的双刃剑效应、科学家的国界等问题会有很多思考。</p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>英语</category>
       </categories>
       <tags>
+        <tag>英语学习</tag>
         <tag>英文原著</tag>
         <tag>有声书</tag>
-        <tag>小说</tag>
-        <tag>历史</tag>
       </tags>
   </entry>
   <entry>
@@ -1187,6 +1208,59 @@
       </tags>
   </entry>
   <entry>
+    <title>读书的要领</title>
+    <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer">
+
+
+
+<img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
+
+<p>注：本书封面图片，来源：豆瓣</p>
+<p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p>
+<a id="more"></a>
+
+<h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p>
+<ul>
+<li>这本书谈了什么？（主旨）</li>
+<li>作者是怎么阐述观点的？（论点、结构）</li>
+<li>这本书说的有道理吗？全部有道理，还是部分有道理？</li>
+<li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li>
+</ul>
+<h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center">
+
+<p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p>
+<h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p>
+<p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p>
+<p>2、把握书籍大致的架构、大纲。</p>
+<p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p>
+<p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p>
+<h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p>
+<p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p>
+<p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p>
+<p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p>
+<h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p>
+<p>主题阅读主要包括以下步骤：</p>
+<p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p>
+<p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p>
+<h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p>
+<p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p>
+<p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p>
+<p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p>
+<p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p>
+<p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p>
+<h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p>
+<p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>英文原著</tag>
+        <tag>非虚构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>读尤瓦尔赫拉利的简史三部曲</title>
     <url>/2020/04/22/%E8%AF%BB%E5%B0%A4%E7%93%A6%E5%B0%94%E8%B5%AB%E6%8B%89%E5%88%A9%E7%9A%84%E7%AE%80%E5%8F%B2%E4%B8%89%E9%83%A8%E6%9B%B2/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -1251,59 +1325,6 @@
       </tags>
   </entry>
   <entry>
-    <title>读书的要领</title>
-    <url>/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer">
-
-
-
-<img src="https://img9.doubanio.com/view/subject/l/public/s4247555.jpg" width="260" height="368" alt="本书封面图片，来源：豆瓣" align="center">
-
-<p>注：本书封面图片，来源：豆瓣</p>
-<p>首先承认，在读 <strong><em>How To Read A Book</em></strong> 之前，我原以为这类指南书可能都是像教科书一样，讲一些条条框框的指导建议。可是，读过之后却有一种相见恨晚的感觉，意识到自己以前读书都没有掌握有效的方法、不得要领。我读了一遍英文版，又读了一遍中文版，对读书方法、书单选择有了新的思考，很受启发。我把书中的精华总结归纳了一下，与大家分享。</p>
-<a id="more"></a>
-
-<h4 id="主动阅读"><a href="#主动阅读" class="headerlink" title="主动阅读"></a>主动阅读</h4><p>我们要让自己在阅读中有收获，就要做一个主动的读者，带着问题去阅读。那么，应该提什么问题呢？可以从以下四个方面提问：</p>
-<ul>
-<li>这本书谈了什么？（主旨）</li>
-<li>作者是怎么阐述观点的？（论点、结构）</li>
-<li>这本书说的有道理吗？全部有道理，还是部分有道理？</li>
-<li>这本书对于我们的意义是什么？换句话说，就是我们读书之后的收获，是知识、洞见、启发，还是什么？</li>
-</ul>
-<h4 id="阅读的四个层次"><a href="#阅读的四个层次" class="headerlink" title="阅读的四个层次"></a>阅读的四个层次</h4><img src="/2020/04/26/%E8%AF%BB%E4%B9%A6%E7%9A%84%E8%A6%81%E9%A2%86/readinglevel.png" width="325" height="300" alt="阅读的四个层次示意图" align="center">
-
-<p>这里我画了一个简单的示意图说明阅读的四个层次，其中，高层次的阅读是建立在掌握低层次阅读的基础之上。第一个层次的阅读，基础阅读（Elementary Reading），就是基本的见文知义能力，这一阅读能力在小学和初中教育中建立。而对于检视阅读（Inspectional Reading）、分析阅读（Analytical Reading）和主题阅读（Syntopical Reading），很多人都没有掌握正确的方法。下面简要介绍一下这三种阅读。</p>
-<h5 id="检视阅读（Inspectional-Reading）"><a href="#检视阅读（Inspectional-Reading）" class="headerlink" title="检视阅读（Inspectional Reading）"></a>检视阅读（Inspectional Reading）</h5><p>检视阅读是快速阅读，但这种快，并不是走马观花、囫囵吞枣，而是利用有限的时间充分提取书籍信息。因此，检视阅读主要包括：</p>
-<p>1、查看书名、目录、索引、序、后记等信息，甚至书封也可以看看，明确书的主题，为书籍分类，看属于虚构小说、还是非虚构论述作品。如果是论述作品，又可以思考一下是属于“解释是什么”的理论性作品，还是属于告诉读者“要怎么做”的实用性作品。</p>
-<p>2、把握书籍大致的架构、大纲。</p>
-<p>3、浏览一下全书，对于书的内容有个大致的印象。打个比方，就像侦探一样，在书里寻找线索式地读书，有快有慢，而不是一个速度从头读到尾。如果遇到不懂的地方，也不要停下来去查询，留待后续阅读解决。只要读懂了一部分，对书有个大概印象即可。</p>
-<p>做完检视阅读，我们可以知道：这本书的主题、分类，还有很重要的一点：是否值得再读一遍？这里我谈一点自己的体会，回想自己经常都是拿起一本书，从第一页开始读起、一个速度读完…相比之下，检视阅读的方法的确做到了高效阅读。我按这种方法快速浏览了两本实用类的书，发现很快能知道书的主题、作者的重点放在哪里，这样就知道哪里可以读快一点、哪里需要仔细读，读完之后也能总结大致的观点。</p>
-<h5 id="分析阅读（Analytical-Reading）"><a href="#分析阅读（Analytical-Reading）" class="headerlink" title="分析阅读（Analytical Reading）"></a>分析阅读（Analytical Reading）</h5><p>分析阅读就像一个拆卸机械的过程。前面检视阅读中我们已经知道了书籍的框架，那么，作者是如何加入描述、论证、说明，让其立体丰满起来？这就是我们要完成的分析工作。具体可分为三阶段：</p>
-<p>1、提纲挈领：分析书的主题、分类、主旨、大纲、作者要解决的问题，可以看出，做好检视阅读对这一步有帮助；</p>
-<p>2、析词达意，并且抓住主旨、重构论点、尝试回答问题，这一阶段就是对书进行深入解读，我们要尝试用自己的语言归纳总结作者的观点，而不仅仅是摘抄。（这也是我在本文中做的工作，结合读书时的笔记，用自己的话概况书中的观点。）</p>
-<p>3、评论书籍，这一阶段的重点就是要确保读完读懂，不要片面下结论，而且对作者观点有异议应建立在事实依据或逻辑分析的基础上。</p>
-<h5 id="主题阅读（Syntopical-Reading）"><a href="#主题阅读（Syntopical-Reading）" class="headerlink" title="主题阅读（Syntopical Reading）"></a>主题阅读（Syntopical Reading）</h5><p>主题阅读的要点就是阅读围绕一个主题展开，所有的工作都是为这个主题服务的。这里要注意的一点是，书不是中心，我们不需要研读每本书，只需要选取其中与主题相关的章节进行研读分析。</p>
-<p>主题阅读主要包括以下步骤：</p>
-<p>1、选择书籍：首先列一个大概的书单，然后进行第一次检视阅读，筛选出与主题相关的书，同时也帮助明确主题、建立概念。</p>
-<p>2、围绕主题进行阅读：对选中的书籍进行第二次检视阅读，找出与主题最相关的章节。下一步的方法类似分析阅读，不同之处在于这里是以主题为中心。我们要建立词汇、主旨，列出议题，让作者“各抒己见”（根据书中内容，用刚建立的词汇来归纳表达），然后分析这些讨论。这个过程是不是很像开国际会议，每本书的作者都有自己的观点，作为读者，我们要把这些观点转述出来，就好像翻译一样，让不同书籍的作者可以讨论一个话题。</p>
-<h4 id="作者提的一些有帮助的阅读建议"><a href="#作者提的一些有帮助的阅读建议" class="headerlink" title="作者提的一些有帮助的阅读建议"></a>作者提的一些有帮助的阅读建议</h4><p>1、读书在精不在多。“如果你的阅读目的是想变成一个更好的阅读者，你就不能摸到任何书或文章都读。如果你所读的书都在你的能力范围之内，你就没法提升自己的阅读能力。你必须能操纵超越你能力的书，或像我们所说的，阅读超越你头脑的书。只有那样的书能帮助你的思想增长。除非你能增长心智，否则你学不到东西。” </p>
-<p>作者还提到了什么样的书是精品好书。他说，其中百分之九十的书都不需要分析阅读，可能有一小部分好书，值得你花时间仔细读一遍。在这些好书之中，又有这样一部分精品，你过一段时间再读一遍这本书时，又能发现新的内容和收获，就好像这本书和你一起成长。其实，是这本书内涵丰富，让不同读者每次阅读都有新的领悟。</p>
-<p>2、读小说、故事时，如果人物角色众多，不要把记人名当作一个负担。就像我们新到一个地方，刚开始人生地不熟，随着时间推移，就熟悉周围人了。对应小说中，随着情节的深入，我们就知道谁是主要人物，其实只要记住主要人物就可以，而这些主角因为频繁出现，也很容易记住并且不会忘记。</p>
-<p>3、读诗歌最好的方式就是朗读出来，多读几遍。读戏剧也是如此，有感情地读出台词，想象自己在导演这部戏剧。这里说一点体会，我读王尔德的戏剧时就用了这个方法，读剧本时脑子里描绘人物形象、性格、情绪，读起来有趣多了。</p>
-<p>4、读历史的要点：<br>一、兼听则明：对于一个主题或事件，尽可能多读几本与之相关的书；<br>二、以史为鉴：读史的目的是什么？既是为了知道某时某地发生了什么事，也要明白当时的人们为什么会这么做，对于现在的我们有何借鉴意义。这一思考尤为重要，正所谓，“前事不忘，后事之师。”</p>
-<p>5、科学著作没有那么高深。作者说到，直到十九世纪，很多科学著作的读者都是大众，也就是门外汉，因此我们可以读懂。或许我们不能读懂每一个原理，但至少我们可以学习一下作者论证说明的思路，他是如何分析问题的，以及更多的启发。</p>
-<h4 id="带去荒岛的十本书"><a href="#带去荒岛的十本书" class="headerlink" title="带去荒岛的十本书"></a>带去荒岛的十本书</h4><p>书中提到一种很古老的测验：如果你被警告将在一个无人荒岛度过余生，或至少很长的一段时间，而假设你有时间作一些准备，可以带一些实际有用的物品到岛上，还能带十本书去，你会选哪十本？</p>
-<p>以前我以为这种书单选择的问题，就是回答自己最喜爱的十本书。读了作者的解答，我才意识到这不只是发现自己想一读再读的书。试想，在与世隔绝的环境，没有电视、没有收音机、没有图书馆，只有你跟十本书，那时，书提供的精神支持和启迪十分重要。再想想，我们有时候内心是不是也会有这样的孤独，面临相似的挑战——如何找出内在的资源、过更加美好的人类生活的挑战，此时，哪些书可以陪伴在我们走过这一段人生旅程？想到这里，我陷入了沉思，我想到了《老人与海》、《唐诗三百首》、《约翰.克里斯朵夫》、《月亮与六便士》…。看到这里，您想到了哪些书呢？欢迎留言告诉我呀。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>英文原著</tag>
-        <tag>非虚构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>迎接5G时代</title>
     <url>/2020/04/22/%E8%BF%8E%E6%8E%A55G%E6%97%B6%E4%BB%A3/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer">
@@ -1351,54 +1372,6 @@
       <tags>
         <tag>非虚构</tag>
         <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分享我的单词记忆方法</title>
-    <url>/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>在与学英语的同学、朋友的交流中，我发现大家在背单词上主要有以下困惑：</p>
-<ul>
-<li>背单词很容易忘，记不住，怎么办？</li>
-<li>单词/短语一词多义，头好大啊。。。</li>
-<li>怎么才能快速记单词？</li>
-<li>不知道怎么把单词的不同意思应用到自己的写作表达里呢？</li>
-</ul>
-<p>我学的是理工科专业，但是我一直对英语很感兴趣，也参加了不少英语考试和竞赛，取得了一些成绩。因为喜欢，我在英语学习中投入了很多时间，也曾遇到过提升的平台期、有过困惑，尝试了不同方法，因此积累了一些经验，在这里与大家交流分享。</p>
-<a id="more"></a>
-<h4 id="1-背单词的理念"><a href="#1-背单词的理念" class="headerlink" title="1.背单词的理念"></a>1.背单词的理念</h4><p>请回想一下：你背单词时，是怎么背的？</p>
-<p>是记住单词对应的中文意思，一个英语词汇+一个中文意思的组合吗？</p>
-<img src="/2020/10/17/%E6%88%91%E7%9A%84%E5%8D%95%E8%AF%8D%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/words.jpg" width="368" height="260" alt="图片来源:skitterphoto from pexels" align="center">
-
-<p>注：图片来源: skitterphoto from pexels</p>
-<p>那么，你觉得这种方法有效吗？</p>
-<p>可能你也发现，背了很快又忘了。<strong>单词要放在句子里记忆。</strong> 单词组成句子，而单词也只有融入句子中才能展现灵活多变的意思。我们记单词时，记住句子，同时就是记住了单词应用的语境，在脑子里形成画面感，更容易记住，也不容易忘。</p>
-<h4 id="2-单词本的选择和记单词方法"><a href="#2-单词本的选择和记单词方法" class="headerlink" title="2.单词本的选择和记单词方法"></a>2.单词本的选择和记单词方法</h4><p>在考试前为了突击提高词汇量，我也曾经拿着单词本每天背单词，现在有了各种背单词APP，但是挑选和学习的方法大致相同。我的经验是：</p>
-<p>1.选择 <strong>乱序单词本</strong>，因为按字母顺序背单词很容易弄混。乱序也符合我们遇到单词的情况，再见到这个单词时，更容易适应并认出。</p>
-<p>2.单词本一定要有 <strong>例句</strong>。正如前面所说的，只背英语单词和中文释义，我们会发现几乎没有效果。单词要融入句子中记忆，才能更好理解单词的词性、使用的语境等。</p>
-<p>3.<strong>筛选法记忆</strong>。<br>首先说一下，这一方法的要点是：<strong>不断缩小我们要背单词的范围、集中突破 + 隔一段时间复习巩固</strong>。具体操作如下：</p>
-<p>第一遍 浏览：标记不认识的单词（评估自己词汇掌握量）；<br>第二遍 强化记忆：只背第一遍标记的不认识单词（有重点地记）；<br>第三遍 浏览：对还不熟悉的单词，换个符号再加个标记(复习巩固）；<br>…<br>如此重复几遍，大概80-90%的单词都熟悉了。</p>
-<h4 id="3-掌握和应用单词的诀窍"><a href="#3-掌握和应用单词的诀窍" class="headerlink" title="3. 掌握和应用单词的诀窍"></a>3. 掌握和应用单词的诀窍</h4><p><strong>背单词的效果要通过阅读巩固</strong>。就像别人刚向我们介绍一个人，一开始我们只知道人名，并不熟悉。只有后面打了交道、相处了，才会对这个人熟悉起来。单词也是一样，背单词只是建立一个印象，我们要知道这个单词一般用在哪里、怎么用、表达什么意思（有时还要考虑书面语-口语、褒义-贬义等细节），就要通过阅读来学习。我在考试准备时，会把很大一部分备考时间用于做阅读理解题目，我觉得这是一举两得的工作。</p>
-<p>另一方面，我们还可以通过阅读英文原著和听英文有声书来巩固已学词汇和学习生词。我的体会是：当听读的输入提高之后，会感觉到掌握词汇量的增大。因为在听读英文书的过程中，我们不知不觉就在语境中记住了单词，而且这是单词应用的语境。此外，许多单词一词多义，背单词本只是学习主要释义，而在阅读英文原著时，能学到很多单词的灵活表达，这可能是单词基本义推广到的比喻义、扩展义等等，如果我们见到了这种情况，稍微一联想，就能记住并灵活运用，但是没见到这种语境，可能就不敢去用。</p>
-<p>这样干巴巴地讲还是没有说服力，下面我举几个例子，你一看就明白了。</p>
-<p>Storm 的基本义是“暴风雨”、名词，可是在读英文书中我经常见到 storm 的动词用法，例如，在争吵过后出现这样一句话：He stormed out of the room. 结合上下文，我理解到这个表达就是说他大发雷霆、气势汹汹地走出了房间。在这里，storm和基本义不同，但又有关联（这个气势和暴风雨给人的感觉相似），相当于引申义，是不是很形象？这样，在写作时，描述某人生气发火，我们就不会只想到angry、anger, 在合适的地方也能用上这个词。</p>
-<p>福尔摩斯探案集里有一集，提及让福尔摩斯也感到棋逢对手的一位女性，是这样写的：”In his eyes she eclipses and predominates the whole of her sex.” 我们以前在单词本里可能只看到 eclipse 是“日食/月食”，就是太阳/月亮被遮住了。这里却是 eclipse 的动词用法：she eclipses the whole of her sex. 她把其他女性的光芒都遮住了—&gt;可以推测到，这就是指让其他人都黯然失色，这个比喻义用得很妙吧？当你要描述某人非常优秀、非常出色时，就不会只想到 be better than，用上这个词，能让人眼前一亮呢。</p>
-<p>Whistle 有“口哨声、吹口哨”的意思。你想一下，当风很大的时候，是不是能听到呜呜的声音，和口哨声有点像，我们来看阿加莎的《东方快车谋杀案》(<em>Murder on the Orient Express</em>) 里这一句：”A cold wind came whistling down the platform. Both men shivered.” ，这里用了 whistle 描述呼啸的冷风。再进一步联想战场上子弹、炮弹飞速穿过的声音，接着看《柳林风声》(<em>The Wind in the Willows</em>) 里这一句:” Toad prudently dropped flat in the road, and Bang! a bullet whistled over his head.”，这里就用了 whistle 描述子弹飞速而过。掌握 whistle 的这个“呼啸”的词义，我们以后描写刮风就不用只写 blow 了。</p>
-<p>短语也是如此，一个短语往往有多种用法和意思，在阅读中可以更好地记住，比如，我听哈利波特有声书时，老听到 be taken back 的表达，例如 She was taken back by his words. 表达一种吃惊、不安的感觉，正好 back 这个词也有“退缩”的意思，多遇到几次就记住了，下次遇到 be taken back 头脑中就会反应出意思。类似的语境我们也就可以尝试用上这个短语，而不是只想到 surprise 了。</p>
-<p>通过这些有趣的例子，你会发现，我们多听多读之后，增加了输入，熟悉了单词应用的语境，单词也就从陌生人变成了我们的朋友，我们知道它们一般喜欢出现在哪里。这样，我们既记住了单词，又知道怎么应用。</p>
-<h4 id="4-推荐"><a href="#4-推荐" class="headerlink" title="4. 推荐"></a>4. 推荐</h4><p>总之，要想真正有效地提高词汇量，我建议不要只把时间用在单词本上，多一条途径：通过扩大阅读量来记忆和巩固，会事半功倍。</p>
-<p>如果你的备考时间紧，可以多做一些考试的阅读理解题。如果你的学习时间充裕一些，可以读一些英文原著，从简单的、自己感兴趣的开始，比如童话、通俗小说、侦探小说、科幻小说等等均可。书虫系列也很好，但前提是你能克制住、不去看中文对照。哈哈，我就会忍不住看中文对照，所以我选择英文原著。</p>
-<p>我在B站做了一些英文童话经典 <em>The Wind in the Willows</em>（《柳林风声》）的精读视频，讲解生词和好的表达，配有笔记字幕，或许对你开始英文原著阅读有帮助，点击看看：<a href="https://www.bilibili.com/video/BV1NT4y1J7pm" target="_blank" rel="noopener">读名著学英语-《柳林风声》第一章 The Wind in the Willows</a><br>此外，推荐一下<a href="https://juliecodestack.github.io/2020/07/23/%E6%88%91%E7%9A%84%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8/">我的英语学习视频列表</a>，里面有我制作的所有英语学习视频链接和简介，欢迎收看呀！</p>
-<p>除了阅读，听英文有声书也是一个不错的选择，有的播讲者声情并茂，会让你更加喜欢英文书，而且这也是一种语境熏陶，时间长了，下次你读到类似的句子，你也会模仿这样的语音语调读出来。我就是一个英文有声书爱好者，哈哈，我整理了自己听过觉得不错的有声书，供您参考，欢迎点击阅读：<br><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%B8%80/">英文有声书和广播剧推荐之一</a></p>
-<p><a href="https://juliecodestack.github.io/2020/04/24/%E8%8B%B1%E6%96%87%E6%9C%89%E5%A3%B0%E4%B9%A6%E5%92%8C%E5%B9%BF%E6%92%AD%E5%89%A7%E6%8E%A8%E8%8D%90%E4%B9%8B%E4%BA%8C/">英文有声书和广播剧推荐之二</a></p>
-<p>你有哪些记单词的好方法呢？欢迎在评论区留言交流。</p>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>英语学习</tag>
-        <tag>英文原著</tag>
-        <tag>有声书</tag>
       </tags>
   </entry>
 </search>
