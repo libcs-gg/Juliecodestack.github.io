@@ -1,2 +1,2 @@
 # Juliecodestack.github.io
-Juliecodestack（宁檬）的一个仓库，介绍一本英语学习读物
+这是复刻了Juliecodestack（宁檬）的一个GitHub仓库。里面有几个讲解一本英语读物的视频蛮有意思的。
